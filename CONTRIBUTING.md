@@ -1,11 +1,11 @@
-# Contributing to niveristand-telemetry-custom-device
+# Contributing to niveristand-custom-device-handbook
 
 Contributions to niveristand-custom-device-handbook are welcome from all!
 
-niveristand-telemetry-custom-device is managed via [git](https://git-scm.com), with the canonical upstream
+niveristand-custom-device-handbook is managed via [git](https://git-scm.com), with the canonical upstream
 repository hosted on [GitHub](https://github.com/ni/niveristand-custom-device-handbook/).
 
-niveristand-telemetry-custom-device follows a pull-request model for development.  If you wish to
+niveristand-custom-device-handbook follows a pull-request model for development.  If you wish to
 contribute, you will need to create a GitHub account, fork this project, push a
 branch with your changes to your project, and then submit a pull request.
 
