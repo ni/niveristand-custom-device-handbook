@@ -13,6 +13,10 @@
 # import os
 # import sys
 # sys.path.insert(0, os.path.abspath('.'))
+import recommonmark
+from recommonmark.transform import AutoStructify
+
+source_suffix = ['.rst', '.md']
 
 
 # -- Project information -----------------------------------------------------
@@ -31,10 +35,30 @@ release = '0.0.1'
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
+    'recommonmark',
 ]
+
+    #  'sphinx.ext.autodoc',
+    #  'sphinx.ext.napoleon',
+    #  'sphinx.ext.mathjax',
 
 # Add any paths that contain templates here, relative to this directory.
 # templates_path = ['_templates']
+
+# The encoding of source files.
+#source_encoding = 'utf-8-sig'
+
+# The master toctree document.
+master_doc = 'index'
+
+# The version info for the project you're documenting, acts as replacement for
+# |version| and |release|, also used in various other places throughout the
+# built documents.
+#
+# The short X.Y version.
+version = recommonmark.__version__
+# The full version, including alpha/beta/rc tagss
+release = recommonmark.__version__
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
@@ -53,3 +77,17 @@ html_theme = 'sphinx_rtd_theme'
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
+
+# app setup hook
+def setup(app):
+    app.add_config_value('recommonmark_config', {
+        #'url_resolver': lambda url: github_doc_root + url,
+        'auto_toc_tree_section': 'Contents',
+        'enable_math': False,
+        'enable_inline_math': False,
+        'enable_eval_rst': True,
+        'enable_auto_doc_ref': True,
+    }, True)
+    app.add_transform(AutoStructify)
+    
+    
