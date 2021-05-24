@@ -3,16 +3,16 @@
 # Welcome to Veristand Custom Device Handbook's documentation!
 ==============================================================
 
-| About  | Veristand Custom Device|
-| :----: |     :----:             |       
-| Author | National Instruments   |
+| About  | Veristand Custom Device |
+| :----: |     :----:              |       
+| Author | National Instruments    |
 
 
-*About
+* About
 
-*Content
+* Content
 
-*Introduction
+* Introduction
 
 
 
