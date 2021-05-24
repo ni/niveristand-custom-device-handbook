@@ -6,13 +6,13 @@
 | About  | Veristand Custom Device|
 | :----: |     :----:             |       
 | Author | National Instruments   |
-| :----: |     :----:             | 
 
--About
---------
 
--Content
---------
+*About
+
+*Content
+
+
 
 
 ## Indices and tables
