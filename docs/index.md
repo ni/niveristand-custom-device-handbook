@@ -1,6 +1,6 @@
 
 
-# Welcome to Veristand Custom Device Handbook's documentation!
+# Veristand Custom Device Handbook
 
 
 * About
