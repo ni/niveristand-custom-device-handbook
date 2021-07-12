@@ -41,9 +41,10 @@ After obtaining (or building himself)the custom device’s libraries, the operat
 
 
 | Syntax | Description |
-| --- | --- |
+| ------ | ----------- |
 | Header | Title |
 | Paragraph | Text |
+
 
 
 To Common Doc DirGeneric Windows OS<Public Documents>\National Instruments\NI VeriStand 2010Default Windows XPC:\Documents and Settings\All Users\Shared Documents\National Instruments\NI VeriStand2010Default Windows Vista & 7C:\Users\Public\Documents\National Instruments\NI VeriStand 2010<Application Data>Alias: To Application Data DirGeneric Windows OS<Application Data>\National Instruments\NI VeriStand 2010Default Windows XPC:\Documents and Settings\All Users\Application Data\National Instruments\NI VeriStand 2010Default Windows Vista & 7C:\ProgramData\National Instruments\NI VeriStand 2010<Base>Alias: To BaseGeneric Windows OS<Program Files>\National Instruments\NI VeriStand 2010Default Windows XP, Vista & 7C:\Program Files\National Instruments\VeriStand 2010<Custom Device Engine Destination>PharLap / ETXC:\ni-rt\veristand\custom devices\<custom device name>\NI VeriStand parses <Common Data>\Custom Devices for custom deviceXML fileswhen it first launches.  Youmust restart NI VeriStand to recognize newly added or modified custom device XML files.The custom device may thenbe added to the system definition by right-clickingCustom DevicesfromSystem Definition» Targets» Controllerin the configuration tree.It’s not necessary for the operator to have any knowledge of LabVIEW or custom device development to use the custom device.  It’s not necessary to have the LabVIEW Project to use 
