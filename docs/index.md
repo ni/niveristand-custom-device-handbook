@@ -40,10 +40,10 @@ After obtaining (or building himself)the custom device’s libraries, the operat
 #### Table of Directories and Aliases<Common Data>Alias:
 
 
-| Syntax | Description |
-| ------ | ----------- |
-| Header | Title |
-| Paragraph | Text |
+|Syntax|Description|
+|------|-----------|
+|Header|Title|
+|Paragraph|Text|
 
 
 
