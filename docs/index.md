@@ -40,10 +40,10 @@ After obtaining (or building himself)the custom device’s libraries, the operat
 #### Table of Directories and Aliases<Common Data>Alias:
 
 
-| First Header | Second Header | Third Header |
-| ------------ | ------------- | ------------ |
-| Content Cell | Content Cell  | Content Cell |
-| Content Cell | Content Cell  | Content Cell |
+First Header | Second Header | Third Header
+------------ | ------------- | ------------
+Content Cell | Content Cell  | Content Cell
+Content Cell | Content Cell  | Content Cell
 
 
 
