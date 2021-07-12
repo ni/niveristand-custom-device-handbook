@@ -22,8 +22,7 @@ NI VeriStand is a ready-to-use, open software environment for configuring real-t
 
 When necessary, you can customize and extend NI VeriStand’s open environment with LabVIEW, ensuring it always meets application requirements. The purpose of this document is to provide the background, design decisions,and technical information required to understand and develop custom devices in NI VeriStand 2020. 
 
-| Understanding the NI VeriStand Engine is prerequisite to this document.  **[See NI VeriStand Help](https://zone.ni.com/reference/en-XX/help/372846B-01/)** » **[Components of a Project](https://zone.ni.com/reference/en-XX/help/372846B-01/TOC5.htm)** » **[Understanding the VeriStand Engine](https://zone.ni.com/reference/en-XX/help/372846B-01/veristand/understanding_vs_engine/)** for more information. |
-| ---- |
+Understanding the NI VeriStand Engine is prerequisite to this document.  **[See NI VeriStand Help](https://zone.ni.com/reference/en-XX/help/372846B-01/)** » **[Components of a Project](https://zone.ni.com/reference/en-XX/help/372846B-01/TOC5.htm)** » **[Understanding the VeriStand Engine](https://zone.ni.com/reference/en-XX/help/372846B-01/veristand/understanding_vs_engine/)** for more information.
 
 
 #### What is a Custom Device?
@@ -38,7 +37,12 @@ Custom devices typically consist of two VI libraries(configuration and engine) t
 
 After obtaining (or building himself)the custom device’s libraries, the operator places them in the NI VeriStand <CommonData>\Custom Devices directory.  This directory varies with the host operating system.
 
-####Table of Directories and Aliases<Common Data>Alias:
+#### Table of Directories and Aliases<Common Data>Alias:
+
+| Syntax      | Description |
+| ----------- | ----------- |
+| Header      | Title       |
+| Paragraph   | Text        |
 
 
 To Common Doc DirGeneric Windows OS<Public Documents>\National Instruments\NI VeriStand 2010Default Windows XPC:\Documents and Settings\All Users\Shared Documents\National Instruments\NI VeriStand2010Default Windows Vista & 7C:\Users\Public\Documents\National Instruments\NI VeriStand 2010<Application Data>Alias: To Application Data DirGeneric Windows OS<Application Data>\National Instruments\NI VeriStand 2010Default Windows XPC:\Documents and Settings\All Users\Application Data\National Instruments\NI VeriStand 2010Default Windows Vista & 7C:\ProgramData\National Instruments\NI VeriStand 2010<Base>Alias: To BaseGeneric Windows OS<Program Files>\National Instruments\NI VeriStand 2010Default Windows XP, Vista & 7C:\Program Files\National Instruments\VeriStand 2010<Custom Device Engine Destination>PharLap / ETXC:\ni-rt\veristand\custom devices\<custom device name>\NI VeriStand parses <Common Data>\Custom Devices for custom deviceXML fileswhen it first launches.  Youmust restart NI VeriStand to recognize newly added or modified custom device XML files.The custom device may thenbe added to the system definition by right-clickingCustom DevicesfromSystem Definition» Targets» Controllerin the configuration tree.It’s not necessary for the operator to have any knowledge of LabVIEW or custom device development to use the custom device.  It’s not necessary to have the LabVIEW Project to use 
