@@ -43,7 +43,6 @@ After obtaining (or building himself)the custom device’s libraries, the operat
 :rocket: :rocket: :rocket:
 
 First Header | Second Header | Third Header
------------- | ------------- | ------------
 Content Cell | Content Cell  | Content Cell
 Content Cell | Content Cell  | Content Cell
 
