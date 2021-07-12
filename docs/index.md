@@ -41,7 +41,7 @@ After obtaining (or building himself)the custom device’s libraries, the operat
 
 
 |Syntax|Description|
-|------|-----------|
+|-----------|-----------|
 |Header|Title|
 |Paragraph|Text|
 
