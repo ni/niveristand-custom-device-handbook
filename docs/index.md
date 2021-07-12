@@ -39,9 +39,9 @@ After obtaining (or building himself)the custom device’s libraries, the operat
 
 #### Table of Directories and Aliases<Common Data>Alias:
 
-<!-- Tables -->
+
 | Syntax | Description |
-| ----------- | ----------- |
+| --- | --- |
 | Header | Title |
 | Paragraph | Text |    
 
