@@ -40,7 +40,7 @@ After obtaining (or building himself)the custom device’s libraries, the operat
 #### Table of Directories and Aliases<Common Data>Alias:
 
 
-![](images/Untitled.jpg)
+![](/images/Untitled.jpg)
 
 ![Table]
 First Header | Second Header | Third Header
