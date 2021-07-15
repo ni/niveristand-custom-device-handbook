@@ -12,6 +12,30 @@
 * Basic information
 
 
+# Conventions
+
+Conventions
+This document uses the following formatting and typographical conventions.
+
+<>	Angle brackets that contain numbers separated by an ellipsis represent a range of values associated with a bit or signal name—for example, AO <0..3>.
+»	The » symbol leads you through nested menu items and dialog box options to a final action. The sequence File » Page Setup » Options directs you to pull down the File menu, select the Page Setup item, and select Options from the last dialog box.
+
+![](images/Picture1.png) This icon denotes a tip, which alerts you to advisory information.
+
+ 	
+![](images/Picture2.png) This icon denotes a note, which alerts you to important information.
+
+ 	
+![](images/Picture3.png) This icon denotes a caution, which advises you of precautions to take to avoid injury, data loss, or a system crash.
+
+bold	Bold text denotes items that you must select or click in the software, such as menu items and dialog box options. Bold text also denotes parameter names, controls and indicators on the front panel, dialog boxes, sections of dialog boxes, menu names, and palette names.
+green	Underlined text in this color denotes a link to a help topic, help file, or Web address.
+purple	Underlined text in this color denotes a visited link to a help topic, help file, or Web address.
+italic	Italic text denotes variables, emphasis, cross-references, or an introduction to a key concept. Italic text also denotes text that is a placeholder for a word or value that you must supply.
+monospace	Text in this font denotes text or characters that you should enter from the keyboard, sections of code, programming examples, and syntax examples. This font is also used for the proper names of disk drives, paths, directories,
+programs, subprograms, subroutines, device names, operations, variables, filenames, and extensions.
+
+
 
 ## Indices and tables
 
@@ -22,7 +46,7 @@ NI VeriStand is a ready-to-use, open software environment for configuring real-t
 
 When necessary, you can customize and extend NI VeriStand’s open environment with LabVIEW, ensuring it always meets application requirements. The purpose of this document is to provide the background, design decisions,and technical information required to understand and develop custom devices in NI VeriStand 2020. 
 
-![](images/Untitled.jpg) Understanding the NI VeriStand Engine is prerequisite to this document.  **[See NI VeriStand Help](https://zone.ni.com/reference/en-XX/help/372846B-01/)** » **[Components of a Project](https://zone.ni.com/reference/en-XX/help/372846B-01/TOC5.htm)** » **[Understanding the VeriStand Engine](https://zone.ni.com/reference/en-XX/help/372846B-01/veristand/understanding_vs_engine/)** for more information.
+![](images/Picture2.png) Understanding the NI VeriStand Engine is prerequisite to this document.  **[See NI VeriStand Help](https://zone.ni.com/reference/en-XX/help/372846B-01/)** » **[Components of a Project](https://zone.ni.com/reference/en-XX/help/372846B-01/TOC5.htm)** » **[Understanding the VeriStand Engine](https://zone.ni.com/reference/en-XX/help/372846B-01/veristand/understanding_vs_engine/)** for more information.
 
 
 #### What is a Custom Device?
