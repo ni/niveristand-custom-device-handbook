@@ -22,7 +22,7 @@ NI VeriStand is a ready-to-use, open software environment for configuring real-t
 
 When necessary, you can customize and extend NI VeriStand’s open environment with LabVIEW, ensuring it always meets application requirements. The purpose of this document is to provide the background, design decisions,and technical information required to understand and develop custom devices in NI VeriStand 2020. 
 
-Understanding the NI VeriStand Engine is prerequisite to this document.  **[See NI VeriStand Help](https://zone.ni.com/reference/en-XX/help/372846B-01/)** » **[Components of a Project](https://zone.ni.com/reference/en-XX/help/372846B-01/TOC5.htm)** » **[Understanding the VeriStand Engine](https://zone.ni.com/reference/en-XX/help/372846B-01/veristand/understanding_vs_engine/)** for more information.
+![](images/Untitled.jpg) Understanding the NI VeriStand Engine is prerequisite to this document.  **[See NI VeriStand Help](https://zone.ni.com/reference/en-XX/help/372846B-01/)** » **[Components of a Project](https://zone.ni.com/reference/en-XX/help/372846B-01/TOC5.htm)** » **[Understanding the VeriStand Engine](https://zone.ni.com/reference/en-XX/help/372846B-01/veristand/understanding_vs_engine/)** for more information.
 
 
 #### What is a Custom Device?
@@ -40,7 +40,7 @@ After obtaining (or building himself)the custom device’s libraries, the operat
 #### Table of Directories and Aliases<Common Data>Alias:
 
 
-![](Untitled.jpg)
+
 
 ![Table]
 First Header | Second Header | Third Header
