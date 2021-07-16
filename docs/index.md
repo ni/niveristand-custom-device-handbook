@@ -75,16 +75,16 @@ After obtaining (or building himself)the custom device’s libraries, the operat
 		 <th>Alias: To Common Doc Dir</th>
  	</tr>
  	<tr>
-  		 <td>January</td>
-       <td>$100</td>
+  		 <td>Generic Windows OS</td>
+       <td><Public Documents>\National Instruments\NI VeriStand 2010</td>
  	</tr>
 	<tr>
-  		<td>July</td>
-   	<td>$750</td>
+  		<td>Default Windows XP</td>
+   	<td>C:\Documents and Settings\All Users\Shared Documents\National Instruments\NI VeriStand 2010</td>
  	</tr>
 	<tr>
-  		<td>December</td>
-   	<td>$250</td>
+  		<td>Default Windows Vista & 7</td>
+   	<td>C:\Users\Public\Documents\National Instruments\NI VeriStand 2010</td>
  	</tr>
 	<tr>
   		<td>April</td>
