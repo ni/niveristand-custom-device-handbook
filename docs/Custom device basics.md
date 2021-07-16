@@ -1,47 +1,4 @@
 
-
-# Veristand Custom Device Handbook
-
-
-* About
-
-* Content
-
-* Introduction
-
-* Basic information
-
-
-### Conventions
-This document uses the following formatting and typographical conventions.
-
-<>	Angle brackets that contain numbers separated by an ellipsis represent a range of values associated with a bit or signal name—for example, AO <0..3>.
-
-»	The » symbol leads you through nested menu items and dialog box options to a final action. The sequence File » Page Setup » Options directs you to pull down the File menu, select the Page Setup item, and select Options from the last dialog box.
-
-![](images/Picture1.png) This icon denotes a tip, which alerts you to advisory information.
-
- 	
-![](images/Picture2.png) This icon denotes a note, which alerts you to important information.
-
- 	
-![](images/Picture3.png) This icon denotes a caution, which advises you of precautions to take to avoid injury, data loss, or a system crash.
-
-**bold**	Bold text denotes items that you must select or click in the software, such as menu items and dialog box options. Bold text also denotes parameter names, controls and indicators on the front panel, dialog boxes, sections of dialog boxes, menu names, and palette names.
-
-<span style="color:green">*green*</span>	Underlined text in this color denotes a link to a help topic, help file, or Web address.
-
-<span style="color:purple">*purple*</span>	Underlined text in this color denotes a visited link to a help topic, help file, or Web address.
-
-italic	Italic text denotes variables, emphasis, cross-references, or an introduction to a key concept. Italic text also denotes text that is a placeholder for a word or value that you must supply.
-
-monospace	Text in this font denotes text or characters that you should enter from the keyboard, sections of code, programming examples, and syntax examples. This font is also used for the proper names of disk drives, paths, directories,
-programs, subprograms, subroutines, device names, operations, variables, filenames, and extensions.
-
-
-
-## Indices and tables
-
 ### Introduction
 
 
@@ -69,28 +26,10 @@ After obtaining (or building himself)the custom device’s libraries, the operat
 
 
 
-<table>
-	<tr>
-		<th>Common Data</th>
-		 <th>Alias: To Common Doc Dir</th>
- 	</tr>
- 	<tr>
-  		 <td>January</td>
-       <td>$100</td>
- 	</tr>
-	<tr>
-  		<td>July</td>
-   	<td>$750</td>
- 	</tr>
-	<tr>
-  		<td>December</td>
-   	<td>$250</td>
- 	</tr>
-	<tr>
-  		<td>April</td>
-   	<td>$400</td>
- 	</tr>
-</table>
+![Table]
+First Header | Second Header | Third Header
+Content Cell | Content Cell  | Content Cell
+Content Cell | Content Cell  | Content Cell
 
 
 
