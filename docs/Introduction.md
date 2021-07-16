@@ -1,16 +1,3 @@
-
-
-# Veristand Custom Device Handbook
-
-
-* About
-
-* Content
-
-* [Introduction](Introduction.md)
-
-* [Custom Device Basics](CustomDeviceBasics.md)
-
 ### Conventions
 This document uses the following formatting and typographical conventions.
 
