@@ -68,6 +68,14 @@ After obtaining (or building himself)the custom device’s libraries, the operat
 
 
 
+<head>
+<style>
+table, th, td {
+  border: 1px solid black;
+}
+</style>
+</head>
+<body>
 
 <table>
 	<tr>
@@ -91,6 +99,8 @@ After obtaining (or building himself)the custom device’s libraries, the operat
    	<td>$400</td>
  	</tr>
 </table>
+
+</body>
 
 
 
