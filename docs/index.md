@@ -11,6 +11,7 @@
 
 * Basic information
 
+* [Custom Device Basics] (Custom devices basics.md)
 
 ### Conventions
 This document uses the following formatting and typographical conventions.
@@ -84,7 +85,7 @@ table, th, td {
  	</tr>
  	<tr>
   		 <td>Generic Windows OS</td>
-       <td><Public Documents>\National Instruments\NI VeriStand 2010</td>
+       <td><<Public Documents>>\National Instruments\NI VeriStand 2010</td>
  	</tr>
 	<tr>
   		<td>Default Windows XP</td>
@@ -101,6 +102,9 @@ table, th, td {
 </table>
 
 </body>
+
+
+
 
 
 
