@@ -11,7 +11,7 @@
 
 ## Basic information
 
-* [CustomDeviceBasics](Custom device basics.md)
+* [CustomDeviceBasics](CustomDeviceBasics.md)
 
 ### Conventions
 This document uses the following formatting and typographical conventions.
