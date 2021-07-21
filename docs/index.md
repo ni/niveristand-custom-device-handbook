@@ -5,7 +5,7 @@
 
 * [Custom Device Framework](Custom_Device_Framework.md)
 
-* [Custom Device Type](Custom_Device_Type.md)
+* [Custom Device Types](Custom_Device_Types.md)
 
 * [Debugging And Benchmarking Custom Device](Debugging_And_Benchmarking_Custom_Device.md)
 
