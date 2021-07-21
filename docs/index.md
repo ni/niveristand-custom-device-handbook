@@ -3,8 +3,6 @@
 # Veristand Custom Device Handbook
 
 
-* [Introduction](Introduction.md)
-
 * [Custom Device Framework](Custom_Device_Framework.md)
 
 * [Custom Device Type](Custom_Device_Type.md)
