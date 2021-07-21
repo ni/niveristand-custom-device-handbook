@@ -123,8 +123,9 @@ table, th, td {
 
 <table>
    <tr>
-		<th>![](images/Picture2.png)  NI VeriStand evolved from NI Dynamic Test Software (NI-DTS). NI-DTS evolved from Intellectual Property (IP) called EASE obtained from a 3rd party. EASE made basic provisions for add-on LabVIEW code. In a sense this was the first custom device framework. Several “custom devices” were built for the original framework, and NI has mutated them from EASE through NI-DTS and into NI-VeriStand. If you come across a
-custom device that doesn’t fit into the framework provided by the Custom Device Template Tool, you may have stumbled upon one of the original custom devices.</th>
+		<th>![](images/Picture2.png) NI VeriStand evolved from NI Dynamic Test Software (NI-DTS). NI-DTS evolved from Intellectual Property (IP) called EASE obtained from a 3rd party. EASE made basic provisions for add-on LabVIEW code. In a sense this was the first custom device framework. Several “custom devices” were built for the original framework, and NI has mutated them from EASE through NI-DTS and into NI-VeriStand. If you come across a
+custom device that doesn’t fit into the framework provided by the Custom Device Template Tool, you may have stumbled upon one of the original custom devices.
+      </th>
  	</tr>
 
 </table>
