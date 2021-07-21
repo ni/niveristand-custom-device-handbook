@@ -93,9 +93,7 @@ table, th, td {
 NI VeriStand parses "<Common Data>\Custom Devices" for custom device XML files when it first launches. You must restart NI VeriStand to recognize newly added or modified custom device XML files. The custom device may then be added to the system definition by right- clicking Custom Devices from System Definition » Targets » Controller in the configuration tree.
 It’s not necessary for the operator to have any knowledge of LabVIEW or custom device development to use the custom device. It’s not necessary to have the LabVIEW Project to use a custom device. It’s courteous common practice to provide the LabVIEW Project along with the custom device. Providing the project allows operators and other developers to modify the custom device to suit their specific requirements.
 
-![                            Figure: Adding a Custom Device to a System Definition](images/Picture4.jpg)
-
-
+![](images/Picture4.jpg)
 Figure: Adding a Custom Device to a System Definition
 
 Most custom devices consist of the two VI libraries and XML file mentioned above. Logically, custom devices consist of three parts.
