@@ -90,6 +90,8 @@ table, th, td {
 
 
 
+
+
 NI VeriStand parses "<Common Data>\Custom Devices" for custom device XML files when it first launches. You must restart NI VeriStand to recognize newly added or modified custom device XML files. The custom device may then be added to the system definition by right- clicking Custom Devices from System Definition » Targets » Controller in the configuration tree.
 It’s not necessary for the operator to have any knowledge of LabVIEW or custom device development to use the custom device. It’s not necessary to have the LabVIEW Project to use a custom device. It’s courteous common practice to provide the LabVIEW Project along with the custom device. Providing the project allows operators and other developers to modify the custom device to suit their specific requirements.
 
@@ -102,3 +104,9 @@ Most custom devices consist of the two VI libraries and XML file mentioned above
 2.	Custom Code
 3.	Custom Device XML File
 
+#### Custom Device Framework
+
+The custom device framework consists of type definitions, specifically-named controls and indicators, template VIs and a LabVIEW API. Together these items for the rules, or framework, that allows any conforming VI to interact with NI VeriStand. There are five prebuilt types of custom devices. Almost any requirement can be accomplished by adding or modifying code in one of the five prebuilt devices.
+The five prebuilt devices start with the Custom Device Template Tool. The template tool is located in <vi.lib>\ NI Veristand\Custom Device Tools\Custom Device Template Tool\Custom Device Template Tool.vi.
+The developer specifies the type of custom device before running the template tool. The tool generates the LabVIEW Project for the new custom device. The exact resources in the project depend on the type of custom device selected.
+The project is pre-populated with VIs, LabVIEW Libraries, an XML File, and two build specifications. These resources provide the framework upon which almost all custom devices are built.
