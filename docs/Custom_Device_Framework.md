@@ -110,3 +110,27 @@ The custom device framework consists of type definitions, specifically-named con
 The five prebuilt devices start with the Custom Device Template Tool. The template tool is located in <vi.lib>\ NI Veristand\Custom Device Tools\Custom Device Template Tool\Custom Device Template Tool.vi.
 The developer specifies the type of custom device before running the template tool. The tool generates the LabVIEW Project for the new custom device. The exact resources in the project depend on the type of custom device selected.
 The project is pre-populated with VIs, LabVIEW Libraries, an XML File, and two build specifications. These resources provide the framework upon which almost all custom devices are built.
+
+
+<head>
+<style>
+table, th, td {
+  border: 1px solid black;
+}
+</style>
+</head>
+<body>
+
+<table>
+   <tr>
+		<th></th>
+ 	</tr>
+    	<tr>
+  		 <td>![](images/Picture2.png)  NI VeriStand evolved from NI Dynamic Test Software (NI-DTS). NI-DTS evolved from Intellectual Property (IP) called EASE obtained from a 3rd party. EASE made basic provisions for add-on LabVIEW code. In a sense this was the first custom device framework. Several “custom devices” were built for the original framework, and NI has mutated them from EASE through NI-DTS and into NI-VeriStand. If you come across a
+custom device that doesn’t fit into the framework provided by the Custom Device Template Tool, you may have stumbled upon one of the original custom devices.
+</td>
+ 	</tr>
+
+</table>
+ 
+</body>
