@@ -131,3 +131,11 @@ custom device that doesn’t fit into the framework provided by the Custom Devic
 </table>
  
 </body>
+
+
+For each of the five types of custom devices, you’ll see two VI libraries in the LabVIEW source project: Custom Device API.lvlib and Custom Device Name Custom Device.lvlib. ![](images/Picture5.jpg)
+
+The Custom Device API library contains most of the type definitions, template VIs and LabVIEW API needed to interact with NI VeriStand’s data and timing resources. They give a VI the ability to behave as a native task in the NI VeriStand Engine.
+Some of these VIs also appear on the LabVIEW palette in NI VeriStand » Custom Device API.
+
+The <custom device name> library contains the custom device’s configuration and RT Engine VIs. These correspond to the configuration and engine VI libraries (or LLBs) mentioned earlier. Notice the front panel and block diagram of these VIs have been populated with objects from the Custom Device API library.
