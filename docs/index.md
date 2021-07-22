@@ -1,6 +1,6 @@
 
 
-<span style="color:green">*green*</span> # Veristand Custom Device Handbook
+<span style="color:green">*# Veristand Custom Device Handbook*</span> # Veristand Custom Device Handbook
 
 
 #### [Custom Device Framework](Custom_Device_Framework.md)
