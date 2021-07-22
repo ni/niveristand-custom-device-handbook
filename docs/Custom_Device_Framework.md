@@ -127,7 +127,7 @@ custom device that doesn’t fit into the framework provided by the Custom Devic
       </td>
  	</tr>
 </table>
-</body>
+</body> 
 
 
 For each of the five types of custom devices, you’ll see two VI libraries in the LabVIEW source project: Custom Device API.lvlib and Custom Device Name Custom Device.lvlib. ![](images/Picture5.jpg)
@@ -136,3 +136,28 @@ The Custom Device API library contains most of the type definitions, template VI
 Some of these VIs also appear on the LabVIEW palette in NI VeriStand » Custom Device API.
 
 The <custom device name> library contains the custom device’s configuration and RT Engine VIs. These correspond to the configuration and engine VI libraries (or LLBs) mentioned earlier. Notice the front panel and block diagram of these VIs have been populated with objects from the Custom Device API library.
+
+
+#### Configuration
+The custom device’s configuration defines the operator’s experience adding and configuring the custom device. It is the device's operator interface (OI) or user interface (UI). The Custom Device Template Tool provides two VIs for configuration: Initialization and Main. Additional VIs may be added as needed. 
+<head>
+<style>
+table, th, td {
+  border: 1px solid black;
+}
+</style>
+</head>
+<body>
+<table>
+   <tr>
+		<td> 
+When a custom device VI’s front panel is presented to the operator in the System
+Explorer window, that VI is called a page. Pages are a subset of the VIs that make up a custom device.
+      </td>
+ 	</tr>
+</table>
+</body> 
+
+#### Initialization VI
+The Custom Device Template Tool names the initialization VI <Custom Device Name> Initialization VI.vi. It runs in the background when the custom device is first added to the system definition. The initialization page does not run again unless the operator removes and re-adds the custom device.
+
