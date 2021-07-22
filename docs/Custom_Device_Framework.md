@@ -120,21 +120,18 @@ table, th, td {
 </style>
 </head>
 <body>
-
 <table>
    <tr>
 		<td>![](images/Picture2.png) NI VeriStand evolved from NI Dynamic Test Software (NI-DTS). NI-DTS evolved from Intellectual Property (IP) called EASE obtained from a 3rd party. EASE made basic provisions for add-on LabVIEW code. In a sense this was the first custom device framework. Several “custom devices” were built for the original framework, and NI has mutated them from EASE through NI-DTS and into NI-VeriStand. If you come across a
 custom device that doesn’t fit into the framework provided by the Custom Device Template Tool, you may have stumbled upon one of the original custom devices.
       </td>
  	</tr>
-
 </table>
- 
 </body>
 
 
-For each of the five types of custom devices, you’ll see two VI libraries in the LabVIEW source project: Custom Device API.lvlib and Custom Device Name Custom Device.lvlib. ![](images/Picture5.jpg)
 
+   For each of the five types of custom devices, you’ll see two VI libraries in the LabVIEW source project: Custom Device API.lvlib and Custom Device Name Custom Device.lvlib. ![](images/Picture5.jpg)
 The Custom Device API library contains most of the type definitions, template VIs and LabVIEW API needed to interact with NI VeriStand’s data and timing resources. They give a VI the ability to behave as a native task in the NI VeriStand Engine.
 Some of these VIs also appear on the LabVIEW palette in NI VeriStand » Custom Device API.
 
