@@ -157,7 +157,7 @@ Explorer window, that VI is called a page. Pages are a subset of the VIs that ma
       </td>
  	</tr>
 </table>
-</body> 
+</body>     
 
 #### Initialization VI
 
@@ -179,7 +179,7 @@ custom device XML file.
       </td>
  	</tr>
 </table>
-</body>
+</body> 
 
 
 The Initialization Page runs each time a new instance of the same custom device is added to the system definition. NI VeriStand retains state information for each instance of a custom device in the System Definition (.nivssdf) file. State is defined by the value of each control, indicator, and property (properties are covered later) of the page. This file is human-readable XML, so you can open the file with a text editor and take a look. There’s also a .NET API for modifying the System Definition programmatically.
