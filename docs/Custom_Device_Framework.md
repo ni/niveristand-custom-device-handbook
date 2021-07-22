@@ -139,6 +139,7 @@ The <custom device name> library contains the custom device’s configuration an
 
 
 #### Configuration
+
 The custom device’s configuration defines the operator’s experience adding and configuring the custom device. It is the device's operator interface (OI) or user interface (UI). The Custom Device Template Tool provides two VIs for configuration: Initialization and Main. Additional VIs may be added as needed. 
 <head>
 <style>
@@ -159,5 +160,26 @@ Explorer window, that VI is called a page. Pages are a subset of the VIs that ma
 </body> 
 
 #### Initialization VI
+
 The Custom Device Template Tool names the initialization VI <Custom Device Name> Initialization VI.vi. It runs in the background when the custom device is first added to the system definition. The initialization page does not run again unless the operator removes and re-adds the custom device.
 
+<head>
+<style>
+table, th, td {
+  border: 1px solid black;
+}
+</style>
+</head>
+<body>
+<table>
+   <tr>
+		<td> 
+While you may rename certain objects in the custom device’s LabVIEW Project, it’s important to understand the ramifications of doing so. For example, the Initialization VI is referenced by name in the custom device XML file. This file is generated when you first run the Custom Device Template Tool. If you rename the Initialization VI after running the tool, you’ll need to manually change the path to the Initialization VI in the
+custom device XML file.
+      </td>
+ 	</tr>
+</table>
+</body>
+
+
+The Initialization Page runs each time a new instance of the same custom device is added to the system definition. NI VeriStand retains state information for each instance of a custom device in the System Definition (.nivssdf) file. State is defined by the value of each control, indicator, and property (properties are covered later) of the page. This file is human-readable XML, so you can open the file with a text editor and take a look. There’s also a .NET API for modifying the System Definition programmatically.
