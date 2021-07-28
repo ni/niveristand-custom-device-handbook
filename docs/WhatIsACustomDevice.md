@@ -1,7 +1,7 @@
 ### Introduction to Custom Devices
 
 
-NI VeriStand is a ready-to-use, open software environment for configuring real-time testing applications, including hardware-in-the-loop (HIL) test systems. With NI VeriStand, you can configure real-time input/output (IO), stimulus profiles, data logging, alarming, and other tasks; implement control algorithms or system simulations by importing models from a variety of software environments; and build test system interfaces quickly with a run-time editable user interface complete with ready-to-use tools. See <font color='green'>[NI Developer Zone Tutorial: What is NI VeriStand](https://www.ni.com/en-us/shop/data-acquisition-and-control/application-software-for-data-acquisition-and-control-category/what-is-veristand.html)</font> for more information.
+NI VeriStand is a ready-to-use, open software environment for configuring real-time testing applications, including hardware-in-the-loop (HIL) test systems. With NI VeriStand, you can configure real-time input/output (IO), stimulus profiles, data logging, alarming, and other tasks; implement control algorithms or system simulations by importing models from a variety of software environments; and build test system interfaces quickly with a run-time editable user interface complete with ready-to-use tools. See **[NI Developer Zone Tutorial: What is NI VeriStand](https://www.ni.com/en-us/shop/data-acquisition-and-control/application-software-for-data-acquisition-and-control-category/what-is-veristand.html)** for more information.
 
 When necessary, you can customize and extend NI VeriStand’s open environment with LabVIEW, ensuring it always meets application requirements. The purpose of this document is to provide the background, design decisions,and technical information required to understand and develop custom devices in NI VeriStand 2020. 
 
@@ -69,7 +69,7 @@ table, th, td {
 
 <table>
 	<tr>
-		<th>Common Data</th>
+		<th><<Common Data>></th>
 		 <th>Alias: To Common Doc Dir</th>
  	</tr>
  	<tr>
@@ -89,6 +89,88 @@ table, th, td {
 </body>
 <br /> 
 
+<head>
+<style>
+table, th, td {
+  border: 1px solid black;
+}
+</style>
+</head>
+<body>
+
+<table>
+	<tr>
+		<th><<Application Data>></th>
+		 <th>Alias: To Application Data Dir</th>
+ 	</tr>
+ 	<tr>
+  		 <td>Generic Windows OS</td>
+       <td><<Application Data>>\National Instruments\NI VeriStand 2010</td>
+ 	</tr>
+	<tr>
+  		<td>Default Windows XP</td>
+   	<td>C:\Documents and Settings\All Users\Shared Documents\National Instruments\NI VeriStand 2010</td>
+ 	</tr>
+	<tr>
+  		<td>Default Windows Vista & 7</td>
+   	<td>C:\Users\Public\Documents\National Instruments\NI VeriStand 2010</td>
+ 	</tr>
+</table>
+
+</body>
+<br /> 
+
+
+<head>
+<style>
+table, th, td {
+  border: 1px solid black;
+}
+</style>
+</head>
+<body>
+
+<table>
+	<tr>
+		<th><<Base>></th>
+		 <th>Alias: To Base</th>
+ 	</tr>
+ 	<tr>
+  		 <td>Generic Windows OS</td>
+       <td><<Program Files>>\National Instruments\NI VeriStand 2010</td>
+ 	</tr>
+	<tr>
+  		<td>Default Windows XP, Vista & 7</td>
+   	<td>C:\Program Files\National Instruments\VeriStand 2010</td>
+ 	</tr>
+</table>
+
+</body>
+<br />
+
+<head>
+<style>
+table, th, td {
+  border: 1px solid black;
+}
+</style>
+</head>
+<body>
+
+<table>
+	<tr>
+		<th><<Custom Device Engine Destination>></th>
+		 <th></th>
+ 	</tr>
+ 	<tr>
+  		 <td>PharLap / ETX</td>
+       <td>C:\ni-rt\veristand\custom devices\<<custom device
+name>>\</td>
+ 	</tr>
+</table>
+
+</body>
+<br />
 
 
 
