@@ -74,7 +74,7 @@ table, th, td {
  	</tr>
  	<tr>
   		 <td> <b>Generic Windows OS</b> </td>
-       <td>Public Documents\National Instruments\NI VeriStand 2020</td>
+       <td>&lt;Public Documents&gt;\National Instruments\NI VeriStand 2020</td>
  	</tr>
 	<tr>
   		<td> <b>Default Windows XP</b> </td>
@@ -137,7 +137,7 @@ table, th, td {
  	</tr>
  	<tr>
   		 <td> <b>Generic Windows OS</b> </td>
-       <td>Program Files\National Instruments\NI VeriStand 2020</td>
+       <td>&lt;Program Files&gt;\National Instruments\NI VeriStand 2020</td>
  	</tr>
 	<tr>
   		<td> <b>Default Windows XP, Vista & 7</b> </td>
@@ -345,7 +345,7 @@ table, th, td {
    <tr>
 		<td>
 The custom device XML does not automatically synchronize with changes to the LabVIEW project, nor does it automatically deploy. Be sure to modify the XML in the LabVIEW Project directory when making changes. Building the Initialization
-specification overwrites the XML in the <span style="color:green">*<Common Data>\Custom Devices folder*</span>.
+specification overwrites the XML in the <span style="color:green">*&lt;Common Data&gt;\Custom Devices folder*</span>.
       </td>
  	</tr>
 </table>
@@ -367,7 +367,7 @@ table, th, td {
 <table>
    <tr>
 		<td>
-Since NI VeriStand parses <span style="color:green">*<Common Data>*</span> for custom devices when it launches, a
+Since NI VeriStand parses <span style="color:green">*&lt;Common Data&gt;*</span> for custom devices when it launches, a
 corrupt custom device XML file can affect the overall NI VeriStand system. You should exercise care and make a backup of the custom device XML before modifying it.
       </td>
  	</tr>
