@@ -3,13 +3,13 @@
 # Veristand Custom Device Handbook
 
 
-#### [Custom Device Framework](Custom_Device_Framework.md)
+#### [Introduction](Introduction.md)
 
-#### [Custom Device Types](Custom_Device_Types.md)
+#### [Implement the Custom Device](ImplementTheCustomDevice.md)
 
-#### [Debugging And Benchmarking Custom Device](Debugging_And_Benchmarking_Custom_Device.md)
+#### [Debugging and Benchmarking](DebuggingAndBenchmarking.md)
 
-#### [Build and Test Custom Device](Build_And_Test_Custom_Device.md)
+#### [Distributing the Custom Device](DistributingTheCustomDevice.md)
 
-#### [How To Distribute a Custom Device](How_To_Distribute_A_Custom_Device.md)
+#### [Custom Device Tips and Tricks](CustomDeviceTipsAndTricks.md)
 
