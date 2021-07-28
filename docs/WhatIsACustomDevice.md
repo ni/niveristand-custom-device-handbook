@@ -164,8 +164,8 @@ table, th, td {
  	</tr>
  	<tr>
   		 <td>PharLap / ETX</td>
-       <td>C:\ni-rt\veristand\custom devices\<<custom device
-name>>\</td>
+       <td>C:\ni-rt\veristand\custom devices\&lt;custom device
+name&gt;\</td>
  	</tr>
 </table>
 
