@@ -69,12 +69,12 @@ table, th, td {
 
 <table>
 	<tr>
-		<th><<Common Data>></th>
+		<th>Common Data</th>
 		 <th>Alias: To Common Doc Dir</th>
  	</tr>
  	<tr>
   		 <td>Generic Windows OS</td>
-       <td><<Public Documents>>\National Instruments\NI VeriStand 2010</td>
+       <td>Public Documents\National Instruments\NI VeriStand 2010</td>
  	</tr>
 	<tr>
   		<td>Default Windows XP</td>
@@ -100,12 +100,12 @@ table, th, td {
 
 <table>
 	<tr>
-		<th><<Application Data>></th>
+		<th>Application Data</th>
 		 <th>Alias: To Application Data Dir</th>
  	</tr>
  	<tr>
   		 <td>Generic Windows OS</td>
-       <td><<Application Data>>\National Instruments\NI VeriStand 2010</td>
+       <td>Application Data\National Instruments\NI VeriStand 2010</td>
  	</tr>
 	<tr>
   		<td>Default Windows XP</td>
@@ -132,12 +132,12 @@ table, th, td {
 
 <table>
 	<tr>
-		<th><<Base>></th>
+		<th>Base</th>
 		 <th>Alias: To Base</th>
  	</tr>
  	<tr>
   		 <td>Generic Windows OS</td>
-       <td><<Program Files>>\National Instruments\NI VeriStand 2010</td>
+       <td>Program Files\National Instruments\NI VeriStand 2010</td>
  	</tr>
 	<tr>
   		<td>Default Windows XP, Vista & 7</td>
@@ -159,7 +159,7 @@ table, th, td {
 
 <table>
 	<tr>
-		<th><<Custom Device Engine Destination>></th>
+		<th>Custom Device Engine Destination</th>
 		 <th></th>
  	</tr>
  	<tr>
