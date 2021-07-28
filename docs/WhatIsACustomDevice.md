@@ -104,7 +104,7 @@ table, th, td {
 		 <th>Alias: To Application Data Dir</th>
  	</tr>
  	<tr>
-  		 <td><b>Generic Windows OS</b></td>
+  		 <td> <b>Generic Windows OS</b> </td>
        <td>Application Data\National Instruments\NI VeriStand 2010</td>
  	</tr>
 	<tr>
