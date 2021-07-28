@@ -15,12 +15,14 @@ table, th, td {
 <body>
 
 <table>
-	<tr>
+   <tr>
+		<td>
  Understanding the NI VeriStand Engine is prerequisite to this document. <a href="https://zone.ni.com/reference/en-XX/help/372846B-01/">See NI VeriStand Help</a> » <a href="https://zone.ni.com/reference/en-XX/help/372846B-01/TOC5.htm">Components of a Project</a> » <a href="https://zone.ni.com/reference/en-XX/help/372846B-01/veristand/understanding_vs_engine/">Understanding the VeriStand Engine</a> for more information.
+      </td>
  	</tr>
 </table>
 
-</body>
+</body> 
 <br /> 
 
 #### What is a Custom Device?
@@ -41,11 +43,13 @@ table, th, td {
 <body>
 
 <table>
-	<tr>The LabVIEW Project is needed to build the custom device, but only the configuration
-and engine libraries and the XML file are required to use the custom device in NI VeriStand.</tr>
+   <tr>
+		<td> The LabVIEW Project is needed to build the custom device, but only the configuration
+and engine libraries and the XML file are required to use the custom device in NI VeriStand.      </td>
+ 	</tr>
 </table>
 
-</body>
+</body> 
 <br /> 
 
 After obtaining (or building himself)the custom device’s libraries, the operator places them in the NI VeriStand <CommonData>\Custom Devices directory.  This directory varies with the host operating system.
