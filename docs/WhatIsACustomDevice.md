@@ -69,7 +69,7 @@ table, th, td {
 
 <table>
 	<tr>
-		<th>Common Data</th>
+		<th>&lt;Common Data&gt;</th>
 		 <th>Alias: To Common Doc Dir</th>
  	</tr>
  	<tr>
@@ -100,11 +100,11 @@ table, th, td {
 
 <table>
 	<tr>
-		<th>Application Data</th>
+		<th>&lt;Application Data&gt;</th>
 		 <th>Alias: To Application Data Dir</th>
  	</tr>
  	<tr>
-  		 <td>Generic Windows OS</td>
+  		 <td><b>Generic Windows OS</b></td>
        <td>Application Data\National Instruments\NI VeriStand 2010</td>
  	</tr>
 	<tr>
@@ -132,7 +132,7 @@ table, th, td {
 
 <table>
 	<tr>
-		<th>Base</th>
+		<th>&lt;Base&gt;</th>
 		 <th>Alias: To Base</th>
  	</tr>
  	<tr>
@@ -159,7 +159,7 @@ table, th, td {
 
 <table>
 	<tr>
-		<th>Custom Device Engine Destination</th>
+		<th>&lt;Custom Device Engine Destination&gt;</th>
 		 <th></th>
  	</tr>
  	<tr>
