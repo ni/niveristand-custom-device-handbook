@@ -73,16 +73,16 @@ table, th, td {
 		 <th>Alias: To Common Doc Dir</th>
  	</tr>
  	<tr>
-  		 <td>Generic Windows OS</td>
-       <td>Public Documents\National Instruments\NI VeriStand 2010</td>
+  		 <td> <b>Generic Windows OS</b> </td>
+       <td>Public Documents\National Instruments\NI VeriStand 2020</td>
  	</tr>
 	<tr>
-  		<td>Default Windows XP</td>
-   	<td>C:\Documents and Settings\All Users\Shared Documents\National Instruments\NI VeriStand 2010</td>
+  		<td> <b>Default Windows XP</b> </td>
+   	<td>C:\Documents and Settings\All Users\Shared Documents\National Instruments\NI VeriStand 2020</td>
  	</tr>
 	<tr>
-  		<td>Default Windows Vista & 7</td>
-   	<td>C:\Users\Public\Documents\National Instruments\NI VeriStand 2010</td>
+  		<td> <b>Default Windows Vista & 7</b> </td>
+   	<td>C:\Users\Public\Documents\National Instruments\NI VeriStand 2020</td>
  	</tr>
 </table>
 
@@ -105,15 +105,15 @@ table, th, td {
  	</tr>
  	<tr>
   		 <td> <b>Generic Windows OS</b> </td>
-       <td>Application Data\National Instruments\NI VeriStand 2010</td>
+       <td>&lt;Application Data&gt;\National Instruments\NI VeriStand 2020</td>
  	</tr>
 	<tr>
-  		<td>Default Windows XP</td>
-   	<td>C:\Documents and Settings\All Users\Shared Documents\National Instruments\NI VeriStand 2010</td>
+  		<td> <b>Default Windows XP</b> </td>
+   	<td>C:\Documents and Settings\All Users\Shared Documents\National Instruments\NI VeriStand 2020</td>
  	</tr>
 	<tr>
-  		<td>Default Windows Vista & 7</td>
-   	<td>C:\Users\Public\Documents\National Instruments\NI VeriStand 2010</td>
+  		<td> <b>Default Windows Vista & 7</b> </td>
+   	<td>C:\Users\Public\Documents\National Instruments\NI VeriStand 2020</td>
  	</tr>
 </table>
 
@@ -136,12 +136,12 @@ table, th, td {
 		 <th>Alias: To Base</th>
  	</tr>
  	<tr>
-  		 <td>Generic Windows OS</td>
-       <td>Program Files\National Instruments\NI VeriStand 2010</td>
+  		 <td> <b>Generic Windows OS</b> </td>
+       <td>Program Files\National Instruments\NI VeriStand 2020</td>
  	</tr>
 	<tr>
-  		<td>Default Windows XP, Vista & 7</td>
-   	<td>C:\Program Files\National Instruments\VeriStand 2010</td>
+  		<td> <b>Default Windows XP, Vista & 7</b> </td>
+   	<td>C:\Program Files\National Instruments\VeriStand 2020</td>
  	</tr>
 </table>
 
@@ -163,7 +163,7 @@ table, th, td {
 		 <th></th>
  	</tr>
  	<tr>
-  		 <td>PharLap / ETX</td>
+  		 <td> <b>PharLap / ETX</b> </td>
        <td>C:\ni-rt\veristand\custom devices\&lt;custom device
 name&gt;\</td>
  	</tr>
@@ -174,12 +174,12 @@ name&gt;\</td>
 
 
 
-NI VeriStand parses "<Common Data>\Custom Devices" for custom device XML files when it first launches. You must restart NI VeriStand to recognize newly added or modified custom device XML files. The custom device may then be added to the system definition by right- clicking Custom Devices from System Definition » Targets » Controller in the configuration tree.
+NI VeriStand parses <b>&lt;Common Data&gt;\Custom Devices</b> for custom device XML files when it first launches. You must restart NI VeriStand to recognize newly added or modified custom device XML files. The custom device may then be added to the system definition by right- clicking **[Custom Devices](http://zone.ni.com/reference/en-XX/help/372846B-01/veristand/custom_devices_se/)** from **[System Definition](http://zone.ni.com/reference/en-XX/help/372846B-01/veristand/root_se/)** » **[Targets](http://zone.ni.com/reference/en-XX/help/372846B-01/veristand/targets_se/)** » **[Controller](http://zone.ni.com/reference/en-XX/help/372846B-01/veristand/cp_controller/)** in the configuration tree.
+
 It’s not necessary for the operator to have any knowledge of LabVIEW or custom device development to use the custom device. It’s not necessary to have the LabVIEW Project to use a custom device. It’s courteous common practice to provide the LabVIEW Project along with the custom device. Providing the project allows operators and other developers to modify the custom device to suit their specific requirements.
 
 ![](images/Picture4.jpg)
-
-Figure: Adding a Custom Device to a System Definition
+<b>Figure: Adding a Custom Device to a System Definition</b>
 
 Most custom devices consist of the two VI libraries and XML file mentioned above. Logically, custom devices consist of three parts.
 1.	Custom Device Framework
@@ -189,8 +189,10 @@ Most custom devices consist of the two VI libraries and XML file mentioned above
 #### Custom Device Framework
 
 The custom device framework consists of type definitions, specifically-named controls and indicators, template VIs and a LabVIEW API. Together these items for the rules, or framework, that allows any conforming VI to interact with NI VeriStand. There are five prebuilt types of custom devices. Almost any requirement can be accomplished by adding or modifying code in one of the five prebuilt devices.
-The five prebuilt devices start with the Custom Device Template Tool. The template tool is located in <vi.lib>\ NI Veristand\Custom Device Tools\Custom Device Template Tool\Custom Device Template Tool.vi.
+
+The five prebuilt devices start with the Custom Device Template Tool. The template tool is located in *<vi.lib>\ NI Veristand\Custom Device Tools\Custom Device Template Tool\Custom Device Template Tool.vi*.
 The developer specifies the type of custom device before running the template tool. The tool generates the LabVIEW Project for the new custom device. The exact resources in the project depend on the type of custom device selected.
+
 The project is pre-populated with VIs, LabVIEW Libraries, an XML File, and two build specifications. These resources provide the framework upon which almost all custom devices are built.
 
 
@@ -214,9 +216,10 @@ custom device that doesn’t fit into the framework provided by the Custom Devic
 </body> 
 <br /> 
 
-For each of the five types of custom devices, you’ll see two VI libraries in the LabVIEW source project: Custom Device API.lvlib and Custom Device Name Custom Device.lvlib.
+For each of the five types of custom devices, you’ll see two VI libraries in the LabVIEW source project: *Custom Device API.lvlib* and *Custom Device Name Custom Device.lvlib.*
 
 ![](images/Picture5.jpg)
+<b>Figure: A New Custom Device Project</b>
 
 The Custom Device API library contains most of the type definitions, template VIs and LabVIEW API needed to interact with NI VeriStand’s data and timing resources. They give a VI the ability to behave as a native task in the NI VeriStand Engine.
 Some of these VIs also appear on the LabVIEW palette in NI VeriStand » Custom Device API.
