@@ -13,11 +13,13 @@ table, th, td {
 </style>
 </head>
 <body>
+
 <table>
 	<tr>
  Understanding the NI VeriStand Engine is prerequisite to this document. <a href="https://zone.ni.com/reference/en-XX/help/372846B-01/">See NI VeriStand Help</a> » <a href="https://zone.ni.com/reference/en-XX/help/372846B-01/TOC5.htm">Components of a Project</a> » <a href="https://zone.ni.com/reference/en-XX/help/372846B-01/veristand/understanding_vs_engine/">Understanding the VeriStand Engine</a> for more information.
  	</tr>
 </table>
+
 </body>
 <br /> 
 
@@ -37,12 +39,12 @@ table, th, td {
 </style>
 </head>
 <body>
+
 <table>
-	<tr>
-The LabVIEW Project is needed to build the custom device, but only the configuration
-and engine libraries and the XML file are required to use the custom device in NI VeriStand.
- 	</tr>
+	<tr>The LabVIEW Project is needed to build the custom device, but only the configuration
+and engine libraries and the XML file are required to use the custom device in NI VeriStand.</tr>
 </table>
+
 </body>
 <br /> 
 
@@ -60,6 +62,7 @@ table, th, td {
 </style>
 </head>
 <body>
+
 <table>
 	<tr>
 		<th>Common Data</th>
@@ -78,6 +81,7 @@ table, th, td {
    	<td>C:\Users\Public\Documents\National Instruments\NI VeriStand 2010</td>
  	</tr>
 </table>
+
 </body>
 <br /> 
 
@@ -112,6 +116,7 @@ table, th, td {
 </style>
 </head>
 <body>
+
 <table>
    <tr>
 		<td>NI VeriStand evolved from NI Dynamic Test Software (NI-DTS). NI-DTS evolved from Intellectual Property (IP) called EASE obtained from a 3rd party. EASE made basic provisions for add-on LabVIEW code. In a sense this was the first custom device framework. Several “custom devices” were built for the original framework, and NI has mutated them from EASE through NI-DTS and into NI-VeriStand. If you come across a
@@ -119,6 +124,7 @@ custom device that doesn’t fit into the framework provided by the Custom Devic
       </td>
  	</tr>
 </table>
+
 </body> 
 <br /> 
 
@@ -143,6 +149,7 @@ table, th, td {
 </style>
 </head>
 <body>
+
 <table>
    <tr>
 		<td> 
@@ -151,6 +158,7 @@ Explorer window, that VI is called a page. Pages are a subset of the VIs that ma
       </td>
  	</tr>
 </table>
+
 </body>     
 <br />
 
@@ -166,6 +174,7 @@ table, th, td {
 </style>
 </head>
 <body>
+
 <table>
    <tr>
 		<td> 
@@ -174,6 +183,7 @@ custom device XML file.
       </td>
  	</tr>
 </table>
+
 </body> 
 <br />
 
@@ -198,6 +208,7 @@ table, th, td {
 </style>
 </head>
 <body>
+
 <table>
    <tr>
 		<td>
@@ -206,6 +217,7 @@ Windows engines do not require additional compilation.
       </td>
  	</tr>
 </table>
+
 </body> 
 <br />
 
@@ -233,6 +245,7 @@ table, th, td {
 </style>
 </head>
 <body>
+
 <table>
    <tr>
 		<td>
@@ -241,6 +254,7 @@ specification overwrites the XML in the <Common Data>\Custom Devices folder.
       </td>
  	</tr>
 </table>
+
 </body> 
 <br />
 
@@ -254,6 +268,7 @@ table, th, td {
 </style>
 </head>
 <body>
+
 <table>
    <tr>
 		<td>
@@ -262,6 +277,7 @@ corrupt custom device XML file can affect the overall NI VeriStand system. You s
       </td>
  	</tr>
 </table>
+
 </body>
 <br />
 
