@@ -50,14 +50,10 @@ table, th, td {
   		<td>Default Windows Vista & 7</td>
    	<td>C:\Users\Public\Documents\National Instruments\NI VeriStand 2010</td>
  	</tr>
-	<tr>
-  		<td>April</td>
-   	<td>$400</td>
- 	</tr>
 </table>
  
 </body>
-
+<p>&nbsp;</p> 
 
 
 
@@ -98,7 +94,7 @@ custom device that doesn’t fit into the framework provided by the Custom Devic
  	</tr>
 </table>
 </body> 
-
+<p>&nbsp;</p> 
 
 For each of the five types of custom devices, you’ll see two VI libraries in the LabVIEW source project: Custom Device API.lvlib and Custom Device Name Custom Device.lvlib. ![](images/Picture5.jpg)
 
@@ -128,6 +124,7 @@ Explorer window, that VI is called a page. Pages are a subset of the VIs that ma
  	</tr>
 </table>
 </body>     
+<p>&nbsp;</p> 
 
 #### Initialization VI
 
@@ -150,7 +147,7 @@ custom device XML file.
  	</tr>
 </table>
 </body> 
-
+<p>&nbsp;</p> 
 
 The Initialization Page runs each time a new instance of the same custom device is added to the system definition. NI VeriStand retains state information for each instance of a custom device in the System Definition (.nivssdf) file. State is defined by the value of each control, indicator, and property (properties are covered later) of the page. This file is human-readable XML, so you can open the file with a text editor and take a look. There’s also a .NET API for modifying the System Definition programmatically.
 
@@ -182,7 +179,7 @@ Windows engines do not require additional compilation.
  	</tr>
 </table>
 </body> 
-
+<p>&nbsp;</p> 
 
 The engine runs after the custom device has been added to the system definition, configured by the operator, and deployed to the execution host. The developer usually adds initialization, steady-state, and shutdown code to the engine template. There aren’t any hard boundaries on what code you can put into the engine, only on what code you should put in the engine.
 NI VeriStand deploys the engine when the operator clicks Run Project from the NI VeriStand Getting Started Window, selects Operate » Run or Operate » Deploy from the Project Explorer, or when the system definition is deployed using the NI VeriStand Execution API.
