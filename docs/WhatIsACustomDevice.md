@@ -15,7 +15,7 @@ table, th, td {
 <body>
 <table>
 	<tr>
- Understanding the NI VeriStand Engine is prerequisite to this document.  **[See NI VeriStand Help](https://zone.ni.com/reference/en-XX/help/372846B-01/)** » **[Components of a Project](https://zone.ni.com/reference/en-XX/help/372846B-01/TOC5.htm)** » **[Understanding the VeriStand Engine](https://zone.ni.com/reference/en-XX/help/372846B-01/veristand/understanding_vs_engine/)** for more information.
+ Understanding the NI VeriStand Engine is prerequisite to this document. <a href="https://zone.ni.com/reference/en-XX/help/372846B-01/">See NI VeriStand Help</a> » <a href="https://zone.ni.com/reference/en-XX/help/372846B-01/TOC5.htm">Components of a Project</a> » <a href="https://zone.ni.com/reference/en-XX/help/372846B-01/veristand/understanding_vs_engine/">Understanding the VeriStand Engine</a> for more information.
  	</tr>
 </table>
 </body>
@@ -60,7 +60,6 @@ table, th, td {
 </style>
 </head>
 <body>
-
 <table>
 	<tr>
 		<th>Common Data</th>
@@ -68,60 +67,17 @@ table, th, td {
  	</tr>
  	<tr>
   		 <td>Generic Windows OS</td>
-       <td><<Public Documents>>\National Instruments\NI VeriStand 2020</td>
+       <td><<Public Documents>>\National Instruments\NI VeriStand 2010</td>
  	</tr>
 	<tr>
   		<td>Default Windows XP</td>
-   	<td>C:\Documents and Settings\All Users\Shared Documents\National Instruments\NI VeriStand 2020</td>
+   	<td>C:\Documents and Settings\All Users\Shared Documents\National Instruments\NI VeriStand 2010</td>
  	</tr>
 	<tr>
-  		<td>Default Windows Vista & 7</td>
-   	<td>C:\Users\Public\Documents\National Instruments\NI VeriStand 2020</td>
- 	</tr>
-   	<tr>
-  		<td>Default Windows Vista & 7</td>
-   	<td>C:\Users\Public\Documents\National Instruments\NI VeriStand 2020</td>
- 	</tr>
-   
-   	<tr>
-		<th><Application Data></th>
-		 <th>Alias: To Application Data Dir</th>
- 	</tr>
-  		<td>Generic Windows OS</td>
-   	<td><Application Data>\National Instruments\NI
-VeriStand 2010</td>
- 	</tr>
-   	<tr>
-  		<td>Default Windows XP</td>
-   	<td>C:\Documents and Settings\All Users\Application
-Data\National Instruments\NI VeriStand 2020</td>
- 	</tr>
-   	<tr>
-  		<td>Default Windows Vista & 7</td>
-   	<td>C:\Users\Public\Documents\National Instruments\NI VeriStand 2020</td>
- 	</tr>
-   	<tr>
-  		<td>Default Windows Vista & 7</td>
-   	<td>C:\Users\Public\Documents\National Instruments\NI VeriStand 2010</td>
- 	</tr>
-   	<tr>
-  		<td>Default Windows Vista & 7</td>
-   	<td>C:\Users\Public\Documents\National Instruments\NI VeriStand 2010</td>
- 	</tr>
-   	<tr>
-  		<td>Default Windows Vista & 7</td>
-   	<td>C:\Users\Public\Documents\National Instruments\NI VeriStand 2010</td>
- 	</tr>
-   	<tr>
-  		<td>Default Windows Vista & 7</td>
-   	<td>C:\Users\Public\Documents\National Instruments\NI VeriStand 2010</td>
- 	</tr>
-   	<tr>
   		<td>Default Windows Vista & 7</td>
    	<td>C:\Users\Public\Documents\National Instruments\NI VeriStand 2010</td>
  	</tr>
 </table>
- 
 </body>
 <br /> 
 
