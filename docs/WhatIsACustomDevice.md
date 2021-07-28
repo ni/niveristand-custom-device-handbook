@@ -178,7 +178,7 @@ NI VeriStand parses <b>&lt;Common Data&gt;\Custom Devices</b> for custom device 
 
 It’s not necessary for the operator to have any knowledge of LabVIEW or custom device development to use the custom device. It’s not necessary to have the LabVIEW Project to use a custom device. It’s courteous common practice to provide the LabVIEW Project along with the custom device. Providing the project allows operators and other developers to modify the custom device to suit their specific requirements.
 
-![](images/Picture4.jpg)
+![](images/Picture4.jpg)   
 <b>Figure: Adding a Custom Device to a System Definition</b>
 
 Most custom devices consist of the two VI libraries and XML file mentioned above. Logically, custom devices consist of three parts.
@@ -190,7 +190,7 @@ Most custom devices consist of the two VI libraries and XML file mentioned above
 
 The custom device framework consists of type definitions, specifically-named controls and indicators, template VIs and a LabVIEW API. Together these items for the rules, or framework, that allows any conforming VI to interact with NI VeriStand. There are five prebuilt types of custom devices. Almost any requirement can be accomplished by adding or modifying code in one of the five prebuilt devices.
 
-The five prebuilt devices start with the Custom Device Template Tool. The template tool is located in *<vi.lib>\ NI Veristand\Custom Device Tools\Custom Device Template Tool\Custom Device Template Tool.vi*.
+The five prebuilt devices start with the Custom Device Template Tool. The template tool is located in <span style="color:green">*<vi.lib>\ NI Veristand\Custom Device Tools\Custom Device Template Tool\Custom Device Template Tool.vi*</span>.
 The developer specifies the type of custom device before running the template tool. The tool generates the LabVIEW Project for the new custom device. The exact resources in the project depend on the type of custom device selected.
 
 The project is pre-populated with VIs, LabVIEW Libraries, an XML File, and two build specifications. These resources provide the framework upon which almost all custom devices are built.
