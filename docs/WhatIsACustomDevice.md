@@ -53,7 +53,7 @@ table, th, td {
 </table>
  
 </body>
-<p>&nbsp;</p> 
+<br /> 
 
 
 
@@ -88,13 +88,13 @@ table, th, td {
 <body>
 <table>
    <tr>
-		<td>![](images/Picture2.png) NI VeriStand evolved from NI Dynamic Test Software (NI-DTS). NI-DTS evolved from Intellectual Property (IP) called EASE obtained from a 3rd party. EASE made basic provisions for add-on LabVIEW code. In a sense this was the first custom device framework. Several “custom devices” were built for the original framework, and NI has mutated them from EASE through NI-DTS and into NI-VeriStand. If you come across a
+		<td>NI VeriStand evolved from NI Dynamic Test Software (NI-DTS). NI-DTS evolved from Intellectual Property (IP) called EASE obtained from a 3rd party. EASE made basic provisions for add-on LabVIEW code. In a sense this was the first custom device framework. Several “custom devices” were built for the original framework, and NI has mutated them from EASE through NI-DTS and into NI-VeriStand. If you come across a
 custom device that doesn’t fit into the framework provided by the Custom Device Template Tool, you may have stumbled upon one of the original custom devices.
       </td>
  	</tr>
 </table>
 </body> 
-<p>&nbsp;</p> 
+<br /> 
 
 For each of the five types of custom devices, you’ll see two VI libraries in the LabVIEW source project: Custom Device API.lvlib and Custom Device Name Custom Device.lvlib. ![](images/Picture5.jpg)
 
@@ -124,7 +124,7 @@ Explorer window, that VI is called a page. Pages are a subset of the VIs that ma
  	</tr>
 </table>
 </body>     
-<p>&nbsp;</p> 
+<br />
 
 #### Initialization VI
 
@@ -147,7 +147,7 @@ custom device XML file.
  	</tr>
 </table>
 </body> 
-<p>&nbsp;</p> 
+<br />
 
 The Initialization Page runs each time a new instance of the same custom device is added to the system definition. NI VeriStand retains state information for each instance of a custom device in the System Definition (.nivssdf) file. State is defined by the value of each control, indicator, and property (properties are covered later) of the page. This file is human-readable XML, so you can open the file with a text editor and take a look. There’s also a .NET API for modifying the System Definition programmatically.
 
@@ -179,7 +179,7 @@ Windows engines do not require additional compilation.
  	</tr>
 </table>
 </body> 
-<p>&nbsp;</p> 
+<br />
 
 The engine runs after the custom device has been added to the system definition, configured by the operator, and deployed to the execution host. The developer usually adds initialization, steady-state, and shutdown code to the engine template. There aren’t any hard boundaries on what code you can put into the engine, only on what code you should put in the engine.
 NI VeriStand deploys the engine when the operator clicks Run Project from the NI VeriStand Getting Started Window, selects Operate » Run or Operate » Deploy from the Project Explorer, or when the system definition is deployed using the NI VeriStand Execution API.
@@ -214,7 +214,7 @@ specification overwrites the XML in the <Common Data>\Custom Devices folder.
  	</tr>
 </table>
 </body> 
-
+<br />
 
 The XML file provides the ability to customize the appearance and behavior of the custom device in System Explorer. For example, you can change the default glyph or add a right-click menu to a custom device by adding tags to the custom device XML file.
 
@@ -235,5 +235,6 @@ corrupt custom device XML file can affect the overall NI VeriStand system. You s
  	</tr>
 </table>
 </body>
+<br />
 
 ![](images/Picture7.png)
