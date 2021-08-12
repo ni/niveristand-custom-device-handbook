@@ -3,14 +3,16 @@
 
 editez
 
+
 ```eval_rst
-+------------+------------+-----------+
-| Header 1 | Header 2 | Header 3 |
-+============+============+===========+
-| body row 1 | column 2 | column 3 |
-+------------+------------+-----------+
-| body row 2 | Cells may span columns.|
-+------------+------------+-----------+
++------------------------+------------+----------+----------+
+| Header row, column 1   | Header 2   | Header 3 | Header 4 |
+| (header rows optional) |            |          |          |
++========================+============+==========+==========+
+| body row 1, column 1   | column 2   | column 3 | column 4 |
++------------------------+------------+----------+----------+
+| body row 2             | ...        | ...      |          |
++------------------------+------------+----------+----------+
 ```
 
 The built-in components of an NI VeriStand Project are listed in NI VeriStand Help » Navigating the NI VeriStand Environment » System Explorer Window. If the built-in components do not fulfill a specification, it can most likely be fulfilled by one of the customization methods shown in NI Developer Zone Tutorial: Using LabVIEW and Other Software Environments with NI VeriStand.
