@@ -39,7 +39,7 @@ After obtaining (or building himself)the custom device’s libraries, the operat
 +---------------------------+----------------------------------------------------------------------------------+
 | <Common Data>             | Alias: To Common Doc Dir                                                         |
 +===========================+==================================================================================+
-| Generic Windows OS        | Public Documents"\"National Instruments"\"<xxxx>                                     |
+| Generic Windows OS        | Public Documents"\"National Instruments"\"<xxxx>                                 |
 +---------------------------+----------------------------------------------------------------------------------+
 | Default Windows XP        | C:\Documents and Settings\All Users\Shared Documents\National Instruments\<xxxx> |
 +---------------------------+----------------------------------------------------------------------------------+
