@@ -1,10 +1,11 @@
 ### Introduction to Custom Devices
 
 
-NVeriStand is an open software environment you can use to configure real-time testing applications, including hardware-in-the-loop (HIL) systems. With VeriStand, you can complete the following objectives.
-1 Configure real-time input/output (IO), stimulus profiles, data logging, alarming, and other tasks; 
-2 Implement control algorithms or system simulations by importing models from a variety of software environments; 
-3 Build test system interfaces quickly with a run-time editable user interface complete with ready-to-use tools. 
+VeriStand is an open software environment you can use to configure real-time testing applications, including hardware-in-the-loop (HIL) systems. With VeriStand, you can complete the following objectives.
+
+* Configure real-time input/output (IO), stimulus profiles, data logging, alarming, and other tasks; 
+* Implement control algorithms or system simulations by importing models from a variety of software environments; 
+* Build test system interfaces quickly with a run-time editable user interface complete with ready-to-use tools. 
 
 For more information **[NI Developer Zone Tutorial: What is NI VeriStand](https://www.ni.com/en-us/shop/data-acquisition-and-control/application-software-for-data-acquisition-and-control-category/what-is-veristand.html)**.
 
