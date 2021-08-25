@@ -7,11 +7,11 @@ VeriStand is an open software environment you can use to configure real-time tes
 * Implement control algorithms or system simulations by importing models from a variety of software environments; 
 * Build test system interfaces quickly with a run-time editable user interface complete with ready-to-use tools. 
 
-For more information **[NI Developer Zone Tutorial: What is NI VeriStand](https://www.ni.com/en-us/shop/data-acquisition-and-control/application-software-for-data-acquisition-and-control-category/what-is-veristand.html)**.
+For more information refer to **[NI Developer Zone Tutorial: What is NI VeriStand](https://www.ni.com/en-us/shop/data-acquisition-and-control/application-software-for-data-acquisition-and-control-category/what-is-veristand.html)**.
 
 You can customize and extend the VeriStand environment with LabVIEW to meet application requirements. This document provides the background, design decisions,and technical information required to understand and develop custom devices in VeriStand 2020 and later. 
 
-Before you begin creating custom device, you must understand the VeriStand Engine. <a href="https://zone.ni.com/reference/en-XX/help/372846B-01/">For more information on the refer to VeriStand Help
+Before you begin creating custom device, you must understand the VeriStand Engine. For more information on the refer to VeriStand Help
 
 #### What is a Custom Device?
 
