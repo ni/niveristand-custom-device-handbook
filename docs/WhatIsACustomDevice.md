@@ -11,25 +11,10 @@ For more information **[NI Developer Zone Tutorial: What is NI VeriStand](https:
 
 You can customize and extend the VeriStand environment with LabVIEW to meet application requirements. This document provides the background, design decisions,and technical information required to understand and develop custom devices in VeriStand 2020 and later. 
 
-<head>
-<style>
-table, th, td {
-  border: 1px solid black;
-}
-</style>
-</head>
-<body>
 
-<table>
-   <tr>
-		<td>
- Before you begin creating custom device, you must understand the VeriStand Engine. <a href="https://zone.ni.com/reference/en-XX/help/372846B-01/">For more information on the refer to VeriStand Help</a> 
-      </td>
- 	</tr>
-</table>
 
-</body> 
-<br /> 
+
+ Before you begin creating custom device, you must understand the VeriStand Engine. <a href="https://zone.ni.com/reference/en-XX/help/372846B-01/">For more information on the refer to VeriStand Help
 
 #### What is a Custom Device?
 
@@ -43,29 +28,24 @@ A custom device typically consists of two **[VI libraries](http://zone.ni.com/re
 
 Most custom devices begin as a LabVIEW template project. The Custom Device Template Tool VI scripts the template project based on user inputs. You can then modify the template project to fulfill the requirements of the custom device. The Custom Device Template Tool installs on top of LabVIEW with the Full and PC versions of VeriStand.
 
-<head>
-<style>
-table, th, td {
-  border: 1px solid black;
-}
-</style>
-</head>
-<body>
-
-<table>
-   <tr>
-		<td> A LabVIEW project is needed to build a custom device, but only the configuration library,
- engine library and XML file are required to use the custom device in VeriStand.      </td>
- 	</tr>
-</table>
-
-</body> 
-<br /> 
+A LabVIEW project is needed to build a custom device, but only the configuration library, engine library and XML file are required to use the custom device in VeriStand.
 
 After obtaining (or building himself)the custom device’s libraries, the operator places them in the VeriStand <CommonData>\Custom Devices directory. This directory location varies with the host operating system.
 
 #### Table of Directories and Aliases:
 
+
+```eval_rst
++------------------------+------------+
+| <Common Data>   | Alias: To Common Doc Dir  |
++========================+============+
+| Generic Windows OS   | Public Documents&gt;\National Instruments\<xxxx>   |
++------------------------+------------+
+| Default Windows XP         | C:\Documents and Settings\All Users\Shared Documents\National Instruments\<xxxx>   |
++------------------------+------------+
+| Default Windows Vista & 7           | C:\Users\Public\Documents\National Instruments\<xxxx> |
++------------------------+------------+
+```
 
 
 <head>
