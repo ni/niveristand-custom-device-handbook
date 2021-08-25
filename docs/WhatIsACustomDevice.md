@@ -74,7 +74,7 @@ After obtaining (or building himself)the custom device’s libraries, the operat
 +----------------------------------+------------------------------------------------------------+
 ```
 
-**Note:** <xxxx> is the  Veristand version number.
+**Note:** <<xxxx>> is the  Veristand version number.
 
 VeriStand parses **Common Data\Custom Devices** for custom device XML files when it first launches. You must restart VeriStand to recognize newly added or modified custom device XML files. 
 
@@ -83,8 +83,11 @@ Add the custom device to the system definition in the configuration tree by navi
 ![](images/Picture4.jpg)
 
 Most custom devices consist of two VI libraries and XML file. Logically, custom devices consist of three parts.
+
    Custom Device Framework
+   
    Custom Code
+   
    Custom Device XML File
 
 #### Custom Device Framework
