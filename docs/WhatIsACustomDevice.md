@@ -11,10 +11,7 @@ For more information **[NI Developer Zone Tutorial: What is NI VeriStand](https:
 
 You can customize and extend the VeriStand environment with LabVIEW to meet application requirements. This document provides the background, design decisions,and technical information required to understand and develop custom devices in VeriStand 2020 and later. 
 
-
-
-
- Before you begin creating custom device, you must understand the VeriStand Engine. <a href="https://zone.ni.com/reference/en-XX/help/372846B-01/">For more information on the refer to VeriStand Help
+Before you begin creating custom device, you must understand the VeriStand Engine. <a href="https://zone.ni.com/reference/en-XX/help/372846B-01/">For more information on the refer to VeriStand Help
 
 #### What is a Custom Device?
 
@@ -79,7 +76,7 @@ After obtaining (or building himself)the custom device’s libraries, the operat
 
 **Note:** <xxxx> is the  Veristand version number.
 
-VeriStand parses <b>&lt;Common Data&gt;\Custom Devices</b> for custom device XML files when it first launches. You must restart VeriStand to recognize newly added or modified custom device XML files. 
+VeriStand parses **Common Data\Custom Devices** for custom device XML files when it first launches. You must restart VeriStand to recognize newly added or modified custom device XML files. 
 
 Add the custom device to the system definition in the configuration tree by navigating to **[System Definition](http://zone.ni.com/reference/en-XX/help/372846B-01/veristand/root_se/)** » **[Targets](http://zone.ni.com/reference/en-XX/help/372846B-01/veristand/targets_se/)** » **[Controller](http://zone.ni.com/reference/en-XX/help/372846B-01/veristand/cp_controller/)** and right-clicking **[Custom Devices](http://zone.ni.com/reference/en-XX/help/372846B-01/veristand/custom_devices_se/)**. The following image displays how-to add a custom device.
 
@@ -99,25 +96,7 @@ The developer specifies the type of custom device before running the template to
 
 The project is pre-populated with VIs, LabVIEW Libraries, an XML File, and two build specifications. These resources provide the framework upon which almost all custom devices are built.
 
-
-<head>
-<style>
-table, th, td {
-  border: 1px solid black;
-}
-</style>
-</head>
-<body>
-
-<table>
-   <tr>
-		<td>VeriStand evolved from NI Dynamic Test Software (NI-DTS). NI-DTS evolved from 3rd party intellectual property (IP) called EASE. The IP made basic provisions for add-on LabVIEW code. This provisions could be considered the first custom device framework on which several “custom devices” were built. If you find a custom device that does not fit the Custom Device Template Tool framework, you may be operating an EASE based custom devices.
-      </td>
- 	</tr>
-</table>
-
-</body> 
-<br /> 
+VeriStand evolved from NI Dynamic Test Software (NI-DTS). NI-DTS evolved from 3rd party intellectual property (IP) called EASE. The IP made basic provisions for add-on LabVIEW code. This provisions could be considered the first custom device framework on which several “custom devices” were built. If you find a custom device that does not fit the Custom Device Template Tool framework, you may be operating an EASE based custom devices.
 
 For each of the five types of custom devices, you’ll see two VI libraries in the LabVIEW source project: <span style="color:green">*Custom Device API.lvlib*</span> and <span style="color:green">*Custom Device Name Custom Device.lvlib.*</span>
 
@@ -127,7 +106,7 @@ The following image displays a new custom device project that uses these two lib
 
 The Custom Device API library contains most of the type definitions, template VIs and LabVIEW API needed to interact with VeriStand data and timing resources. They allow the VI to behave as a native task in the VeriStand Engine. 
 
-   Note: Some of these VIs also appear on the LabVIEW palette in **[VeriStand](http://zone.ni.com/reference/en-XX/help/372846B-01/TOC12.htm)** » **[Custom Device API](http://zone.ni.com/reference/en-XX/help/372846B-01/TOC13.htm)**.
+   **Note:** Some of these VIs also appear on the LabVIEW palette in **[VeriStand](http://zone.ni.com/reference/en-XX/help/372846B-01/TOC12.htm)** » **[Custom Device API](http://zone.ni.com/reference/en-XX/help/372846B-01/TOC13.htm)**.
 
 The API library contains the custom device’s configuration and real-time engine VIs. These correspond to the configuration and engine VI libraries (or LLBs). The front panel and block diagram of these VIs are populated with objects from the Custom Device API library.
 
@@ -135,88 +114,33 @@ The API library contains the custom device’s configuration and real-time engin
 #### Configuration
 
 The custom device’s configuration defines how the operator adds and configures the custom device through a user interface (UI). The Custom Device Template Tool provides the Initialization VIs for configuration purposes. You can add more VIs during development. 
-<head>
-<style>
-table, th, td {
-  border: 1px solid black;
-}
-</style>
-</head>
-<body>
 
-<table>
-   <tr>
-		<td> 
-When a custom device VI’s front panel is presented to the operator in System
-Explorer, that VI is called a page. Pages are a subset of the VIs that make up a custom device.
-      </td>
- 	</tr>
-</table>
+When a custom device VI’s front panel is presented to the operator in System Explorer, that VI is called a page. Pages are a subset of the VIs that make up a custom device.
 
-</body>     
-<br />
 
 #### Initialization VI
 
 The Custom Device Template Tool names the initialization VI <span style="color:green">*<Custom Device Name> Initialization VI.vi.*</span> It runs in the background when the custom device is first added to the system definition. The initialization page does not run again unless the operator removes and re-adds the custom device.
 
-<head>
-<style>
-table, th, td {
-  border: 1px solid black;
-}
-</style>
-</head>
-<body>
-
-<table>
-   <tr>
-		<td> 
 While you may rename certain objects in the custom device’s LabVIEW Project, it’s important to understand the ramifications of doing so. For example, the Initialization VI is referenced by name in the custom device XML file. This file is generated when you first run the Custom Device Template Tool. If you rename the Initialization VI after running the tool, you’ll need to manually change the path to the Initialization VI in the
 custom device XML file.
-      </td>
- 	</tr>
-</table>
-
-</body> 
-<br />
 
 The Initialization Page runs each time a new instance of the same custom device is added to the system definition. VeriStand retains state information for each instance of a custom device in the **[System Definition](http://zone.ni.com/reference/en-XX/help/372846B-01/veristand/comp_of_project/#system_definition_file)** (.**[nivssdf](https://www.ni.com/documentation/en/veristand/latest/manual/configure-system-definition-file/)**) file. State is defined by the value of each control, indicator, and property of the page. The system definition is human-readable XML, so you can open the file with a text editor. 
 
-   <b>Note:</b> You can use the **[.NET API](http://zone.ni.com/devzone/cda/tut/p/id/9366#toc2)** to programmatically modify the system definition.
+   **Note:** You can use the **[.NET API](http://zone.ni.com/devzone/cda/tut/p/id/9366#toc2)** to programmatically modify the system definition.
 
 #### Main Page
 
 The Custom Device Template Tool creates Main Page.vi. After the custom device has been added to the system definition, the main page runs whenever the operator clicks on the custom device’s top-level item in the System Explorer configuration tree. The following image displays the top-level item.
 
 ![](images/Picture6.png)
-<br />
-
+< br />
 
 #### Engine
 
 The Custom Device Template Tool creates the <span style="color:green">*<Custom Device Name> RT Driver.vi.*</span> This defines the behavior of the custom device on the **[execution host](http://zone.ni.com/reference/en-XX/help/372846B-01/veristand/veristand_glossary/#execution_host)**. The RT Driver VI runs on the execution host regardless of the target’s operating system. VeriStand deploys the engine when the operator runs the project from VeriStand or when the system definition is deployed using the VeriStand Execution API.
 
-<head>
-<style>
-table, th, td {
-  border: 1px solid black;
-}
-</style>
-</head>
-<body>
-
-<table>
-   <tr>
-		<td>
-VeriStand 2009 did not support the VeriStand Engine on VxWorks operating systems. Starting with VeriStand 2010, if you want to support VxWorks targets such as Compact RIO, you must compile the engine library for VxWorks. PharLap and
-Windows engines do not require additional compilation.
-      </td>
- 	</tr>
-</table>
-
-</body> 
-<br />
+VeriStand 2009 did not support the VeriStand Engine on VxWorks operating systems. Starting with VeriStand 2010, if you want to support VxWorks targets such as Compact RIO, you must compile the engine library for VxWorks. PharLap and Windows engines do not require additional compilation.
 
 The engine runs after the custom device deployed to the execution host. You can usually add initialization, steady-state, and shutdown code to the engine template. There aren’t any hard boundaries on what code you can put into the engine, only on what code you should put in the engine.
 
@@ -238,48 +162,10 @@ Each custom device has an XML file that contains information used by VeriStand t
 
 The Custom Device Template Tool generates an XML file in the template LabVIEW Project. Any properly formatted XML file will be parsed by VeriStand. After the XML file is created by the Custom Device Template Tool, all updates have to be manual.
 
-<head>
-<style>
-table, th, td {
-  border: 1px solid black;
-}
-</style>
-</head>
-<body>
-
-<table>
-   <tr>
-		<td>
-The custom device XML file does not automatically synchronize with changes to the LabVIEW project. Also, the file does not automatically deploy. You must modify the XML file in the LabVIEW Project directory when making changes. Building the initialization
-specification overwrites the XML in the <span style="color:green">*&lt;Common Data&gt;\Custom Devices folder*</span>.
-      </td>
- 	</tr>
-</table>
-
-</body> 
-<br />
+The custom device XML file does not automatically synchronize with changes to the LabVIEW project. Also, the file does not automatically deploy. You must modify the XML file in the LabVIEW Project directory when making changes. Building the initialization specification overwrites the XML in the <span style="color:green">*&lt;Common Data&gt;\Custom Devices folder*</span>.
 
 The XML file alters the appearance and behavior of the custom device in System Explorer. For example, you can add a right-click menu to a custom device by adding tags to the custom device XML file.
 
-<head>
-<style>
-table, th, td {
-  border: 1px solid black;
-}
-</style>
-</head>
-<body>
-
-<table>
-   <tr>
-		<td>
-VeriStand parses <span style="color:green">*&lt;Common Data&gt;*</span> for custom devices when it launches. A
-corrupt custom device XML file can affect the overall VeriStand system. You should exercise care and make a backup of the custom device XML before modifying it.
-      </td>
- 	</tr>
-</table>
-
-</body>
-<br />
+VeriStand parses <span style="color:green">*&lt;Common Data&gt;*</span> for custom devices when it launches. A corrupt custom device XML file can affect the overall VeriStand system. You should exercise care and make a backup of the custom device XML before modifying it.
 
 ![](images/Picture7.png)
