@@ -37,9 +37,9 @@ After obtaining (or building himself)the custom device’s libraries, the operat
 
 ```eval_rst
 +-------------------------+-------------------------------------------------------------------------------------+
-|<Common Data>            | Alias: To Common Doc Dir                                                            |
+|<Common Data>            |Alias: To Common Doc Dir                                                             |
 +=========================+=====================================================================================+
-|Generic Windows OS       |Public Documents\\National Instruments\\<xxxx>                                       |
+|Generic Windows OS       |<Public Documents>\\National Instruments\\<xxxx>                                     |
 +-------------------------+-------------------------------------------------------------------------------------+
 |Default Windows XP       |C:\\Documents and Settings\\All Users\\Shared Documents\\National Instruments\\<xxxx>|
 +-------------------------+-------------------------------------------------------------------------------------+
@@ -47,122 +47,37 @@ After obtaining (or building himself)the custom device’s libraries, the operat
 +-------------------------+-------------------------------------------------------------------------------------+
 ```
 
+```eval_rst
++-------------------------+-------------------------------------------------------------------------------------+
+|<Application Data>       | Alias: To Application Data Dir                                                      |
++=========================+=====================================================================================+
+|Generic Windows OS       |<Application Data>\\National Instruments\\<xxxx>                                     |
++-------------------------+-------------------------------------------------------------------------------------+
+|Default Windows XP       |C:\\Documents and Settings\\All Users\\Shared Documents\\National Instruments\\<xxxx>|
++-------------------------+-------------------------------------------------------------------------------------+
+|Default Windows Vista & 7|C:\\Users\\Public\\Documents\\National Instruments\\<xxxx>                           |
++-------------------------+-------------------------------------------------------------------------------------+
+```
+ 
+```eval_rst
++----------------------------+-----------------------------------------------+
+|<Base>                      | Alias: To Base                                |
++============================+===============================================+
+|Generic Windows OS          |<Program Files>\\National Instruments\\<xxxx>  |
++----------------------------+-----------------------------------------------+
+|Default Windows XP,Vista & 7|C:\\Program Files\\National Instruments\\<xxxx>|
++----------------------------+-----------------------------------------------+
+```
 
-<head>
-<style>
-table, th, td {
-  border: 1px solid black;
-}
-</style>
-</head>
-<body>
+```eval_rst
++----------------------------------+------------------------------------------------------------+
+|<Custom Device Engine Destination>| Alias: To Base                                             |
++==================================+============================================================+
+|PharLap / ETX                     |C:\\ni-rt\\veristand\\custom devices\\<custom device name>\\|
++----------------------------------+------------------------------------------------------------+
+```
 
-<table>
-	<tr>
-		<th>&lt;Common Data&gt;</th>
-		 <th>Alias: To Common Doc Dir</th>
- 	</tr>
- 	<tr>
-  		 <td> <b>Generic Windows OS</b> </td>
-       <td>&lt;Public Documents&gt;\National Instruments\&lt;xxxx&gt;</td>
- 	</tr>
-	<tr>
-  		<td> <b>Default Windows XP</b> </td>
-   	<td>C:\Documents and Settings\All Users\Shared Documents\National Instruments\&lt;xxxx&gt;</td>
- 	</tr>
-	<tr>
-  		<td> <b>Default Windows Vista & 7</b> </td>
-   	<td>C:\Users\Public\Documents\National Instruments\&lt;xxxx&gt;</td>
- 	</tr>
-</table>
-
-</body>
-<br /> 
-
-<head>
-<style>
-table, th, td {
-  border: 1px solid black;
-}
-</style>
-</head>
-<body>
-
-<table>
-	<tr>
-		<th>&lt;Application Data&gt;</th>
-		 <th>Alias: To Application Data Dir</th>
- 	</tr>
- 	<tr>
-  		 <td> <b>Generic Windows OS</b> </td>
-       <td>&lt;Application Data&gt;\National Instruments\&lt;xxxx&gt;</td>
- 	</tr>
-	<tr>
-  		<td> <b>Default Windows XP</b> </td>
-   	<td>C:\Documents and Settings\All Users\Shared Documents\National Instruments\&lt;xxxx&gt;</td>
- 	</tr>
-	<tr>
-  		<td> <b>Default Windows Vista & 7</b> </td>
-   	<td>C:\Users\Public\Documents\National Instruments\&lt;xxxx&gt;</td>
- 	</tr>
-</table>
-
-</body>
-<br /> 
-
-
-<head>
-<style>
-table, th, td {
-  border: 1px solid black;
-}
-</style>
-</head>
-<body>
-
-<table>
-	<tr>
-		<th>&lt;Base&gt;</th>
-		 <th>Alias: To Base</th>
- 	</tr>
- 	<tr>
-  		 <td> <b>Generic Windows OS</b> </td>
-       <td>&lt;Program Files&gt;\National Instruments\&lt;xxxx&gt;</td>
- 	</tr>
-	<tr>
-  		<td> <b>Default Windows XP, Vista & 7</b> </td>
-   	<td>C:\Program Files\National Instruments\&lt;xxxx&gt;</td>
- 	</tr>
-</table>
-
-</body>
-<br />
-
-<head>
-<style>
-table, th, td {
-  border: 1px solid black;
-}
-</style>
-</head>
-<body>
-
-<table>
-	<tr>
-		<th>&lt;Custom Device Engine Destination&gt;</th>
-		 <th></th>
- 	</tr>
- 	<tr>
-  		 <td> <b>PharLap / ETX</b> </td>
-       <td>C:\ni-rt\veristand\custom devices\&lt;custom device
-name&gt;\</td>
- 	</tr>
-</table>
-
-</body>
-<br />
-
-Note: <xxxx> is the  Veristand version number.
+**Note:** <xxxx> is the  Veristand version number.
 
 VeriStand parses <b>&lt;Common Data&gt;\Custom Devices</b> for custom device XML files when it first launches. You must restart VeriStand to recognize newly added or modified custom device XML files. 
 
