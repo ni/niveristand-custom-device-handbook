@@ -36,15 +36,15 @@ After obtaining (or building himself)the custom device’s libraries, the operat
 
 
 ```eval_rst
-+------------------------+------------+
-| <Common Data>   | Alias: To Common Doc Dir  |
-+========================+============+
-| Generic Windows OS   | Public Documents&gt;\National Instruments\<xxxx>   |
-+------------------------+------------+
-| Default Windows XP         | C:\Documents and Settings\All Users\Shared Documents\National Instruments\<xxxx>   |
-+------------------------+------------+
-| Default Windows Vista & 7           | C:\Users\Public\Documents\National Instruments\<xxxx> |
-+------------------------+------------+
++-----------------------------+----------------------------------------------------------------------------------------+
+| <Common Data>               | Alias: To Common Doc Dir                                                               |
++=============================+========================================================================================+
+| Generic Windows OS          | Public Documents&gt;\National Instruments\<xxxx>                                       |
++-----------------------------+----------------------------------------------------------------------------------------+
+| Default Windows XP          | C:\Documents and Settings\All Users\Shared Documents\National Instruments\<xxxx>       |
++-----------------------------+----------------------------------------------------------------------------------------+
+| Default Windows Vista & 7   | C:\Users\Public\Documents\National Instruments\<xxxx>                                  |
++-----------------------------+----------------------------------------------------------------------------------------+
 ```
 
 
