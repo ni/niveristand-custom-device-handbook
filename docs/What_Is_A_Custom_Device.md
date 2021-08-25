@@ -9,9 +9,9 @@ VeriStand is an open software environment you can use to configure real-time tes
 
 For more information refer to **[NI Developer Zone Tutorial: What is NI VeriStand](https://www.ni.com/en-us/shop/data-acquisition-and-control/application-software-for-data-acquisition-and-control-category/what-is-veristand.html)**.
 
-You can customize and extend the VeriStand environment with LabVIEW to meet application requirements. This document provides the background, design decisions,and technical information required to understand and develop custom devices in VeriStand 2020 and later. 
+You can customize and extend the VeriStand environment with LabVIEW to meet application requirements. This document provides the background, design decisions,and technical information required to understand and develop custom devices in VeriStand. 
 
-Before you begin creating custom device, you must understand the VeriStand Engine. For more information on the refer to VeriStand Help
+Before you begin creating custom device, you must understand the VeriStand Engine. For more information on the refer to VeriStand Help.
 
 #### What is a Custom Device?
 
@@ -74,7 +74,7 @@ After obtaining (or building himself)the custom device’s libraries, the operat
 +----------------------------------+------------------------------------------------------------+
 ```
 
-**Note:** <<xxxx>> is the  Veristand version number.
+&nbsp;&nbsp;&nbsp; **Note:** <<xxxx>> is the  Veristand version number.
 
 VeriStand parses **Common Data\Custom Devices** for custom device XML files when it first launches. You must restart VeriStand to recognize newly added or modified custom device XML files. 
 
@@ -82,7 +82,7 @@ Add the custom device to the system definition in the configuration tree by navi
 
 ![](images/Picture4.jpg)
 
-Most custom devices consist of two VI libraries and XML file. Logically, custom devices consist of three parts.
+Logically, custom devices consist of three parts.
 
 &nbsp;&nbsp;&nbsp; Custom Device Framework<br />
 &nbsp;&nbsp;&nbsp; Custom Code<br />
@@ -90,7 +90,7 @@ Most custom devices consist of two VI libraries and XML file. Logically, custom 
 
 #### Custom Device Framework
 
-The custom device framework consists of type definitions, specifically named controls and indicators, template VIs and a LabVIEW API. Together these items for the rules, or framework, that allows any conforming VI to interact with VeriStand. There are prebuilt types of custom devices. Almost any requirement can be accomplished by adding or modifying code in one of the prebuilt devices.
+The custom device framework consists of type definitions, specifically named controls and indicators, template VIs and a LabVIEW API. Together these items for the rules, or framework, that allows any conforming VI to interact with VeriStand. There are several prebuilt types of custom devices. Almost any requirement can be accomplished by adding or modifying code in one of the prebuilt devices.
 
 The prebuilt devices start with the Custom Device Template Tool. The template tool is located in <span style="color:green">*<vi.lib>\ NI Veristand\Custom Device Tools\Custom Device Template Tool\Custom Device Template Tool.vi*</span>.
 The developer specifies the type of custom device before running the template tool. The tool generates the LabVIEW Project for the new custom device. The exact resources in the project depend on the type of custom device selected.
@@ -107,7 +107,7 @@ The following image displays a new custom device project that uses these two lib
 
 The Custom Device API library contains most of the type definitions, template VIs and LabVIEW API needed to interact with VeriStand data and timing resources. They allow the VI to behave as a native task in the VeriStand Engine. 
 
-   **Note:** Some of these VIs also appear on the LabVIEW palette in **[VeriStand](http://zone.ni.com/reference/en-XX/help/372846B-01/TOC12.htm)** » **[Custom Device API](http://zone.ni.com/reference/en-XX/help/372846B-01/TOC13.htm)**.
+&nbsp;&nbsp;&nbsp; **Note:** Some of these VIs also appear on the LabVIEW palette in **[VeriStand](http://zone.ni.com/reference/en-XX/help/372846B-01/TOC12.htm)** » **[Custom Device API](http://zone.ni.com/reference/en-XX/help/372846B-01/TOC13.htm)**.
 
 The API library contains the custom device’s configuration and real-time engine VIs. These correspond to the configuration and engine VI libraries (or LLBs). The front panel and block diagram of these VIs are populated with objects from the Custom Device API library.
 
@@ -128,7 +128,7 @@ custom device XML file.
 
 The Initialization Page runs each time a new instance of the same custom device is added to the system definition. VeriStand retains state information for each instance of a custom device in the **[System Definition](http://zone.ni.com/reference/en-XX/help/372846B-01/veristand/comp_of_project/#system_definition_file)** (.**[nivssdf](https://www.ni.com/documentation/en/veristand/latest/manual/configure-system-definition-file/)**) file. State is defined by the value of each control, indicator, and property of the page. The system definition is human-readable XML, so you can open the file with a text editor. 
 
-   **Note:** You can use the **[.NET API](http://zone.ni.com/devzone/cda/tut/p/id/9366#toc2)** to programmatically modify the system definition.
+&nbsp;&nbsp;&nbsp; **Note:** You can use the **[.NET API](http://zone.ni.com/devzone/cda/tut/p/id/9366#toc2)** to programmatically modify the system definition.
 
 #### Main Page
 
@@ -143,7 +143,7 @@ The Custom Device Template Tool creates the <span style="color:green">*<Custom D
 
 VeriStand 2009 did not support the VeriStand Engine on VxWorks operating systems. Starting with VeriStand 2010, if you want to support VxWorks targets such as Compact RIO, you must compile the engine library for VxWorks. PharLap and Windows engines do not require additional compilation.
 
-The engine runs after the custom device deployed to the execution host. You can usually add initialization, steady-state, and shutdown code to the engine template. There aren’t any hard boundaries on what code you can put into the engine, only on what code you should put in the engine.
+The engine runs after the custom device deployed to the execution host. You can usually add initialization, steady-state, and shutdown code to the engine template. There aren't any hard boundaries on what code you can put into the engine, but each additional code that is added can increase the size of the engine, and the time required to deploy your system.
 
 Each of the five prebuilt custom devices has a different engine VI. Each engine VI executes at a different time with respect to other VeriStand components. The timing requirements of a custom device, and thus the type of device selected, are functions of when the device needs to execute with respect to other VeriStand Engine components.
 
