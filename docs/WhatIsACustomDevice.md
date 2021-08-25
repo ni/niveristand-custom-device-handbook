@@ -83,9 +83,9 @@ Add the custom device to the system definition in the configuration tree by navi
 ![](images/Picture4.jpg)
 
 Most custom devices consist of two VI libraries and XML file. Logically, custom devices consist of three parts.<br />
-    Custom Device Framework<br />
-    Custom Code<br />
-    Custom Device XML File<br />
+&nbsp;&nbsp;&nbsp;Custom Device Framework<br />
+&nbsp;&nbsp;&nbsp;Custom Code<br />
+&nbsp;&nbsp;&nbsp;Custom Device XML File<br />
 
 #### Custom Device Framework
 
