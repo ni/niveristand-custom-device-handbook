@@ -1,6 +1,6 @@
 
 
-# Veristand Custom Device Handbook
+# VeriStand Custom Device Handbook
 
 
 #### Introduction
