@@ -91,10 +91,10 @@ The project is pre-populated with VIs, LabVIEW Libraries, an XML File, and two b
 VeriStand evolved from NI Dynamic Test Software (NI-DTS). NI-DTS evolved from 3rd party intellectual property (IP) called EASE. The IP made basic provisions for add-on LabVIEW code. This provisions could be considered the first custom device framework on which several “custom devices” were built. If you find a custom device that does not fit the niveristand-custom-device-wizard framework, you may be operating an EASE based custom devices.
 
 For each of the five types of custom devices, in the LabVIEW source project, you’ll see:
-* an _NI VeriStand APIs_ virtual folder containing two VI libraries: <span style="color:green">*Custom Device API.lvlib*</span> and <span style="color:green">*Custom Device Utility Library.lvlib.*</span>;
-* a <span style="color:green">*&lt;Custom Device Name&gt; Engine.lvlib.*</span> VI library;
-* a <span style="color:green">*&lt;Custom Device Name&gt; Shared.lvlib.*</span> VI library;
-* a <span style="color:green">*&lt;Custom Device Name&gt; System Explorer.lvlib.*</span> VI library.
+* an _NI VeriStand APIs_ virtual folder containing two VI libraries: <span style="color:green">*Custom Device API.lvlib*</span> and <span style="color:green">*Custom Device Utility Library.lvlib*</span>;
+* a <span style="color:green">*&lt;Custom Device Name&gt; Engine.lvlib*</span> VI library;
+* a <span style="color:green">*&lt;Custom Device Name&gt; Shared.lvlib*</span> VI library;
+* a <span style="color:green">*&lt;Custom Device Name&gt; System Explorer.lvlib*</span> VI library.
 
 The following image displays a new custom device template project.
 ![](images/Picture5.jpg)
