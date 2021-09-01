@@ -11,7 +11,7 @@
 
    + [Planning the Custom Device](Planning_The_Custom_Device.md)
 
-   + [Custom Device Type](Custom_Device_Types.md)
+   + [Custom Device Types](Custom_Device_Types.md)
 
 #### Implement the Custom Device
 
