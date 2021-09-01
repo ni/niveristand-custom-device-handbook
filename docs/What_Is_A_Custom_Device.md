@@ -42,7 +42,7 @@ The following tables list paths to common VeriStand directories by operating sys
 ```
 
 ```eval_rst
-+-------------------------+------------------------------------------------------- ---------------+
++-------------------------+-----------------------------------------------------------------------+
 |<Application Data>       | Alias: To Application Data Dir                                        |
 +=========================+=======================================================================+
 |Windows                  |<Application Data>\\National Instruments\\VeriStand                    |
