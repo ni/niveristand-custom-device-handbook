@@ -32,46 +32,37 @@ After obtaining (or building himself) the custom device’s libraries, the opera
 #### Table of Directories and Aliases:
 
 The following tables list paths to common VeriStand directories by operating system. The heading before each table indicates how NI documentation refers to the directory. For directories with aliases listed, the alias is the text that appears with a relative path in an API or XML file. This text defines the directory that the path is relative to.
+
 ```eval_rst
-+-------------------------+-------------------------------------------------------------------------------------+
-|<Common Data>            |Alias: To Common Doc Dir                                                             |
-+=========================+=====================================================================================+
-|Generic Windows OS       |<Public Documents>\\National Instruments\\<xxxx>                                     |
-+-------------------------+-------------------------------------------------------------------------------------+
-|Default Windows XP       |C:\\Documents and Settings\\All Users\\Shared Documents\\National Instruments\\<xxxx>|
-+-------------------------+-------------------------------------------------------------------------------------+
-|Default Windows Vista & 7|C:\\Users\\Public\\Documents\\National Instruments\\<xxxx>                           |
-+-------------------------+-------------------------------------------------------------------------------------+
++-------------------------+-------------------------------------------------------------------------+
+|<Common Data>            |Alias: To Common Doc Dir                                                 |
++=========================+=========================================================================+
+|Windows                  |<Public Documents>\\National Instruments\\NI VeriStand <xxxx>            |
++-------------------------+-------------------------------------------------------------------------+
 ```
 
 ```eval_rst
-+-------------------------+-------------------------------------------------------------------------------------+
-|<Application Data>       | Alias: To Application Data Dir                                                      |
-+=========================+=====================================================================================+
-|Generic Windows OS       |<Application Data>\\National Instruments\\<xxxx>                                     |
-+-------------------------+-------------------------------------------------------------------------------------+
-|Default Windows XP       |C:\\Documents and Settings\\All Users\\Shared Documents\\National Instruments\\<xxxx>|
-+-------------------------+-------------------------------------------------------------------------------------+
-|Default Windows Vista & 7|C:\\Users\\Public\\Documents\\National Instruments\\<xxxx>                           |
-+-------------------------+-------------------------------------------------------------------------------------+
++-------------------------+------------------------------------------------------- ---------------+
+|<Application Data>       | Alias: To Application Data Dir                                        |
++=========================+=======================================================================+
+|Windows                  |<Application Data>\\National Instruments\\VeriStand                    |
++-------------------------+-----------------------------------------------------------------------+
 ```
  
 ```eval_rst
-+----------------------------+-----------------------------------------------+
-|<Base>                      | Alias: To Base                                |
-+============================+===============================================+
-|Generic Windows OS          |<Program Files>\\National Instruments\\<xxxx>  |
-+----------------------------+-----------------------------------------------+
-|Default Windows XP,Vista & 7|C:\\Program Files\\National Instruments\\<xxxx>|
-+----------------------------+-----------------------------------------------+
++----------------------------+-------------------------------------------------------+
+|<Base>                      | Alias: To Base                                        |
++============================+=======================================================+
+|Windows                     |<Program Files>\\National Instruments\\VeriStand <xxxx>|
++----------------------------+-------------------------------------------------------+
 ```
 
 ```eval_rst
-+----------------------------------+------------------------------------------------------------+
-|<Custom Device Engine Destination>| Alias: To Base                                             |
-+==================================+============================================================+
-|Linux                     |c:\\ni-rt\\NIVeriStand\\Custom Devices\\<custom device name>\\|
-+----------------------------------+------------------------------------------------------------+
++----------------------------------+--------------------------------------------------------------+
+|<Custom Device Engine Destination>| Alias: To Base                                               |
++==================================+==============================================================+
+|Linux                             |c:\\ni-rt\\NIVeriStand\\Custom Devices\\<custom device name>\\|
++----------------------------------+--------------------------------------------------------------+
 ```
 
 &nbsp;&nbsp;&nbsp; **Note:** &lt;xxxx&gt; is the  VeriStand version number.
