@@ -1,7 +1,6 @@
 
 
-# Veristand Custom Device Handbook
-
+# VeriStand Custom Device Handbook
 
 #### Introduction
 
@@ -34,4 +33,3 @@
    + [Distributing the Custom Device](Distributing_the_Custom_Device.md)
 
 #### Custom Device Tips and Tricks
-
