@@ -84,6 +84,7 @@ Upon request, National Instrument may provide advanced debugging tools to help y
 
 #### Table of Debugging and Benchmarking Techniques
 
+
 ```eval_rst
 +--------------------+-------------------+-----------+-----------------------------------------------------------------+
 |Technique           |Useful For         |Granularity|Caveats                                                          |
@@ -100,7 +101,7 @@ Upon request, National Instrument may provide advanced debugging tools to help y
 |RT Debug String     |Debugging          |N/A        |•	Incurs overhead, especially when the console window requires  |
 |                    |                   |           |   a redraw                                                      |
 +--------------------+-------------------+-----------+-----------------------------------------------------------------+
-|Distributed System  |Benchmarking CPU   |Medium     |•	Periodic snapshot of utilization, transients and spikes may be| 
+|Distributed System  |Benchmarking CPU   |Medium     |•	Periodic snapshot of utilization, transients and spikes may be|
 | Manager            |Benchmarking RAM   |           |   missed                                                        |
 |                    |                   |           |•	Requires the System State Publisher daemon                    |
 +--------------------+-------------------+-----------+-----------------------------------------------------------------+
@@ -122,3 +123,5 @@ Upon request, National Instrument may provide advanced debugging tools to help y
 |                    |                   |           |•	Considered a last resort only                                 |
 +--------------------+-------------------+-----------+-----------------------------------------------------------------+
 ```
+
+
