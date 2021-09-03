@@ -12,7 +12,7 @@ Once added to the system definition, custom devices have been fully integrated i
 #### Console Viewer
 
 A subcomponent of VeriStand RT Engine is the RT Console Viewer.
-You can install it to the execution host using Measurement and Automation Explorer. When installed, the component runs a small UDP daemon allowing the operator to view the console from a utility called the RT Console Viewer. You can access the RT Console viewer from VeriStand » Workspace » Tools » Console Viewer.	
+You can install it to the execution host using Measurement and Automation Explorer. When installed, the component runs a small UDP daemon allowing the operator to view the console from a utility called the RT Console Viewer. You can access the RT Console viewer from **VeriStand » Workspace » Tools » Console Viewer**.	
 
 ![](images/ConsoleViewer1.jpg)
 
@@ -90,38 +90,38 @@ Upon request, National Instrument may provide advanced debugging tools to help y
 +--------------------+-------------------+-----------+-----------------------------------------------------------------+
 |Technique           |Useful For         |Granularity|Caveats                                                          |
 +====================+===================+===========+=================================================================+
-|LabVIEW’s Built-in  | Debugging         |N/A        |•	Useful before the LabVIEW code has been merged into the       |
+|LabVIEW’s Built-in  | Debugging         |N/A        |-	Useful before the LabVIEW code has been merged into the       |
 |Debugging Tools     |                   |           |   custom device framework                                       |
-|                    |                   |           |•	LabVIEW debugging hooks do affect timing                      |
-|                    |                   |           |•	Execution highlighting drastically affects VI timing          |
+|                    |                   |           |-	LabVIEW debugging hooks do affect timing                      |
+|                    |                   |           |-	Execution highlighting drastically affects VI timing          |
 +--------------------+-------------------+-----------+-----------------------------------------------------------------+
-|Console Viewer      |Debugging          |Low        |•	Periodic snapshot of utilization, transients and spikes may be|
+|Console Viewer      |Debugging          |Low        |-	Periodic snapshot of utilization, transients and spikes may be|
 |                    |Benchmarking CPU   |           |   missed                                                        |
-|                    |                   |           |•	Requires the RT Console Viewer daemon                         |
+|                    |                   |           |-	Requires the RT Console Viewer daemon                         |
 +--------------------+-------------------+-----------+-----------------------------------------------------------------+
-|RT Debug String     |Debugging          |N/A        |•	Incurs overhead, especially when the console window requires  |
+|RT Debug String     |Debugging          |N/A        |-	Incurs overhead, especially when the console window requires  |
 |                    |                   |           |   a redraw                                                      |
 +--------------------+-------------------+-----------+-----------------------------------------------------------------+
-|Distributed System  |Benchmarking CPU   |Medium     |•	Periodic snapshot of utilization, transients and spikes may be|
+|Distributed System  |Benchmarking CPU   |Medium     |-	Periodic snapshot of utilization, transients and spikes may be|
 | Manager            |Benchmarking RAM   |           |   missed                                                        |
-|                    |                   |           |•	Requires the System State Publisher daemon                    |
+|                    |                   |           |-	Requires the System State Publisher daemon                    |
 +--------------------+-------------------+-----------+-----------------------------------------------------------------+
-|System Channels     |Benchmarking timing|High       |•	Knowledge of the operator’s System Definition is required to  |
+|System Channels     |Benchmarking timing|High       |-	Knowledge of the operator’s System Definition is required to  |
 |                    |                   |           |   make good use of the system channels for benchmarking         |
 +--------------------+-------------------+-----------+-----------------------------------------------------------------+
-|System Monitor      |Benchmarking CPU   |High       |•	This add-on is an asynchronous custom device. The higher      |
+|System Monitor      |Benchmarking CPU   |High       |-	This add-on is an asynchronous custom device. The higher      |
 | Add-on             |Benchmarking RAM   |           |   you configure the custom device loop rate, the more overhead  |
 |                    |                   |           |   it adds.                                                      |
 +--------------------+-------------------+-----------+-----------------------------------------------------------------+
-|Real-Time Execution |Debugging          |Ultra High |•	Execution trace logs contain a vast amount of detailed        |
+|Real-Time Execution |Debugging          |Ultra High |-	Execution trace logs contain a vast amount of detailed        |
 | Tracing            |Benchmarking       |           |   information. They require a good deal of domain expertise     |
 |                    |                   |           |   interpret.                                                    |
-|                    |                   |           |•	Using the tool effectively requires starting and stopping the |
+|                    |                   |           |-	Using the tool effectively requires starting and stopping the |
 |                    |                   |           |   trace directly around the period of interest.                 |
 +--------------------+-------------------+-----------+-----------------------------------------------------------------+
-|Additional Debugging|Debugging          |           |•	Must request from NI                                          |
-|Options             |                   |           |•	NI must approve its use                                       |
-|                    |                   |           |•	Considered a last resort only                                 |
+|Additional Debugging|Debugging          |           |-	Must request from NI                                          |
+|Options             |                   |           |-	NI must approve its use                                       |
+|                    |                   |           |-	Considered a last resort only                                 |
 +--------------------+-------------------+-----------+-----------------------------------------------------------------+
 ```
 
