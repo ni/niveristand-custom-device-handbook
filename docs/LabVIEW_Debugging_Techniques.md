@@ -41,8 +41,6 @@ If you do not want to call **ni_emb.dll** on a Windows OS, you can use a **[Cond
 ![](images/Disable_ni_emb.jpg)	 
 Figure: Disable ni_emb.dll for non-Windows Operating Systems
 
-<span style="color:red">*You may find NI Developer Zone Example Program: DebugInfo.vi: Polymorphic VI for Showing Debug Information on an RT System useful for printing non-string data to the console window. You should be aware of the overhead incurred by calling this function. KnowledgeBase 3EK88SOH: Can I Use the RT Debug String In My Time-Critical Loop outlines a few caveats and best practices for using the PrintStringToConsole function, such as using \r in a Slash Code string constant to avoid scrolling the screen.*</span>
-
 #### Distributed System Manager
 
 You can use the NI Distributed System Manager (DSM) to monitor the CPU and memory resources of an RT target. You must install System State Publisher on the RT target. This component runs a small daemon that publishes the system state to DSM. See **[NI Distributed System Manager for LabVIEW 2018 Help](https://zone.ni.com/reference/en-XX/help/371361R-01/sysman/sysman/)** » **[System Manager Overview](https://zone.ni.com/reference/en-XX/help/372572E-01/sysman/sysman_overview/)** » **[Monitor RT target resources](https://zone.ni.com/reference/en-XX/help/372572E-01/sysman/monitoring_resources/)** for more information.
