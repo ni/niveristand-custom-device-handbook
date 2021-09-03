@@ -90,7 +90,7 @@ Upon request, National Instrument may provide advanced debugging tools to help y
 +--------------------+-------------------+-----------+-----------------------------------------------------------------+
 |Technique           |Useful For         |Granularity|Caveats                                                          |
 +====================+===================+===========+=================================================================+
-|LabVIEW’s Built-in  |Debugging          |N/A        |-	Useful before the LabVIEW code has been merged into the       |
+|LabVIEW's Built-in  |Debugging          |N/A        |-	Useful before the LabVIEW code has been merged into the       |
 |Debugging Tools     |                   |           |   custom device framework                                       |
 |                    |                   |           |-	LabVIEW debugging hooks do affect timing                      |
 |                    |                   |           |-	Execution highlighting drastically affects VI timing          |
@@ -106,7 +106,7 @@ Upon request, National Instrument may provide advanced debugging tools to help y
 | Manager            |Benchmarking RAM   |           |   missed                                                        |
 |                    |                   |           |-	Requires the System State Publisher daemon                    |
 +--------------------+-------------------+-----------+-----------------------------------------------------------------+
-|System Channels     |Benchmarking timing|High       |-	Knowledge of the operator’s System Definition is required to  |
+|System Channels     |Benchmarking timing|High       |-	Knowledge of the operator's System Definition is required to  |
 |                    |                   |           |   make good use of the system channels for benchmarking         |
 +--------------------+-------------------+-----------+-----------------------------------------------------------------+
 |System Monitor      |Benchmarking CPU   |High       |-	This add-on is an asynchronous custom device. The higher      |
