@@ -15,7 +15,8 @@ A subcomponent of VeriStand RT Engine is the RT Console Viewer.
 You can install it to the execution host using Measurement and Automation Explorer. When installed, the component runs a small UDP daemon allowing the operator to view the console from a utility called the RT Console Viewer. You can access the RT Console viewer from VeriStand » Workspace » Tools » Console Viewer.	
 
 ![](images/ConsoleViewer1.jpg)
-**Figure: RT Console Viewer
+
+**Figure: RT Console Viewer**
 
 The Console Viewer will show the system definition and the resulting CPU usage. The viewer is also useful for displaying debugging messages. The console viewer provides a periodic snapshot of utilization. CPU spikes and transients will probably be unobservable. If the system is very busy, it may not update the console viewer at all. You can use other debugging methods for a more accurate indication of resource utilization.
 
