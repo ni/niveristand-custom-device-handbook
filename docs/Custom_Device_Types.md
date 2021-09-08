@@ -132,7 +132,7 @@ The execute model case is called in the middle of the PCL. This is the one state
 
 Do not call **Get** or **Set Channel Value by Data Reference** outside the inline driver VI. Doing so could cause system instability or errors.
  
-### Custom Device Types
+### Pre-defined Custom Device Types
 
 The type of a custom device refers to its execution mode, which defines how the device interacts with the VeriStand Engine.
 
