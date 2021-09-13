@@ -6,10 +6,11 @@ The most critical phase of custom device development is planning. Several idiosy
 3.	Hierarchy
 4.	Pages
 5.	Device Type
+
 After you have a clear idea of the channels, properties, hierarchy, pages, and type of custom device, you're ready to start implementation. In the following discussion, we'll refer to a hypothetical 3rd party analog to digital (A/D) converter, the AES-201. A hypothetical device was chosen to simplify this discussion. If you prefer to follow along with an actual device, please refer to **[Building Custom Devices for NI VeriStand 2018](https://zone.ni.com/reference/en-XX/help/372846M-01/veristandmerge/cust_device_overview/)**.
 
 ![](images/Hypothetical_Digitize_AES-201.jpg)
-Figure: A Hypothetical Digitizer called the AES-201
+**Figure: A Hypothetical Digitizer called the AES-201**
 
 The AES-201 has (8) 32-bit analog input channels (AI). The device can digitize on ±1V or
 ±500mV. The card has a single software trigger line. Each channel has a software enable that is ON by default, and a 6Hz low pass filter that is OFF by default. A call to the hardware API makes a single A/D conversion on the specified channel and returns raw data. The range of the device cannot be changed after the device has been initialized.
@@ -42,15 +43,15 @@ Adds a channel to the device or device subsection specified by Parrent Ref in. I
 
 The Add Custom Device Channel VI may be called from any VI that runs on the host computer. There are several other VIs in the NI VeriStand Custom Device LabVIEW palette that operate on custom device channels. The behavior of the VI is what you’d expect given the name of the VI.
 
-**[Configuration](https://zone.ni.com/reference/en-XX/help/372846M-01/veristandmerge/vs_configuration_vis_pal/)** » **[Get Custom Device Channel Data VI](https://zone.ni.com/reference/en-XX/help/372846M-01/veristandmerge/vs_get_custom_device_channel_data_vi/)**
-**[Configuration](https://zone.ni.com/reference/en-XX/help/372846M-01/veristandmerge/vs_configuration_vis_pal/)** » **[Rename Custom Device Item VI](https://zone.ni.com/reference/en-XX/help/372846M-01/veristandmerge/vs_rename_custom_device_item_vi/)**
-**[Configuration](https://zone.ni.com/reference/en-XX/help/372846M-01/veristandmerge/vs_configuration_vis_pal/)** » **[Remove Custom Device Item VI](https://zone.ni.com/reference/en-XX/help/372846M-01/veristandmerge/vs_remove_custom_device_item_vi/)**
-**[Channel Properties](https://zone.ni.com/reference/en-XX/help/372846M-01/veristandmerge/vs_channel_properties_vis_pal/)** » **[Set Custom Device Channel Default Value VI](https://zone.ni.com/reference/en-XX/help/372846M-01/veristandmerge/vs_set_custom_device_channel_default_value_vi/)**
-**[Channel Properties](https://zone.ni.com/reference/en-XX/help/372846M-01/veristandmerge/vs_channel_properties_vis_pal/)** » **[Set Custom Device Channel Faultability VI](https://zone.ni.com/reference/en-XX/help/372846M-01/veristandmerge/vs_set_custom_device_channel_faultability_vi/)**
-**[Channel Properties](https://zone.ni.com/reference/en-XX/help/372846M-01/veristandmerge/vs_channel_properties_vis_pal/)** » **[Set Custom Device Channel Scalability VI](https://zone.ni.com/reference/en-XX/help/372846M-01/veristandmerge/vs_set_custom_device_channel_scalability_vi/)**
-**[Channel Properties](https://zone.ni.com/reference/en-XX/help/372846M-01/veristandmerge/vs_channel_properties_vis_pal/)** » **[Set Custom Device Channel Type VI](https://zone.ni.com/reference/en-XX/help/372846M-01/veristandmerge/vs_set_custom_device_channel_type_vi/)**
-**[Channel Properties](https://zone.ni.com/reference/en-XX/help/372846M-01/veristandmerge/vs_channel_properties_vis_pal/)** » **[Set Custom Device Channel Units VI](https://zone.ni.com/reference/en-XX/help/372846M-01/veristandmerge/vs_set_custom_device_channel_units_vi/)**
-**[Driver Functions](https://zone.ni.com/reference/en-XX/help/372846M-01/veristandmerge/vs_driver_functions_vis_pal/)** » **[Get Custom Device Channel List VI](https://zone.ni.com/reference/en-XX/help/372846M-01/veristandmerge/vs_get_custom_device_channel_list_vi/)**
+**[Configuration](https://zone.ni.com/reference/en-XX/help/372846M-01/veristandmerge/vs_configuration_vis_pal/)** » **[Get Custom Device Channel Data VI](https://zone.ni.com/reference/en-XX/help/372846M-01/veristandmerge/vs_get_custom_device_channel_data_vi/)**<br />
+**[Configuration](https://zone.ni.com/reference/en-XX/help/372846M-01/veristandmerge/vs_configuration_vis_pal/)** » **[Rename Custom Device Item VI](https://zone.ni.com/reference/en-XX/help/372846M-01/veristandmerge/vs_rename_custom_device_item_vi/)**<br />
+**[Configuration](https://zone.ni.com/reference/en-XX/help/372846M-01/veristandmerge/vs_configuration_vis_pal/)** » **[Remove Custom Device Item VI](https://zone.ni.com/reference/en-XX/help/372846M-01/veristandmerge/vs_remove_custom_device_item_vi/)**<br />
+**[Channel Properties](https://zone.ni.com/reference/en-XX/help/372846M-01/veristandmerge/vs_channel_properties_vis_pal/)** » **[Set Custom Device Channel Default Value VI](https://zone.ni.com/reference/en-XX/help/372846M-01/veristandmerge/vs_set_custom_device_channel_default_value_vi/)**<br />
+**[Channel Properties](https://zone.ni.com/reference/en-XX/help/372846M-01/veristandmerge/vs_channel_properties_vis_pal/)** » **[Set Custom Device Channel Faultability VI](https://zone.ni.com/reference/en-XX/help/372846M-01/veristandmerge/vs_set_custom_device_channel_faultability_vi/)**<br />
+**[Channel Properties](https://zone.ni.com/reference/en-XX/help/372846M-01/veristandmerge/vs_channel_properties_vis_pal/)** » **[Set Custom Device Channel Scalability VI](https://zone.ni.com/reference/en-XX/help/372846M-01/veristandmerge/vs_set_custom_device_channel_scalability_vi/)**<br />
+**[Channel Properties](https://zone.ni.com/reference/en-XX/help/372846M-01/veristandmerge/vs_channel_properties_vis_pal/)** » **[Set Custom Device Channel Type VI](https://zone.ni.com/reference/en-XX/help/372846M-01/veristandmerge/vs_set_custom_device_channel_type_vi/)**<br />
+**[Channel Properties](https://zone.ni.com/reference/en-XX/help/372846M-01/veristandmerge/vs_channel_properties_vis_pal/)** » **[Set Custom Device Channel Units VI](https://zone.ni.com/reference/en-XX/help/372846M-01/veristandmerge/vs_set_custom_device_channel_units_vi/)**<br />
+**[Driver Functions](https://zone.ni.com/reference/en-XX/help/372846M-01/veristandmerge/vs_driver_functions_vis_pal/)** » **[Get Custom Device Channel List VI](https://zone.ni.com/reference/en-XX/help/372846M-01/veristandmerge/vs_get_custom_device_channel_list_vi/)**<br />
 
 In addition to these channel-specific VIs, any VI from the **[Item Properties palette](https://zone.ni.com/reference/en-XX/help/372846M-01/veristandmerge/vs_item_properties_vis_pal/)** may be used with a custom device channel.
 
@@ -89,18 +90,18 @@ Removes the Property Name from an item.
 
 The Get Item Property and Remove Item Property VIs may be called from any VI in the custom device. There are several other VIs in the NI VeriStand Custom Device LabVIEW palette that operate on custom device properties. The behavior of the VI is what you’d expect from the name of the VI.
 
-**[Item Properties](https://zone.ni.com/reference/en-XX/help/372846M-01/veristandmerge/vs_item_properties_vis_pal/)** » **[Get Item Description](https://zone.ni.com/reference/en-XX/help/372846M-01/veristandmerge/vs_get_item_description_vi/)**
-**[Item Properties](https://zone.ni.com/reference/en-XX/help/372846M-01/veristandmerge/vs_item_properties_vis_pal/)** » **[Get Item GUID](https://zone.ni.com/reference/en-XX/help/372846M-01/veristandmerge/vs_get_item_guid_vi/)**
-**[Item Properties](https://zone.ni.com/reference/en-XX/help/372846M-01/veristandmerge/vs_item_properties_vis_pal/)** » **[Get Property Names List](https://zone.ni.com/reference/en-XX/help/372846M-01/veristandmerge/vs_get_property_names_list_vi/)**
-**[Item Properties](https://zone.ni.com/reference/en-XX/help/372846M-01/veristandmerge/vs_item_properties_vis_pal/)** » **[Set Item Description](https://zone.ni.com/reference/en-XX/help/372846M-01/veristandmerge/vs_set_item_description_vi/)**
-**[Item Properties](https://zone.ni.com/reference/en-XX/help/372846M-01/veristandmerge/vs_item_properties_vis_pal/)** » **[Set Item GUID](https://zone.ni.com/reference/en-XX/help/372846M-01/veristandmerge/vs_set_item_guid_vi/)**
-**[Device Properties](https://zone.ni.com/reference/en-XX/help/372846M-01/veristandmerge/vs_device_properties_vis_pal/)** » **[Get Custom Device Decimation](https://zone.ni.com/reference/en-XX/help/372846M-01/veristandmerge/vs_get_custom_device_decimation_vi/)**
-**[Device Properties](https://zone.ni.com/reference/en-XX/help/372846M-01/veristandmerge/vs_device_properties_vis_pal/)** » **[Get Custom Device Driver](https://zone.ni.com/reference/en-XX/help/372846M-01/veristandmerge/vs_get_custom_device_driver_vi/)**
-**[Device Properties](https://zone.ni.com/reference/en-XX/help/372846M-01/veristandmerge/vs_device_properties_vis_pal/)** » **[Get Custom Device Version](https://zone.ni.com/reference/en-XX/help/372846M-01/veristandmerge/vs_get_custom_device_version_vi/)**
-**[Device Properties](https://zone.ni.com/reference/en-XX/help/372846M-01/veristandmerge/vs_device_properties_vis_pal/)** » **[Set Custom Device Decimation](https://zone.ni.com/reference/en-XX/help/372846M-01/veristandmerge/vs_set_custom_device_decimation_vi/)**
-**[Device Properties](https://zone.ni.com/reference/en-XX/help/372846M-01/veristandmerge/vs_device_properties_vis_pal/)** » **[Set Custom Device Driver](https://zone.ni.com/reference/en-XX/help/372846M-01/veristandmerge/vs_set_custom_device_drivers/)**
-**[Device Properties](https://zone.ni.com/reference/en-XX/help/372846M-01/veristandmerge/vs_device_properties_vis_pal/)** » **[Set Custom Device Version](https://zone.ni.com/reference/en-XX/help/372846M-01/veristandmerge/vs_set_custom_device_version_vi/)**
-**[Device Properties](https://zone.ni.com/reference/en-XX/help/372846M-01/veristandmerge/vs_device_properties_vis_pal/)** » **[Specify Custom Device Execution Mode](https://zone.ni.com/reference/en-XX/help/372846M-01/veristandmerge/vs_specify_custom_device_execution_mode_vi/)**
+**[Item Properties](https://zone.ni.com/reference/en-XX/help/372846M-01/veristandmerge/vs_item_properties_vis_pal/)** » **[Get Item Description](https://zone.ni.com/reference/en-XX/help/372846M-01/veristandmerge/vs_get_item_description_vi/)**<br />
+**[Item Properties](https://zone.ni.com/reference/en-XX/help/372846M-01/veristandmerge/vs_item_properties_vis_pal/)** » **[Get Item GUID](https://zone.ni.com/reference/en-XX/help/372846M-01/veristandmerge/vs_get_item_guid_vi/)**<br />
+**[Item Properties](https://zone.ni.com/reference/en-XX/help/372846M-01/veristandmerge/vs_item_properties_vis_pal/)** » **[Get Property Names List](https://zone.ni.com/reference/en-XX/help/372846M-01/veristandmerge/vs_get_property_names_list_vi/)**<br />
+**[Item Properties](https://zone.ni.com/reference/en-XX/help/372846M-01/veristandmerge/vs_item_properties_vis_pal/)** » **[Set Item Description](https://zone.ni.com/reference/en-XX/help/372846M-01/veristandmerge/vs_set_item_description_vi/)**<br />
+**[Item Properties](https://zone.ni.com/reference/en-XX/help/372846M-01/veristandmerge/vs_item_properties_vis_pal/)** » **[Set Item GUID](https://zone.ni.com/reference/en-XX/help/372846M-01/veristandmerge/vs_set_item_guid_vi/)**<br />
+**[Device Properties](https://zone.ni.com/reference/en-XX/help/372846M-01/veristandmerge/vs_device_properties_vis_pal/)** » **[Get Custom Device Decimation](https://zone.ni.com/reference/en-XX/help/372846M-01/veristandmerge/vs_get_custom_device_decimation_vi/)**<br />
+**[Device Properties](https://zone.ni.com/reference/en-XX/help/372846M-01/veristandmerge/vs_device_properties_vis_pal/)** » **[Get Custom Device Driver](https://zone.ni.com/reference/en-XX/help/372846M-01/veristandmerge/vs_get_custom_device_driver_vi/)**<br />
+**[Device Properties](https://zone.ni.com/reference/en-XX/help/372846M-01/veristandmerge/vs_device_properties_vis_pal/)** » **[Get Custom Device Version](https://zone.ni.com/reference/en-XX/help/372846M-01/veristandmerge/vs_get_custom_device_version_vi/)**<br />
+**[Device Properties](https://zone.ni.com/reference/en-XX/help/372846M-01/veristandmerge/vs_device_properties_vis_pal/)** » **[Set Custom Device Decimation](https://zone.ni.com/reference/en-XX/help/372846M-01/veristandmerge/vs_set_custom_device_decimation_vi/)**<br />
+**[Device Properties](https://zone.ni.com/reference/en-XX/help/372846M-01/veristandmerge/vs_device_properties_vis_pal/)** » **[Set Custom Device Driver](https://zone.ni.com/reference/en-XX/help/372846M-01/veristandmerge/vs_set_custom_device_drivers/)**<br />
+**[Device Properties](https://zone.ni.com/reference/en-XX/help/372846M-01/veristandmerge/vs_device_properties_vis_pal/)** » **[Set Custom Device Version](https://zone.ni.com/reference/en-XX/help/372846M-01/veristandmerge/vs_set_custom_device_version_vi/)**<br />
+**[Device Properties](https://zone.ni.com/reference/en-XX/help/372846M-01/veristandmerge/vs_device_properties_vis_pal/)** » **[Specify Custom Device Execution Mode](https://zone.ni.com/reference/en-XX/help/372846M-01/veristandmerge/vs_specify_custom_device_execution_mode_vi/)**<br />
 
 ### Custom Device Decimation
 
@@ -212,6 +213,9 @@ There is a GUID Generator VI in <vi.lib>\NI Veristand\Custom Device Tools\Custom
 VI’s Execution Priority to Normal. There are also a variety of free GUID generators on-line.
 XML Declaration
 The custom device API associates a channel or section with a GUID. The custom device XML associates the GUID with the page VI. The page and its GUID must be declared in the custom device XML <PAGES> section within a <PAGE> schema. If the developer planned for the extra pages before running the Custom Device Template Tool, the tool makes the appropriate entries in the custom device XML file for each extra page.
+
+.. code-block:: html
+   :linenos:
 
 <Page>
 <Name>
