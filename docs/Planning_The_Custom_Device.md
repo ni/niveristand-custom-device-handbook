@@ -35,7 +35,7 @@ NI VeriStand channels are always LabVIEW DBLs. It may be easier to flatten data 
 Channels are created with **[Custom Device API](https://zone.ni.com/reference/en-XX/help/372846M-01/veristandmerge/cd_api_lib/)** » **[Configuration](https://zone.ni.com/reference/en-XX/help/371361R-01/glang/configuration_file_vis/)** » **[Add Custom Device Channel](https://zone.ni.com/reference/en-XX/help/372846M-01/veristandmerge/vs_add_custom_device_channel_vi/)**. The type of channel is either Input or Output. Channel type is with respect to the custom device. If the custom device passes data to the rest of the NI VeriStand system, it requires an output channel. If the custom device gets data from the rest of the system, it requires an input channel. For example, the AES-201 may have 8 output channels (ADDataFromCh<1..8>) and 17 input channels (ADEnCh<1..8>, FilterEnCh<1..8> and SWTrig).
 Once the custom device is loaded into NI VeriStand, the operator can map each input channel to a single data source. Similarly, the operator can map each output channel to an arbitrary number of sinks. For example, you can map ADDataFromCh1 to several simulation model inputs, but SWTrig may be mapped to a user channel or model output, but not both.
  
-**NI VeriStand – Add Custom Device Channel VI**
+**NI VeriStand – Add Custom Device Channel VI**<br />
 **Owning Palette:** Configuration
 ![](images/Add_Custom_Device_Channel_VI.jpg)
 
@@ -66,7 +66,7 @@ After the AES-201 has been started, the range cannot be changed. If the operator
 You may decide to implement the filter setting as a property. The operator would enable or disable the filter in System Explorer by toggling a check-box on each channel’s page. On one hand, the device would require 8 fewer channels. On the other hand, the operator could no longer toggle the input filter while the custom device was running. To illustrate several aspects of custom device development, we will implement the filter setting as a property.
 In this small example, we have eluded to a design decision often faced by custom device developers. As the number of use-cases and flexibility of a custom device increases, so does the complexity of planning and implementing the device. The tradeoff is a more robust device that requires less customization by the operator.
 
-**NI VeriStand – Set Item Property VI**
+**NI VeriStand – Set Item Property VI**<br />
 **Owning Palette:** Item Properties VIs
 ![](images/Set_item_Property_VI.jpg)
 
@@ -74,7 +74,7 @@ The Set Item Property VI may be called from any VI in the custom device. Propert
 
 A property must be read from the item to which it was set. For example, if you set the Filter_Enabled property on the ADDataFromCh1 channel, you cannot read the value of the Filter_Enabled property directly from the parent section or any reference other than ADDataFromCh1. Properties do not inherit.
 
-**NI VeriStand – Get Item Property VI**
+**NI VeriStand – Get Item Property VI**<br />
 **Owning Palette:** Item Properties VIs
 Returns the Value of a specific item Property Name. If the Property Name does not exist for the specified item, Value returns Default Value.
 
@@ -82,7 +82,7 @@ Returns the Value of a specific item Property Name. If the Property Name does no
 
 It’s good programming practice to always use the Found terminal of the Get Item Property VI to check that the intended property name was found on the item.
 
-**NI VeriStand – Remove Item Property VI**
+**NI VeriStand – Remove Item Property VI**<br />
 **Owning Palette:** Item Properties VIs
 Removes the Property Name from an item.
 
@@ -214,8 +214,8 @@ VI’s Execution Priority to Normal. There are also a variety of free GUID gener
 XML Declaration
 The custom device API associates a channel or section with a GUID. The custom device XML associates the GUID with the page VI. The page and its GUID must be declared in the custom device XML <PAGES> section within a <PAGE> schema. If the developer planned for the extra pages before running the Custom Device Template Tool, the tool makes the appropriate entries in the custom device XML file for each extra page.
 
-.. code-block:: html
-   :linenos:
+.. code-block:: thml
+:linenos:
 
 <Page>
 <Name>
