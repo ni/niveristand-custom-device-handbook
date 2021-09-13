@@ -195,7 +195,7 @@ A properly formed page VI must exist. If you plan properly, you’ll be able to 
 
 The tool generates the page, GUID, XML Declaration, and includes the page in the build specification. You’ll find the extra page template in Custom Device API.lvlib\Templates\Subpane l Page VI\Page Template.vit.	
 
-![](images/Extra_Page_Names_Array.jpg)
+![](images/Extra_Page_Names_Array.jpg)<br />
 **Figure: Extra Page Names Array**
 
 If you do not use the Custom Device Template Tool to create extra pages, you must manually add and configure them.
