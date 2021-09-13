@@ -37,6 +37,7 @@ Once the custom device is loaded into NI VeriStand, the operator can map each in
  
 **NI VeriStand – Add Custom Device Channel VI**<br />
 **Owning Palette:** Configuration<br />
+
 ![](images/Add_Custom_Device_Channel_VI.jpg)
 
 Adds a channel to the device or device subsection specified by Parrent Ref in. If the Channel Name you specify already exists, the VI overwrites the existing channel settings without affecting any custom properties.
@@ -68,6 +69,7 @@ In this small example, we have eluded to a design decision often faced by custom
 
 **NI VeriStand – Set Item Property VI**<br />
 **Owning Palette:** Item Properties VIs<br />
+
 ![](images/Set_item_Property_VI.jpg)
 
 The Set Item Property VI may be called from any VI in the custom device. Properties can be applied to any channel or section. In addition to the Set Item Property VI, properties can be set when a channel or section is created by using the **Property Names** and **Property Values** terminals.
@@ -124,13 +126,14 @@ Within the next echelon are sections for Desired Values and Actual Values. Withi
 There are an arbitrary number of possible hierarchies for most custom devices.
 
 ![](images/Pickering_40-295_Custom_Device.JPG)
+
 **Figure: Hierarchy of the Pickering 40-295 Custom Device**
 
 Within the hierarchy, there are two types of objects: sections and channels. We’ve already discussed custom device channels. Sections provide a logical way to group items in the hierarchy. The default section glyph (icon) is a folder, as shown in the Pickering 40-295 custom device. The developer can change the glyph by modifying the custom device XML. A collection of glyphs that install with NI VeriStand 2010 is found in <Application Data>\System Explorer\Glyphs.
 All items in a custom device's configuration tree are either channels or sections, regardless of their glyph. You cannot create additional levels of custom device hierarchy from channels. You cannot map sections to other items in NI VeriStand. You cannot exchange data through sections during run-time as you can with channels.
 Sections are created with **[NI VeriStand](https://zone.ni.com/reference/en-XX/help/372846M-01/veristandmerge/vs_ni_veristand_vis_pal/)** » **[Custom Device API](https://zone.ni.com/reference/en-XX/help/372846M-01/veristandmerge/vs_custom_device_api_vis_pal/)** » **[Configuration VIs](https://zone.ni.com/reference/en-XX/help/372846M-01/veristandmerge/vs_configuration_vis_pal/)** » **[NI VeriStand - Add Custom Device Section](https://zone.ni.com/reference/en-XX/help/372846M-01/veristandmerge/vs_add_custom_device_section_vi/)**.
  
-**NI VeriStand – Add Custom Device Section VI**
+**NI VeriStand – Add Custom Device Section VI**<br />
 **Owning Palette:** Configuration
 
 Adds a section with the name Section Name to the device specified by Parent Ref in. If the Section Name you specify already exists for that device, this VI updates only the GUID of that section without affecting any properties or any child items.
