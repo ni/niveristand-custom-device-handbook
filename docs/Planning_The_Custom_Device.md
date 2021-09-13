@@ -214,25 +214,7 @@ VI’s Execution Priority to Normal. There are also a variety of free GUID gener
 XML Declaration
 The custom device API associates a channel or section with a GUID. The custom device XML associates the GUID with the page VI. The page and its GUID must be declared in the custom device XML <PAGES> section within a <PAGE> schema. If the developer planned for the extra pages before running the Custom Device Template Tool, the tool makes the appropriate entries in the custom device XML file for each extra page.
 
-.. code-block:: thml
-:linenos:
-
-<Page>
-<Name>
-<eng>Extra Page 1</eng>
-<loc>Extra Page 1</loc>
-</Name>
-<GUID>36481013-A447-6517-7D1C-FBB21CAE1E9F</GUID>
-<Glyph>
-<Type>To Application Data Dir</Type>
-<Path>System Explorer\Glyphs\default fpga category.png</Path>
-</Glyph>
-<Item2Launch>
-<Type>To Common Doc Dir</Type>
-<Path>Custom Devices\Extra Page Demo\Demo Configuration.llb\Extra Page 1.vi</Path>
-</Item2Launch>
-</Page>
-
+![](images/Custom_Device_XML.JPG)
 **Custom Device XML Showing the Page Name, GUID, and VI**
 
 ### Build Specification
