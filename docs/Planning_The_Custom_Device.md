@@ -9,7 +9,7 @@ The most critical phase of custom device development is planning. Several idiosy
 
 After you have a clear idea of the channels, properties, hierarchy, pages, and type of custom device, you're ready to start implementation. In the following discussion, we'll refer to a hypothetical 3rd party analog to digital (A/D) converter, the AES-201. A hypothetical device was chosen to simplify this discussion. If you prefer to follow along with an actual device, please refer to **[Building Custom Devices for NI VeriStand 2018](https://zone.ni.com/reference/en-XX/help/372846M-01/veristandmerge/cust_device_overview/)**.
 
-![](images/Hypothetical_Digitize_AES-201.jpg)
+![](images/Hypothetical_Digitize_AES-201.jpg)<br />
 **Figure: A Hypothetical Digitizer called the AES-201**
 
 The AES-201 has (8) 32-bit analog input channels (AI). The device can digitize on ±1V or
@@ -36,7 +36,7 @@ Channels are created with **[Custom Device API](https://zone.ni.com/reference/en
 Once the custom device is loaded into NI VeriStand, the operator can map each input channel to a single data source. Similarly, the operator can map each output channel to an arbitrary number of sinks. For example, you can map ADDataFromCh1 to several simulation model inputs, but SWTrig may be mapped to a user channel or model output, but not both.
  
 **NI VeriStand – Add Custom Device Channel VI**<br />
-**Owning Palette:** Configuration
+**Owning Palette:** Configuration<br />
 ![](images/Add_Custom_Device_Channel_VI.jpg)
 
 Adds a channel to the device or device subsection specified by Parrent Ref in. If the Channel Name you specify already exists, the VI overwrites the existing channel settings without affecting any custom properties.
@@ -67,7 +67,7 @@ You may decide to implement the filter setting as a property. The operator would
 In this small example, we have eluded to a design decision often faced by custom device developers. As the number of use-cases and flexibility of a custom device increases, so does the complexity of planning and implementing the device. The tradeoff is a more robust device that requires less customization by the operator.
 
 **NI VeriStand – Set Item Property VI**<br />
-**Owning Palette:** Item Properties VIs
+**Owning Palette:** Item Properties VIs<br />
 ![](images/Set_item_Property_VI.jpg)
 
 The Set Item Property VI may be called from any VI in the custom device. Properties can be applied to any channel or section. In addition to the Set Item Property VI, properties can be set when a channel or section is created by using the **Property Names** and **Property Values** terminals.
@@ -75,7 +75,7 @@ The Set Item Property VI may be called from any VI in the custom device. Propert
 A property must be read from the item to which it was set. For example, if you set the Filter_Enabled property on the ADDataFromCh1 channel, you cannot read the value of the Filter_Enabled property directly from the parent section or any reference other than ADDataFromCh1. Properties do not inherit.
 
 **NI VeriStand – Get Item Property VI**<br />
-**Owning Palette:** Item Properties VIs
+**Owning Palette:** Item Properties VIs<br />
 Returns the Value of a specific item Property Name. If the Property Name does not exist for the specified item, Value returns Default Value.
 
 ![](images/Get_item_Property_VI.jpg)
@@ -83,7 +83,7 @@ Returns the Value of a specific item Property Name. If the Property Name does no
 It’s good programming practice to always use the Found terminal of the Get Item Property VI to check that the intended property name was found on the item.
 
 **NI VeriStand – Remove Item Property VI**<br />
-**Owning Palette:** Item Properties VIs
+**Owning Palette:** Item Properties VIs<br />
 Removes the Property Name from an item.
 
 ![](images/Remove_item_Property_VI.jpg)
