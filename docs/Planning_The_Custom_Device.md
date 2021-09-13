@@ -164,8 +164,7 @@ When you click on the top-most custom device item in the configuration tree, <Cu
  
 
 ![](images/Main_VI_Populated_into_System_Explorer.JPG)
-**Figure: Main VI Populated into System Explorer when the Operator Clicks the Top-level**
-Custom Device Item in the Configuration Tree
+**Figure: Main VI Populated into System Explorer when the Operator Clicks the Top-level Custom Device Item in the Configuration Tree**
 
 If the developer did not assign a custom page to a new section or channel, the default section or channel page is shown when the operator clicks on the item in the configuration tree.
 
