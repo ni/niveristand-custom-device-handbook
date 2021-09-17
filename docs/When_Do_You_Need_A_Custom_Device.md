@@ -2,7 +2,6 @@
 
 The built-in components of an VeriStand Project are listed in VeriStand Help » Navigating the VeriStand Environment » System Explorer Window. If the built-in components do not fulfill a specification, it can most likely be fulfilled by one of the customization methods shown in NI Developer Zone Tutorial: Using LabVIEW and Other Software Environments with VeriStand.
 
-2.	Gopel LIN
 
 Although VeriStand provides most of the general functionality required by a real-time testing application, NI has designed the environment so that you can customize and extend it when necessary to ensure it always meets your application requirements. A collection of [NI supported VeriStand add-ons as well as additional add-ons](https://www.ni.com/en-us/support/documentation/supplemental/15/veristand-add-ons.html) gathered from internal NI developers and the VeriStand community has been developed and these custom devices may fulfill your specifications.
 Several hardware vendors have implemented custom devices for their hardware. You should check with the manufacturer that a custom device doesn’t exist before you build one.
