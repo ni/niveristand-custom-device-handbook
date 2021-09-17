@@ -26,9 +26,9 @@ There is an example of using the dynamic event pipe in <labview>\Examples\NI Ver
 
 For inline hardware and inline model custom devices with a large number of channels, it’s more efficient to read and write channel data using block data references. Use the following VIs to work with block data references. Custom Device API.lvlib » Templates » RT Driver VIs » Inline» Inline Driver Utilities » Channel Data References » NI VeriStand…
 
-•	Get Channel Block Data References
-•	Get Channel Values by Block Data Reference
-•	Set Channel Values by Block Data Reference
+•	Get Channel Block Data References<br />
+•	Get Channel Values by Block Data Reference<br />
+•	Set Channel Values by Block Data Reference<br />
 
 ![](images/Recall_the_Initialization_code.JPG)
 Recall the Initialization code that generates a list of output channel references.
@@ -57,26 +57,26 @@ You may build custom error codes for your custom device by using the General Err
 
 The NI VeriStand developers have assembled a library of useful utility VIs in <vi.lib>\NI Veristand\Custom Device Tools\Custom Device Utility Library\Custom Device Utility Library.lvlib. The VIs in this library are documented in LabVIEW’s Context Help window. Here is a list of the utility VIs.
 
-•	Add Sections Recursively by Relative Path
-•	Advanced Browsing Dialog
-•	Get All Channels
-•	Get Channel FIFO Buffer Index
-•	Get Item Ref by Relative Path
-•	Get Multiple Dependent Node Refs
-•	Get Next Unique Label
-•	Get Target Ref
-•	Highlight Node in System Explorer
-•	Not a Ref
-•	Ref Constants
-•	Report Final Error Status
-•	Search for All Items by GUID
-•	Search for All Items by Name
-•	Search for All Items by Property
-•	Search for Item by GUID
-•	Search for Item by Name
-•	Search for Item by Property
-•	Search for Item
-•	Set Multiple Dependent Node Refs
+•	Add Sections Recursively by Relative Path<br />
+•	Advanced Browsing Dialog<br />
+•	Get All Channels<br />
+•	Get Channel FIFO Buffer Index<br />
+•	Get Item Ref by Relative Path<br />
+•	Get Multiple Dependent Node Refs<br />
+•	Get Next Unique Label<br />
+•	Get Target Ref<br />
+•	Highlight Node in System Explorer<br />
+•	Not a Ref<br />
+•	Ref Constants<br />
+•	Report Final Error Status<br />
+•	Search for All Items by GUID<br />
+•	Search for All Items by Name<br />
+•	Search for All Items by Property<br />
+•	Search for Item by GUID<br />
+•	Search for Item by Name<br />
+•	Search for Item by Property<br />
+•	Search for Item<br />
+•	Set Multiple Dependent Node Refs<br />
 
 ### Sort Channels by FIFO Location
 
@@ -179,25 +179,25 @@ There may be cases when you depend on a custom device item to have a certain nam
 
 ### Action VIs
 
-There are a variety of actions that can trigger a VI to run.
-•	OnDelete
-Executes on the deletion of a node in the system definition
-•	OnLoad
-Executes on the creation of a new node or load of an existing nod in the system definition
-•	OnSystemShutdown
-Executes on system explorer close or current system definition close
-•	OnSave
-Executes on save of system definition
-•	OnDownload
-Executes when the system definition is downloaded to the target. This VI is called after compile is complete and binary files have been created. Writing to memory should not be performed in this VI. The VI can be used to read from memory and download additional files as needed
-•	OnPaste
-Executes when a node is pasted within the system definition
-•	OnTargetTypeChange
-Executes on change of target type in the system definition
-•	OnDeleteRequest
-Executes on the delete request before deletion of node in system definition
-•	OnCompile
-Executes when the system definition is compiled during deployment. The system definition will only be compiled during deployment if there is not a good compile cache available on the host. This happens when the system definition file has been moved on disk or when changes have been made.
+There are a variety of actions that can trigger a VI to run.<br />
+•	OnDelete<br />
+Executes on the deletion of a node in the system definition<br />
+•	OnLoad<br />
+Executes on the creation of a new node or load of an existing nod in the system definition<br />
+•	OnSystemShutdown<br />
+Executes on system explorer close or current system definition close<br />
+•	OnSave<br />
+Executes on save of system definition<br />
+•	OnDownload<br />
+Executes when the system definition is downloaded to the target. This VI is called after compile is complete and binary files have been created. Writing to memory should not be performed in this VI. The VI can be used to read from memory and download additional files as needed<br />
+•	OnPaste<br />
+Executes when a node is pasted within the system definition<br />
+•	OnTargetTypeChange<br />
+Executes on change of target type in the system definition<br />
+•	OnDeleteRequest<br />
+Executes on the delete request before deletion of node in system definition<br />
+•	OnCompile<br />
+Executes when the system definition is compiled during deployment. The system definition will only be compiled during deployment if there is not a good compile cache available on the host. This happens when the system definition file has been moved on disk or when changes have been made.<br />
 
 These VIs are useful if you need to make checks or perform cleanup operations after something happens. The template VIs for these actions are found in the Custom Device API library.
 
@@ -208,22 +208,22 @@ You can add right-click functionality in System Explorer to any custom device it
 ![](images/Custom_Device_XML_Right-Click Framework.JPG)<br />
 **Custom Device XML Right-Click Framework**
 
-•	GUID
-A unique GUID for the extra page
-•	Type_Enum
-Describes the type of right-click item
-o	Action (default) runs the VI silently in the background, i.e. carry out a pre- configured task and exit
-o	VI runs the VI in interactive mode displaying the front panel
-•	Execution_Enum
-o	silent runs the VI silently in the background
-o	modal runs the VI as a modal window
-o	floating runs the VI as a floating window
-•	Position_Enum
-o	centered (default) centers the window on the default monitor on launch
-o	mouse pointer puts the font panel origin at the mouse pointer on launch
-•	Behavior_Enum
-o	None
-o	OpenFrontPanel (default)
+•	**GUID**<br />
+A unique GUID for the extra page<br />
+•	**Type_Enum**<br />
+Describes the type of right-click item<br />
+•	Action (default) runs the VI silently in the background, i.e. carry out a pre- configured task and exit<br />
+•	VI runs the VI in interactive mode displaying the front panel<br />
+•	**Execution_Enum**<br />
+•	silent runs the VI silently in the background<br />
+•	modal runs the VI as a modal window<br />
+•	floating runs the VI as a floating window<br />
+•	**Position_Enum**<br />
+•	centered (default) centers the window on the default monitor on launch<br />
+•	mouse pointer puts the font panel origin at the mouse pointer on launch<br />
+•	**Behavior_Enum**<br />
+•	None<br />
+•	OpenFrontPanel (default)<br />
 
 ### Dynamic Buttons
 
@@ -232,12 +232,12 @@ Dynamic buttons are tied to the page and are displayed in the menu area of Syste
 ![](images/Custom_Device_Dynamic_Button_Framework.JPG)<br />
 **Custom Device Dynamic Button Framework**
 
-•	Type_Enum
-o	Action runs the VI silently in the background, i.e. carry out a pre-configured task and exit
-o	Dialog
-o	Page
-o	Notification send a notification to the currently loaded page and pass the unique button ID
-o	Separator add a visual separator to the toolbar
+•	**Type_Enum**<br />
+•	Action runs the VI silently in the background, i.e. carry out a pre-configured task and exit<br />
+•	Dialog<br />
+•	Page<br />
+•	Notification send a notification to the currently loaded page and pass the unique button ID<br />
+•	Separator add a visual separator to the toolbar<br />
 
 In the custom device LabVIEW Project, you’ll find Custom Device API.lvlib » Utility
 » NI VeriStand – Enable Dynamic Button and Disable Dynamic Button.vi to enable/disable the button based on the unique button ID.
