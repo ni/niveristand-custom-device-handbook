@@ -4,7 +4,7 @@ After you build, debug, validate, and benchmark the custom device, you’ll prob
 
 
 
-![](images/AES-201_Distribution_and_Folder_Hierarchy.JPG)
+![](images/AES-201_Distribution_and_Folder_Hierarchy.JPG)<br />
 **Figure: AES-201 Distribution and Folder Hierarchy**
 
 We recommend distributing the custom device by copying the necessary files into a simple folder hierarchy. The top-level folder should contain a Readme file and two folders: Build and Source. By copying the contents of the Build folder to NI VeriStand’s **<Common Data>\Custom Devices\,** the operator can add the custom device to his system definition.
@@ -14,6 +14,7 @@ Do not include the Custom Device API.lvlib files with the distribution. You do n
 replace the library on the operator’s machine, and you do not want to change the library linking on your machine.
 
 The Readme file should contain instructions for installing, licensing, using, and modifying the custom device. It should also contain contact information if you plan to support the device, or a disclaimer if you don’t plan to support the device. The Readme file is a good place to put any benchmarking information you’ve obtained.
+
 You cannot directly use an NI VeriStand 2009 custom device in NI VeriStand 2010 or vice versa, so it’s important to include version information for the custom device.
 
 ### Custom Device Tips and Tricks
@@ -24,17 +25,17 @@ This section contains a hodgepodge of tips and tricks when developing custom dev
 
 After a custom device has been deployed, data is exchanged via custom device channels. If channels are insufficient or overly cumbersome, you may implement your own communication mechanism. NI VeriStand also provides access to its own TCP pipe so you don’t have to maintain the connection. NI VeriStand’s pipe facilitates readable text and byte array data.
 In the custom device API you’ll find NI VeriStand - Register Custom Device Engine Events VI. This VI provides three dynamic events that may be registered in any VI with a reference to the custom device.
+
 1.	Shut Down
 2.	Message (Byte Array)
 3.	Message (string)
 
-
-![](images/Registering_for_NI_VeriStand_Dynamic_Events.jpg)
+![](images/Registering_for_NI_VeriStand_Dynamic_Events.jpg)<br />
 **Figure: Registering for NI VeriStand Dynamic Events**
 
 The two message events fire when some code calls NI VeriStand – Send Custom Device Message VI.
 
-
+![](images/Sending_a_Message_to_NI_VeriStand_Dynamic_Message_Events.jpg)<br />
 
 **Figure: Sending a Message to NI VeriStand’s Dynamic Message Events**
 
@@ -43,6 +44,7 @@ There is an example of using the dynamic event pipe in <labview>\Examples\NI Ver
 ### Block Writing and Reading
 
 For inline hardware and inline model custom devices with a large number of channels, it’s more efficient to read and write channel data using block data references. Use the following VIs to work with block data references. Custom Device API.lvlib » Templates » RT Driver VIs » Inline» Inline Driver Utilities » Channel Data References » NI VeriStand…
+
 •	Get Channel Block Data References
 •	Get Channel Values by Block Data Reference
 •	Set Channel Values by Block Data Reference
@@ -75,6 +77,7 @@ You may build custom error codes for your custom device by using the General Err
 ### Utility VIs
 
 The NI VeriStand developers have assembled a library of useful utility VIs in <vi.lib>\NI Veristand\Custom Device Tools\Custom Device Utility Library\Custom Device Utility Library.lvlib. The VIs in this library are documented in LabVIEW’s Context Help window. Here is a list of the utility VIs.
+
 •	Add Sections Recursively by Relative Path
 •	Advanced Browsing Dialog
 •	Get All Channels
@@ -103,17 +106,17 @@ Consider a custom device to read an arbitrary list of DAQmx thermocouple inputs.
 A superior way to accomplish the task is to sort the channel references in the order they appear in the custom device FIFO, and configure the DAQmx task so the thermocouple channels are read in the same order as they appear in the FIFO.
 
 
-![](images/Sorting_Asynchronous_Custom_Device_Channels.jpg)
+![](images/Sorting_Asynchronous_Custom_Device_Channels.jpg)<br />
 **Figure: Sorting Asynchronous Custom Device Channels by their Order in the FIFO**
 
 
-![](images/Adding_Channels_to_a_DAQmx_Task.jpg)
+![](images/Adding_Channels_to_a_DAQmx_Task.jpg)<br />
 **Figure: Adding Channels to a DAQmx Task by their Order in the Custom Device FIFO**
 
 There are several advantages of this architecture. The operator is free to add/remove/reorder channels how he pleases, only the desired channels are configured, and writing data to the custom device FIFO becomes naturally efficient.
 
 
-![](images/Writing_Multiple_Hardware_Channels_Directly.jpg)
+![](images/Writing_Multiple_Hardware_Channels_Directly.jpg)<br />
 **Figure: Writing Multiple Hardware Channels Directly to the Custom Device FIFO**
 
 The hardware data returns from the DAQmx driver in the same order as the channel references in the asynchronous custom device FIFO.
@@ -125,14 +128,14 @@ There are many cases where you want to run code in the custom device when an eve
 A useful VI for triggering is **[Signal Processing](https://zone.ni.com/reference/en-XX/help/371361R-01/lvanls/signal_processing_vis/)** » **[Point by Point](https://zone.ni.com/reference/en-XX/help/371361R-01/ptbypt/ptbypt_vi_help/)** » **[Other Functions](https://zone.ni.com/reference/en-XX/help/371361R-01/ptbypt/other_point_by_point_vis/)** » **[Boolean Crossing Point by Point](https://zone.ni.com/reference/en-XX/help/371361R-01/ptbypt/boolean_crossing_ptbypt/)**.
 
 
-![](images/Boolean_Crossing_PtByPt_VI.jpg)
+![](images/Boolean_Crossing_PtByPt_VI.jpg)<br />
 **Figure: Boolean Crossing PtByPt VI**
 
 
-![](images/Recall_the_Write_Data_to_HW_state.jpg)
+![](images/Recall_the_Write_Data_to_HW_state.jpg)<br />
 Recall the Write Data to HW state that reads NI VeriStand Channels. Add code to check the software trigger.
 
-![](images/Check_the_SWTrig_channel.jpg)
+![](images/Check_the_SWTrig_channel.jpg)<br />
 Check the SWTrig channel for a transition and handle the transition accordingly.
 
 This triggering VI is most useful in asynchronous custom devices that do not execute in line with the PCL. An asynchronous device might iterate multiple times in a single iteration of the PCL, but this triggering VI will only assert on the desired edge of the transition.
@@ -146,8 +149,9 @@ In order to add a new page after the framework has been generated, you must manu
 Perform the following operations from the LabVIEW Project Explorer.
 Incorrect changes to the Custom Device's XML file can corrupt the System Definition in NI VeriStand.
 
-	Ensure the device gets the appropriate device reference. The NI VeriStand API requires the correct Node Reference input. The NI VeriStand system is responsible for passing this reference to the page. There’s a VI Template in Custom Device API.lvlib\Templates\Subpanel Page VI\Page Template.vit for this purpose. Another way to ensure the new page gets the correct Node Reference is to copy a page generated by the Custom Device Template Tool, such as the Main page.
-	Create the page section in the custom device XML file. The Custom Device's XML file tells the System Explorer how to load the device's files.
+•	Ensure the device gets the appropriate device reference. The NI VeriStand API requires the correct Node Reference input. The NI VeriStand system is responsible for passing this reference to the page. There’s a VI Template in Custom Device API.lvlib\Templates\Subpanel Page VI\Page Template.vit for this purpose. Another way to ensure the new page gets the correct Node Reference is to copy a page generated by the Custom Device Template Tool, such as the Main page.
+
+•	Create the page section in the custom device XML file. The Custom Device's XML file tells the System Explorer how to load the device's files.
 1.	Open the XML file from the Project Explorer window.
 2.	Locate the Pages section.
 3.	Copy the information between Main Page’s Page and /Page declarations.
@@ -155,7 +159,8 @@ Incorrect changes to the Custom Device's XML file can corrupt the System Definit
 5.	Change the eng, loc, and Path tags for the new page.
 6.	Change the GUID to match the extra page’s GUID you created.
 7.	Save and close the XML file.
-	Modify the configuration build specification. The Custom Device Template Tool scripts two Build Specifications that put the custom device files in the necessary format and location for System Explorer.
+
+•	Modify the configuration build specification. The Custom Device Template Tool scripts two Build Specifications that put the custom device files in the necessary format and location for System Explorer.
 1.	Open the configuration’s build specification dialog box.
 2.	In **Source Files**, expand the lvlib for your device.
 3.	Add the new page to the **Always Included** section.
@@ -221,7 +226,7 @@ These VIs are useful if you need to make checks or perform cleanup operations af
 
 You can add right-click functionality in System Explorer to any custom device item. Underneath the </Item2Launch> tag for any page, add the following framework.
 
-![](images/Custom_Device_XML_Right-Click Framework.JPG)
+![](images/Custom_Device_XML_Right-Click Framework.JPG)<br />
 **Custom Device XML Right-Click Framework**
 
 •	GUID
@@ -245,7 +250,7 @@ o	OpenFrontPanel (default)
 
 Dynamic buttons are tied to the page and are displayed in the menu area of System Explorer. One the page goes out of memory and a different page (with a different GUID) is loaded, dynamic buttons disappear. Underneath the </RunTimeMenu> tag for any page, add the following framework.
 
-![](images/Custom_Device_Dynamic_Button_Framework.JPG)
+![](images/Custom_Device_Dynamic_Button_Framework.JPG)<br />
 **Custom Device Dynamic Button Framework**
 
 •	Type_Enum
@@ -254,6 +259,7 @@ o	Dialog
 o	Page
 o	Notification send a notification to the currently loaded page and pass the unique button ID
 o	Separator add a visual separator to the toolbar
+
 In the custom device LabVIEW Project, you’ll find Custom Device API.lvlib » Utility
 » NI VeriStand – Enable Dynamic Button and Disable Dynamic Button.vi to enable/disable the button based on the unique button ID.
 
