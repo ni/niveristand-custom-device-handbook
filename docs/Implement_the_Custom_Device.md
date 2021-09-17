@@ -1,4 +1,4 @@
-##Implement the Custom Device
+## Implement the Custom Device
 
 You should thoroughly plan before you implement the custom device. We’ll now implement the custom device for the AES-201. Recall this is a hypothetical 3rd party device. By inventing our own device and API, we’re able to focus on the custom device process and avoid the programming tedium. If you’d like to walk through building an actual custom device, you can follow **[Building Custom Devices for NI Veristand](https://zone.ni.com/reference/en-XX/help/372846M-01/veristandmerge/building_cds/)**.
  
@@ -6,20 +6,22 @@ You should thoroughly plan before you implement the custom device. We’ll now i
 ![](images/AES-201.JPG) 
 **Figure: AES-201**
 
-Do we need a custom device?
+**Do we need a custom device?**
 Our customer requires 32-bits of resolution for their RT test system. This is the only PXI digitizer that fulfills this requirement. After checking with NI.com and the manufacturer, we found no custom device exists for the AES-201, so we determine that a new custom device is necessary.
 
-What are the risks?
+**What are the risks?**
 The AES-201 ships with a hardware driver that’s compatible with LabVIEW Real-Time and a LabVIEW API. We have a real-time desktop target that’s identical to our customer’s platform. At our request, the customer has provided their model dll, so we can test and benchmark on a system very similar to our customer’s system.
-Implementation
+
+**Implementation**
+
 Based on the AES-201, we create the following specifications.
 
-•	Eight output channels ADDataFromCh<1..8>
-•	Nine input channels ADEnCh<1..8>, SWTrig
-•	Nine properties: FilterEn<1..8> and Range
-•	We will use a nested two-level hierarchy
-•	We plan to override the default channel page for ADDataFromCh<1..8> but we’ll use the default page for everything else. We’ll create a few extra pages just to be safe.
-•	To avoid FIFO latency, we’ll use the Hardware Inline custom device.
+•	Eight output channels ADDataFromCh<1..8><br />
+•	Nine input channels ADEnCh<1..8>, SWTrig<br />
+•	Nine properties: FilterEn<1..8> and Range<br />
+•	We will use a nested two-level hierarchy<br />
+•	We plan to override the default channel page for ADDataFromCh<1..8> but we’ll use the default page for everything else. We’ll create a few extra pages just to be safe.<br />
+•	To avoid FIFO latency, we’ll use the Hardware Inline custom device.<br />
 
 ### Build the Template Project
 
@@ -186,7 +188,7 @@ Add the dll to the custom device LabVIEW library.
 
 Modify the configuration’s **[source distribution](https://zone.ni.com/reference/en-XX/help/371361R-01/lvdialog/source_distrib_db/)** by adding the dll to the **[Always Included](https://zone.ni.com/reference/en-XX/help/371361R-01/lvdialog/source_file_distrib_page/)** list.
  
-Note the location of the Support Directory. In this case it’s C:\Documents and Settings\All Users\Documents\National Instruments\NI VeriStand 2010\Custom Devices\AES- 201\Data.
+Note the location of the Support Directory. In this case it’s C:\Documents and Settings\All Users\Documents\National Instruments\NI VeriStand xxxx\Custom Devices\AES- 201\Data.
 
 ![](images/Destinations_Support_Directory.jpg)
 
@@ -201,8 +203,8 @@ The second part in packaging dependencies is to incorporate the dependency into 
 ![](images/Add_Custom_Device_Dependencies_VI.JPG)
 
 There are several other VIs in the NI VeriStand Dependencies VIs palette that operate on custom device dependencies. These functions do what you’d expect given their names.
-	**[Dependencies VIs](https://zone.ni.com/reference/en-XX/help/372846M-01/veristandmerge/vs_dependencies_vis_pal/)** » **[Get Custom Device Dependencies](https://zone.ni.com/reference/en-XX/help/372846M-01/veristandmerge/vs_get_custom_device_dependencies_vi/)**
-	**[Dependencies VIs](https://zone.ni.com/reference/en-XX/help/372846M-01/veristandmerge/vs_dependencies_vis_pal/)** » **[Reset Custom Device Dependencies](https://zone.ni.com/reference/en-XX/help/372846M-01/veristandmerge/vs_reset_custom_device_dependencies_vi/)**
+•	**[Dependencies VIs](https://zone.ni.com/reference/en-XX/help/372846M-01/veristandmerge/vs_dependencies_vis_pal/)** » **[Get Custom Device Dependencies](https://zone.ni.com/reference/en-XX/help/372846M-01/veristandmerge/vs_get_custom_device_dependencies_vi/)**
+•	**[Dependencies VIs](https://zone.ni.com/reference/en-XX/help/372846M-01/veristandmerge/vs_dependencies_vis_pal/)** » **[Reset Custom Device Dependencies](https://zone.ni.com/reference/en-XX/help/372846M-01/veristandmerge/vs_reset_custom_device_dependencies_vi/)**
 
 Add the custom device dependency to the Initialization VI.
 
@@ -222,7 +224,7 @@ Deploy the dll to **C:\ni-rt\VeriStand\Custom Devices\<Custom Device Name>\<libr
 
 Read the range and resource number properties from the custom device reference. Recall that you must read the property from the correct item, and we set these properties to the top-level device reference. Call the AES-201 API to initialize the board according to the property values.
  
-![](images/Resolvelater)
+![](images/API_Coerce_and_Call.JPG)
  
 Remember, if the operator didn’t trigger the event to set the property, there won’t be a property to read. Instead of throwing an error, default to the value of your choice and call the API accordingly.
 
@@ -258,7 +260,7 @@ Send the channel data to the rest of the NI VeriStand system by writing to the O
  
 For flat hierarchies, the reference array corresponds one-to-one with channels as they were created on the host computer. In other words, the first channel created is the 0’th element of the array.
 
-For non-flat hierarchies, the reference array corresponds top-down and one-to-one with channels as they were created. In other words, channels at the highest level of the hierarchy appear first in the array, then subsequent levels’ channels appear in the array in the order they were created.
+For non-flat hierarchies, the reference array corresponds top-down and one-to-one with channels as they were created. In other words, channels at the highest level of the hierarchy appear first in the array, then subsequent levels channels appear in the array in the order they were created.
 
 Robust custom devices do not depend on any particular order of channel references. Unique properties or GUIDs should be used to ensure the driver VI operates on the correct channel.
 
@@ -295,7 +297,7 @@ You can build change detection into the custom device engine so it doesn’t per
 
 ![](images/Change_detection_with_tolerance.JPG)
 
-**Figure: Change Detection with Tollerance**
+**Figure: Change Detection with Tolerance**
 
 There are a variety of methods for doing change detection. We’ll briefly discuss two methods. Simple change detection can fail due to floating point precision issues. Change detection with tolerance works-around the precision issues. Make sure to use tolerances that avoid false triggers.
 
