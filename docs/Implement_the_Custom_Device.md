@@ -48,24 +48,7 @@ Replace the string constant with a global variable that has the same default val
 
 We want to override the default channel page so we can add a control to the page that allows the operator to set the filter. We created an extra page called ADDataFromCh.vi for this purpose. Look in the custom device XML and find the GUID associated with the extra page. While you’re at it, change the glyph for the custom channel page to default fpga channel.
 
-
-
-<Page>
-<Name>
-<eng>ADDataFromCh</eng>
-<loc>ADDataFromCh</loc>
-</Name>
-<GUID>8AB4F65B-85C9-6BD6-B869-680C60278524</GUID>
-<Glyph>
-<Type>To Application Data Dir</Type>
-<Path>System Explorer\Glyphs\default fpga channel.png</Path>
-</Glyph>
-<Item2Launch>
-<Type>To Common Doc Dir</Type>
-<Path>Custom Devices\AES-201\AES-201 Configuration.llb\ADDataFromCh.vi</Path>
-</Item2Launch>
-</Page>
-<Page>
+![](images/Custom_Device_XML_GUID.JPG)
 
 Operators are used to having channels associated with that glyph. Likewise, change the glyph of the main page to daq device.
  
