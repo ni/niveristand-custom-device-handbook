@@ -33,3 +33,5 @@
    + [Distributing the Custom Device](Distributing_the_Custom_Device.md)
 
 #### Custom Device Tips and Tricks
+
+   + [Custom Devices Tips & Tricks](Custom_Device_Tips_and_Tricks.md)
