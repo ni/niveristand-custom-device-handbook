@@ -30,17 +30,17 @@ For inline hardware and inline model custom devices with a large number of chann
 •	Get Channel Values by Block Data Reference<br />
 •	Set Channel Values by Block Data Reference<br />
 
-![](images/Recall_the_Initialization_code.JPG)
+![](images/Recall_the_Initialization_code.JPG)<br />
 Recall the Initialization code that generates a list of output channel references.
 
-![](images/Obtain_block_references_to_the_output_channels.JPG)
+![](images/Obtain_block_references_to_the_output_channels.JPG)<br />
 Instead of output channel references, obtain block references to the output channels. Modify the state data cluster accordingly.
 
-![](images/auto-indexed_each_channel_data_reference.JPG)
+![](images/auto-indexed_each_channel_data_reference.JPG)<br />
 In the first version of the custom device, we auto-indexed each channel data reference.
 Auto indexing channel data references
 
-![](images/Modify_the_code.JPG)
+![](images/Modify_the_code.JPG)<br />
 Modify the code to write the block reference instead. Notice the channel block data references are written en-mass outside the loop rather than channel-by-channel within the loop.
 
 ### Working with String Constants
