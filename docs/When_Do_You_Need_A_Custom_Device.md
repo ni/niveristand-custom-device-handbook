@@ -1,6 +1,6 @@
 #### When do you Need a Custom Device?
 
-The built-in components of an VeriStand Project are listed in **[VeriStand Help](https://www.ni.com/documentation/en/veristand/latest/manual/manual-overview/)** » **[VeriStand Environment](https://www.ni.com/documentation/en/veristand/latest/manual/environment/)** » System Explorer. If the built-in components do not fulfill a specification, it can most likely be fulfilled by one of the customization methods shown in NI Developer Zone Tutorial: Using LabVIEW and Other Software Environments with VeriStand.
+The built-in components of an VeriStand Project are listed in **[VeriStand Help](https://www.ni.com/documentation/en/veristand/latest/manual/manual-overview/)** » **[VeriStand Environment](https://www.ni.com/documentation/en/veristand/latest/manual/environment/)** » **System Explorer** section in the table. If the built-in components do not fulfill a specification, it can most likely be fulfilled by one of the customization methods shown in NI Developer Zone Tutorial: Using LabVIEW and Other Software Environments with VeriStand.
 
 
 Although VeriStand provides most of the general functionality required by a real-time testing application, NI has designed the environment so that you can customize and extend it when necessary to ensure it always meets your application requirements. A collection of [NI supported VeriStand add-ons as well as additional add-ons](https://www.ni.com/en-us/support/documentation/supplemental/15/veristand-add-ons.html) gathered from internal NI developers and the VeriStand community has been developed and these custom devices may fulfill your specifications.
@@ -49,9 +49,9 @@ Experience with VeriStand from an operator's perspective is highly desired. This
 
 The custom device must call a hardware or instrument driver to support 3rd-party hardware. All National Instruments hardware comes with a LabVIEW Application Program Interface (API) that can be used in the custom device. However, just because a LabVIEW API exists does not guarantee the custom device can be easily implemented. Consider the following points when evaluating the feasibility of a custom device for 3rd-party hardware.
 
-1 Does an Instrument Driver exist? See **[Instrument Driver Network](https://www.ni.com/en-us/support/downloads/instrument-drivers.html)** for more information.<br />
-2 Is a hardware driver available?<br />
-3 Is the driver well documented?<br />
+1. Does an Instrument Driver exist? See **[Instrument Driver Network](https://www.ni.com/en-us/support/downloads/instrument-drivers.html)** for more information.<br />
+2. Is a hardware driver available?<br />
+3. Is the driver well documented?<br />
 
 VeriStand uses channels to pass data between different parts of the system, including to and from custom devices. All VeriStand channels are LabVIEW double data type (DBL). See **[LabVIEW Help](https://zone.ni.com/reference/en-XX/help/371361R-01/)** » **[Fundamentals](https://zone.ni.com/reference/en-XX/help/371361R-01/TOC5.htm)** » **[Building the Block Diagram](https://zone.ni.com/reference/en-XX/help/371361R-01/TOC12.htm)** » **[How-To](https://zone.ni.com/reference/en-XX/help/371361R-01/TOC14.htm)** » **[Floating Point Numbers](https://zone.ni.com/reference/en-XX/help/371361R-01/lvhowto/floating_point_numbers/)** for more information on LabVIEW data types.
  
