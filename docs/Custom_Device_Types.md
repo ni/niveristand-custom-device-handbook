@@ -4,7 +4,7 @@ While deployed to the Target, all custom devices run inside the VeriStand Engine
 
 The [niveristand-custom-device-wizard](https://github.com/ni/niveristand-custom-device-wizard/releases) generates a new LabVIEW Project containing one of five [device frameworks](https://www.ni.com/documentation/en/veristand/latest/manual/custom-device-types/). The framework is determined by the **Custom Device Execution Mode** control.
 
-![](images/Execution_mode_control.jpg)
+![](images/Figure_5.jpg)
 
 **Figure: NI VeriStand Custom Device Wizard**
 
@@ -28,7 +28,7 @@ The asynchronous device can also run at a different rate than the PCL. The rate 
 
 The asynchronous template uses RT FIFOs (Device Inputs FIFO and Device Outputs FIFO) in order to exchange channel data with the rest of VeriStand . Since the asynchronous device runs in parallel to the PCL and passes channel data via RT FIFOs, there is a minimum of one cycle delay from when data leaves the PCL and when it enters the custom device and vice versa. These FIFOs correspond exactly to those shown in **[VeriStand Manual](https://www.ni.com/documentation/en/veristand/latest/manual/manual-overview/)** » **[VeriStand Environment](https://www.ni.com/documentation/en/veristand/latest/manual/environment/)** » **[Components of a VeriStand Project](https://www.ni.com/documentation/en/veristand/latest/manual/project-components/)** » **[VeriStand Engine](https://www.ni.com/documentation/en/veristand/latest/manual/vs-engine/)**.
 
-![](images/Veristand_Engine.jpg)
+![](images/Figure_6.jpg)
 
 **Figure: The VeriStand Engine**
 
@@ -40,7 +40,7 @@ The optional status notifier element is used to notify the engine of the last st
 
 The asynchronous framework includes VIs from the VeriStand Asynchronous Device Properties VIs subpalette.
 
-![](images/Asynchronous_Custom_Device_Framework.JPG)
+![](images/Figure_7.jpg)
 
 **Figure: Asynchronous Custom Device Framework**
 
@@ -59,9 +59,9 @@ This custom device runs in-line with the PCL, which calls each case at a specifi
 
 ### Initialize
 
-The Initialize case executes before the PCL starts. In this case, you can read the device configuration information from properties using the reference to the device. Initialize data and buffers used internally in the device. The framework compiles the list of Data References for the custom device Inputs and Outputs in advance using **[Custom Device API](https://zone.ni.com/reference/en-XX/help/372846M-01/veristandmerge/vs_custom_device_api_vis_pal/)** » **[Driver Functions](https://zone.ni.com/reference/en-XX/help/372846M-01/veristandmerge/vs_driver_functions_vis_pal/)** » **[Get Custom Device Channel List](https://zone.ni.com/reference/en-XX/help/372846M-01/veristandmerge/vs_get_custom_device_channel_list_vi/)** and Custom Device API.lvlib » Templates » RT Driver VIs » Inline » Inline Driver Utilities » Channel Data References » Get Channel Data Reference.
+The Initialize case executes before the PCL starts. In this case, you can read the device configuration information from properties using the reference to the device. Initialize data and buffers used internally in the device. The framework compiles the list of Data References for the custom device Inputs and Outputs in advance using **[Custom Device API](https://zone.ni.com/reference/en-XX/help/372846M-01/veristandmerge/vs_custom_device_api_vis_pal/)** » **[Driver Functions](https://zone.ni.com/reference/en-XX/help/372846M-01/veristandmerge/vs_driver_functions_vis_pal/)** » **[Get Custom Device Channel List](https://zone.ni.com/reference/en-XX/help/372846M-01/veristandmerge/vs_data_references_pal/)** and Custom Device API.lvlib » Templates » RT Driver VIs » Inline » Inline Driver Utilities » **[Channel Data References](https://zone.ni.com/reference/en-XX/help/372846M-01/veristandmerge/vs_data_references_pal/)** » **[Get Channel Data Reference](https://zone.ni.com/reference/en-XX/help/372846M-01/veristandmerge/vs_get_channel_data_reference/)**.
  
-![](images/Initialize_State_of_the_Inline_Hardware.jpg)
+![](images/Figure_8.jpg)
 
 **Figure: Initialize State of the Inline Hardware Interface Framework**
 
@@ -75,7 +75,7 @@ The Start case executes after Initialization and before the PCL starts running. 
 
 The Read Data from HW case executes at the beginning of the PCL, before other components (such as stimulus profiles, faults, alarms, procedures, etc.) execute. For a detailed timing diagram, see the **[Outline of PCL Iteration](https://niveristand-custom-device-handbook.readthedocs.io/en/latest/Custom_Device_Types.html#outline-of-pcl-iteration)** section. After processing system mappings, the data obtained in this case is available to the other components of the system for the remainder of the PCL iteration.
 
-![](images/Read_Data_from_HW_State.jpg)
+![](images/Figure_9.jpg)
 
 **Figure: Read Data from HW State of the Inline Hardware Interface Framework**
  
@@ -88,7 +88,7 @@ Doing so could cause system instability or errors.
 
 The Write Data to HW case executes at the end of the PCL, after the other components (such as stimulus profiles, faults, alarms, procedures, etc. ) have executed.
 
-![](images/Write_Data_to_HW_State.jpg)
+![](images/Figure_10.jpg)
 
 **Figure: Write Data to HW State of the Inline Hardware Interface Framework**
 
@@ -113,7 +113,7 @@ This custom device is run in-line with the PCL, which calls each case at a speci
 
 The execute model case is called in the middle of the PCL. This is the one state of this device that executes during the PCL. This state reads input data, performs a calculation, and then writes output data to VeriStand. Using the Inline Model Interface mode enables you to process data acquired from hardware inputs and send the processed values to hardware outputs with no latency.
 
-![](images/Execute_Model_State.jpg)
+![](images/Figure_11.jpg)
 
 **Figure: Execute Model State of the Inline Model Interface Framework**
 
@@ -123,7 +123,7 @@ Do not call **Get** or **Set Channel Value by Data Reference** outside the inlin
 
 The type of a custom device refers to its execution mode, which defines how the device interacts with the VeriStand Engine.
 
-The **[following table](https://www.ni.com/documentation/en/veristand/latest/manual/custom-device-types/)** displays the pre-defined custom device types that are included in VeriStand.
+This **[table](https://www.ni.com/documentation/en/veristand/latest/manual/custom-device-types/)** displays the pre-defined custom device types that are included in VeriStand.
  
 ### Outline of PCL Iteration
 
