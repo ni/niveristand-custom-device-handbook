@@ -13,9 +13,9 @@ Once added to the system definition, custom devices have been fully integrated i
 
 A subcomponent of VeriStand RT Engine is the Console Viewer.
 
-&nbsp;&nbsp;&nbsp; **Note:** You cannot use the **Console Viewer** on NI Linux Real-Time targets. Instead, connect your NI Linux Real-Time targets to a computer using a serial port to view the output.
-
 You can install it to the execution host using Measurement and Automation Explorer. When installed, the component runs a small UDP daemon allowing the operator to view the console from a utility called the Console Viewer. You can access the Console Viewer from the **VeriStand Editor » Tool Launcher » View Console**.
+
+&nbsp;&nbsp;&nbsp;**Note:** You cannot use the **Console Viewer** on NI Linux Real-Time targets. Instead, connect your NI Linux Real-Time targets to a computer using a serial port to view the output.
 
 ![](images/ConsoleViewer1.jpg)
 
@@ -23,7 +23,7 @@ You can install it to the execution host using Measurement and Automation Explor
 
 The Console Viewer will show the system definition and the resulting CPU usage. The viewer is also useful for displaying debugging messages. The console viewer provides a periodic snapshot of utilization. CPU spikes and transients will probably be unobservable. If the system is very busy, it may not update the console viewer at all. You can use other debugging methods for a more accurate indication of resource utilization.
 
-As the name implies, the Console Viewer is only available on real-time targets. The Console Viewer is also available as a stand-alone add-on to LabVIEW Real-Time. See **[NI Developer Zone Tutorial: Remotely View Console Output of Real-Time Targets](https://knowledge.ni.com/KnowledgeArticleDetails?id=kA03q000000x4TjCAI&l=en-US)** for more information.
+The Console Viewer is also available as a stand-alone add-on to LabVIEW Real-Time. See **[NI Developer Zone Tutorial: Remotely View Console Output of Real-Time Targets](https://knowledge.ni.com/KnowledgeArticleDetails?id=kA03q000000x4TjCAI&l=en-US)** for more information.
 
 #### Printing With "NI VeriStand - Print Debug Line" VI
 The recommended method of printing to the console is to use "NI VeriStand - Print Debug Line" VI. This VI is part of Custom Device API » Utilities » Print Debug Line.vi.
