@@ -82,6 +82,11 @@ System State Publisher provides a periodic snapshot of utilization. Spikes and t
 
 VeriStand 2020 provides built-in support for using the **[Real-Time Trace Viewer](https://zone.ni.com/reference/en-XX/help/370715P-01/lvtracehelp/lv_tracetoolkit_help/)** and **[Real-Time Trace Viewer VIs](https://zone.ni.com/reference/en-XX/help/370715P-01/lvtrace/tracetoolkitvis_pal/)** to capture the timing and execution data of VI and thread events for applications running on an RT target. In a LabVIEW VI, select **Tools»Real-Time Module»Trace Viewer** to display the Real-Time Trace Viewer. For more info on how to use Real-Time Trace Viewer, in LabVIEW go to **Help>>LabVIEW Help>>Real-Time Module>>Real-Time Trace Viewer**.
 
+#### Real-Time Trace Viewer Custom Error Codes
+
+You may build custom error codes for your custom device by using the General Error Handler VI or the Error Code File Editor. See **[LabVIEW Help](https://zone.ni.com/reference/en-XX/help/371361G-01/)**: **[Defining Custom Error Codes in Text Files](https://zone.ni.com/reference/en-XX/help/371361G-01/lvhowto/def_custom_error_text/)** for more information. If you use an error file, you must move the file to VeriStand’s error folder. By default, this folder is located at <Program Files>\National Instruments\VeriStand xxxx\project\errors\English. You should add the error file as a project dependency.
+
+
 #### Additional Debugging Options for VeriStand
 Upon request, National Instrument may provide advanced debugging tools to help you resolve certain custom device issues. These tools are a last resort when all other debugging options have been exhausted. Please contact National Instruments for more information.
  
