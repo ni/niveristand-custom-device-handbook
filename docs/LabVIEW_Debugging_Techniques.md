@@ -11,21 +11,19 @@ Once added to the system definition, custom devices have been fully integrated i
  
 #### Console Viewer
 
-A subcomponent of VeriStand RT Engine is the RT Console Viewer.
-You can install it to the execution host using Measurement and Automation Explorer. When installed, the component runs a small UDP daemon allowing the operator to view the console from a utility called the RT Console Viewer. You can access the RT Console viewer from the **VeriStand Editor » Tool Launcher » View Console**.
-
-![](images/ConsoleViewer1.jpg)
-
-**Figure: RT Console Viewer**
-
-The Console Viewer will show the system definition and the resulting CPU usage. The viewer is also useful for displaying debugging messages. The console viewer provides a periodic snapshot of utilization. CPU spikes and transients will probably be unobservable. If the system is very busy, it may not update the console viewer at all. You can use other debugging methods for a more accurate indication of resource utilization.
-
-As the name implies, the RT Console Viewer is only available on real-time targets. The RT Console Viewer is also available as a stand-alone add-on to LabVIEW Real-Time. See **[NI Developer Zone Tutorial: Remotely View Console Output of Real-Time Targets](https://knowledge.ni.com/KnowledgeArticleDetails?id=kA03q000000x4TjCAI&l=en-US)** for more information.
+A subcomponent of VeriStand RT Engine is the Console Viewer.
 
 &nbsp;&nbsp;&nbsp; **Note:** You cannot use the **Console Viewer** on NI Linux Real-Time targets. Instead, connect your NI Linux Real-Time targets to a computer using a serial port to view the output.
 
-#### Printing to the Console
-Printing to the console is often all that’s needed to debug an application.
+You can install it to the execution host using Measurement and Automation Explorer. When installed, the component runs a small UDP daemon allowing the operator to view the console from a utility called the Console Viewer. You can access the Console Viewer from the **VeriStand Editor » Tool Launcher » View Console**.
+
+![](images/ConsoleViewer1.jpg)
+
+**Figure: Console Viewer**
+
+The Console Viewer will show the system definition and the resulting CPU usage. The viewer is also useful for displaying debugging messages. The console viewer provides a periodic snapshot of utilization. CPU spikes and transients will probably be unobservable. If the system is very busy, it may not update the console viewer at all. You can use other debugging methods for a more accurate indication of resource utilization.
+
+As the name implies, the Console Viewer is only available on real-time targets. The Console Viewer is also available as a stand-alone add-on to LabVIEW Real-Time. See **[NI Developer Zone Tutorial: Remotely View Console Output of Real-Time Targets](https://knowledge.ni.com/KnowledgeArticleDetails?id=kA03q000000x4TjCAI&l=en-US)** for more information.
 
 #### Printing With "NI VeriStand - Print Debug Line" VI
 The recommended method of printing to the console is to use "NI VeriStand - Print Debug Line" VI. This VI is part of Custom Device API » Utilities » Print Debug Line.vi.
@@ -34,21 +32,19 @@ The recommended method of printing to the console is to use "NI VeriStand - Prin
 
 This VI works on both Windows and RT execution hosts. It has an optional input (Attribute) to change the color of the text. It also has an optional input to append the string to the VeriStand log file.
 
-#### Printing With ni_emb.dll
+#### Printing with RT Debug String VI
 
-You’ll find **ni_emb.dll** in **&lt;labview&gt;\Targets\NI\RT\vi.lib**. This dll contains a stub function called **PrintStringToConsole**. Calling this function sends a string to the RT console. Configure the function to run in any thread using the C calling convention. The return type is void and it has a C String pointer input constant. You’ll find this function wrapped in a VI in the same folder in **rtutility.llb\RT Debug String.vi**. Since **ni_emb.dll** is a stub dll, it’s not necessary to deploy this VI to the RT target. The stub exists so the **PrintStringToConsole** function does not return an error when called on Windows.
+The RT Debug String.VI sens a string to the standard output device. By default, this VI sends the debug string to the video port. If you have device capable of serial redirection, this VI sends the debug string to the serial port. RT Debug String VI can be found at the following location: **C:\Program Files (x86)\National Instruments\LabVIEW 2020\Targets\NI\RT\vi.lib\rtutility.llb\RT Debug String.vi**
 
-If you do not want to call **ni_emb.dll** on a Windows OS, you can use a **[Conditional Disable Structure](https://zone.ni.com/reference/en-XX/help/371361R-01/glang/conditional_disable_structure/)** around the dll. See **[NI Tutorial: Using the Conditional Disable Structure](https://zone.ni.com/reference/en-XX/help/371361R-01/lvhowto/creating_cond_disable_struc/)** for more information.
+For more information go to **[Real-Time VIs](https://zone.ni.com/reference/en-XX/help/370715P-01/lvrtvihelp/lv_real_time_vi_help/)** >> **[RT Utilities VIs](https://zone.ni.com/reference/en-XX/help/370715P-01/lvrtvihelp/rt_board_utilities_vis/)** >> **[RT Debug String VI](https://zone.ni.com/reference/en-XX/help/370715P-01/lvrtvihelp/rt_debug_strings/)** .
 
-![](images/Disable_ni_emb.jpg)	 
+![](images/RT_Debug_String_VI.jpg)	 
 
-**Figure: Disable ni_emb.dll for non-Windows Operating Systems**
+**Figure: RT Debug String VI**
 
-#### Distributed System Manager
+#### Telemetry Custom Device
 
-You can use the NI Distributed System Manager (DSM) to monitor the CPU and memory resources of an RT target. You must install System State Publisher on the RT target. This component runs a small daemon that publishes the system state to DSM. See **[NI Distributed System Manager for LabVIEW 2018 Help](https://zone.ni.com/reference/en-XX/help/371361R-01/sysman/sysman/)** » **[System Manager Overview](https://zone.ni.com/reference/en-XX/help/372572E-01/sysman/sysman_overview/)** » **[Monitor RT target resources](https://zone.ni.com/reference/en-XX/help/372572E-01/sysman/monitoring_resources/)** for more information.
-
-System State Publisher provides a periodic snapshot of utilization. Spikes and transients in CPU utilization will probably not be observable. If the system is very busy, it may not update DSM at all. You can use other debugging methods for a more accurate indication of resource utilization.
+The [Telemetry Custom Device](https://github.com/ni/niveristand-telemetry-custom-device/releases) supports VeriStand benchmarking by helping you log system channels and monitor target resources. The usage data is logged to a TDMS file on the target that is running the VeriStand Engine.
 
 #### System Channels
 
@@ -69,27 +65,27 @@ VeriStand includes dozens of **[system channels](https://www.ni.com/documentatio
 |Model Count      |The number of times the models have not completed their execution in time.|
 +-----------------+--------------------------------------------------------------------------+
 ```
- 
+
 If the value of the count channels increase over time, the execution host is not achieving the desired loop rates. You can use the system channels in conjunction with an **[alarm](https://www.ni.com/documentation/en/veristand/latest/manual/add-configure-alarm/)** or **[procedure](https://www.ni.com/documentation/en/veristand/latest/manual/add-configure-procedure/)** to handle the event.
 
 #### System Monitor Custom Device
 
 The [System Monitor Custom Device](https://github.com/ni/niveristand-system-monitor-custom-device/releases) tracks memory resources and CPU usage on an RT target running the VeriStand Engine. Set the update rate (Hz) in System Explorer to determine how often the custom device checks CPU and memory usage and sends them to the corresponding channel. The VeriStand System Monitor can only be used on an RT target. The custom device returns an error if you target it to a Windows system.
 
-#### Telemetry Custom Device
+#### Distributed System Manager
 
-The [Telemetry Custom Device](https://github.com/ni/niveristand-telemetry-custom-device/releases) supports VeriStand benchmarking by helping you log system channels and monitor target resources. The usage data is logged to a TDMS file on the target that is running the VeriStand Engine.
+You can use the NI Distributed System Manager (DSM) to monitor the CPU and memory resources of an RT target. You must install System State Publisher on the RT target. This component runs a small daemon that publishes the system state to DSM. See **[NI Distributed System Manager for LabVIEW 2018 Help](https://zone.ni.com/reference/en-XX/help/371361R-01/sysman/sysman/)** » **[System Manager Overview](https://zone.ni.com/reference/en-XX/help/372572E-01/sysman/sysman_overview/)** » **[Monitor RT target resources](https://zone.ni.com/reference/en-XX/help/372572E-01/sysman/monitoring_resources/)** for more information.
+
+System State Publisher provides a periodic snapshot of utilization. Spikes and transients in CPU utilization will probably not be observable. If the system is very busy, it may not update DSM at all. You can use other debugging methods for a more accurate indication of resource utilization.
 
 #### Real-Time Trace Viewer
 
 VeriStand 2020 provides built-in support for using the **[Real-Time Trace Viewer](https://zone.ni.com/reference/en-XX/help/370715P-01/lvtracehelp/lv_tracetoolkit_help/)** and **[Real-Time Trace Viewer VIs](https://zone.ni.com/reference/en-XX/help/370715P-01/lvtrace/tracetoolkitvis_pal/)** to capture the timing and execution data of VI and thread events for applications running on an RT target. In a LabVIEW VI, select **Tools»Real-Time Module»Trace Viewer** to display the Real-Time Trace Viewer. For more info on how to use Real-Time Trace Viewer, in LabVIEW go to **Help>>LabVIEW Help>>Real-Time Module>>Real-Time Trace Viewer**.
 
-
 #### Additional Debugging Options for VeriStand
 Upon request, National Instrument may provide advanced debugging tools to help you resolve certain custom device issues. These tools are a last resort when all other debugging options have been exhausted. Please contact National Instruments for more information.
  
-
 #### Table of Debugging and Benchmarking Techniques
 
 You can use tools provided by LabVIEW and VeriStand to benchmark and debug your custom device.
-You can use the following table that displays various tools you can use to **[benchmark and debug VeriStand custom devices](https://www.ni.com/documentation/en/veristand/20.5/manual/custom-device-benchmark-debug/)**.
+You can use the following table that displays various tools you can use to **[benchmark and debug VeriStand custom devices](https://www.ni.com/documentation/en/veristand/latest/manual/custom-device-benchmark-debug/)**.
