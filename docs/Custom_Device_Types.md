@@ -135,50 +135,50 @@ The **[Data Processing Loop](https://www.ni.com/documentation/en/veristand/lates
 
 In *Parallel* mode, the PCL initiates execution of models and continues to its next iteration without waiting for models to finish executing. This causes a one-cycle delay between when a model executes and when the data it produces is available to the system.
 
-1.	Get inputs from hardware devices in the system definition.
+1.	Get inputs from hardware devices in the system definition.<br />
 &nbsp;&nbsp;&nbsp;o	If the system includes an inline hardware interface custom device, the PCL reads DAQ digital lines and counters after the Read Data from HW case of the custom device executes in step 3.
-2.	Read asynchronous custom device FIFOs from the previous iteration.
-3.	Runs the **Read Data From HW** case of inline hardware interface custom devices.
+2.	Read asynchronous custom device FIFOs from the previous iteration.<br />
+3.	Runs the **Read Data From HW** case of inline hardware interface custom devices.<br />
 &nbsp;&nbsp;&nbsp;o	If you configured hardware scaling, VeriStand applies the scaling after acquiring all hardware inputs.
-4.	Reads previous iteration data from models in the system definition.
-&nbsp;&nbsp;&nbsp;o	This step executes on the second and subsequent iterations.
-5.	Reads data from the previous iteration of the Data Processing Loop.
-6.	Processes system mappings.
-&nbsp;&nbsp;&nbsp;o	VeriStand components (including custom devices) cannot read data from a previous step until the PCL processes system mappings, even if the previous step acquired the data the component needs.
-7.	Runs the **Execute Model** case of inline model interface custom devices.
-8.	Executes steps of running real-time sequences.
-&nbsp;&nbsp;&nbsp;o	VeriStand executes real-time sequences after input operations but before output operations and continues to run every step of the real-time sequence until the sequence is complete, reaches a Yield step, or completes an iteration of a loop with Auto Yield set to TRUE. If a sequence takes longer than the given time for an iteration of the PCL, the PCL runs late. To avoid errors, break up the timing of the steps by placing Yield steps throughout the sequence and enabling the Auto Yield property for any loops in the sequence.
-9.	Processes system mappings.
-10.	Writes data to models.
-11.	Initiates asynchronous execution of models.
-12.	Writes data to the Data Processing Loop.
-13.	Writes output data to hardware devices.
-14.	Runs the **Write Data to HW** case of inline hardware interface custom devices.
-15.	Writes data to asynchronous custom device FIFOs.
+4.	Reads previous iteration data from models in the system definition.<br />
+&nbsp;&nbsp;&nbsp;o	This step executes on the second and subsequent iterations.<br />
+5.	Reads data from the previous iteration of the Data Processing Loop.<br />
+6.	Processes system mappings.<br />
+&nbsp;&nbsp;&nbsp;o	VeriStand components (including custom devices) cannot read data from a previous step until the PCL processes system mappings, even if the previous step acquired the data the component needs.<br />
+7.	Runs the **Execute Model** case of inline model interface custom devices.<br />
+8.	Executes steps of running real-time sequences.<br />
+&nbsp;&nbsp;&nbsp;o	VeriStand executes real-time sequences after input operations but before output operations and continues to run every step of the real-time sequence until the sequence is complete, reaches a Yield step, or completes an iteration of a loop with Auto Yield set to TRUE. If a sequence takes longer than the given time for an iteration of the PCL, the PCL runs late. To avoid errors, break up the timing of the steps by placing Yield steps throughout the sequence and enabling the Auto Yield property for any loops in the sequence.<br />
+9.	Processes system mappings.<br />
+10.	Writes data to models.<br />
+11.	Initiates asynchronous execution of models.<br />
+12.	Writes data to the Data Processing Loop.<br />
+13.	Writes output data to hardware devices.<br />
+14.	Runs the **Write Data to HW** case of inline hardware interface custom devices.<br />
+15.	Writes data to asynchronous custom device FIFOs.<br />
 
  
 ### Low-Latency Mode
 
 In *Low* Latency mode, the PCL waits for the Model Execution Loop(s) to finish writing data to models before it reads and publishes model values to the system. This occurs during every iteration of the system. When the model completes execution, the PCL provides data from the model to other loops during the same iteration that the model generated the data.
 
-1.	Gets inputs from hardware devices in the system definition.< /br>
-&nbsp;&nbsp;&nbsp;o	If the system includes an inline hardware interface custom device, the PCL reads DAQ digital lines and counters after the Read Data from HW case of the custom device executes in step 3.
-2.	Reads asynchronous custom device FIFOs from the previous iteration.
-3.	Runs the **Read Data from HW** case of inline hardware interface custom devices.< /br>
-&nbsp;&nbsp;&nbsp;o	If you configured hardware scaling, VeriStand applies the scaling after acquiring all hardware inputs.
-4.	Reads data from the previous iteration of the Data Processing Loop.
-5.	Processes system mappings.< /br>
-&nbsp;&nbsp;&nbsp;o	VeriStand components (including custom devices) cannot read data from a previous step until the PCL processes system mappings, even if the previous step acquired the data the component needs.
-6.	Runs the **Execute Model** case of inline model interface custom devices.
-7.	Executes steps of running real-time sequences.< /br>
-&nbsp;&nbsp;&nbsp;o	VeriStand executes real-time sequences after input operations but before output operations and continues to run every step of the real-time sequence until the sequence is complete, reaches a Yield step, or completes an iteration of a loop with Auto Yield set to TRUE. If a sequence takes longer than the given time for an iteration of the PCL, the PCL runs late. To avoid errors, break up the timing of the steps by placing Yield steps throughout the sequence and enabling the Auto Yield property for any loops in the sequence.
-8.	Processes system mappings.
-9.	Writes data to models.
-10.	Initiates execution of models and waits for them to complete execution.
-11.	Reads data from models.
-12.	Processes system mappings.
-13.	Writes data to the Data Processing Loop.
-14.	Writes output data to hardware devices.
-15.	Runs the **Write Data to HW** case of inline hardware interface custom devices.
-16.	Writes data to asynchronous custom device FIFOs.
+1.	Gets inputs from hardware devices in the system definition.<br />
+&nbsp;&nbsp;&nbsp;o	If the system includes an inline hardware interface custom device, the PCL reads DAQ digital lines and counters after the Read Data from HW case of the custom device executes in step 3.<br />
+2.	Reads asynchronous custom device FIFOs from the previous iteration.<br />
+3.	Runs the **Read Data from HW** case of inline hardware interface custom devices.<br />
+&nbsp;&nbsp;&nbsp;o	If you configured hardware scaling, VeriStand applies the scaling after acquiring all hardware inputs.<br />
+4.	Reads data from the previous iteration of the Data Processing Loop.<br />
+5.	Processes system mappings.<br />
+&nbsp;&nbsp;&nbsp;o	VeriStand components (including custom devices) cannot read data from a previous step until the PCL processes system mappings, even if the previous step acquired the data the component needs.<br />
+6.	Runs the **Execute Model** case of inline model interface custom devices.<br />
+7.	Executes steps of running real-time sequences.<br />
+&nbsp;&nbsp;&nbsp;o	VeriStand executes real-time sequences after input operations but before output operations and continues to run every step of the real-time sequence until the sequence is complete, reaches a Yield step, or completes an iteration of a loop with Auto Yield set to TRUE. If a sequence takes longer than the given time for an iteration of the PCL, the PCL runs late. To avoid errors, break up the timing of the steps by placing Yield steps throughout the sequence and enabling the Auto Yield property for any loops in the sequence.<br />
+8.	Processes system mappings.<br />
+9.	Writes data to models.<br />
+10.	Initiates execution of models and waits for them to complete execution.<br />
+11.	Reads data from models.<br />
+12.	Processes system mappings.<br />
+13.	Writes data to the Data Processing Loop.<br />
+14.	Writes output data to hardware devices.<br />
+15.	Runs the **Write Data to HW** case of inline hardware interface custom devices.<br />
+16.	Writes data to asynchronous custom device FIFOs.<br />
 
