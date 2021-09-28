@@ -63,26 +63,8 @@ For more information, refer to the Defining Custom Error Codes to Distribute thr
 
 The LabVIEW palette **NI VeriStand » Custom Device API » Utilities** contains useful utility VIs for custom device development. The VIs have Context Help documentation that better explain their functionality.
 
-•	Add Sections Recursively by Relative Path<br />
-•	Advanced Browsing Dialog<br />
-•	Get All Channels<br />
-•	Get Channel FIFO Buffer Index<br />
-•	Get Item Ref by Relative Path<br />
-•	Get Multiple Dependent Node Refs<br />
-•	Get Next Unique Label<br />
-•	Get Target Ref<br />
-•	Highlight Node in System Explorer<br />
-•	Not a Ref<br />
-•	Ref Constants<br />
-•	Report Final Error Status<br />
-•	Search for All Items by GUID<br />
-•	Search for All Items by Name<br />
-•	Search for All Items by Property<br />
-•	Search for Item by GUID<br />
-•	Search for Item by Name<br />
-•	Search for Item by Property<br />
-•	Search for Item<br />
-•	Set Multiple Dependent Node Refs<br />
+![](images/Utilities_palette.jpg)<br />
+**Figure: Utility VIs palette**
 
 ### Sort Channels by FIFO Location
 
@@ -118,12 +100,12 @@ A useful VI for triggering is **[Signal Processing](https://zone.ni.com/referenc
 ![](images/Boolean_Crossing_PtByPt_VI.jpg)<br />
 **Figure: Boolean Crossing PtByPt VI**
 
-
-![](images/Recall_the_Write_Data_to_HW_state.jpg)<br />
 Recall the Write Data to HW state that reads NI VeriStand Channels. Add code to check the software trigger.
+![](images/Recall_the_Write_Data_to_HW_state.jpg)<br />
 
-![](images/Check_the_SWTrig_channel.jpg)<br />
 Check the SWTrig channel for a transition and handle the transition accordingly.
+![](images/Check_the_SWTrig_channel.jpg)<br />
+
 
 This triggering VI is most useful in asynchronous custom devices that do not execute in line with the PCL. An asynchronous device might iterate multiple times in a single iteration of the PCL, but this triggering VI will only assert on the desired edge of the transition.
 
@@ -191,67 +173,95 @@ There may be cases when you depend on a custom device item to have a certain nam
 
 ### Action VIs
 
-VeriStand contains eight [action VI templates](https://www.ni.com/documentation/en/veristand/latest/manual/custom-device-action-vi-template/) that are triggered by different actions.
+VeriStand contains eight action VI templates that are triggered by different actions.
 
-•	OnDelete<br />
-Executes on the deletion of a node in the system definition<br />
-•	OnLoad<br />
-Executes on the creation of a new node or load of an existing nod in the system definition<br />
-•	OnSystemShutdown<br />
-Executes on system explorer close or current system definition close<br />
-•	OnSave<br />
-Executes on save of system definition<br />
-•	OnDownload<br />
-Executes when the system definition is downloaded to the target. This VI is called after compile is complete and binary files have been created. Writing to memory should not be performed in this VI. The VI can be used to read from memory and download additional files as needed<br />
-•	OnPaste<br />
-Executes when a node is pasted within the system definition<br />
-•	OnTargetTypeChange<br />
-Executes on change of target type in the system definition<br />
-•	OnDeleteRequest<br />
-Executes on the delete request before deletion of node in system definition<br />
-•	OnCompile<br />
-Executes when the system definition is compiled during deployment. The system definition will only be compiled during deployment if there is not a good compile cache available on the host. This happens when the system definition file has been moved on disk or when changes have been made.<br />
+The following list displays the action VI templates provided by VeriStand in the **[Custom Device API library](https://www.ni.com/documentation/en/veristand/latest/manual/custom-device-api-library/)**.
 
-These VIs are useful if you need to make checks or perform cleanup operations after something happens. The template VIs for these actions are found in the Custom Device API library.
+**ActionVIOnLoad**
+Executes when VeriStand loads a custom device item into memory. This template helps create action VIs that launch background processes. For example, if your custom device requires large amounts of data, you can customize this template to start a daemon that runs processes or gathers data in the background.
 
-### Adding shortcut menus
+**ActionVIOnDeleteRequest**
+Executes when a user tries to delete an item from the custom device. This template helps create action VIs that prevent a user from deleting a custom device item or warn a user of the implications of deleting a custom device item.
 
-A *shortcut menu* for an item is the menu that appears when you right-click the item in System Explorer.
+The template has the following unique parameters.
+•	Item Ref—The reference to the custom device item whose XML declaration calls this action VI.
+•	Refs that are about to get deleted—A 1D array of references to the items to be deleted. However, the 1D array will only contain one reference, as users can only delete one item at a time in the System Explorer window.
+•	Discard reason—An output you can use to capture the user's reason for deleting the item.
+•	Discard delete request?—Allows you to discard the delete request. After the action VI finishes executing, VeriStand will evaluate this output to determine whether or not to delete the item. If True, VeriStand will not delete the item. If False, VeriStand will delete the item.
+•	Additional items to delete—An array of references to additional items you want to delete. For example, if other custom device items depend on the item the user wants to delete, you can use this output to automatically delete those items.
 
-![](images/Custom_Device_XML_Right-Click Framework.JPG)<br />
-**Custom Device XML shortcut menu declaration**
+**ActionVIOnDelete**
+Executes after a user deletes an item from the custom device. You can customize this template to alert users which channel mappings break when they delete the custom device item. You can also customize this template to reconfigure hardware.
 
-•	**GUID**<br />
-A unique GUID for the extra page<br />
-•	**Type_Enum**<br />
-Describes the type of right-click item<br />
-•	Action (default) runs the VI silently in the background, i.e. carry out a pre- configured task and exit<br />
-•	VI runs the VI in interactive mode displaying the front panel<br />
-•	**Execution_Enum**<br />
-•	silent runs the VI silently in the background<br />
-•	modal runs the VI as a modal window<br />
-•	floating runs the VI as a floating window<br />
-•	**Position_Enum**<br />
-•	centered (default) centers the window on the default monitor on launch<br />
-•	mouse pointer puts the font panel origin at the mouse pointer on launch<br />
-•	**Behavior_Enum**<br />
-•	None<br />
-•	OpenFrontPanel (default)<br />
+For example, if the user deletes a page that specifies custom configuration data for your hardware, you can customize the template to return the configuration to default settings.
+
+**ActionVIOnSystemShutdown**
+Executes when System Explorer closes. You can customize this template to close hardware connections or to close daemons you launch from an ActionVIOnLoad action VI.
+
+The template has the following unique parameters.
+•	Device Item Ref—Reference to the custom device item whose XML declaration calls this action VI.
+•	Unload SDF?—Indicates whether or not the system definition file was unloaded. Unload SDF? is always True.
+•	Saved?—Indicates whether or not a user saved the system definition file before closing System Explorer.
+•	Path—Path on disk to the system definition file.
+•	System Explorer Shutdown?—Indicates whether or not System Explorer closed. This parameter is always True.
+
+**ActionVIOnSave**
+Executes when a user saves the system definition file. For example, you can customize this template to log each time the custom device is saved.
+
+**ActionVIOnDownload**	
+Executes when a user deploys the system definition file containing the custom device to a real-time target. This action VI does not execute if a user deploys the system definition to a Windows target.
+
+This template helps create action VIs that finalize the target configuration after you deploy the system definition. You can also customize this template to deploy any additional files or dependencies your custom device requires. For example, if your custom device reads and writes to shared variables, you can deploy those variables.
+
+The template has the following unique parameters.
+•	Device Item Ref in—Reference to the custom device item whose XML declaration calls this action VI.
+•	ftp session—Open FTP session used to download the system definition to the target. You can use this open session to move additional files to the target.
+•	System Definition Dir—Path to the system definition file on disk.
+•	IP Address—IP address of the target.
+•	ftp session out—Open FTP session used to download the system definition file to the target.
+
+**ActionVIOnPaste**
+Executes when a user pastes a custom device item. This template helps create action VIs that check channel properties. For example, if the user pastes a page that configures a target, you can create an action VI to ensure that the new page does not attempt to reconfigure the target.
+
+You can also customize this template to prompt a user to enter new values for the pasted item. For example, if a user pastes a page that will conflict with existing pages, you can prompt the user to enter new values for the page.
+
+The template has the following unique parameters.
+•	Ptr in—Reference to the custom device item whose XML declaration calls this action VI.
+•	Parent—Reference to the parent of the custom device item whose XML declaration calls this action VI.
+•	All Ptrs—Array of references to the items the user pasted. You can only select one item to copy. This array only contains one reference that matches the Ptr in reference.
+
+**ActionVIOnCompile**
+Executes when VeriStand compiles the system definition file.
+If you deploy the system definition, then undeploy it, and then redeploy it without making changes, this template does not execute because the system definition does not recompile.
+
+You can customize this template to finish configuring your hardware. The system definition file compiles when a user deploys the system definition, so you can configure your hardware based on the final settings from the system definition.
+
+You can also customize the template to quickly gather host-side settings. For example, often the custom device RT Engine VI uses properties set in the system definition. You can customize this template to read the values on the host side, which is much faster than reading them from the real-time target. You can then gather the properties into a single cluster, convert that cluster to a data variant, and write the variant as a single item property.
 
 ### Adding Toolbar buttons
 
 A *Toolbar button* appears in the toolbar of **System Explorer**. These buttons only appear when displaying the configuration page associated with the button.
 
+Within the **&lt;PageN&lt;** tags for an item, you can use the **&lt;ButtonListN&lt;** tag to configure the toolbar buttons that appear with the item's configuration page. Each **&lt;ButtonN&lt;** must include a unique **&lt;IDN&lt;** string that identifies the button. The toolbar button displays by default.
+
+However, in each page VI, you can use the Disable Dynamic Button VI and the Enable Dynamic Button VI to dynamically disable and enable a button for that page based on its unique ID. These VIs are useful when you want the toolbar button to appear only when certain conditions are true.
+
+These VIs are located in the labview\vi.lib\NI VeriStand\Custom Device API directory.
+
+The following is an example framework you can use to implement a toolbar button.
+
 ![](images/Custom_Device_Dynamic_Button_Framework.JPG)<br />
 **Custom Device Toolbar button framework**
 
-•	**Type_Enum**<br />
-•	Action runs the VI silently in the background, i.e. carry out a pre-configured task and exit<br />
-•	Dialog<br />
-•	Page<br />
-•	Notification send a notification to the currently loaded page and pass the unique button ID<br />
-•	Separator add a visual separator to the toolbar<br />
+### Adding shortcut menus
 
-In the custom device LabVIEW Project, you’ll find Custom Device API.lvlib » Utility
-» NI VeriStand – Enable Dynamic Button and Disable Dynamic Button.vi to enable/disable the button based on the unique button ID.
+A *shortcut menu* for an item is the menu that appears when you right-click the item in System Explorer.
 
+Within the **&lt;PageN&lt;** tags for an item, you can use the **&lt;RunTimeMenuN&lt;** tag to configure the shortcut menu for the item. Each **&lt;MenuItemN&lt;** you add under **&lt;RunTimeMenuN&lt;** includes an **&lt;Item2LaunchN&lt;** section that specifies a VI to run when an operator selects the menu item.
+
+The Custom Device API library includes a template for this VI, RunTimeMenu Custom Item 2 Launch.vit, in the labview\vi.lib\NI VeriStand\Custom Device API directory.
+
+The following is an example framework you can use to implement a shortcut menu.
+
+![](images/Custom_Device_XML_Right-Click_Framework.JPG)<br />
+**Custom Device XML shortcut menu declaration**
