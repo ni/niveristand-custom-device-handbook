@@ -1,6 +1,6 @@
 ## Custom Device Tips and Tricks
 
-This section contains a tips and tricks for developing custom devices.
+This section contains tips and tricks for developing custom devices.
 
 ### Custom Device Engine Events
 
@@ -169,7 +169,7 @@ If it doesn’t make sense to have more than **N** instances of the custom devic
 
 ### Rename Protection
 
-There may be cases when you depend on a custom device item to have a certain name, and you’d like to prevent the operator from renaming the item. Add **&lt;DisallowRenaming*gt;true&lt;/DisallowRenaming&gt;** below the &lt;/Name&gt; tag for any page to prevent the operator from renaming the item.
+There may be cases when you depend on a custom device item to have a certain name, and you’d like to prevent the operator from renaming the item. Add **&lt;DisallowRenaming&gt;true&lt;/DisallowRenaming&gt;** below the &lt;/Name&gt; tag for any page to prevent the operator from renaming the item.
 
 ### Action VIs
 
@@ -177,65 +177,66 @@ VeriStand contains eight action VI templates that are triggered by different act
 
 The following list displays the action VI templates provided by VeriStand in the **[Custom Device API library](https://www.ni.com/documentation/en/veristand/latest/manual/custom-device-api-library/)**.
 
-**ActionVIOnLoad**
+**ActionVIOnLoad** <br />
 Executes when VeriStand loads a custom device item into memory. This template helps create action VIs that launch background processes. For example, if your custom device requires large amounts of data, you can customize this template to start a daemon that runs processes or gathers data in the background.
 
-**ActionVIOnDeleteRequest**
+**ActionVIOnDeleteRequest** <br />
 Executes when a user tries to delete an item from the custom device. This template helps create action VIs that prevent a user from deleting a custom device item or warn a user of the implications of deleting a custom device item.
 
 The template has the following unique parameters.<br />
 
-•	Item Ref—The reference to the custom device item whose XML declaration calls this action VI.<br />
-•	Refs that are about to get deleted—A 1D array of references to the items to be deleted. However, the 1D array will only contain one reference, as users can only delete one item at a time in the System Explorer window.<br />
-•	Discard reason—An output you can use to capture the user's reason for deleting the item.<br />
-•	Discard delete request?—Allows you to discard the delete request. After the action VI finishes executing, VeriStand will evaluate this output to determine whether or not to delete the item. If True, VeriStand will not delete the item. If False, VeriStand will delete the item.<br />
-•	Additional items to delete—An array of references to additional items you want to delete. For example, if other custom device items depend on the item the user wants to delete, you can use this output to automatically delete those items.<br />
+•	Item Ref - The reference to the custom device item whose XML declaration calls this action VI.<br />
+•	Refs that are about to get deleted - A 1D array of references to the items to be deleted. However, the 1D array will only contain one reference, as users can only delete one item at a time in the System Explorer window.<br />
+•	Discard reason - An output you can use to capture the user's reason for deleting the item.<br />
+•	Discard delete request? - Allows you to discard the delete request. After the action VI finishes executing, VeriStand will evaluate this output to determine whether or not to delete the item. If True, VeriStand will not delete the item. If False, VeriStand will delete the item.<br />
+•	Additional items to delete - An array of references to additional items you want to delete. For example, if other custom device items depend on the item the user wants to delete, you can use this output to automatically delete those items.<br />
 
-**ActionVIOnDelete**
+**ActionVIOnDelete** <br />
 Executes after a user deletes an item from the custom device. You can customize this template to alert users which channel mappings break when they delete the custom device item. You can also customize this template to reconfigure hardware.
 
 For example, if the user deletes a page that specifies custom configuration data for your hardware, you can customize the template to return the configuration to default settings.
 
-**ActionVIOnSystemShutdown**
+**ActionVIOnSystemShutdown** <br />
 Executes when System Explorer closes. You can customize this template to close hardware connections or to close daemons you launch from an ActionVIOnLoad action VI.
 
 The template has the following unique parameters.<br />
 
-•	Device Item Ref—Reference to the custom device item whose XML declaration calls this action VI.<br />
-•	Unload SDF?—Indicates whether or not the system definition file was unloaded. Unload SDF? is always True.<br />
-•	Saved?—Indicates whether or not a user saved the system definition file before closing System Explorer.<br />
-•	Path—Path on disk to the system definition file.<br />
-•	System Explorer Shutdown?—Indicates whether or not System Explorer closed. This parameter is always True.<br />
+•	Device Item Ref - Reference to the custom device item whose XML declaration calls this action VI.<br />
+•	Unload SDF? - Indicates whether or not the system definition file was unloaded. Unload SDF? is always True.<br />
+•	Saved? - Indicates whether or not a user saved the system definition file before closing System Explorer.<br />
+•	Path - Path on disk to the system definition file.<br />
+•	System Explorer Shutdown? - Indicates whether or not System Explorer closed. This parameter is always True.<br />
 
-**ActionVIOnSave**
+**ActionVIOnSave** <br />
 Executes when a user saves the system definition file. For example, you can customize this template to log each time the custom device is saved.
 
-**ActionVIOnDownload**	
+**ActionVIOnDownload** <br />
 Executes when a user deploys the system definition file containing the custom device to a real-time target. This action VI does not execute if a user deploys the system definition to a Windows target.
 
 This template helps create action VIs that finalize the target configuration after you deploy the system definition. You can also customize this template to deploy any additional files or dependencies your custom device requires. For example, if your custom device reads and writes to shared variables, you can deploy those variables.
 
 The template has the following unique parameters.<br />
 
-•	Device Item Ref in—Reference to the custom device item whose XML declaration calls this action VI.<br />
-•	ftp session—Open FTP session used to download the system definition to the target. You can use this open session to move additional files to the target.<br />
-•	System Definition Dir—Path to the system definition file on disk.<br />
-•	IP Address—IP address of the target.<br />
-•	ftp session out—Open FTP session used to download the system definition file to the target.<br />
+•	Device Item Ref in - Reference to the custom device item whose XML declaration calls this action VI.<br />
+•	ftp session - Open FTP session used to download the system definition to the target. You can use this open session to move additional files to the target.<br />
+•	System Definition Dir - Path to the system definition file on disk.<br />
+•	IP Address - IP address of the target.<br />
+•	ftp session out - Open FTP session used to download the system definition file to the target.<br />
 
-**ActionVIOnPaste**
+**ActionVIOnPaste** <br />
 Executes when a user pastes a custom device item. This template helps create action VIs that check channel properties. For example, if the user pastes a page that configures a target, you can create an action VI to ensure that the new page does not attempt to reconfigure the target.
 
 You can also customize this template to prompt a user to enter new values for the pasted item. For example, if a user pastes a page that will conflict with existing pages, you can prompt the user to enter new values for the page.
 
 The template has the following unique parameters.<br />
 
-•	Ptr in—Reference to the custom device item whose XML declaration calls this action VI.<br />
-•	Parent—Reference to the parent of the custom device item whose XML declaration calls this action VI.<br />
-•	All Ptrs—Array of references to the items the user pasted. You can only select one item to copy. This array only contains one reference that matches the Ptr in reference.<br />
+•	Ptr in - Reference to the custom device item whose XML declaration calls this action VI.<br />
+•	Parent - Reference to the parent of the custom device item whose XML declaration calls this action VI.<br />
+•	All Ptrs - Array of references to the items the user pasted. You can only select one item to copy. This array only contains one reference that matches the Ptr in reference.<br />
 
-**ActionVIOnCompile**
+**ActionVIOnCompile** <br />
 Executes when VeriStand compiles the system definition file.
+
 If you deploy the system definition, then undeploy it, and then redeploy it without making changes, this template does not execute because the system definition does not recompile.
 
 You can customize this template to finish configuring your hardware. The system definition file compiles when a user deploys the system definition, so you can configure your hardware based on the final settings from the system definition.
