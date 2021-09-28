@@ -65,12 +65,13 @@ VeriStand also exposes its TCP pipe via dynamic event registration. This pipe ma
 
 #### Testing
 
-A custom device is one part of a VeriStand system. The complete state of the operator's system is seldom known by the custom device developer. System state includes the following information.
-1 What are the specifications of the Target and Host Computer? Check the **[Glossary](https://www.ni.com/documentation/en/veristand/latest/manual/veristand-glossary/)** section of the **[VeriStand Help](https://www.ni.com/documentation/en/veristand/latest/manual/manual-overview/)**.
-2 What components are in the system definition?
-3 How computationally intense are the simulation models?
-4 What loop rates are required?
-5 What is the health and resource utilization of the system?
+A custom device is one part of a VeriStand system. The complete state of the operator's system is seldom known by the custom device developer. System state includes the following information.<br />
+
+1. What are the specifications of the Target and Host Computer? Check the **[Glossary](https://www.ni.com/documentation/en/veristand/latest/manual/veristand-glossary/)** section of the **[VeriStand Help](https://www.ni.com/documentation/en/veristand/latest/manual/manual-overview/)**.<br />
+2. What components are in the system definition?<br />
+3. How computationally intense are the simulation models?<br />
+4. What loop rates are required?<br />
+5. What is the health and resource utilization of the system?<br />
 
 Ideally, the custom device is implemented to be minimally burdensome, extremely efficient, and easy to use. Depending on its complexity, it may become necessary to test, debug, and optimize the code on systems representative of the operator’s system.
 
