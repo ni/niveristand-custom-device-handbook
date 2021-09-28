@@ -7,6 +7,7 @@ Debugging and benchmarking is a normal process of code development. There are a 
 Custom devices are written in LabVIEW code. Therefore it’s possible to develop, test and debug the code in LabVIEW, before running the niveristand-custom-device-wizard. In other words, you can use **[LabVIEW’s built-in Debugging Techniques](https://www.ni.com/en-us/support/documentation/supplemental/12/debugging-techniques-in-labview.html)** during development, and merge the LabVIEW code into the custom device framework after it matures.
 
 Since the custom device is one of many parts of the system definition, the behavior of the LabVIEW code within the custom device framework will likely differ from the stand-alone LabVIEW application, especially in regards to timing. As a result, you should benchmark the custom device inside of the VeriStand Engine.
+
 Once added to the system definition, custom devices have been fully integrated into VeriStand’s context. As a result, LabVIEW’s built-in Debugging Techniques are no longer available. Several techniques are available for debugging and benchmarking the custom device.
  
 #### Console Viewer
@@ -34,7 +35,7 @@ This VI works on both Windows and RT execution hosts. It has an optional input (
 
 #### Printing with RT Debug String VI
 
-The RT Debug String.VI sens a string to the standard output device. By default, this VI sends the debug string to the video port. If you have device capable of serial redirection, this VI sends the debug string to the serial port. RT Debug String VI can be found at the following location: **C:\Program Files (x86)\National Instruments\LabVIEW 2020\Targets\NI\RT\vi.lib\rtutility.llb\RT Debug String.vi**
+The RT Debug String.VI sends a string to the standard output device. By default, this VI sends the debug string to the video port. If you have a device capable of serial redirection, this VI sends the debug string to the serial port. RT Debug String VI can be found in: **Real-Time » RT Utilities » RT Debug String.vi** LabVIEW palette.
 
 For more information go to **[Real-Time VIs](https://zone.ni.com/reference/en-XX/help/370715P-01/lvrtvihelp/lv_real_time_vi_help/)** >> **[RT Utilities VIs](https://zone.ni.com/reference/en-XX/help/370715P-01/lvrtvihelp/rt_board_utilities_vis/)** >> **[RT Debug String VI](https://zone.ni.com/reference/en-XX/help/370715P-01/lvrtvihelp/rt_debug_strings/)** .
 
@@ -80,7 +81,7 @@ System State Publisher provides a periodic snapshot of utilization. Spikes and t
 
 #### Real-Time Trace Viewer
 
-VeriStand 2020 provides built-in support for using the **[Real-Time Trace Viewer](https://zone.ni.com/reference/en-XX/help/370715P-01/lvtracehelp/lv_tracetoolkit_help/)** and **[Real-Time Trace Viewer VIs](https://zone.ni.com/reference/en-XX/help/370715P-01/lvtrace/tracetoolkitvis_pal/)** to capture the timing and execution data of VI and thread events for applications running on an RT target. The VIs can also return **[general LabVIEW error codes](https://zone.ni.com/reference/en-XX/help/371361R-01/lverror/misc_lv_error_codes/)**. In a LabVIEW VI, select **Tools»Real-Time Module»Trace Viewer** to display the Real-Time Trace Viewer. For more info on how to use Real-Time Trace Viewer, in LabVIEW go to **Help>>LabVIEW Help>>Real-Time Module>>Real-Time Trace Viewer**.
+VeriStand 2020 provides built-in support for using the **[Real-Time Trace Viewer](https://zone.ni.com/reference/en-XX/help/370715P-01/lvtracehelp/lv_tracetoolkit_help/)** and **[Real-Time Trace Viewer VIs](https://zone.ni.com/reference/en-XX/help/370715P-01/lvtrace/tracetoolkitvis_pal/)** to capture the timing and execution data of a VI and thread events for applications running on an RT target. In a LabVIEW VI, select **Tools » Real-Time Module » Trace Viewer** to display the Real-Time Trace Viewer. For more info on how to use Real-Time Trace Viewer, in LabVIEW go to **Help » LabVIEW Help » Real-Time Module » Real-Time Trace Viewer**.
 
 #### Additional Debugging Options for VeriStand
 Upon request, National Instrument may provide advanced debugging tools to help you resolve certain custom device issues. These tools are a last resort when all other debugging options have been exhausted. Please contact National Instruments for more information.
