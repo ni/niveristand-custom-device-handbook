@@ -183,7 +183,8 @@ Executes when VeriStand loads a custom device item into memory. This template he
 **ActionVIOnDeleteRequest**
 Executes when a user tries to delete an item from the custom device. This template helps create action VIs that prevent a user from deleting a custom device item or warn a user of the implications of deleting a custom device item.
 
-The template has the following unique parameters.
+The template has the following unique parameters.<br />
+
 •	Item Ref—The reference to the custom device item whose XML declaration calls this action VI.<br />
 •	Refs that are about to get deleted—A 1D array of references to the items to be deleted. However, the 1D array will only contain one reference, as users can only delete one item at a time in the System Explorer window.<br />
 •	Discard reason—An output you can use to capture the user's reason for deleting the item.<br />
@@ -198,7 +199,8 @@ For example, if the user deletes a page that specifies custom configuration data
 **ActionVIOnSystemShutdown**
 Executes when System Explorer closes. You can customize this template to close hardware connections or to close daemons you launch from an ActionVIOnLoad action VI.
 
-The template has the following unique parameters.
+The template has the following unique parameters.<br />
+
 •	Device Item Ref—Reference to the custom device item whose XML declaration calls this action VI.<br />
 •	Unload SDF?—Indicates whether or not the system definition file was unloaded. Unload SDF? is always True.<br />
 •	Saved?—Indicates whether or not a user saved the system definition file before closing System Explorer.<br />
@@ -213,7 +215,8 @@ Executes when a user deploys the system definition file containing the custom de
 
 This template helps create action VIs that finalize the target configuration after you deploy the system definition. You can also customize this template to deploy any additional files or dependencies your custom device requires. For example, if your custom device reads and writes to shared variables, you can deploy those variables.
 
-The template has the following unique parameters.
+The template has the following unique parameters.<br />
+
 •	Device Item Ref in—Reference to the custom device item whose XML declaration calls this action VI.<br />
 •	ftp session—Open FTP session used to download the system definition to the target. You can use this open session to move additional files to the target.<br />
 •	System Definition Dir—Path to the system definition file on disk.<br />
@@ -225,7 +228,8 @@ Executes when a user pastes a custom device item. This template helps create act
 
 You can also customize this template to prompt a user to enter new values for the pasted item. For example, if a user pastes a page that will conflict with existing pages, you can prompt the user to enter new values for the page.
 
-The template has the following unique parameters.
+The template has the following unique parameters.<br />
+
 •	Ptr in—Reference to the custom device item whose XML declaration calls this action VI.<br />
 •	Parent—Reference to the parent of the custom device item whose XML declaration calls this action VI.<br />
 •	All Ptrs—Array of references to the items the user pasted. You can only select one item to copy. This array only contains one reference that matches the Ptr in reference.<br />
