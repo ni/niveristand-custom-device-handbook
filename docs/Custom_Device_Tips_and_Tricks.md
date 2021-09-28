@@ -184,11 +184,11 @@ Executes when VeriStand loads a custom device item into memory. This template he
 Executes when a user tries to delete an item from the custom device. This template helps create action VIs that prevent a user from deleting a custom device item or warn a user of the implications of deleting a custom device item.
 
 The template has the following unique parameters.
-•	Item Ref—The reference to the custom device item whose XML declaration calls this action VI.
-•	Refs that are about to get deleted—A 1D array of references to the items to be deleted. However, the 1D array will only contain one reference, as users can only delete one item at a time in the System Explorer window.
-•	Discard reason—An output you can use to capture the user's reason for deleting the item.
-•	Discard delete request?—Allows you to discard the delete request. After the action VI finishes executing, VeriStand will evaluate this output to determine whether or not to delete the item. If True, VeriStand will not delete the item. If False, VeriStand will delete the item.
-•	Additional items to delete—An array of references to additional items you want to delete. For example, if other custom device items depend on the item the user wants to delete, you can use this output to automatically delete those items.
+•	Item Ref—The reference to the custom device item whose XML declaration calls this action VI.<br />
+•	Refs that are about to get deleted—A 1D array of references to the items to be deleted. However, the 1D array will only contain one reference, as users can only delete one item at a time in the System Explorer window.<br />
+•	Discard reason—An output you can use to capture the user's reason for deleting the item.<br />
+•	Discard delete request?—Allows you to discard the delete request. After the action VI finishes executing, VeriStand will evaluate this output to determine whether or not to delete the item. If True, VeriStand will not delete the item. If False, VeriStand will delete the item.<br />
+•	Additional items to delete—An array of references to additional items you want to delete. For example, if other custom device items depend on the item the user wants to delete, you can use this output to automatically delete those items.<br />
 
 **ActionVIOnDelete**
 Executes after a user deletes an item from the custom device. You can customize this template to alert users which channel mappings break when they delete the custom device item. You can also customize this template to reconfigure hardware.
@@ -199,11 +199,11 @@ For example, if the user deletes a page that specifies custom configuration data
 Executes when System Explorer closes. You can customize this template to close hardware connections or to close daemons you launch from an ActionVIOnLoad action VI.
 
 The template has the following unique parameters.
-•	Device Item Ref—Reference to the custom device item whose XML declaration calls this action VI.
-•	Unload SDF?—Indicates whether or not the system definition file was unloaded. Unload SDF? is always True.
-•	Saved?—Indicates whether or not a user saved the system definition file before closing System Explorer.
-•	Path—Path on disk to the system definition file.
-•	System Explorer Shutdown?—Indicates whether or not System Explorer closed. This parameter is always True.
+•	Device Item Ref—Reference to the custom device item whose XML declaration calls this action VI.<br />
+•	Unload SDF?—Indicates whether or not the system definition file was unloaded. Unload SDF? is always True.<br />
+•	Saved?—Indicates whether or not a user saved the system definition file before closing System Explorer.<br />
+•	Path—Path on disk to the system definition file.<br />
+•	System Explorer Shutdown?—Indicates whether or not System Explorer closed. This parameter is always True.<br />
 
 **ActionVIOnSave**
 Executes when a user saves the system definition file. For example, you can customize this template to log each time the custom device is saved.
@@ -214,11 +214,11 @@ Executes when a user deploys the system definition file containing the custom de
 This template helps create action VIs that finalize the target configuration after you deploy the system definition. You can also customize this template to deploy any additional files or dependencies your custom device requires. For example, if your custom device reads and writes to shared variables, you can deploy those variables.
 
 The template has the following unique parameters.
-•	Device Item Ref in—Reference to the custom device item whose XML declaration calls this action VI.
-•	ftp session—Open FTP session used to download the system definition to the target. You can use this open session to move additional files to the target.
-•	System Definition Dir—Path to the system definition file on disk.
-•	IP Address—IP address of the target.
-•	ftp session out—Open FTP session used to download the system definition file to the target.
+•	Device Item Ref in—Reference to the custom device item whose XML declaration calls this action VI.<br />
+•	ftp session—Open FTP session used to download the system definition to the target. You can use this open session to move additional files to the target.<br />
+•	System Definition Dir—Path to the system definition file on disk.<br />
+•	IP Address—IP address of the target.<br />
+•	ftp session out—Open FTP session used to download the system definition file to the target.<br />
 
 **ActionVIOnPaste**
 Executes when a user pastes a custom device item. This template helps create action VIs that check channel properties. For example, if the user pastes a page that configures a target, you can create an action VI to ensure that the new page does not attempt to reconfigure the target.
@@ -226,9 +226,9 @@ Executes when a user pastes a custom device item. This template helps create act
 You can also customize this template to prompt a user to enter new values for the pasted item. For example, if a user pastes a page that will conflict with existing pages, you can prompt the user to enter new values for the page.
 
 The template has the following unique parameters.
-•	Ptr in—Reference to the custom device item whose XML declaration calls this action VI.
-•	Parent—Reference to the parent of the custom device item whose XML declaration calls this action VI.
-•	All Ptrs—Array of references to the items the user pasted. You can only select one item to copy. This array only contains one reference that matches the Ptr in reference.
+•	Ptr in—Reference to the custom device item whose XML declaration calls this action VI.<br />
+•	Parent—Reference to the parent of the custom device item whose XML declaration calls this action VI.<br />
+•	All Ptrs—Array of references to the items the user pasted. You can only select one item to copy. This array only contains one reference that matches the Ptr in reference.<br />
 
 **ActionVIOnCompile**
 Executes when VeriStand compiles the system definition file.
@@ -242,7 +242,7 @@ You can also customize the template to quickly gather host-side settings. For ex
 
 A *Toolbar button* appears in the toolbar of **System Explorer**. These buttons only appear when displaying the configuration page associated with the button.
 
-Within the **&lt;PageN&lt;** tags for an item, you can use the **&lt;ButtonListN&lt;** tag to configure the toolbar buttons that appear with the item's configuration page. Each **&lt;ButtonN&lt;** must include a unique **&lt;IDN&lt;** string that identifies the button. The toolbar button displays by default.
+Within the **&lt;Page&gt;** tags for an item, you can use the **&lt;ButtonList&gt;** tag to configure the toolbar buttons that appear with the item's configuration page. Each **&lt;Button&gt;** must include a unique **&lt;ID&gt;** string that identifies the button. The toolbar button displays by default.
 
 However, in each page VI, you can use the Disable Dynamic Button VI and the Enable Dynamic Button VI to dynamically disable and enable a button for that page based on its unique ID. These VIs are useful when you want the toolbar button to appear only when certain conditions are true.
 
@@ -257,7 +257,7 @@ The following is an example framework you can use to implement a toolbar button.
 
 A *shortcut menu* for an item is the menu that appears when you right-click the item in System Explorer.
 
-Within the **&lt;PageN&lt;** tags for an item, you can use the **&lt;RunTimeMenuN&lt;** tag to configure the shortcut menu for the item. Each **&lt;MenuItemN&lt;** you add under **&lt;RunTimeMenuN&lt;** includes an **&lt;Item2LaunchN&lt;** section that specifies a VI to run when an operator selects the menu item.
+Within the **&lt;Page&gt;** tags for an item, you can use the **&lt;RunTimeMenu&gt;** tag to configure the shortcut menu for the item. Each **&lt;MenuItem&gt;** you add under **&lt;RunTimeMenu&gt;** includes an **&lt;Item2Launch&gt;** section that specifies a VI to run when an operator selects the menu item.
 
 The Custom Device API library includes a template for this VI, RunTimeMenu Custom Item 2 Launch.vit, in the labview\vi.lib\NI VeriStand\Custom Device API directory.
 
