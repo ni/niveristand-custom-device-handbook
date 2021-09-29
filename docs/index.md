@@ -14,11 +14,7 @@
 
 #### Implement the Custom Device
 
-   + [Build the Template Project](Build_the_Template_Project.md)
-   
-   + [Build the Configuration](Build_the_Configuration.md)
-   
-   + [Build the Driver](Build_the_Driver.md)
+   + [Implement the Custom Device](Implement_the_Custom_Device.md)
 
 #### Debugging and Benchmarking
 
