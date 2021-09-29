@@ -81,12 +81,8 @@ html_static_path = ['_static']
 # app setup hook
 def setup(app):
     app.add_config_value('recommonmark_config', {
-        #'url_resolver': lambda url: github_doc_root + url,
-        'auto_toc_tree_section': 'Contents',
-        'enable_math': False,
-        'enable_inline_math': False,
+        'auto_toc_maxdepth': 4,
         'enable_eval_rst': True,
-        'enable_auto_doc_ref': True,
     }, True)
     app.add_transform(AutoStructify)
     
