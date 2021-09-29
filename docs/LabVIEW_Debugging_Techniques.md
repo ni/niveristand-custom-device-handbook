@@ -12,7 +12,7 @@ Once added to the system definition, custom devices have been fully integrated i
  
 #### Console Viewer
 
-A subcomponent of VeriStand RT Engine is the [Console Viewer](https://www.ni.com/documentation/en/veristand/latest/manual/viewing-console-output/).
+A subcomponent of VeriStand RT Engine is the **[Console Viewer](https://www.ni.com/documentation/en/veristand/latest/manual/viewing-console-output/)**.
 
 You can install it to the target using Measurement and Automation Explorer. When installed, the component runs a small UDP daemon allowing the operator to view the console from a utility called the Console Viewer. You can access the Console Viewer from the **VeriStand Editor » Tool Launcher » View Console**.
 
