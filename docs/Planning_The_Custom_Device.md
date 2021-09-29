@@ -201,7 +201,7 @@ The tool generates the page, GUID, XML Declaration, and includes the page in the
 
 If you do not use the niveristand-custom-device-wizard to create extra pages, you must manually add and configure them.
 
-Manually adding extra pages to a custom device after running the Custom Device Template Tool is cumbersome. Avoid this issue by creating a few extra pages beyond what you think will be necessary. Unused extra pages are not executed, but they do consume marginal space on disk.
+Manually adding extra pages to a custom device after running the niveristand-custom-device-wizard is cumbersome. Avoid this issue by creating a few extra pages beyond what you think will be necessary. Unused extra pages are not executed, but they do consume marginal space on disk.
 
 ### GUID
 
