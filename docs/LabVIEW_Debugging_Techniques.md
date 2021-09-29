@@ -12,9 +12,9 @@ Once added to the system definition, custom devices have been fully integrated i
  
 #### Console Viewer
 
-A subcomponent of VeriStand RT Engine is the Console Viewer.
+A subcomponent of VeriStand RT Engine is the **[Console Viewer](https://www.ni.com/documentation/en/veristand/latest/manual/viewing-console-output/)**.
 
-You can install it to the execution host using Measurement and Automation Explorer. When installed, the component runs a small UDP daemon allowing the operator to view the console from a utility called the Console Viewer. You can access the Console Viewer from the **VeriStand Editor » Tool Launcher » View Console**.
+You can install it to the target using Measurement and Automation Explorer. When installed, the component runs a small UDP daemon allowing the operator to view the console from a utility called the Console Viewer. You can access the Console Viewer from the **VeriStand Editor » Tool Launcher » View Console**.
 
 &nbsp;&nbsp;&nbsp;**Note:** You cannot use the **Console Viewer** on NI Linux Real-Time targets. Instead, connect your NI Linux Real-Time targets to a computer using a serial port to view the output.
 
@@ -26,8 +26,16 @@ The Console Viewer will show the system definition and the resulting CPU usage. 
 
 The Console Viewer is also available as a stand-alone add-on to LabVIEW Real-Time. See **[NI Developer Zone Tutorial: Remotely View Console Output of Real-Time Targets](https://knowledge.ni.com/KnowledgeArticleDetails?id=kA03q000000x4TjCAI&l=en-US)** for more information.
 
+#### Custom Error Codes
+
+You can define custom error codes in LabVIEW and distribute the codes to VeriStand with a custom device. Copy the *custom errors.txt* file to VeriStand in the *&lt;Base&gt;\National Instruments\Shared\Errors\English* directory and add the file as a dependency in custom device and **[Custom Device XML file](https://www.ni.com/documentation/en/veristand/latest/manual/custom-device-xml/)**.
+
+For RT targets, deploy the *errors.txt* file to the error directory on target to display error descriptions in Console Viewer.
+
+For more information, refer to the Defining Custom Error Codes to Distribute throughout Your Application topic in the *LabVIEW Help*.
+
 #### Printing With "NI VeriStand - Print Debug Line" VI
-The recommended method of printing to the console is to use "NI VeriStand - Print Debug Line" VI. This VI is part of Custom Device API » Utilities » Print Debug Line.vi.
+The recommended method of printing to the console is to use "NI VeriStand - Print Debug Line" VI. This VI is part of **Custom Device API » Utilities » Print Debug Line.vi**.
 
 ![](images/NIVSdebugString.jpg)
 
@@ -45,7 +53,7 @@ For more information go to **[Real-Time VIs](https://zone.ni.com/reference/en-XX
 
 #### Telemetry Custom Device
 
-The [Telemetry Custom Device](https://github.com/ni/niveristand-telemetry-custom-device/releases) supports VeriStand benchmarking by helping you log system channels and monitor target resources. The usage data is logged to a TDMS file on the target that is running the VeriStand Engine.
+The **[Telemetry Custom Device](https://github.com/ni/niveristand-telemetry-custom-device/releases)** supports VeriStand benchmarking by helping you log system channels and monitor target resources. The usage data is logged to a TDMS file on the target that is running the VeriStand Engine.
 
 #### System Channels
 
@@ -71,7 +79,7 @@ If the value of the count channels increase over time, the execution host is not
 
 #### System Monitor Custom Device
 
-The [System Monitor Custom Device](https://github.com/ni/niveristand-system-monitor-custom-device/releases) tracks memory resources and CPU usage on an RT target running the VeriStand Engine. Set the update rate (Hz) in System Explorer to determine how often the custom device checks CPU and memory usage and sends them to the corresponding channel. The VeriStand System Monitor can only be used on an RT target. The custom device returns an error if you target it to a Windows system.
+The **[System Monitor Custom Device](https://github.com/ni/niveristand-system-monitor-custom-device/releases)** tracks memory resources and CPU usage on an RT target running the VeriStand Engine. Set the update rate (Hz) in System Explorer to determine how often the custom device checks CPU and memory usage and sends them to the corresponding channel. The VeriStand System Monitor can only be used on an RT target. The custom device returns an error if you target it to a Windows system.
 
 #### Distributed System Manager
 
@@ -81,7 +89,7 @@ System State Publisher provides a periodic snapshot of utilization. Spikes and t
 
 #### Real-Time Trace Viewer
 
-VeriStand 2020 provides built-in support for using the **[Real-Time Trace Viewer](https://zone.ni.com/reference/en-XX/help/370715P-01/lvtracehelp/lv_tracetoolkit_help/)** and **[Real-Time Trace Viewer VIs](https://zone.ni.com/reference/en-XX/help/370715P-01/lvtrace/tracetoolkitvis_pal/)** to capture the timing and execution data of a VI and thread events for applications running on an RT target. In a LabVIEW VI, select **Tools » Real-Time Module » Trace Viewer** to display the Real-Time Trace Viewer. For more info on how to use Real-Time Trace Viewer, in LabVIEW go to **Help » LabVIEW Help » Real-Time Module » Real-Time Trace Viewer**.
+VeriStand provides built-in support for using the **[Real-Time Trace Viewer](https://zone.ni.com/reference/en-XX/help/370715P-01/lvtracehelp/lv_tracetoolkit_help/)** and **[Real-Time Trace Viewer VIs](https://zone.ni.com/reference/en-XX/help/370715P-01/lvtrace/tracetoolkitvis_pal/)** to capture the timing and execution data of a VI and thread events for applications running on an RT target. In a LabVIEW VI, select **Tools » Real-Time Module » Trace Viewer** to display the Real-Time Trace Viewer. For more info on how to use Real-Time Trace Viewer, in LabVIEW go to **Help » LabVIEW Help » Real-Time Module » Real-Time Trace Viewer**.
 
 #### Additional Debugging Options for VeriStand
 Upon request, National Instrument may provide advanced debugging tools to help you resolve certain custom device issues. These tools are a last resort when all other debugging options have been exhausted. Please contact National Instruments for more information.
