@@ -1,4 +1,4 @@
-#### When do you Need a Custom Device?
+### When do you Need a Custom Device?
 
 The built-in components of a VeriStand Project are listed in **[VeriStand Help](https://www.ni.com/documentation/en/veristand/latest/manual/manual-overview/)** » **[VeriStand Environment](https://www.ni.com/documentation/en/veristand/latest/manual/environment/)** » **System Explorer** section in the table. If the built-in components do not fulfill a specification, it can most likely be fulfilled by one of the customization methods shown in **[Using NI VeriStand with Other Software Environments to Create Real-Time Test Applications](https://www.ni.com/en-us/innovations/white-papers/09/using-ni-veristand-with-other-software-environments-to-create-re.html)**.
 
