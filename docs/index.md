@@ -31,3 +31,7 @@
 #### Custom Device Tips and Tricks
 
    + [Custom Devices Tips & Tricks](Custom_Device_Tips_and_Tricks.md)
+   
+#### Scripting APIs used with VeriStand
+
+   + [Scripting APIs used with VeriStand](Scripting_API.md)
