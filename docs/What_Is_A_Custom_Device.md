@@ -97,6 +97,7 @@ For each of the five types of custom devices, in the LabVIEW source project, you
 * a <span style="color:green">*&lt;Custom Device Name&gt; System Explorer.lvlib*</span> VI library.
 
 The following image displays a new custom device template project. <br />
+
 ![](images/Picture5.jpg) <br />
 
 The Custom Device API library and Custom Device Utility Library contain most of the type definitions, template VIs and LabVIEW API needed to interact with VeriStand data and timing resources. They allow the VI to behave as a native task in the VeriStand Engine.
