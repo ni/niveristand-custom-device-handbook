@@ -11,7 +11,8 @@ NI has developed Scripting APIs for some NI supported Custom Devices. One such e
 The functions for this Scripting API are grouped into: **Custom Device**, **Bitfile Resources**, and **Utilities** palettes.  
 
 &nbsp;&nbsp;&nbsp;![](images/main_palette.png)<br />
-Custom Device palette
+
+**Custom Device palette**
 
 ## Scripting APIs for NI supported Custom Devices
 
