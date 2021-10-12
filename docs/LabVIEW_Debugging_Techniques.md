@@ -47,7 +47,7 @@ The RT Debug String.VI sends a string to the standard output device. By default,
 
 For more information go to **[Real-Time VIs](https://zone.ni.com/reference/en-XX/help/370715P-01/lvrtvihelp/lv_real_time_vi_help/)** >> **[RT Utilities VIs](https://zone.ni.com/reference/en-XX/help/370715P-01/lvrtvihelp/rt_board_utilities_vis/)** >> **[RT Debug String VI](https://zone.ni.com/reference/en-XX/help/370715P-01/lvrtvihelp/rt_debug_strings/)** .
 
-![](images/RT_Debug_String_VI.jpg)	 
+![](images/RT_Debug_String_VI.JPG)	 
 
 **Figure: RT Debug String VI**
 
