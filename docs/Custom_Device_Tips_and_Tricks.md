@@ -19,7 +19,7 @@ The following image displays the VI interface for registering VeriStand Dynamic 
 ![](images/Registering_for_NI_VeriStand_Dynamic_Events.jpg)<br />
 
 
-The two message events activate when *NI VeriStand – Send Custom Device Message.vi* is called. The following LabVIEW code displays how to send a information to VeriStand’s Dynamic Message Events.
+The two message events activate when *NI VeriStand – Send Custom Device Message.vi* is called. The following LabVIEW code displays how to send information to VeriStand’s Dynamic Message Events.
 
 ![](images/Sending_a_Message_to_NI_VeriStand_Dynamic_Message_Events.jpg)<br />
 
