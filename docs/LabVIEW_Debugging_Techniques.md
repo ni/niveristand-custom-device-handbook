@@ -39,17 +39,25 @@ For more information, refer to [Defining Custom Error Codes to Distribute throug
 #### Printing With the Print Debug Line VI
 The recommended method of printing to the console is to use the NI VeriStand - Print Debug Line VI. To locate this VI in LabVIEW, navigate to **Custom Device API** » **Utilities**.
 
-| VI     | Description |
-| ----------- | ----------- |
+```eval_rst
++-----------------+--------------------------------------------------------------------------+
+|VI |Description                                                               |
++=================+==========================================================================+
 | ![](images/NIVSdebugString.jpg) | Works on both Windows and RT execution hosts. <br><br> It has an optional **Attribute** input to change the color of the text. It also has an optional **Add to log file? (F)** input to append the string to the VeriStand log file. |
++-----------------+--------------------------------------------------------------------------+
+```
 
 #### Printing with RT Debug String VI
 
 The RT Debug String VI sends a string to the standard output device. To locate this VI in LabVIEW, navigate to **Real-Time** » **RT Utilities**.
 
-| VI     | Description |
-| ----------- | ----------- |
-| ![](images/RT_Debug_String_VI.jpg) | By default, sends the debug string to the video port. If you have a device capable of serial redirection, this VI sends the debug string to the serial port.|
+```eval_rst
++-----------------+--------------------------------------------------------------------------+
+|VI |Description                                                               |
++=================+==========================================================================+
+| ![](images/RT_Debug_String_VI.jpg) | By default, sends the debug string to the video port. If you have a device capable of serial redirection, this VI sends the debug string to the serial port. |
++-----------------+--------------------------------------------------------------------------+
+```
 
 #### Telemetry Custom Device
 
@@ -61,12 +69,19 @@ VeriStand includes [system channels](https://www.ni.com/documentation/en/verista
 
 The following table contains these debugging and benchmarking system channels.
 
-| System Channel | Description |
-| ----------- | ----------- |
-| HP Count  | The number of times the Primary Control Loop reported being late. |
-| HP Loop Duration | The duration of the Primary Control Loop in nanoseconds. |
-| LP Count | The number of times the Data Processing Loop reported being late. |
-| Model Count | The number of times the models have not completed their execution in time. |
+```eval_rst
++-----------------+--------------------------------------------------------------------------+
+|System Channel   |Description                                                               |
++=================+==========================================================================+
+|HP Count         |The number of times the Primary Control Loop reported being late.         |
++-----------------+--------------------------------------------------------------------------+
+|HP Loop Duration |The duration of the Primary Control Loop in nanoseconds.                  |
++-----------------+--------------------------------------------------------------------------+
+|LP Count         |The number of times the Data Processing Loop reported being late.         |
++-----------------+--------------------------------------------------------------------------+
+|Model Count      |The number of times the models have not completed their execution in time.|
++-----------------+--------------------------------------------------------------------------+
+```
 
 If the value of the count channels increase over time, the execution host is not achieving the desired loop rates. You can use the system channels in conjunction with an **[alarm](https://www.ni.com/documentation/en/veristand/latest/manual/add-configure-alarm/)** or **[procedure](https://www.ni.com/documentation/en/veristand/latest/manual/add-configure-procedure/)** to handle events.
 
