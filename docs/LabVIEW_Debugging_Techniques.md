@@ -89,7 +89,7 @@ The following table contains these debugging and benchmarking system channels.
 +-----------------+--------------------------------------------------------------------------+
 ```
 
-If the value of the count channels increase over time, the execution host is not achieving the desired loop rates. You can use the system channels in conjunction with an **[alarm](https://www.ni.com/documentation/en/veristand/latest/manual/add-configure-alarm/)** or **[procedure](https://www.ni.com/documentation/en/veristand/latest/manual/add-configure-procedure/)** to handle events.
+If the value of the count channels increase over time, the target is not achieving the desired loop rates. You can use the system channels in conjunction with an **[alarm](https://www.ni.com/documentation/en/veristand/latest/manual/add-configure-alarm/)** or **[procedure](https://www.ni.com/documentation/en/veristand/latest/manual/add-configure-procedure/)** to handle events.
 
 #### System Monitor Custom Device
 
@@ -109,7 +109,7 @@ System State Publisher provides a periodic snapshot of utilization. CPU spikes a
 
 VeriStand provides built-in support for the [Real-Time Trace Viewer](https://zone.ni.com/reference/en-XX/help/370715P-01/lvtracehelp/lv_tracetoolkit_help/) and [Real-Time Trace Viewer VIs](https://zone.ni.com/reference/en-XX/help/370715P-01/lvtrace/tracetoolkitvis_pal/). Use the trace viewer to capture the timing and execution data of a VI and thread events for applications running on an RT target.
 
-to display the Real-Time Trace Viewer In a LabVIEW VI, select **Tools** » **Real-Time Module** » **Trace Viewer**. For more info on how to use Real-Time Trace Viewer in LabVIEW, navigate to **Help** » **LabVIEW Help** » **Real-Time Module** » **Real-Time Trace Viewer**.
+To display the Real-Time Trace Viewer In a LabVIEW VI, select **Tools** » **Real-Time Module** » **Trace Viewer**. For more info on how to use Real-Time Trace Viewer in LabVIEW, navigate to **Help** » **LabVIEW Help** » **Real-Time Module** » **Real-Time Trace Viewer**.
 
 #### Additional Debugging Options for VeriStand
 Upon request, NI can provide advanced debugging tools to help you resolve certain custom device issues. These tools are a last resort when all other debugging options have been exhausted. For more information, contact NI.

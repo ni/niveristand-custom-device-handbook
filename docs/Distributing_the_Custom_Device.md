@@ -10,22 +10,22 @@ As with most applications, you can streamline distribution in two ways.
 
 NI recommends distributing the custom device by copying the necessary files into a simple folder hierarchy. The top-level folder should contain the items in the following table.
 
-<table>
+<table class="Bordered">
   <tr>
-    <th>Items</th>
-    <th>Description</th>
+    <th class="Bordered">Items</th>
+    <th class="Bordered">Description</th>
   </tr>
   <tr>
-    <td>Build Folder</td>
-    <td>Contains files for operator to copy to the <code><Common Data>\Custom Devices\</code> VeriStand directory. This will add the custom device to the system definition.</td>
+    <td class="Bordered">Build Folder</td>
+    <td class="Bordered">Contains files for operator to copy to the <code><Common Data>\Custom Devices\</code> VeriStand directory. This will add the custom device to the system definition.</td>
   </tr>
   <tr>
-    <td>Source folder</td>
-    <td>Contains the LabVIEW Project used to create the custom device and any supporting libraries and dependencies required to build the custom device. <br><br> For example, the AES-201 custom device would ship with the LabVIEW API and hardware DLL.</td>
+    <td class="Bordered">Source folder</td>
+    <td class="Bordered">Contains the LabVIEW Project used to create the custom device and any supporting libraries and dependencies required to build the custom device. <br><br> For example, the AES-201 custom device would ship with the LabVIEW API and hardware DLL.</td>
   </tr>
   <tr>
-    <td>Readme file</td>
-    <td>Contains instructions for installing, licensing, using, and modifying the custom device. It should also contain contact information if you plan to support the device, or a disclaimer if you don’t plan to support the device. <br><br> The Readme file is a good place to store any benchmarking information.</td>
+    <td class="Bordered">Readme file</td>
+    <td class="Bordered">Contains instructions for installing, licensing, using, and modifying the custom device. It should also contain contact information if you plan to support the device, or a disclaimer if you don’t plan to support the device. <br><br> The Readme file is a good place to store any benchmarking information.</td>
   </tr>
 </table>
 
