@@ -29,7 +29,7 @@ The Console Viewer is also available as a stand-alone add-on to LabVIEW Real-Tim
 #### Custom Error Codes
 
 You can define custom error codes in LabVIEW and distribute them to VeriStand with a custom device.
-1. Copy a custom *errors.txt* file to VeriStand in the `<Base&gt>\National Instruments\Shared\Errors\English` directory.
+1. Copy a custom *errors.txt* file to VeriStand in the `<Base>\National Instruments\Shared\Errors\English` directory.
 1. Add the file as a dependency in the custom device.
 1. Add the file as a dependency in the [custom device XML file](https://www.ni.com/documentation/en/veristand/latest/manual/custom-device-xml/).
 1. **(Optional)** For RT targets, deploy the *errors.txt* file to the error directory on target. Error messages will display in Console Viewer.
@@ -39,25 +39,31 @@ For more information, refer to [Defining Custom Error Codes to Distribute throug
 #### Printing With the Print Debug Line VI
 The recommended method of printing to the console is to use the NI VeriStand - Print Debug Line VI. To locate this VI in LabVIEW, navigate to **Custom Device API** » **Utilities**.
 
-```eval_rst
-+-----------------+--------------------------------------------------------------------------+
-|VI |Description                                                               |
-+=================+==========================================================================+
-| ![](images/NIVSdebugString.jpg) | Works on both Windows and RT execution hosts. <br><br> It has an optional **Attribute** input to change the color of the text. It also has an optional **Add to log file? (F)** input to append the string to the VeriStand log file. |
-+-----------------+--------------------------------------------------------------------------+
-```
+<table>
+  <tr>
+    <th>VI</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td><img src="images/NIVSdebugString.jpg"></td>
+    <td>Works on both Windows and RT execution hosts. <br><br> It has an optional <strong>Attribute</strong> input to change the color of the text. It also has an optional <strong>Add to log file? (F)</strong> input to append the string to the VeriStand log file.</td>
+  </tr>
+</table>
 
 #### Printing with RT Debug String VI
 
 The RT Debug String VI sends a string to the standard output device. To locate this VI in LabVIEW, navigate to **Real-Time** » **RT Utilities**.
 
-```eval_rst
-+-----------------+--------------------------------------------------------------------------+
-|VI |Description                                                               |
-+=================+==========================================================================+
-| ![](images/RT_Debug_String_VI.jpg) | By default, sends the debug string to the video port. If you have a device capable of serial redirection, this VI sends the debug string to the serial port. |
-+-----------------+--------------------------------------------------------------------------+
-```
+<table>
+  <tr>
+    <th>VI</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td><img src="images/RT_Debug_String_VI.jpg"></td>
+    <td>By default, sends the debug string to the video port. If you have a device capable of serial redirection, this VI sends the debug string to the serial port.</td>
+  </tr>
+</table>
 
 #### Telemetry Custom Device
 
