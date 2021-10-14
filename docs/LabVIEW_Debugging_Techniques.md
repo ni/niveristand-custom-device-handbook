@@ -1,6 +1,6 @@
 ### Debugging and Benchmarking
 
-Use LabVIEW and VeriStand to **[debug and benchmark custom devices](https://www.ni.com/documentation/en/veristand/latest/manual/custom-device-benchmark-debug/)** as you would any other code during development.
+Use LabVIEW and VeriStand to [debug and benchmark custom devices](https://www.ni.com/documentation/en/veristand/latest/manual/custom-device-benchmark-debug/) as you would any other code during development.
 
 #### LabVIEW Debugging Techniques
 
@@ -14,7 +14,7 @@ Once custom devices are added to the system definition, they are fully integrate
 
 The [Console Viewer](https://www.ni.com/documentation/en/veristand/latest/manual/viewing-console-output/) is a subcomponent of the VeriStand Real-Time (RT) Engine.
 
-You can install the Console Viewer to the target with NI Measurement and Automation Explorer (MAX). Once installed, the component runs a small UDP daemon that allows the operator to view the console. You can access the Console Viewer from the **VeriStand Editor** » **Tool Launcher** » **View Console**.
+You can install the Console Viewer to the target with NI Measurement and Automation Explorer (MAX). Once installed, the component runs a small UDP daemon that allows the operator to view the console. You can access the Console Viewer from the VeriStand Editor by clicking **Tool Launcher** » **View Console**.
 
 **Note:** You cannot use the Console Viewer on NI Linux Real-Time targets. Instead, connect your NI Linux Real-Time targets to a computer using a serial port to view the output.
 
@@ -37,33 +37,23 @@ You can define custom error codes in LabVIEW and distribute them to VeriStand wi
 For more information, refer to [Defining Custom Error Codes to Distribute throughout Your Application](https://zone.ni.com/reference/en-XX/help/371361R-01/lvhowto/def_custom_error_text/).
 
 #### Printing With the Print Debug Line VI
-The recommended method of printing to the console is to use the NI VeriStand - Print Debug Line VI. To locate this VI in LabVIEW, navigate to **Custom Device API** » **Utilities**.
+The recommended method of printing to the console is to use the NI VeriStand - Print Debug Line VI.
 
-<table>
-  <tr>
-    <th>VI</th>
-    <th>Description</th>
-  </tr>
-  <tr>
-    <td><img src="images/NIVSdebugString.jpg"></td>
-    <td>Works on both Windows and RT execution hosts. <br><br> It has an optional <strong>Attribute</strong> input to change the color of the text. It also has an optional <strong>Add to log file? (F)</strong> input to append the string to the VeriStand log file.</td>
-  </tr>
-</table>
+This VI works on both Windows and RT execution hosts. Use the optional **Attribute** input to change the color of the text. You can also use the optional **Add to log file? (F)** input to append the string to the VeriStand log file.
+
+To locate this VI in LabVIEW, navigate to **Custom Device API** » **Utilities**.
+
+![](images/NIVSdebugString.jpg)
 
 #### Printing with RT Debug String VI
 
-The RT Debug String VI sends a string to the standard output device. To locate this VI in LabVIEW, navigate to **Real-Time** » **RT Utilities**.
+The RT Debug String VI sends a string to the standard output device.
 
-<table>
-  <tr>
-    <th>VI</th>
-    <th>Description</th>
-  </tr>
-  <tr>
-    <td><img src="images/RT_Debug_String_VI.jpg"></td>
-    <td>By default, sends the debug string to the video port. If you have a device capable of serial redirection, this VI sends the debug string to the serial port.</td>
-  </tr>
-</table>
+By default, this VI sends the debug string to the video port. If you have a device capable of serial redirection, the debug string is sent to the serial port.
+
+To locate this VI in LabVIEW, navigate to **Real-Time** » **RT Utilities**.
+
+![](images/RT_Debug_String_VI.jpg)
 
 #### Telemetry Custom Device
 
@@ -89,11 +79,11 @@ The following table contains these debugging and benchmarking system channels.
 +-----------------+--------------------------------------------------------------------------+
 ```
 
-If the value of the count channels increase over time, the target is not achieving the desired loop rates. You can use the system channels in conjunction with an **[alarm](https://www.ni.com/documentation/en/veristand/latest/manual/add-configure-alarm/)** or **[procedure](https://www.ni.com/documentation/en/veristand/latest/manual/add-configure-procedure/)** to handle events.
+If the value of the count channels increase over time, the target is not achieving the desired loop rates. You can use the system channels in conjunction with an [alarm](https://www.ni.com/documentation/en/veristand/latest/manual/add-configure-alarm/) or [procedure](https://www.ni.com/documentation/en/veristand/latest/manual/add-configure-procedure/) to handle events.
 
 #### System Monitor Custom Device
 
-The **[System Monitor Custom Device](https://github.com/ni/niveristand-system-monitor-custom-device/releases)** tracks memory resources and CPU usage on an RT target running the VeriStand Engine. Set the update rate (Hz) in System Explorer to determine how often the custom device checks CPU and memory usage and sends them to the corresponding channel.
+The [System Monitor Custom Device](https://github.com/ni/niveristand-system-monitor-custom-device/releases) tracks memory resources and CPU usage on an RT target running the VeriStand Engine. Set the update rate (Hz) in System Explorer to determine how often the custom device checks CPU and memory usage and sends them to the corresponding channel.
 
 **Note:** The VeriStand System Monitor can only be used on an RT target.
 
@@ -109,7 +99,7 @@ System State Publisher provides a periodic snapshot of utilization. CPU spikes a
 
 VeriStand provides built-in support for the [Real-Time Trace Viewer](https://zone.ni.com/reference/en-XX/help/370715P-01/lvtracehelp/lv_tracetoolkit_help/) and [Real-Time Trace Viewer VIs](https://zone.ni.com/reference/en-XX/help/370715P-01/lvtrace/tracetoolkitvis_pal/). Use the trace viewer to capture the timing and execution data of a VI and thread events for applications running on an RT target.
 
-To display the Real-Time Trace Viewer In a LabVIEW VI, select **Tools** » **Real-Time Module** » **Trace Viewer**. For more info on how to use Real-Time Trace Viewer in LabVIEW, navigate to **Help** » **LabVIEW Help** » **Real-Time Module** » **Real-Time Trace Viewer**.
+To display the Real-Time Trace Viewer in a LabVIEW VI, click **Tools** » **Real-Time Module** » **Trace Viewer**. For more info on how to use Real-Time Trace Viewer, refer to the LabVIEW Help topic [Real-Time Trace Viewer](https://zone.ni.com/reference/en-XX/help/370715P-01/lvtracehelp/lv_tracetoolkit_help/).
 
 #### Additional Debugging Options for VeriStand
 Upon request, NI can provide advanced debugging tools to help you resolve certain custom device issues. These tools are a last resort when all other debugging options have been exhausted. For more information, contact NI.

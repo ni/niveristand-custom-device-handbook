@@ -1,6 +1,6 @@
 ## Implementing a Custom Device
 
-We will now walk through the implementation of a hypothetical third-party custom device for the AES-201. This example will focus on the custom device process. For more information on programming the custom device, refer to **[Building a Custom Device](https://www.ni.com/documentation/en/veristand/latest/manual/custom-device-build/)**.
+We will now walk through the implementation of a hypothetical third-party custom device for the AES-201. This example will focus on the custom device process. For more information on programming the custom device, refer to [Building a Custom Device](https://www.ni.com/documentation/en/veristand/latest/manual/custom-device-build/).
 
 The specifications of this custom device are displayed in the following image.
 
@@ -72,7 +72,7 @@ Open the custom device XML to find the GUID associated with the extra page. You 
 
 ![](images/Custom_Device_XML_GUID.JPG)
 
-Add the GUID to the global variable and wire the global into the GUID terminal of **[Add Custom Device Channel](https://zone.ni.com/reference/en-XX/help/372846M-01/veristandmerge/vs_add_custom_device_channel_vi/)**. This will associate the channel with the VI.
+Add the GUID to the global variable and wire the global into the GUID terminal of [Add Custom Device Channel](https://zone.ni.com/reference/en-XX/help/372846M-01/veristandmerge/vs_add_custom_device_channel_vi/). This will associate the channel with the VI.
 
 ![](images/Add_the_GUID_to_global_variable.JPG)
 
@@ -129,7 +129,7 @@ The properties are set from the **[Add Custom Device Channel VI](https://zone.ni
 
 Custom devices execute as reentrant on the target. This enables the operator to run multiple independent instances of the same custom device. This would be useful if the operator has several AES-201 cards.
 
-To preserve this capability, enable **Preallocated clone reentrant execution** from the subVI by navigating to **File** » **[VI Properties](https://zone.ni.com/reference/en-XX/help/371361R-01/lvdialog/vi_properties_dialog_box/)** » **[Execution](https://zone.ni.com/reference/en-XX/help/371361R-01/lvdialog/execution/)**. For more information, refer to the LabVIEW Help and navigate to **Fundamentals** » **Managing Performance and Memory** » **Concepts** » **[Reentrancy: Allowing Simultaneous Calls to the Same SubVI](https://zone.ni.com/reference/en-XX/help/371361R-01/lvconcepts/reentrancy/)**.
+To preserve this capability, enable **Preallocated clone reentrant execution** from the subVI by navigating to **File** » **[VI Properties](https://zone.ni.com/reference/en-XX/help/371361R-01/lvdialog/vi_properties_dialog_box/)** » **[Execution](https://zone.ni.com/reference/en-XX/help/371361R-01/lvdialog/execution/)**. For more information, refer to the LabVIEW Help topic **[Reentrancy: Allowing Simultaneous Calls to the Same SubVI](https://zone.ni.com/reference/en-XX/help/371361R-01/lvconcepts/reentrancy/)**.
 
 #### Final Initialization VI
 
@@ -210,7 +210,7 @@ Set the destination directory for the DLL to the support directory.
 
 When you build the configuration, LabVIEW sends the DLL to the support directory.
 
-The second part to packaging dependencies is in incorporating the dependency into the custom device. Use the **[Add Custom Device Dependencies VI](https://zone.ni.com/reference/en-XX/help/372846M-01/veristandmerge/vs_add_custom_device_dependencies_vi/)** to deploy the library to the execution host.
+The second part to packaging dependencies is in incorporating the dependency into the custom device. Use the [Add Custom Device Dependencies VI](https://zone.ni.com/reference/en-XX/help/372846M-01/veristandmerge/vs_add_custom_device_dependencies_vi/) to deploy the library to the execution host.
 
 ![](images/Add_Custom_Device_Dependencies_VI.JPG)
 
