@@ -54,29 +54,19 @@ You should modify this code to write the block reference. In the following examp
 
 ### Working with String Constants
 
-While developing custom devices, property names and GUIDs are represented as strings. These case-sensitive strings can be difficult to use. GUIDs in particular are long and likely to produce typo errors.
+While developing custom devices, property names and GUIDs are represented as strings.
 
-Consider using [LabVIEW global variables](https://zone.ni.com/reference/en-XX/help/371361R-01/lvconcepts/glob_variables/) or a [type definition combo box](https://zone.ni.com/reference/en-XX/help/371361R-01/lvhowto/creating_type_defs/) control instead. The following table displays implementation considerations when using either of these options.
+These case-sensitive strings can be difficult to use. GUIDs in particular are long and likely to produce typo errors. Use  [LabVIEW global variables](https://zone.ni.com/reference/en-XX/help/371361R-01/lvconcepts/glob_variables/) or a [type definition combo box](https://zone.ni.com/reference/en-XX/help/371361R-01/lvhowto/creating_type_defs/) control instead.
 
-<table>
-  <tr>
-    <th>String Replacement</th>
-    <th>Implementation Considerations</th>
-  </tr>
-  <tr>
-    <td>Global Variable</td>
-    <td>Ensure that you have set the correct default value for the control.</td>
-  </tr>
-  <tr>
-    <td>Type Definition Combo Box</td>
-    <td>On the Properties dialog box, use the Edit Items tab to disable <strong>Values match Items</strong>. </br></br> This control type does not auto-update from its type definition. You must completely populate the control before using it on a block diagram.</td>
-  </tr>
-</table>
+These alternatives have the following considerations.
+
+* Global Variable - Ensure that you have set the correct default value for the control.
+* Type Definition Combo Box - On the Properties dialog box, use the Edit Items tab to disable **Values match Items**. This control type does not auto-update from its type definition. You must completely populate the control before using it on a block diagram.
 
 ### Creating Custom Error Codes
 
 You can define custom error codes in LabVIEW and distribute them to VeriStand with a custom device.
-1. Copy a custom *errors.txt* file to VeriStand in the `<Base&gt>\National Instruments\Shared\Errors\English` directory.
+1. Copy a custom *errors.txt* file to VeriStand in the `<Base>\National Instruments\Shared\Errors\English` directory.
 1. Add the file as a dependency in the custom device.
 1. Add the file as a dependency in the [custom device XML file](https://www.ni.com/documentation/en/veristand/latest/manual/custom-device-xml/).
 1. **(Optional)** For real-time targets, deploy the *errors.txt* file to the error directory on target. Error messages will display in Console Viewer.
