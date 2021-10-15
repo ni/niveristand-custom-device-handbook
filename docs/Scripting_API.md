@@ -1,22 +1,19 @@
 # Scripting APIs
 
-Scripting APIs use LabVIEW VIs to configure Custom Devices in a VeriStand system definition file.
+Scripting APIs use LabVIEW VIs to configure custom devices in a VeriStand system definition file.
 
-Depending on how much functionality was made available through Scripting for a specific Custom Device, users can change basic settings, or fully configure a Custom Device.
+Depending on how much functionality was made available through scripting, users can change basic settings or fully configure a custom device. You can develop a scripting API to create flexible and reusable system definition files.
 
-You can develop a Scripting API to create flexible and reusable system definition files. 
+Scripting API functions are grouped into the following LabVIEW palettes.
+1. Custom Device
+1. Bitfile Resources
+1. Utilities  
 
-NI has developed Scripting APIs for some NI supported Custom Devices. One such example is the [Scripting API for the FPGA Addon](https://github.com/ni/niveristand-fpga-addon-custom-device/blob/main/Source/Quick%20Start%20Documentation/FPGA%20Addon%20Quick%20Start%20Guide.md#scripting-api) Custom Device.
+![](images/main_palette.png)
 
-The functions for this Scripting API are grouped into: **Custom Device**, **Bitfile Resources**, and **Utilities** palettes.  
+## NI Supported Scripting APIs
 
-&nbsp;&nbsp;&nbsp;![](images/main_palette.png)<br />
-
-**Custom Device palette**
-
-## Scripting APIs for NI supported Custom Devices
-
-The following list contains NI supported Custom Devices that have a Scripting API:
+NI has developed scripting APIs for some custom devices. The following custom devices have a scripting API.
 - [Instrument Addon Scripting API](https://github.com/ni/niveristand-fpga-addon-custom-device/blob/main/Source/Quick%20Start%20Documentation/FPGA%20Addon%20Quick%20Start%20Guide.md#scripting-api)
 - [FPGA Addon Scripting API](https://github.com/ni/niveristand-fpga-addon-custom-device/blob/main/Source/Quick%20Start%20Documentation/FPGA%20Addon%20Quick%20Start%20Guide.md#scripting-api)
 - [Routing and Faulting Scripting API](https://github.com/ni/niveristand-fpga-addon-custom-device/blob/main/Source/Quick%20Start%20Documentation/FPGA%20Addon%20Quick%20Start%20Guide.md#scripting-api)
