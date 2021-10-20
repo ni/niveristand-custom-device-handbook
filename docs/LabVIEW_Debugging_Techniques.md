@@ -53,7 +53,7 @@ By default, this VI sends the debug string to the video port. If you have a devi
 
 To locate this VI in LabVIEW, navigate to **Real-Time** » **RT Utilities**.
 
-![](images/RT_Debug_String_VI.jpg)
+![](images/RT_Debug_String_VI.JPG)
 
 #### Telemetry Custom Device
 
@@ -63,7 +63,7 @@ The [Telemetry Custom Device](https://github.com/ni/niveristand-telemetry-custom
 
 VeriStand includes [system channels](https://www.ni.com/documentation/en/veristand/latest/manual/system-channels/) that provide information on internal processes. Several of these system channels are useful for benchmarking and debugging.
 
-The following table contains these debugging and benchmarking system channels.
+The following table contains examples of debugging and benchmarking system channels.
 
 ```eval_rst
 +-----------------+--------------------------------------------------------------------------+

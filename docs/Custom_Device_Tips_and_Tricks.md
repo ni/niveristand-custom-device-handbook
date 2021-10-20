@@ -108,7 +108,7 @@ You can set up a custom device to run code when a specified event occurs. Implem
 
 In LabVIEW, navigate to **Signal Processing** » **Point by Point** » **Other Functions** to find the [Boolean Crossing Point by Point](https://zone.ni.com/reference/en-XX/help/371361R-01/ptbypt/boolean_crossing_ptbypt/) VI. This VI is useful for triggering events.
 
-Recall the Write Data to HW state that reads VeriStand Channels. Add the following code to check the software trigger.
+Recall the *Write Data to HW* state that reads VeriStand Channels. Add the following code to check the software trigger.
 
 ![](images/Recall_the_Write_Data_to_HW_state.jpg)
 

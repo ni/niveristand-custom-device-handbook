@@ -1,6 +1,6 @@
 ## Implementing a Custom Device
 
-We will now walk through the implementation of a hypothetical third-party custom device for the AES-201. This example will focus on the custom device process. For more information on programming the custom device, refer to [Building a Custom Device](https://www.ni.com/documentation/en/veristand/latest/manual/custom-device-build/).
+We will now walk through the implementation of a hypothetical third-party custom device for the AES-201. This example will focus on the custom device process. For more information on implementing a custom device, refer to [Implementing a Custom Device](https://www.ni.com/documentation/en/veristand/latest/manual/custom-device-implement/).
 
 The specifications of this custom device are displayed in the following image.
 
@@ -147,7 +147,7 @@ Now that the initialization routine is complete, we should configure the main pa
 
 Modify the main page so the operator can set the range of the device.
 
-**Note** You do not have to override the main page with a custom page. You can modify the main page directly.
+**Note:** You do not have to override the main page with a custom page. You can modify the main page directly.
 
 ![](images/AES-201_Custom_Device_lvlib.jpg)
 
@@ -161,7 +161,7 @@ The engine will need to know how to address the board. Add another control so th
 
 ![](images/Resource_number_AES-201.JPG)
 
-Add to the event case to set the resource number property.
+Add the **Resource Number** as an event case to set the resource number property.
 
 ![](images/Add_event_case_resource_property_number.jpg)
 
@@ -265,7 +265,7 @@ After the custom device has been configured and deployed, VeriStand will no long
 
 Since we implemented the filter as a property, we will call the AES-201 API in the **Start** case. If the operator wants to toggle the filter, they must reconfigure the device in System Explorer.
 
-After configuring the hardware, we will request an A/D sample. For this custom device, the read data from hardware case will be useful for this operation.
+After configuring the hardware, we will request an A/D sample. For this custom device, the *Read Data from HW* case will be useful for this operation.
 
 ![](images/Read_data_from_HW.JPG)
 

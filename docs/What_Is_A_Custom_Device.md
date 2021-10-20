@@ -36,7 +36,7 @@ Most custom devices begin as a LabVIEW template project. The latest [niveristand
 
 A LabVIEW project is needed to build a custom device, but only the configuration library, engine library and XML file are required to use the custom device in VeriStand.
 
-After obtaining (or building himself) the custom device’s libraries, the operator places them in the VeriStand `<CommonData>`\Custom Devices*</span> directory. This directory location varies with the host operating system.
+After obtaining (or building himself) the custom device’s libraries, the operator places them in the VeriStand `<CommonData>\Custom Devices` directory. This directory location varies with the host operating system.
 
 #### Table of Directories and Aliases:
 
