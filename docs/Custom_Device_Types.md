@@ -153,9 +153,9 @@ The following are the steps that the PCL takes while in parallel mode.
 5. Reads data from the previous iteration of the Data Processing Loop.
 6. Processes system mappings. <br> **Note:** VeriStand components and custom devices cannot read data from a previous step until the PCL processes system mappings. This is true even if the previous step acquired the data the component needs.
 7. Runs the **Execute Model** case of inline model interface custom devices.
-8. Executes steps of running real-time sequences.<br> **Notes:**
-  * VeriStand executes real-time sequences after input operations but before output operations. VeriStand continues to run every step of the real-time sequence until the sequence is complete, reaches a Yield step, or completes an iteration of a loop with Auto Yield set to `TRUE`. If a sequence takes longer than the given time for an iteration of the PCL, the PCL runs late.
-  * To avoid errors, break up the timing of the steps by placing Yield steps throughout the sequence and enabling the Auto Yield property for any loops in the sequence.
+8. Executes steps of running real-time sequences. <br> **Notes:**
+    * VeriStand executes real-time sequences after input operations but before output operations. VeriStand continues to run every step of the real-time sequence until the sequence is complete, reaches a Yield step, or completes an iteration of a loop with Auto Yield set to `TRUE`. If a sequence takes longer than the given time for an iteration of the PCL, the PCL runs late.
+    * To avoid errors, break up the timing of the steps by placing Yield steps throughout the sequence and enabling the Auto Yield property for any loops in the sequence.
 9. Processes system mappings.
 10. Writes data to models.
 11. Initiates asynchronous execution of models.
@@ -180,8 +180,8 @@ The following are the steps that the PCL takes while in low latency mode.
 5. Processes system mappings. <br> **Note:** VeriStand components (including custom devices) cannot read data from a previous step until the PCL processes system mappings, even if the previous step acquired the data the component needs.
 6. Runs the **Execute Model** case of inline model interface custom devices.
 7. Executes steps of running real-time sequences. <br> **Notes:**
-  * VeriStand executes real-time sequences after input operations but before output operations. VeriStand continues to run every step of the real-time sequence until the sequence is complete, reaches a Yield step, or completes an iteration of a loop with Auto Yield set to `TRUE`. If a sequence takes longer than the given time for an iteration of the PCL, the PCL runs late.
-  * To avoid errors, break up the timing of the steps by placing Yield steps throughout the sequence and enabling the Auto Yield property for any loops in the sequence.
+    * VeriStand executes real-time sequences after input operations but before output operations. VeriStand continues to run every step of the real-time sequence until the sequence is complete, reaches a Yield step, or completes an iteration of a loop with Auto Yield set to `TRUE`. If a sequence takes longer than the given time for an iteration of the PCL, the PCL runs late.
+    * To avoid errors, break up the timing of the steps by placing Yield steps throughout the sequence and enabling the Auto Yield property for any loops in the sequence.
 8. Processes system mappings.
 9. Writes data to models.
 10. Initiates execution of models and waits for them to complete execution.
