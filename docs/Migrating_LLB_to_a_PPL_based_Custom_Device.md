@@ -1,6 +1,3 @@
-#### Migrating from an LLB to a PPL based Custom Device
-
-
 ### General Information 
 
 First introduced with LabVIEW 2010, a packed project library is a compiled .lvlib that contains all of the .lvlib’s VIs and allows the user to call the public VIs in a manner that is identical to the use of the original .lvlib. Since LabVIEW 2017 you can compile a packed project library to be also used with newer versions of LabVIEW. In the build specification properties choose Advanced in the sidebar and enable the option Allow future versions of LabVIEW to load this packed library. This option is enabled by default. Using PPLs for packaging VeriStand Custom Devices does not eliminate the usage of LLBs for the same purpose. A developer does not have to chose between using one or another. The two options can coexist as part of the same project. A developer can keep the existing LLB build specifications and simply add to the project the additional PPL ones. Of course, it might be necessary to modify the CD source code in order to be able to support both options - this will be discussed below. The XML configuration file would have to be modified as well to reflect the new loading paths for the CD elements. 
