@@ -62,47 +62,6 @@ There are five cases defined by the Operation enumerated control.
 
 This custom device runs in-line with the PCL, which calls each case at a specific time with respect to the other components in the VeriStand Engine. The PCL will not proceed until the custom device case has completed.
 
-### Inline Model Interface
-
-An inline model interface custom device executes inline with the VeriStand Engine's Primary Control Loop (PCL), which processes data acquired from hardware inputs and sends the processed values to hardware outputs without latency.
-
-You can [create an inline model interface custom device from a template](https://www.ni.com/documentation/en/veristand/latest/manual/custom-device-inline-model-interface-template/) in the [Custom Device API library](https://www.ni.com/documentation/en/veristand/latest/manual/custom-device-api-library/).
-
-An inline model interface custom device executes as a state machine, or action-engine. The device contains a Case structure, and the PCL calls each case at a specific time with respect to other components of the VeriStand Engine. Within the device, an uninitialized Feedback Node handles iterative data transfer between states.
-The inline model interface custom device is very similar to the inline hardware interface custom device. An inline model interface custom device has one case, or step, that executes within an iteration of the PCL, while an inline hardware interface custom device has two steps that execute within a PCL iteration.
-
-### Inline Hardware Interface
-
-An inline hardware interface custom device executes inline with the VeriStand Engine's Primary Control Loop (PCL) and enables you to read and write data from and to a hardware device.
-
-You can create a [standard inline hardware interface custom device from a template](https://www.ni.com/documentation/en/veristand/latest/manual/custom-device-inline-hardware-interface-template/) in the [Custom Device API library](https://www.ni.com/documentation/en/veristand/latest/manual/custom-device-api-library/). This also applies to the Inline Timing and Sync device type, which is an inline hardware interface device that you add to the system definition file as a timing and sync device.
-
-An inline hardware interface custom device executes as a state machine, or action-engine. The device contains a Case structure, and the PCL calls each case at a specific time with respect to other components of the VeriStand Engine. Within the device, an uninitialized Feedback Node handles iterative data transfer between states.
-
-**Note:** You can use additional Feedback Nodes or other storage mechanisms, such as functional global variables, in an inline custom device.
-
-The inline hardware interface custom device is similar to the inline model interface custom device. An inline hardware interface custom device has two cases, or steps, that execute within an iteration of the PCL. An inline model interface custom device has only one step that executes within a PCL iteration.
-
-### Asynchronous Timing and Sync
-
-An asynchronous custom device executes in a parallel loop with the VeriStand Engine's Primary Control Loop (PCL) and uses RT FIFOs to exchange channel data with the rest of VeriStand.
-
-You can [create a standard asynchronous custom device from a template](https://www.ni.com/documentation/en/veristand/latest/manual/custom-device-asynchronous-driver-template/) in the [Custom Device API library](https://www.ni.com/documentation/en/veristand/latest/manual/custom-device-api-library/). This also applies to the Asynchronous Timing and Sync device type, which is an asynchronous device that you add to the system definition file as a timing and sync device. 
-
-#### Timing of an Asynchronous Custom Device
-
-The rate at which an asynchronous custom device executes depends on how you configure it. By default, the asynchronous custom device RT Driver VI template uses a While Loop, meaning your asynchronous custom device will execute as fast as possible. You can change the default While Loop to a Timed Loop, and then configure the Timed Loop to use a specific timing source, such as the timing source for a hardware device.
-
-You can synchronize an asynchronous custom device with the Primary Control Loop by using the Device Clock control as the timing source of your Timed Loop. Device Clock is a timing sourced ticked for every iteration of the Primary Control Loop after custom device FIFOs have been updated. If you synchronize your device with the PCL, the dt of your Timed Loop will be in ticks of the PCL. So if you set the dt as 3, your Timed Loop will execute every 3 ticks of the PCL.
-
-#### Decimation of an Asynchronous Custom Device
-
-You can use Set Custom Device Decimation VI in the initialization code of your asynchronous custom device to change the decimation rate of your device. In an asynchronous custom device, the decimation affects when the Primary Control Loop reads and writes the FIFOs it uses to communicate with the custom device. For example, if you set the Decimation parameter of Set Custom Device Decimation VI to 4, the Primary Control Loop reads and writes the FIFOs on every fourth iteration.
-
-#### Latency Due to FIFOs in Asynchronous Custom Device
-
-Because asynchronous devices run in parallel with the PCL and pass channel data via RT FIFOs, there is a minimum of one cycle delay from when data leaves the PCL and when it enters the custom device, and vice versa. Additionally, asynchronous devices might not always execute at the same time with respect to the other components of the VeriStand. For example, the first iteration might execute before the PCL processes alarms, the second and third iterations after, and so on. 
-
 #### Initialize Case
 
 The *Initialize* case executes before the PCL starts. Inside the case, you can use a device reference to extract configuration information from device properties. Initialize data and buffers are used internally in the device.
@@ -168,6 +127,38 @@ This state takes the following steps.
 Using the Inline Model Interface mode enables you to process data acquired from hardware inputs and send the processed values to hardware outputs with no latency.
 
 ![](images/Figure_11.jpg)
+
+### Inline Hardware Interface
+
+An inline hardware interface custom device executes inline with the VeriStand Engine's Primary Control Loop (PCL) and enables you to read and write data from and to a hardware device.
+
+You can create a [standard inline hardware interface custom device from a template](https://www.ni.com/documentation/en/veristand/latest/manual/custom-device-inline-hardware-interface-template/) in the [Custom Device API library](https://www.ni.com/documentation/en/veristand/latest/manual/custom-device-api-library/). This also applies to the Inline Timing and Sync device type, which is an inline hardware interface device that you add to the system definition file as a timing and sync device.
+
+An inline hardware interface custom device executes as a state machine, or action-engine. The device contains a Case structure, and the PCL calls each case at a specific time with respect to other components of the VeriStand Engine. Within the device, an uninitialized Feedback Node handles iterative data transfer between states.
+
+**Note:** You can use additional Feedback Nodes or other storage mechanisms, such as functional global variables, in an inline custom device.
+
+The inline hardware interface custom device is similar to the inline model interface custom device. An inline hardware interface custom device has two cases, or steps, that execute within an iteration of the PCL. An inline model interface custom device has only one step that executes within a PCL iteration.
+
+### Asynchronous Timing and Sync
+
+An asynchronous custom device executes in a parallel loop with the VeriStand Engine's Primary Control Loop (PCL) and uses RT FIFOs to exchange channel data with the rest of VeriStand.
+
+You can [create a standard asynchronous custom device from a template](https://www.ni.com/documentation/en/veristand/latest/manual/custom-device-asynchronous-driver-template/) in the [Custom Device API library](https://www.ni.com/documentation/en/veristand/latest/manual/custom-device-api-library/). This also applies to the Asynchronous Timing and Sync device type, which is an asynchronous device that you add to the system definition file as a timing and sync device. 
+
+#### Timing of an Asynchronous Custom Device
+
+The rate at which an asynchronous custom device executes depends on how you configure it. By default, the asynchronous custom device RT Driver VI template uses a While Loop, meaning your asynchronous custom device will execute as fast as possible. You can change the default While Loop to a Timed Loop, and then configure the Timed Loop to use a specific timing source, such as the timing source for a hardware device.
+
+You can synchronize an asynchronous custom device with the Primary Control Loop by using the Device Clock control as the timing source of your Timed Loop. Device Clock is a timing sourced ticked for every iteration of the Primary Control Loop after custom device FIFOs have been updated. If you synchronize your device with the PCL, the dt of your Timed Loop will be in ticks of the PCL. So if you set the dt as 3, your Timed Loop will execute every 3 ticks of the PCL.
+
+#### Decimation of an Asynchronous Custom Device
+
+You can use Set Custom Device Decimation VI in the initialization code of your asynchronous custom device to change the decimation rate of your device. In an asynchronous custom device, the decimation affects when the Primary Control Loop reads and writes the FIFOs it uses to communicate with the custom device. For example, if you set the Decimation parameter of Set Custom Device Decimation VI to 4, the Primary Control Loop reads and writes the FIFOs on every fourth iteration.
+
+#### Latency Due to FIFOs in Asynchronous Custom Device
+
+Because asynchronous devices run in parallel with the PCL and pass channel data via RT FIFOs, there is a minimum of one cycle delay from when data leaves the PCL and when it enters the custom device, and vice versa. Additionally, asynchronous devices might not always execute at the same time with respect to the other components of the VeriStand. For example, the first iteration might execute before the PCL processes alarms, the second and third iterations after, and so on. 
 
 ### Outline of PCL Iteration
 
