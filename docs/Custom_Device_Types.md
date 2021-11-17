@@ -110,6 +110,8 @@ One example of a nondeterministic operation is writing data to a log file. The R
 
 ![](images/Inline-Async_Engine_lvlib_RT_Driver.jpg)
 
+**Note:** Data must be consumed from the RT FIFOs at a fast enough rate or the mechanism will overflow.
+
 ### Inline Model Interface
 
 The Inline Model Interface custom device template also has a state machine/action engine architecture. The template uses an uninitialized Feedback Node for iterative data transfer.
