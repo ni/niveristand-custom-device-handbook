@@ -108,7 +108,7 @@ The RT Driver VI of an inline custom device can communicate channel data with Ve
 
 One example of a nondeterministic operation is writing data to a log file. The RT Driver VI of the inline custom device communicates with the asynchronous loop(s) using RT FIFOs.
 
-![](images/Inline-Async Engine lvlib RT  Driver.jpg)
+![](images/Inline-Async_Engine_lvlib_RT_Driver.jpg)
 
 ### Inline Model Interface
 
