@@ -102,6 +102,14 @@ The *Close* case executes after the PCL has finished executing. You should close
 
 **Note:** Because the PCL has terminated, channel values cannot be read or written in the Close case.
 
+### Inline-Async Hardware Interface
+
+The RT Driver VI of an inline custom device can communicate channel data with VeriStand while launching an asynchronous loop(s) to handle nondeterministic operations.
+
+One example of a nondeterministic operation is writing data to a log file. The RT Driver VI of the inline custom device communicates with the asynchronous loop(s) using RT FIFOs.
+
+![](images/Inline-Async Engine lvlib RT  Driver.jpg)
+
 ### Inline Model Interface
 
 The Inline Model Interface custom device template also has a state machine/action engine architecture. The template uses an uninitialized Feedback Node for iterative data transfer.
