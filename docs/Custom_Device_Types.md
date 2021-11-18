@@ -106,7 +106,7 @@ The *Close* case executes after the PCL has finished executing. You should close
 
 By checking the **Use Inline-Async API** for the *Inline HW Interface* Custom Device Execution Mode in the niveristand-custom-device-wizard, an inline-async custom device template will be generated.
 
-![](picture to be added from the comment snip)
+![](images/Use_Inline_Async_API.jpg)
 
 By using the [Inline-Async-API](https://github.com/ni/niveristand-custom-device-development-tools/tree/main/inline-async-api) the inline-async template framework provides initializing/launching/cleanup of the asynchronous VIs, error handling/reporting, and data transfer between inline and asynchronous VIs.
 
