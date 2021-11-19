@@ -104,19 +104,24 @@ The *Close* case executes after the PCL has finished executing. You should close
 
 ### Inline-Async Hardware Interface
 
-By checking the **Use Inline-Async API** for the *Inline HW Interface* Custom Device Execution Mode in the niveristand-custom-device-wizard, an inline-async custom device template will be generated.
+You can generate an inline-async custom device template from the niveristand-custom-device-wizard. When creating a project, set the execution mode to **Inline HW Interface** and enable **Use Inline-Async API**.
 
 ![](images/Use_Inline_Async_API.jpg)
 
-By using the [Inline-Async-API](https://github.com/ni/niveristand-custom-device-development-tools/tree/main/inline-async-api) the inline-async template framework provides initializing/launching/cleanup of the asynchronous VIs, error handling/reporting, and data transfer between inline and asynchronous VIs.
+By using the [Inline-Async-API](https://github.com/ni/niveristand-custom-device-development-tools/tree/main/inline-async-api), the inline-async template framework can perform the following actions.
+* Initializing asynchronous VIs.
+* Launching asynchronous VIs.
+* Cleaning up asynchronous VIs.
+* Handling and reporting errors.
+* Transferring data between inline and asynchronous VIs.
 
-The RT Driver VI of an inline custom device can communicate channel data with VeriStand while launching an asynchronous loop(s) to handle nondeterministic operations.
+The RT Driver VI of an inline custom device can communicate channel data with VeriStand. While doing so, the VI can also launch an asynchronous loop(s) to handle nondeterministic operations.
 
 One example of a nondeterministic operation is writing data to a log file. The RT Driver VI of the inline custom device communicates with the asynchronous loop(s) using RT FIFOs.
 
 ![](images/Inline-Async_Engine_lvlib_RT_Driver.jpg)
 
-**Note:** Data must be consumed from the RT FIFOs at a fast enough rate or the mechanism will overflow.
+**Note:** The custom device must consume data from the RT FIFOs at a fast enough rate or it will overflow.
 
 ### Inline Model Interface
 
@@ -146,11 +151,11 @@ Using the Inline Model Interface mode enables you to process data acquired from 
 
 ### Inline Timing and Sync
 
-The inline timing and sync custom device is similar to the [inline hardware interface](https://niveristand-custom-device-handbook.readthedocs.io/en/latest/Custom_Device_Types.html#inline-hardware-interface) custom device, with the additional benefit that it can function as hardware synchronization master device to drive RTSI 0 line.
+The inline timing and sync custom device is similar to the [inline hardware interface custom device](https://niveristand-custom-device-handbook.readthedocs.io/en/latest/Custom_Device_Types.html#inline-hardware-interface). The major difference between the two custom device types is that the inline timing and sync custom device can also function as a hardware synchronization master device to drive the RTSI 0 line.
 
 ### Asynchronous Timing and Sync
 
-The asynchronous timing and sync custom device is similar to the [asynchronous custom device](https://niveristand-custom-device-handbook.readthedocs.io/en/latest/Custom_Device_Types.html#asynchronous), with the additional benefit that it can function as hardware synchronization master device to drive the RTSI 0 line.
+The asynchronous timing and sync custom device is similar to the [asynchronous custom device](https://niveristand-custom-device-handbook.readthedocs.io/en/latest/Custom_Device_Types.html#asynchronous). The major difference between the two custom device types is that the asynchronous timing and sync custom device can also function as a hardware synchronization master device to drive the RTSI 0 line.
 
 ### Outline of PCL Iteration
 
