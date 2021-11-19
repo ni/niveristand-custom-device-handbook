@@ -164,7 +164,7 @@ The following diagram displays the operation of the VeriStand Engine.
 
 ![](images/Figure_6.jpg)
 
-### Parallel Mode
+#### Parallel Mode
 
 In *Parallel* mode, the PCL initiates execution of models and continues to its next iteration without waiting for models to finish executing. This causes a one-cycle delay between when a model executes and when the data it produces is available to the system.
 
@@ -189,7 +189,7 @@ The following are the steps that the PCL takes while in parallel mode.
 15.	Writes data to asynchronous custom device FIFOs.
 
 
-### Low Latency Mode
+#### Low Latency Mode
 
 In *Low Latency* mode, the PCL waits for the Model Execution Loop(s) to finish writing data to models before it reads and publishes model values to the system. This occurs during every iteration of the system.
 
