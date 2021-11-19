@@ -102,6 +102,22 @@ The *Close* case executes after the PCL has finished executing. You should close
 
 **Note:** Because the PCL has terminated, channel values cannot be read or written in the Close case.
 
+### Inline-Async Hardware Interface
+
+By checking the **Use Inline-Async API** for the *Inline HW Interface* Custom Device Execution Mode in the niveristand-custom-device-wizard, an inline-async custom device template will be generated.
+
+![](images/Use_Inline_Async_API.jpg)
+
+By using the [Inline-Async-API](https://github.com/ni/niveristand-custom-device-development-tools/tree/main/inline-async-api) the inline-async template framework provides initializing/launching/cleanup of the asynchronous VIs, error handling/reporting, and data transfer between inline and asynchronous VIs.
+
+The RT Driver VI of an inline custom device can communicate channel data with VeriStand while launching an asynchronous loop(s) to handle nondeterministic operations.
+
+One example of a nondeterministic operation is writing data to a log file. The RT Driver VI of the inline custom device communicates with the asynchronous loop(s) using RT FIFOs.
+
+![](images/Inline-Async_Engine_lvlib_RT_Driver.jpg)
+
+**Note:** Data must be consumed from the RT FIFOs at a fast enough rate or the mechanism will overflow.
+
 ### Inline Model Interface
 
 The Inline Model Interface custom device template also has a state machine/action engine architecture. The template uses an uninitialized Feedback Node for iterative data transfer.
@@ -127,6 +143,14 @@ This state takes the following steps.
 Using the Inline Model Interface mode enables you to process data acquired from hardware inputs and send the processed values to hardware outputs with no latency.
 
 ![](images/Figure_11.jpg)
+
+### Inline Timing and Sync
+
+The inline timing and sync custom device is similar to the [inline hardware interface](https://niveristand-custom-device-handbook.readthedocs.io/en/latest/Custom_Device_Types.html#inline-hardware-interface) custom device, with the additional benefit that it can function as hardware synchronization master device to drive RTSI 0 line.
+
+### Asynchronous Timing and Sync
+
+The asynchronous timing and sync custom device is similar to the [asynchronous custom device](https://niveristand-custom-device-handbook.readthedocs.io/en/latest/Custom_Device_Types.html#asynchronous), with the additional benefit that it can function as hardware synchronization master device to drive the RTSI 0 line.
 
 ### Outline of PCL Iteration
 
