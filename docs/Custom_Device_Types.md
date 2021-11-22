@@ -117,11 +117,11 @@ By using the [Inline-Async-API](https://github.com/ni/niveristand-custom-device-
 
 The RT Driver VI of an inline custom device can communicate channel data with VeriStand. While doing so, the VI can also launch an asynchronous loop(s) to handle nondeterministic operations.
 
-One example of a nondeterministic operation is writing data to a log file. The RT Driver VI of the inline custom device communicates with the asynchronous loop(s) using RT FIFOs.
+One example of a nondeterministic operation is log file data writing. The RT Driver VI of the inline custom device communicates with the asynchronous loop(s) using RT FIFOs.
+
+**Note:** While the RT Driver VI is using RT FIFOs, data may be lost if elements are not read at a fast enough rate.
 
 ![](images/Inline-Async_Engine_lvlib_RT_Driver.jpg)
-
-**Note:** The custom device must consume data from the RT FIFOs at a fast enough rate or it will overflow.
 
 ### Inline Model Interface
 
