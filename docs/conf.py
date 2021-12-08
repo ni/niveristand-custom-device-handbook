@@ -21,12 +21,12 @@ source_suffix = ['.rst', '.md']
 
 # -- Project information -----------------------------------------------------
 
-project = 'Veristand Custom Device Handbook'
-copyright = '2021, NI'
+project = 'VeriStand Custom Device Handbook'
+copyright = '2022, NI'
 author = 'NI'
 
 # The full version, including alpha/beta/rc tags
-release = '0.0.1'
+release = '1.0.0'
 
 
 # -- General configuration ---------------------------------------------------
