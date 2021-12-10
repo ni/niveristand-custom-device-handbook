@@ -57,18 +57,18 @@ The window for configurating your packed library will open.
 
 After you are done check if you have a PPL for each LLB. 
 
-**Note:** You should be carefull to configure PPL for the targets too.
+**Note:** You should be carefull to configure PPLs for the targets too.
 
 The last step is to make the necessary changes in the XML file. For this you will need to change the path for each LLB with the path of each coresponding PPL.
 For example, the following image represents  the XML code sequence for the custom device RT Driver VI on a Windows target. 
 
 ![](images/XML_Engine_Path_LLB.PNG)
 
-You need to change what comes after the **<Path>** tag.
+You need to change what comes after the **Path** tag.
 
 ![](images/XML_Engine_Path_PPL.PNG)
 
-Here you can see the Path is changed to the one that the PPL has. You need to do the same for every **<Path>** tag in the XML.
+Here you can see the Path is changed to the one that the PPL has. You need to do the same for every **Path** tag in the XML.
 
 **Note:** Do not forget about the Real Time destination.
 
