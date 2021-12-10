@@ -35,7 +35,7 @@ This code needs to be incapsulated within a single VI ("Initialize Global Variab
 
 ![](images/GlobalReference2.png)
 
-The next step is to create a packed project library for each LLB you have in the project. The PPL needs to have the same configuration. To do so, you need to right click on **Built Specifications** »** New ** » ** Packed Library **. 
+The next step is to create a packed project library for each LLB you have in the project. The PPL needs to have the same configuration. To do so, you need to right click on **Built Specifications** » **New** » **Packed Library**. 
 ![](images/BuildSpecification2.png)
 
 The window for configurating your packed library will open. 
