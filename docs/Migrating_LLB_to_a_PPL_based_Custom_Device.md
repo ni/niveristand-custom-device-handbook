@@ -42,12 +42,12 @@ The next step is to create a packed project library for each LLB you have in the
 The window for configurating your packed library will open. 
 * You need to select **Source Files** in the left menu. You will have a list with all the LLBs in your project and you need to select one for which you want to copy the configuration. After you select it you will need to press the top blue arrow (the one circled in RED).
 
-**Note** if you need a LLB configuration to be included in one PPL, Select the LLB you want to include and Press the bottom blue arrow ( the one circled in BLUE).
+**Note:** if you need an LLB configuration to be included in one PPL, Select the LLB you want to include and Press the bottom blue arrow (the one circled in BLUE).
 
 ![](images/ppl2.png)
 * Select **Information** from the left menu, and rename the PPL as you wish in the **Build Specification Name** field.
 
-**Note** Check the **Destionation Directory** field, in some cases you might need to change the path.
+**Note:** Check the **Destionation Directory** field, in some cases you might need to change the path.
 
 ![](images/ppl1.PNG)
 
@@ -57,7 +57,7 @@ The window for configurating your packed library will open.
 
 After you are done check if you have a PPL for each LLB. 
 
-**Note** You should be carefull to configure PPL for the targets too.
+**Note:** You should be carefull to configure PPL for the targets too.
 
 The last step is to make the necessary changes in the XML file. For this you will need to change the path for each LLB with the path of each coresponding PPL.
 For example, the following image represents  the XML code sequence for the custom device RT Driver VI on a Windows target. 
@@ -70,5 +70,5 @@ You need to change what comes after the **<Path>** tag.
 
 Here you can see the Path is changed to the one that the PPL has. You need to do the same for every **<Path>** tag in the XML.
 
-**Note** Do not forget about the Real Time destination.
+**Note:** Do not forget about the Real Time destination.
 
