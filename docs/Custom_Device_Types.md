@@ -102,6 +102,27 @@ The *Close* case executes after the PCL has finished executing. You should close
 
 **Note:** Because the PCL has terminated, channel values cannot be read or written in the Close case.
 
+### Inline-Async Hardware Interface
+
+You can generate an inline-async custom device template from the niveristand-custom-device-wizard. When creating a project, set the execution mode to **Inline HW Interface** and enable **Use Inline-Async API**.
+
+![](images/Use_Inline_Async_API.jpg)
+
+By using the [Inline-Async-API](https://github.com/ni/niveristand-custom-device-development-tools/tree/main/inline-async-api), the inline-async template framework can perform the following actions.
+* Initializing asynchronous VIs.
+* Launching asynchronous VIs.
+* Cleaning up asynchronous VIs.
+* Handling and reporting errors.
+* Transferring data between inline and asynchronous VIs.
+
+The RT Driver VI of an inline custom device can communicate channel data with VeriStand. While doing so, the VI can also launch an asynchronous loop(s) to handle nondeterministic operations.
+
+One example of a nondeterministic operation is log file data writing. The RT Driver VI of the inline custom device communicates with the asynchronous loop(s) using RT FIFOs.
+
+**Note:** While the RT Driver VI is using RT FIFOs, data may be lost if elements are not read at a fast enough rate.
+
+![](images/Inline-Async_Engine_lvlib_RT_Driver.jpg)
+
 ### Inline Model Interface
 
 The Inline Model Interface custom device template also has a state machine/action engine architecture. The template uses an uninitialized Feedback Node for iterative data transfer.
@@ -128,6 +149,14 @@ Using the Inline Model Interface mode enables you to process data acquired from 
 
 ![](images/Figure_11.jpg)
 
+### Inline Timing and Sync
+
+The inline timing and sync custom device is similar to the [inline hardware interface custom device](https://niveristand-custom-device-handbook.readthedocs.io/en/latest/Custom_Device_Types.html#inline-hardware-interface). The major difference between the two custom device types is that the inline timing and sync custom device can also function as a hardware synchronization master device to drive the RTSI 0 line.
+
+### Asynchronous Timing and Sync
+
+The asynchronous timing and sync custom device is similar to the [asynchronous custom device](https://niveristand-custom-device-handbook.readthedocs.io/en/latest/Custom_Device_Types.html#asynchronous). The major difference between the two custom device types is that the asynchronous timing and sync custom device can also function as a hardware synchronization master device to drive the RTSI 0 line.
+
 ### Outline of PCL Iteration
 
 The order of operations in the [Primary Control Loop](https://www.ni.com/documentation/en/veristand/latest/manual/vs-engine/) varies with respect to the execution mode of the controller.
@@ -140,7 +169,7 @@ The following diagram displays the operation of the VeriStand Engine.
 
 ![](images/Figure_6.jpg)
 
-### Parallel Mode
+#### Parallel Mode
 
 In *Parallel* mode, the PCL initiates execution of models and continues to its next iteration without waiting for models to finish executing. This causes a one-cycle delay between when a model executes and when the data it produces is available to the system.
 
@@ -165,7 +194,7 @@ The following are the steps that the PCL takes while in parallel mode.
 15.	Writes data to asynchronous custom device FIFOs.
 
 
-### Low Latency Mode
+#### Low Latency Mode
 
 In *Low Latency* mode, the PCL waits for the Model Execution Loop(s) to finish writing data to models before it reads and publishes model values to the system. This occurs during every iteration of the system.
 
