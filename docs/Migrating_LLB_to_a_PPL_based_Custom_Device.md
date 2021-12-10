@@ -24,3 +24,37 @@ Packed Project Libraries (PPL) provide name spacing for all of its contained ite
 ### Implementing a PPL based Custom Device
 
 For creating a new packed project library based Custom Device you will begin by building a template project. You can find the necessary template here: [VeriStand Custom Device Wizard](https://github.com/ni/niveristand-custom-device-wizard/releases). The new template will be available starting with VeriStand 2021 (Custom Device Wizard LabView 2021 support 21.0). 
+### Migrating an existing Custom Device
+
+First step for migrating an existing Custom Device is to make some changes regarding the global data references if you use certain VeriStand Custom Device APIs.
+For performance reasons, channel values are stored in VeriStand as a single block of data - i.e. as an array of double values. To be able to access a value element corresponding to a given channel, VeriStand is using Global Variables to pass pointer information, from the engine, to the calling APIs. While this works well for custom devices packed in LLBs, the same does not apply for packed project libraries, due to namespacing. Essentially, when compiling a PPL, a separate (namespaced) copy of the global variable is created and included with it. In turn, it cannot be used anymore for data transfer between the VeriStand engine and the running custom device and would result in a runtime error. Custom devices that do not use this kind of APIs are not affected by this issue. For instance, mainly Inline custom devices ( and derivatives of this type) are affected, since custom devices of Async type are using RT FIFOs to access channel values.
+To be able to mitigate this problem, we need to implement an  alternative way to access the values within these global variables. 
+This code needs to be incapsulated within a single VI ("Initialize Global Variables"). It has to be called only once from within the target custom device and, for an Inline type, it would have to be called specifically in the "Read Data from HW" state of the "RT Driver" due to the specifics of the initialization of the VeriStand engine.
+
+![](images/GlobalVaribaleINIT.png)
+
+![](images/GlobalReference2.png)
+
+The next step is to create a packed project library for each LLB you have in the project. The PPL needs to have the same configuration. To do so, you need to right click on **Built Specifications** »** New ** » ** Packed Library **. 
+![](images/BuildSpecification2.png)
+
+The window for configurating your packed library will open. 
+* You need to select **Source Files ** in the left menu. You will have a list with all the LLBs in your project and you need to select one for which you want to copy the configuration. After you select it you will need to press the top blue arrow (the one circled in RED).
+**Note** if you need a LLB configuration to be included in one PPL, Select the LLB you want to include and Press the bottom blue arrow ( the one circled in BLUE).
+![](images/ppl2.png)
+* Select **Information** from the left menu, and rename the PPL as you wish in the **Build Specification Name** field.
+**Note** Check the **Destionation Directory** field, in some cases you might need to change the path.
+![](images/ppl1.png)
+* Press **Done** and you should see this window: 
+![](images/ppl_done.png)
+After you are done check if you have a PPL for each LLB. 
+**Note** You should be carefull to configure PPL for the targets too.
+
+The last step is to make the necessary changes in the XML file. For this you will need to change the path for each LLB with the path of each coresponding PPL.
+For example, the following image represents  the XML code sequence for the custom device RT Driver VI on a Windows target. 
+![](images/XML1.png)
+You need to change what comes after the **<Path>** tag.
+![](images/XML2.png)
+Here you can see the Path is changed to the one that the PPL has. You need to do the same for every **<Path>** tag in the XML.
+**Note** Do not forget about the Real Time destination.
+
