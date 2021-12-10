@@ -31,28 +31,28 @@ For performance reasons, channel values are stored in VeriStand as a single bloc
 To be able to mitigate this problem, we need to implement an  alternative way to access the values within these global variables. 
 This code needs to be incapsulated within a single VI ("Initialize Global Variables"). It has to be called only once from within the target custom device and, for an Inline type, it would have to be called specifically in the "Read Data from HW" state of the "RT Driver" due to the specifics of the initialization of the VeriStand engine.
 
-![](images/GlobalVaribaleINIT.png)
+![](images/GlobalVaribaleINIT.PNG)
 
-![](images/GlobalReference2.png)
+![](images/GlobalReference2.PNG)
 
 The next step is to create a packed project library for each LLB you have in the project. The PPL needs to have the same configuration. To do so, you need to right click on **Built Specifications** » **New** » **Packed Library**. 
-![](images/BuildSpecification2.png)
+![](images/BuildSpecification2.PNG)
 
 The window for configurating your packed library will open. 
 * You need to select **Source Files ** in the left menu. You will have a list with all the LLBs in your project and you need to select one for which you want to copy the configuration. After you select it you will need to press the top blue arrow (the one circled in RED).
 
 **Note** if you need a LLB configuration to be included in one PPL, Select the LLB you want to include and Press the bottom blue arrow ( the one circled in BLUE).
 
-![](images/ppl2.png)
+![](images/ppl2.PNG)
 * Select **Information** from the left menu, and rename the PPL as you wish in the **Build Specification Name** field.
 
 **Note** Check the **Destionation Directory** field, in some cases you might need to change the path.
 
-![](images/ppl1.png)
+![](images/ppl1.PNG)
 
 * Press **Done** and you should see this window: 
 
-![](images/ppl_done.png)
+![](images/ppl_done.PNG)
 
 After you are done check if you have a PPL for each LLB. 
 
@@ -61,11 +61,11 @@ After you are done check if you have a PPL for each LLB.
 The last step is to make the necessary changes in the XML file. For this you will need to change the path for each LLB with the path of each coresponding PPL.
 For example, the following image represents  the XML code sequence for the custom device RT Driver VI on a Windows target. 
 
-![](images/XML1.png)
+![](images/XML1.PNG)
 
 You need to change what comes after the **<Path>** tag.
 
-![](images/XML2.png)
+![](images/XML2.PNG)
 
 Here you can see the Path is changed to the one that the PPL has. You need to do the same for every **<Path>** tag in the XML.
 
