@@ -40,7 +40,7 @@ The next step is to create a packed project library for each LLB you have in the
 ![](images/BuildSpecification2.PNG)
 
 The window for configurating your packed library will open. 
-* You need to select **Source Files ** in the left menu. You will have a list with all the LLBs in your project and you need to select one for which you want to copy the configuration. After you select it you will need to press the top blue arrow (the one circled in RED).
+* You need to select **Source Files** in the left menu. You will have a list with all the LLBs in your project and you need to select one for which you want to copy the configuration. After you select it you will need to press the top blue arrow (the one circled in RED).
 
 **Note** if you need a LLB configuration to be included in one PPL, Select the LLB you want to include and Press the bottom blue arrow ( the one circled in BLUE).
 
