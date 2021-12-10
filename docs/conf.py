@@ -21,12 +21,18 @@ source_suffix = ['.rst', '.md']
 
 # -- Project information -----------------------------------------------------
 
-project = 'Veristand Custom Device Handbook'
-copyright = '2021, NI'
+project = 'VeriStand Custom Device Handbook'
+copyright = '2022, NI'
 author = 'NI'
 
-# The full version, including alpha/beta/rc tags
-release = '0.0.1'
+# The version info for the project you're documenting, acts as replacement for
+# |version| and |release|, also used in various other places throughout the
+# built documents.
+#
+# The short X.Y version.
+version = '1.0'
+# The full version, including alpha/beta/rc tagss
+release = '1.0.0'
 
 
 # -- General configuration ---------------------------------------------------
@@ -50,15 +56,6 @@ extensions = [
 
 # The master toctree document.
 master_doc = 'index'
-
-# The version info for the project you're documenting, acts as replacement for
-# |version| and |release|, also used in various other places throughout the
-# built documents.
-#
-# The short X.Y version.
-version = recommonmark.__version__
-# The full version, including alpha/beta/rc tagss
-release = recommonmark.__version__
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
