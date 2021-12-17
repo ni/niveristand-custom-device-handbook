@@ -16,8 +16,25 @@ Packed Project Libraries (PPL) provide name spacing for all of its contained ite
 ![](images/Disk_Footprint.jpg)
 ### Drawbacks of using PPL based Custom Devices
 
-* One of the main drawback is that inside the PPL, relative paths for the items are maintained starting from the most common directory on disk. This can be confusing for LabVIEW developers that would expect the relative paths to start from the root of the library and follow the original project structure. Additionally, it also means that changing the organization, or location on disk, of the items that are included in the library build specification could in turn affect the relative paths of the items in the packed library. In time, this behavior could prove to be quite a challenge (or at least a nuisance), since changes within the custom device folder structure could affect the organization of the items in the generated packed library. In turn, this would create the need to constantly update the configuration XML file with the new paths. The long-term solution to this issue would be to create a post-build step that could perform these operations automatically: i.e. parse the configuration XML file and identify the items with "path" properties. For each item, find the corresponding element within the generated packed library and update the configuration file. Once the update is complete (and with no errors), copy the resulting files to the VeriStand Custom Device directory.
+* One of the main drawback is that inside the PPL, relative paths for the items are maintained starting from the most common directory on disk. This can be confusing for LabVIEW developers that would expect the relative paths to start from the root of the library and follow the original project structure. Additionally, it also means that changing the organization, or location on disk, of the items that are included in the library build specification could in turn affect the relative paths of the items in the packed library. In time, this behavior could prove to be quite a challenge, since changes within the custom device folder structure could affect the organization of the items in the generated packed library. In turn, this would create the need to constantly update the configuration XML file with the new paths. The long-term solution would be implementing a VI that automatically updates the XML file (see below). You can also see it implemented in [FPGA Add-on Custom Device](https://github.com/ni/niveristand-fpga-addon-custom-device) and will be available in the Wizard.
+
+![](images/XML_updater.PNG)
+
+This VI must execute after every PPL build, so what we need to do in addition is to select this VI to run after build when we configure the PPL (see below). 
+
+![](images/Execute_XML_updater.PNG)
+
 * Certain LabVIEW features are not compatible with packed project libraries. For instance, malleable VIs (VIMs) cannot be included in a PPL and exported as public members, they can only be set with private scope. Implicitly, if a custom device code makes use of malleable VIs, packing it inside a PPL would require some changes (to either the code or the project level) to maintain compatibility.
+
+* When you open the Custom Device in Veristand you might see an error regarding the invalid path for some of the VIs (as you can see in the image below).
+
+![](images/VeriStand_Path_Error.PNG)
+
+This is happening because Veristand Engine is not completly compatible with PPLs, and it doesn't recognize some paths from PPLs. However, this does not affect how your Custom Device runs. The solution would be to change the code of the **Initialization** VI and **Action on Compile** VI (as tou can see below).A good example is implemented on [FPGA Add-on Custom Device](https://github.com/ni/niveristand-fpga-addon-custom-device) and will be available in the Wizard. 
+
+![](images/Initialization_Change.PNG)
+
+![](images/Action_on_Compile.PNG)
 
 * Certain VeriStand Custom Device APIs (like the NI VeriStand Custom Device Channel APIs) are using Global Data References. 
 
