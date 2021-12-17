@@ -76,7 +76,7 @@ The window for configuring your packed library will open.
 
 ![](images/PPL_Config_Destination.PNG)
 
-* Press **Build** and you should see this window after the build finishes:  
+* Press **Build** and you should see this window after the build finishes:
 
 ![](images/PPL_Done.PNG)
 
@@ -90,11 +90,11 @@ For example, the following image represents the XML code sequence for the custom
 
 ![](images/XML_Engine_Path_LLB.PNG)
 
-You need to change what comes after the <<Path>> tag.
+You need to change what comes after the <Path> tag.
 
 ![](images/XML_Engine_Path_PPL.PNG)
 
-Here you can see the <<Path>> contains a path for a VI located inside a PPL. You need to update all the <<Path>> tags in the XML that reference VIs inside the newly created PPLs.
+Here you can see the <Path> contains a path for a VI located inside a PPL. You need to update all the <<Path>> tags in the XML that reference VIs inside the newly created PPLs.
 
-**Note:** You need to update also the <<RealTimeSystemDestination>> tags.
+**Note:** You need to update also the <RealTimeSystemDestination> tags.
 
