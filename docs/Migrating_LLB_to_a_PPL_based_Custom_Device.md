@@ -28,13 +28,13 @@ This VI must execute after every PPL build, so what we need to do in addition is
 
 * When you open the Custom Device in Veristand you might see an error regarding the invalid path for some of the VIs (as you can see in the image below).
 
-![](images/VeriStand_Path_Error.PNG)
+![](images/VeriStand_Path_Error.png)
 
 This is happening because Veristand Engine is not completly compatible with PPLs, and it doesn't recognize some paths from PPLs. However, this does not affect how your Custom Device runs. The solution would be to change the code of the **Initialization** VI and **Action on Compile** VI (as tou can see below).A good example (where you can see the exact structure of the VI) is implemented on [FPGA Add-on Custom Device](https://github.com/ni/niveristand-fpga-addon-custom-device) and will be available in the Wizard. 
 
-![](images/Initialization_Change.PNG)
+![](images/Initialization_Change.png)
 
-![](images/Action_on_Compile.PNG)
+![](images/Action_on_Compile.png)
 
 * Certain VeriStand Custom Device APIs (like the NI VeriStand Custom Device Channel APIs) are using Global Data References. 
 
@@ -43,7 +43,7 @@ This is happening because Veristand Engine is not completly compatible with PPLs
 For creating a new packed project library based Custom Device you can start from a Custom Device template project. You can choose one for your application from the [VeriStand Custom Device Wizard](https://github.com/ni/niveristand-custom-device-wizard/releases). 
 ### Migrating to a PPL based Custom Device from an LLB one
 
-#. Changes regarding global data references
+#1. Changes regarding global data references
 If you use certain VeriStand Custom Device APIs, which is the case for an inline custom device, the first step to migrate an existing Custom Device would include changes regarding how the global data references are initialized.
 For performance reasons, channel values are stored in VeriStand as a single block of data - i.e. as an array of double values. To be able to access a value element corresponding to a given channel, VeriStand is using Global Variables to pass pointer information, from the engine, to the calling APIs. While this works well for custom devices packed in LLBs, the same does not apply for packed project libraries, due to namespacing. Essentially, when compiling a PPL, a separate (namespaced) copy of the global variable is created and included with it. In turn, it cannot be used anymore for data transfer between the VeriStand engine and the running custom device and would result in a runtime error. To be able to mitigate this problem, we need to implement an alternative way to access the values within these global variables.
 The initialization code below needs to be incapsulated within a subVI ("Initialize Global Variables"). It has to be called only once from within the target custom device and, for an Inline type, it would have to be called specifically in the "Read Data from HW" case of the "RT Driver" due to how the VeriStand engine initializes.
@@ -52,7 +52,7 @@ The initialization code below needs to be incapsulated within a subVI ("Initiali
 
 ![](images/GlobalReference2.PNG)
 
-#. Changes regarding libraries
+#2. Changes regarding libraries
 The next step is to create a packed project library for each LLB build specification you have in the project. The PPL needs to have the same configuration. To do so, you need to right click on **Built Specifications** » **New** » **Packed Library**. 
 
 ![](images/BuildSpecification.PNG)
@@ -84,17 +84,17 @@ After you are done check if you have a PPL for each LLB.
 
 **Note:** You should configure PPLs also for the Real Time targets build specifications.
 
-#. Changes regarding the XML
+#3. Changes regarding the XML
 The last step is to make the necessary changes in the XML file. For this you will need to change the path for each LLB with the path of each corresponding PPL.
 For example, the following image represents the XML code sequence for the custom device RT Driver VI on a Windows target. 
 
 ![](images/XML_Engine_Path_LLB.PNG)
 
-You need to change what comes after the `&lt;Path&gt;` tag.
+You need to change what comes after the <<Path>> tag.
 
 ![](images/XML_Engine_Path_PPL.PNG)
 
-Here you can see the `&lt;Path&gt;` contains a path for a VI located inside a PPL. You need to update all the `&lt;Path&gt;` tags in the XML that reference VIs inside the newly created PPLs.
+Here you can see the <<Path>> contains a path for a VI located inside a PPL. You need to update all the <<Path>> tags in the XML that reference VIs inside the newly created PPLs.
 
-**Note:** You need to update also the `&lt;RealTimeSystemDestination&gt;` tags.
+**Note:** You need to update also the <<RealTimeSystemDestination>> tags.
 
