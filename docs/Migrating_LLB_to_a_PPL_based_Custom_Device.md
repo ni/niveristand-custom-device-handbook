@@ -30,7 +30,7 @@ This VI must execute after every PPL build, so what we need to do in addition is
 
 ![](images/VeriStand_Path_Error.PNG)
 
-This is happening because Veristand Engine is not completly compatible with PPLs, and it doesn't recognize some paths from PPLs. However, this does not affect how your Custom Device runs. The solution would be to change the code of the **Initialization** VI and **Action on Compile** VI (as tou can see below).A good example is implemented on [FPGA Add-on Custom Device](https://github.com/ni/niveristand-fpga-addon-custom-device) and will be available in the Wizard. 
+This is happening because Veristand Engine is not completly compatible with PPLs, and it doesn't recognize some paths from PPLs. However, this does not affect how your Custom Device runs. The solution would be to change the code of the **Initialization** VI and **Action on Compile** VI (as tou can see below).A good example (where you can see the exact structure of the VI) is implemented on [FPGA Add-on Custom Device](https://github.com/ni/niveristand-fpga-addon-custom-device) and will be available in the Wizard. 
 
 ![](images/Initialization_Change.PNG)
 
@@ -43,6 +43,7 @@ This is happening because Veristand Engine is not completly compatible with PPLs
 For creating a new packed project library based Custom Device you can start from a Custom Device template project. You can choose one for your application from the [VeriStand Custom Device Wizard](https://github.com/ni/niveristand-custom-device-wizard/releases). 
 ### Migrating to a PPL based Custom Device from an LLB one
 
+#. Changes regarding global data references
 If you use certain VeriStand Custom Device APIs, which is the case for an inline custom device, the first step to migrate an existing Custom Device would include changes regarding how the global data references are initialized.
 For performance reasons, channel values are stored in VeriStand as a single block of data - i.e. as an array of double values. To be able to access a value element corresponding to a given channel, VeriStand is using Global Variables to pass pointer information, from the engine, to the calling APIs. While this works well for custom devices packed in LLBs, the same does not apply for packed project libraries, due to namespacing. Essentially, when compiling a PPL, a separate (namespaced) copy of the global variable is created and included with it. In turn, it cannot be used anymore for data transfer between the VeriStand engine and the running custom device and would result in a runtime error. To be able to mitigate this problem, we need to implement an alternative way to access the values within these global variables.
 The initialization code below needs to be incapsulated within a subVI ("Initialize Global Variables"). It has to be called only once from within the target custom device and, for an Inline type, it would have to be called specifically in the "Read Data from HW" case of the "RT Driver" due to how the VeriStand engine initializes.
@@ -51,30 +52,39 @@ The initialization code below needs to be incapsulated within a subVI ("Initiali
 
 ![](images/GlobalReference2.PNG)
 
-The next step is to create a packed project library for each LLB you have in the project. The PPL needs to have the same configuration. To do so, you need to right click on **Built Specifications** » **New** » **Packed Library**. 
+#. Changes regarding libraries
+The next step is to create a packed project library for each LLB build specification you have in the project. The PPL needs to have the same configuration. To do so, you need to right click on **Built Specifications** » **New** » **Packed Library**. 
 
-![](images/BuildSpecification2.PNG)
+![](images/BuildSpecification.PNG)
 
 The window for configuring your packed library will open. 
 * You need to select **Source Files** in the left menu. You will have a list with all the LLBs in your project and you need to select one for which you want to copy the configuration. After you select it you will need to press the top blue arrow (the one circled in RED).
 
-**Note:** if you need an LLB configuration to be included in one PPL, Select the LLB you want to include and Press the bottom blue arrow (the one circled in BLUE).
+**Note:** if you need to include something in the PPL (for exemple the XML file in the System Explorer PPL), select the the file you want to include and press the bottom blue arrow (the one circled in BLUE).
 
 ![](images/PPL_Config_Source.png)
-* Select **Information** from the left menu, and rename the PPL as you wish in the **Build Specification Name** field.
+
+* Select **Information** from the left menu and rename the PPL in the **Build Specification Name** field. There are some rules you need to consider in order to avoid conflicts:
+	* The name of the file should be **Custom Device Name** + **Configuration**(for System Explorer) or **Custom Device Name** + **Engine** + **Operating System Name**(for Engine)
+	* The path should have the following structure: **"..\build\Custom Device Name\Windows** 
 
 **Note:** Check the **Destionation Directory** field, in some cases you might need to change the path.
 
 ![](images/PPL_Config_Info.PNG)
 
+* Select **Destionations** and choose the apropriate path. 
+
+![](images/PPL_Config_Destination.PNG)
+
 * Press **Build** and you should see this window after the build finishes:  
 
-![](images/ppl_done.PNG)
+![](images/PPL_Done.PNG)
 
 After you are done check if you have a PPL for each LLB. 
 
 **Note:** You should configure PPLs also for the Real Time targets build specifications.
 
+#. Changes regarding the XML
 The last step is to make the necessary changes in the XML file. For this you will need to change the path for each LLB with the path of each corresponding PPL.
 For example, the following image represents the XML code sequence for the custom device RT Driver VI on a Windows target. 
 
