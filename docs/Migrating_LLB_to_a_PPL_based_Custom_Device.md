@@ -59,7 +59,7 @@ The initialization code below needs to be incapsulated within a subVI ("Initiali
 ![](images/GlobalVariableINIT.PNG)
 
 
-4 Changes regarding libraries
+4. Changes regarding libraries
 The next step is to create a packed project library for each LLB build specification you have in the project. The PPL needs to have the same configuration. To do so, you need to right click on **Built Specifications** » **New** » **Packed Library**. 
 
 ![](images/BuildSpecification.PNG)
