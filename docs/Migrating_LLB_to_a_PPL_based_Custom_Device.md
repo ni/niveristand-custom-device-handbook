@@ -33,7 +33,7 @@ For creating a new packed project library based Custom Device you can start from
 
 1. Changes for the VeriStand System Explorer
 
-Now we will discuss the VeriStand error (mentioned in the drawbacks section), and how can we make it disappear. The solution would be to change the code of the **Initialization** VI and **Action on Compile** VI (as tou can see below). The subVI in the **Initialization** VI deletes the paths from the System Explorer at the moment they are writen. The purpose of the subVI added in the **Action on Compile** VI is to assign the paths that the System Explorer would recognize, when the Custom Device is ran. A good example (where you can see the exact structure of the subVIs) is implemented on [FPGA Add-on Custom Device](https://github.com/ni/niveristand-fpga-addon-custom-device) and will be available in the upcoming version of the LabVIEW Custom Device Wizard. 
+Now we will discuss the VeriStand error (mentioned in the drawbacks section), and how can we make it disappear. The solution would be to change the code of the **Initialization** VI and **Action on Compile** VI (as you can see below). The subVI in the **Initialization** VI deletes the paths from the System Explorer at the moment they are writen. The purpose of the subVI added in the **Action on Compile** VI is to assign the paths that the System Explorer would recognize, when the Custom Device is ran. A good example (where you can see the exact structure of the subVIs) is implemented on [FPGA Add-on Custom Device](https://github.com/ni/niveristand-fpga-addon-custom-device) and will be available in the upcoming version of the LabVIEW Custom Device Wizard. 
 
 ![](images/Initialization_Change.png)
 
@@ -65,12 +65,12 @@ The next step is to create a packed project library for each LLB build specifica
 
 ![](images/PPL_Config_Info.PNG)
 
-	* The path should have the following structure: **"..\build\Custom Device Name\Windows** 
-	* For System Explorer, the name of the file should be **Custom Device Name** + **Configuration** + **Operating System Name** (you can see an exemple for the name and path of a System Explorer file on Windows)
+* The path should have the following structure: **"..\build\Custom Device Name\Windows** 
+* For System Explorer, the name of the file should be **Custom Device Name** + **Configuration** + **Operating System Name** (you can see an exemple for the name and path of a System Explorer file on Windows)
 
 ![](images/Sys_Explorer_Path.PNG)
 
-	* For Engine, the name of the file should be  **Custom Device Name** + **Engine** + **Operating System Name** (you can see an exemple for the name and path of an Engine file on Linux)
+* For Engine, the name of the file should be  **Custom Device Name** + **Engine** + **Operating System Name** (you can see an exemple for the name and path of an Engine file on Linux)
 
 ![](images/Engine_Path.PNG)
 
@@ -87,18 +87,19 @@ After you are done check if you have a PPL for each LLB.
 4. Changes regarding the XML
 
 The last step is to make the necessary changes in the XML file. For this you have too choices: you can do it *manually*, or you can create a *Post-Build Action* VI. 
-If you choose to do it *manually*, you will need to change the path for each LLB with the path of each corresponding PPL.
+
+If you choose to do it **manually**, you will need to change the path for each LLB with the path of each corresponding PPL.
 For example, the following image represents the XML code sequence for the custom device RT Driver VI on a Windows target. 
 
 ![](images/XML_Engine_Path_LLB.PNG)
 
-You need to change what comes after the <Path> tag.
+You need to change what comes after the `<Path>` tag.
 
 ![](images/XML_Engine_Path_PPL.PNG)
 
-Here you can see the <Path> contains a path for a VI located inside a PPL. You need to update all the <<Path>> tags in the XML that reference VIs inside the newly created PPLs.
+Here you can see the `<Path>` contains a path for a VI located inside a PPL. You need to update all the `<Path>` tags in the XML that reference VIs inside the newly created PPLs.
 
-**Note:** You need to update also the <RealTimeSystemDestination> tags.
+**Note:** You need to update also the `<RealTimeSystemDestination>` tags.
 
 If you don't want to spend time manually changing the paths, you can chose to implement a VI that automatically updates the XML file (see below). This is also the long-term solution for the problem with relative paths, metioned earlier. 
 
