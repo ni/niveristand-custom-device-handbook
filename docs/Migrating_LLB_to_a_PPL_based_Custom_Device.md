@@ -31,55 +31,50 @@ Packed Project Libraries (PPL) provide name spacing for all of its contained ite
 For creating a new packed project library based Custom Device you can start from a Custom Device template project. You can choose one for your application from the [VeriStand Custom Device Wizard](https://github.com/ni/niveristand-custom-device-wizard/releases). 
 ### Migrating to a PPL based Custom Device from an LLB one
 
-1. Changes regarding the relative paths
+1. Changes for the VeriStand System Explorer
 
-First, we will talk about the long-term solution for the problem with relative paths, metioned earlier. This would be solved by implementing a VI that automatically updates the XML file (see below). You can also see it implemented in [FPGA Add-on Custom Device](https://github.com/ni/niveristand-fpga-addon-custom-device) and will be available in the Wizard.
-
-![](images/XML_updater.PNG)
-
-This VI must execute after every PPL build, so what we need to do in addition is to select this VI to run after build when we configure the PPL (see below). 
-
-![](images/Execute_XML_updater.PNG)
-
-2. Optional changes for the VeriStand System Explorer
-
-The solution would be to change the code of the **Initialization** VI and **Action on Compile** VI (as tou can see below).A good example (where you can see the exact structure of the VI) is implemented on [FPGA Add-on Custom Device](https://github.com/ni/niveristand-fpga-addon-custom-device) and will be available in the Wizard. 
+Now we will discuss the VeriStand error (mentioned in the drawbacks section), and how can we make it disappear. The solution would be to change the code of the **Initialization** VI and **Action on Compile** VI (as tou can see below). The subVI in the **Initialization** VI deletes the paths from the System Explorer at the moment they are writen. The purpose of the subVI added in the **Action on Compile** VI is to assign the paths that the System Explorer would recognize, when the Custom Device is ran. A good example (where you can see the exact structure of the subVIs) is implemented on [FPGA Add-on Custom Device](https://github.com/ni/niveristand-fpga-addon-custom-device) and will be available in the upcoming version of the LabVIEW Custom Device Wizard. 
 
 ![](images/Initialization_Change.png)
 
 ![](images/Action_on_Compile.png)
 
-3. Changes regarding global data references
+2. Changes regarding global data references
+
 If you use certain VeriStand Custom Device APIs, which is the case for an inline custom device, the first step to migrate an existing Custom Device would include changes regarding how the global data references are initialized.
 For performance reasons, channel values are stored in VeriStand as a single block of data - i.e. as an array of double values. To be able to access a value element corresponding to a given channel, VeriStand is using Global Variables to pass pointer information, from the engine, to the calling APIs. While this works well for custom devices packed in LLBs, the same does not apply for packed project libraries, due to namespacing. Essentially, when compiling a PPL, a separate (namespaced) copy of the global variable is created and included with it. In turn, it cannot be used anymore for data transfer between the VeriStand engine and the running custom device and would result in a runtime error. To be able to mitigate this problem, we need to implement an alternative way to access the values within these global variables.
-The initialization code below needs to be incapsulated within a subVI ("Initialize Global Variables"). It has to be called only once from within the target custom device and, for an Inline type, it would have to be called specifically in the "Read Data from HW" case of the "RT Driver" due to how the VeriStand engine initializes.
+The initialization code below needs to be incapsulated within a subVI ("Initialize Global Variables"). It has to be called only once from within the target custom device and, for an Inline type, it would have to be called specifically in the "Read Data from HW" case of the "RT Driver" due to how the VeriStand engine initializes (as you can see, circled in BLUE, below the subVI's code).
 
 ![](images/GlobalVariableINIT.PNG)
 
+![](images/Init_Global_Var_subVI.PNG)
 
-4. Changes regarding libraries
-The next step is to create a packed project library for each LLB build specification you have in the project. The PPL needs to have the same configuration. To do so, you need to right click on **Built Specifications** » **New** » **Packed Library**. 
+3. Changes regarding libraries
+
+The next step is to create a packed project library for each LLB build specification you have in the project. The PPL needs to have the same configuration. To do so, you need to right click on **Build Specifications** » **New** » **Packed Library**. The window for configuring your packed library will open.
 
 ![](images/BuildSpecification.PNG)
 
-The window for configuring your packed library will open. 
-* You need to select **Source Files** in the left menu. You will have a list with all the LLBs in your project and you need to select one for which you want to copy the configuration. After you select it you will need to press the top blue arrow (the one circled in RED).
+* You need to select **Source Files** in the Category menu (the one on the left). You will have a list with all the LLBs in your project (in the center, under *Project Files*) and you need to select the one for which you want to copy the configuration. After you select the LLB you will need to press the top blue arrow (the one circled in BLUE).
 
 **Note:** if you need to include something in the PPL (for exemple the XML file in the System Explorer PPL), select the the file you want to include and press the bottom blue arrow (the one circled in BLUE).
 
 ![](images/PPL_Config_Source.png)
 
-* Select **Information** from the left menu and rename the PPL in the **Build Specification Name** field. There are some rules you need to consider in order to avoid conflicts:
-	* The name of the file should be **Custom Device Name** + **Configuration**(for System Explorer) or **Custom Device Name** + **Engine** + **Operating System Name**(for Engine)
-	* The path should have the following structure: **"..\build\Custom Device Name\Windows** 
-
-**Note:** Check the **Destionation Directory** field, in some cases you might need to change the path.
+* Select **Information** from the left menu and rename the PPL in the **Build Specification Name** field. There are some rules you need to consider in order to organize the built files properly, so that later on, they can be easily copied/moved to the VeriStand Custom Devices directory. Also, following these rules will help you implement a Post Build Action VI (which is discussed in the next section).
 
 ![](images/PPL_Config_Info.PNG)
 
-* Select **Destionations** and choose the apropriate path. 
+	* The path should have the following structure: **"..\build\Custom Device Name\Windows** 
+	* For System Explorer, the name of the file should be **Custom Device Name** + **Configuration** + **Operating System Name** (you can see an exemple for the name and path of a System Explorer file on Windows)
 
-![](images/PPL_Config_Destination.PNG)
+![](images/Sys_Explorer_Path.PNG)
+
+	* For Engine, the name of the file should be  **Custom Device Name** + **Engine** + **Operating System Name** (you can see an exemple for the name and path of an Engine file on Linux)
+
+![](images/Engine_Path.PNG)
+
+**Note:** Moving forward, we are supporting only one type of RT OS. This means there will be a total of two targets: Windows and Linux x64.
 
 * Press **Build** and you should see this window after the build finishes:
 
@@ -89,9 +84,10 @@ After you are done check if you have a PPL for each LLB.
 
 **Note:** You should configure PPLs also for the Real Time targets build specifications.
 
-5. Changes regarding the XML
+4. Changes regarding the XML
 
-The last step is to make the necessary changes in the XML file. For this you will need to change the path for each LLB with the path of each corresponding PPL.
+The last step is to make the necessary changes in the XML file. For this you have too choices: you can do it *manually*, or you can create a *Post-Build Action* VI. 
+If you choose to do it *manually*, you will need to change the path for each LLB with the path of each corresponding PPL.
 For example, the following image represents the XML code sequence for the custom device RT Driver VI on a Windows target. 
 
 ![](images/XML_Engine_Path_LLB.PNG)
@@ -104,3 +100,10 @@ Here you can see the <Path> contains a path for a VI located inside a PPL. You n
 
 **Note:** You need to update also the <RealTimeSystemDestination> tags.
 
+If you don't want to spend time manually changing the paths, you can chose to implement a VI that automatically updates the XML file (see below). This is also the long-term solution for the problem with relative paths, metioned earlier. 
+
+![](images/XML_updater.PNG)
+
+The best approach is to set such a VI as a *Post-Build Action* for your engine or configuration build specification (see below). You can also see it implemented in [FPGA Add-on Custom Device](https://github.com/ni/niveristand-fpga-addon-custom-device) and will be available in the upcoming version of the LabVIEW Custom Device Wizard.
+
+![](images/Execute_XML_updater.PNG)
