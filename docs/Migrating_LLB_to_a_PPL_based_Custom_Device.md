@@ -33,7 +33,7 @@ For creating a new packed project library based Custom Device you can start from
 
 1. Changes for the VeriStand System Explorer
 
-Now we will discuss the VeriStand error (mentioned in the drawbacks section), and how can we make it disappear. The solution would be to change the code of the **Initialization** VI and **Action on Compile** VI (as you can see below). The subVI in the **Initialization** VI deletes the paths from the System Explorer at the moment they are writen. The purpose of the subVI added in the **Action on Compile** VI is to assign the paths that the System Explorer would recognize, when the Custom Device is ran. A good example (where you can see the exact structure of the subVIs) is implemented on [FPGA Add-on Custom Device](https://github.com/ni/niveristand-fpga-addon-custom-device) and will be available in the upcoming version of the LabVIEW Custom Device Wizard. 
+Now we will discuss the VeriStand error (mentioned in the drawbacks section), and how can we make it disappear. The solution would be to change the code of the **Initialization** VI and **Action on Compile** VI (as you can see below). The subVI in the Initialization VI dynamically deletes all of the the RT Driver paths from the system definition, after the Custom Device was created. This is acceptable, since these paths are used only during and after deployment. The purpose of the subVI added in the Action on Compile VI, is to re-insert the corresponding RT Driver paths, right before the system deployment. Since VeriStand keeps a copy of the deployed system definition in the local cache ( unless the system definition is unmodified between deployments), this latest change is preserved - therefore, VeriStand now has a "complete" system definition in the local cache, which will be used for subsequent deployments. A good example (where you can see the exact structure of the subVIs) is implemented on [FPGA Add-on Custom Device](https://github.com/ni/niveristand-fpga-addon-custom-device) and will be available in the upcoming version of the LabVIEW Custom Device Wizard. 
 
 ![](images/Initialization_Change.png)
 
@@ -51,17 +51,12 @@ The initialization code below needs to be incapsulated within a subVI ("Initiali
 
 3. Changes regarding libraries
 
-The next step is to create a packed project library for each LLB build specification you have in the project. The PPL needs to have the same configuration. To do so, you need to right click on **Build Specifications** » **New** » **Packed Library**. The window for configuring your packed library will open.
+The next step is to create a packed project library for each LLB build specification you have in the project. The PPL needs to have the a similar configuration with the LLB's. This means that, ideally, you would keep the same structure for the built files (the same file structure as for the LLB build specifications, to be able to reuse the build post-step for copying generated files to the VeriStand directory). To do so, you need to right click on **Build Specifications** » **New** » **Packed Library**. The window for configuring your packed library will open.
 
 ![](images/BuildSpecification.PNG)
 
-* You need to select **Source Files** in the Category menu (the one on the left). You will have a list with all the LLBs in your project (in the center, under *Project Files*) and you need to select the one for which you want to copy the configuration. After you select the LLB you will need to press the top blue arrow (the one circled in BLUE).
 
-**Note:** if you need to include something in the PPL (for exemple the XML file in the System Explorer PPL), select the the file you want to include and press the bottom blue arrow (the one circled in BLUE).
-
-![](images/PPL_Config_Source.png)
-
-* Select **Information** from the left menu and rename the PPL in the **Build Specification Name** field. There are some rules you need to consider in order to organize the built files properly, so that later on, they can be easily copied/moved to the VeriStand Custom Devices directory. Also, following these rules will help you implement a Post Build Action VI (which is discussed in the next section).
+* Select **Information** from the left menu and rename the PPL in the Build Specification Name field. Following convention, there are some rules to consider in order to organize the built files properly, so that, they can be easily copied/moved to the VeriStand Custom Devices directory once the build is complete (It would be worth mentioning that the, Post Build Action VI, mentioned in the next section, operates based on the same naming and path convention).
 
 ![](images/PPL_Config_Info.PNG)
 
@@ -75,6 +70,12 @@ The next step is to create a packed project library for each LLB build specifica
 ![](images/Engine_Path.PNG)
 
 **Note:** Moving forward, we are supporting only one type of RT OS. This means there will be a total of two targets: Windows and Linux x64.
+
+* You need to select **Source Files** in the Category menu (the one on the left). You will have a list with all the LLBs in your project (in the center, under *Project Files*) and you need to select the one for which you want to copy the configuration. After you select the LLB you will need to press the top blue arrow (the one circled in BLUE).
+
+**Note:** if you need to include something in the PPL (for exemple the XML file in the System Explorer PPL), select the the file you want to include and press the bottom blue arrow (the one circled in BLUE).
+
+![](images/PPL_Config_Source.png)
 
 * Press **Build** and you should see this window after the build finishes:
 
