@@ -56,7 +56,7 @@ The next step is to create a packed project library for each LLB build specifica
 ![](images/BuildSpecification.PNG)
 
 
-**Information Category of Configurations **
+**Information Category of Configurations**
 
 Select *Information* from the left menu and rename the PPL in the *Build Specification Name* field. Following convention, there are some rules to consider in order to organize the built files properly, so that, they can be easily copied/moved to the VeriStand Custom Device's directory once the build is complete (It would be worth mentioning that the *Post Build Action VI* mentioned in the next section, operates based on the same naming and path convention).
 
@@ -78,7 +78,7 @@ Select *Information* from the left menu and rename the PPL in the *Build Specifi
 
 **Note:** Moving forward, we are supporting only one type of RT OS. This means there will be a total of two targets: Windows and Linux x64.
 
-**Source Files Category of Configurations **
+**Source Files Category of Configurations**
 
  a) Custom Device System Explorer
 
