@@ -56,32 +56,41 @@ The next step is to create a packed project library for each LLB build specifica
 ![](images/BuildSpecification.PNG)
 
 
-* Select Information from the left menu and rename the PPL in the Build Specification Name field. Following convention, there are some rules to consider in order to organize the built files properly, so that, they can be easily copied/moved to the VeriStand Custom Devices directory once the build is complete (It would be worth mentioning that the, Post Build Action VI, mentioned in the next section, operates based on the same naming and path convention).
+** *Information* Category of Configurations **
 
+Select *Information* from the left menu and rename the PPL in the *Build Specification Name* field. Following convention, there are some rules to consider in order to organize the built files properly, so that, they can be easily copied/moved to the VeriStand Custom Devices directory once the build is complete (It would be worth mentioning that the, Post Build Action VI, mentioned in the next section, operates based on the same naming and path convention).
+ a) Custom Device System Explorer
 ![](images/PPL_Config_Info.PNG)
 
-* The path should have the following structure: **"..\build\Custom Device Name\Windows** 
-* For System Explorer, the name of the file should be **Custom Device Name** + **Configuration** + **Operating System Name** (you can see an exemple for the name and path of a System Explorer file on Windows)
+* The destination path should have the following structure: **"..\built\Custom Device Name\Operating System** 
+* The name of the packed library file should have the following format: **Custom Device Name** + **Configuration** + **Operating System Name** (you can see an exemple for the name and path of a System Explorer file on Windows)
 
 ![](images/Sys_Explorer_Path.PNG)
 
-* For Engine, the name of the file should be  **Custom Device Name** + **Engine** + **Operating System Name** (you can see an exemple for the name and path of an Engine file on Linux)
+ b) Custom Device Engine
+ 
+* The destination path should have the following structure: **"..\built\Custom Device Name\Operating System**
+* The name of the packed library file should have the following format: **Custom Device Name** + **Engine** + **Operating System Name** (you can see an exemple for the name and path of an Engine file on Linux)
 
 ![](images/Engine_Path.PNG)
 
 **Note:** Moving forward, we are supporting only one type of RT OS. This means there will be a total of two targets: Windows and Linux x64.
 
-* From the **Source Files** in the Category list (on the left), select the library containing the System Explorer files of your custom device (i.e. Configuration library). Set it as the **Top-level Library** by clicking on the topmost arrow in the Source Files window. If you need additional files to be distributed with the packed library (for example, the configuration XML file), you can add them to the "Always-Included" files list (see below)..
+** *Source Files* Category of Configurations **
+
+ a) Custom Device System Explorer
+
+From the *Source Files* in the Category list (on the left), select the library containing the *System Explorer* files of your custom device (i.e. Configuration library). Set it as the *Top-level Library* by clicking on the topmost arrow in the Source Files window. If you need additional files to be distributed with the packed library (for example, the configuration XML file), you can add them to the "Always-Included" files list (see below)..
 
 **Note:** if you need to include something in the PPL (for exemple the XML file in the System Explorer PPL), select the the file you want to include and press the bottom blue arrow (the one circled in BLUE).
 
 ![](images/PPL_Config_Source.png)
 
-* Press **Build** and you should see this window after the build finishes:
+ b) Custom Device Engine
 
-![](images/ppl_done.PNG)
+From the *Source Files* in the Category list (on the left), select the library containing the *Engine* files of your custom device (i.e. Configuration library). Set it as the *Top-level Library* by clicking on the topmost arrow in the Source Files window. 
 
-After you are done check if you have a PPL for each LLB. 
+![](images/Source_Files_Eng.png)
 
 **Note:** You should configure PPLs also for the Real Time targets build specifications.
 
@@ -109,3 +118,9 @@ If you don't want to spend time manually changing the paths, you can chose to im
 The best approach is to set such a VI as a *Post-Build Action* for your engine or configuration build specification (see below). You can also see it implemented in [FPGA Add-on Custom Device](https://github.com/ni/niveristand-fpga-addon-custom-device) and will be available in the upcoming version of the LabVIEW Custom Device Wizard.
 
 ![](images/Execute_XML_updater.PNG)
+
+5. Build Files
+
+Press *Build* and you should see this window after the build finishes:
+
+![](images/ppl_done.PNG)
