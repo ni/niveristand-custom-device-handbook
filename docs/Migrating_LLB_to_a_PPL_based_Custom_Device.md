@@ -51,14 +51,15 @@ The initialization code below needs to be incapsulated within a subVI ("Initiali
 
 3. Changes regarding libraries
 
-The next step is to create a packed project library for each LLB build specification you have in the project. The PPL needs to have the a similar configuration with the LLB's. This means that, ideally, you would keep the same structure for the built files (the same file structure as for the LLB build specifications, to be able to reuse the build post-step for copying generated files to the VeriStand directory). To do so, you need to right click on **Build Specifications** » **New** » **Packed Library**. The window for configuring your packed library will open.
+The next step is to create a packed project library for each LLB build specification you have in the project. The PPL needs to have a similar configuration with the LLB's. This means that, ideally, you would keep the same structure for the built files (the same file structure as for the LLB build specifications, to be able to reuse the build post-step for copying generated files to the VeriStand directory). To do so, you need to right click on **Build Specifications** » **New** » **Packed Library**. The window for configuring your packed library will open.
 
 ![](images/BuildSpecification.PNG)
 
 
-** *Information* Category of Configurations **
+***Information* Category of Configurations **
 
 Select *Information* from the left menu and rename the PPL in the *Build Specification Name* field. Following convention, there are some rules to consider in order to organize the built files properly, so that, they can be easily copied/moved to the VeriStand Custom Devices directory once the build is complete (It would be worth mentioning that the, Post Build Action VI, mentioned in the next section, operates based on the same naming and path convention).
+
  a) Custom Device System Explorer
 ![](images/PPL_Config_Info.PNG)
 
@@ -76,11 +77,11 @@ Select *Information* from the left menu and rename the PPL in the *Build Specifi
 
 **Note:** Moving forward, we are supporting only one type of RT OS. This means there will be a total of two targets: Windows and Linux x64.
 
-** *Source Files* Category of Configurations **
+***Source Files* Category of Configurations **
 
  a) Custom Device System Explorer
 
-From the *Source Files* in the Category list (on the left), select the library containing the *System Explorer* files of your custom device (i.e. Configuration library). Set it as the *Top-level Library* by clicking on the topmost arrow in the Source Files window. If you need additional files to be distributed with the packed library (for example, the configuration XML file), you can add them to the "Always-Included" files list (see below)..
+From the *Source Files* in the Category list (on the left), select the library containing the *System Explorer* files of your custom device (i.e. Configuration library). Set it as the *Top-level Library* by clicking on the topmost arrow in the Source Files window. If you need additional files to be distributed with the packed library (for example, the configuration XML file), you can add them to the "Always-Included" files list (see below).
 
 **Note:** if you need to include something in the PPL (for exemple the XML file in the System Explorer PPL), select the the file you want to include and press the bottom blue arrow (the one circled in BLUE).
 
