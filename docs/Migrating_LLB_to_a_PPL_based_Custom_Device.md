@@ -56,7 +56,7 @@ The next step is to create a packed project library for each LLB build specifica
 ![](images/BuildSpecification.PNG)
 
 
-* Select **Information** from the left menu and rename the PPL in the Build Specification Name field. Following convention, there are some rules to consider in order to organize the built files properly, so that, they can be easily copied/moved to the VeriStand Custom Devices directory once the build is complete (It would be worth mentioning that the, Post Build Action VI, mentioned in the next section, operates based on the same naming and path convention).
+* Select Information from the left menu and rename the PPL in the Build Specification Name field. Following convention, there are some rules to consider in order to organize the built files properly, so that, they can be easily copied/moved to the VeriStand Custom Devices directory once the build is complete (It would be worth mentioning that the, Post Build Action VI, mentioned in the next section, operates based on the same naming and path convention).
 
 ![](images/PPL_Config_Info.PNG)
 
@@ -71,7 +71,7 @@ The next step is to create a packed project library for each LLB build specifica
 
 **Note:** Moving forward, we are supporting only one type of RT OS. This means there will be a total of two targets: Windows and Linux x64.
 
-* You need to select **Source Files** in the Category menu (the one on the left). You will have a list with all the LLBs in your project (in the center, under *Project Files*) and you need to select the one for which you want to copy the configuration. After you select the LLB you will need to press the top blue arrow (the one circled in BLUE).
+* From the **Source Files** in the Category list (on the left), select the library containing the System Explorer files of your custom device (i.e. Configuration library). Set it as the **Top-level Library** by clicking on the topmost arrow in the Source Files window. If you need additional files to be distributed with the packed library (for example, the configuration XML file), you can add them to the "Always-Included" files list (see below)..
 
 **Note:** if you need to include something in the PPL (for exemple the XML file in the System Explorer PPL), select the the file you want to include and press the bottom blue arrow (the one circled in BLUE).
 
