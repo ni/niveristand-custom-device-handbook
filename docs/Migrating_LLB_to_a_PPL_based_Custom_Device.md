@@ -65,7 +65,7 @@ Select *Information* from the left menu and rename the PPL in the *Build Specifi
 ![](images/PPL_Config_Info.PNG)
 
 * The destination path should have the following structure: **"..\built\Custom Device Name\Operating System** 
-* The name of the packed library file should have the following format: **Custom Device Name** + **Configuration** + **Operating System Name** (you can see an example for the name and path of a System Explorer file on Windows)
+* The name of the packed library file should have the following format: **Custom Device Name** + **Configuration** (you can see an example for the name and path of a Configuration library file on Windows)
 
 ![](images/Sys_Explorer_Path.PNG)
 
