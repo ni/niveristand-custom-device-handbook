@@ -1,128 +1,183 @@
 ## Migrating from LLB to PPL
 
-First introduced with LabVIEW 2010, a packed project library (PPL) is a compiled LabVIEW project library (.lvlib) that contains all the .project library VIs and allows the user to call the public VIs in a manner that is identical to the use of the original project library. Since LabVIEW 2017 you can compile a packed project library to be also used with newer versions of LabVIEW. This option is enabled by default, but if you want to change that setting, choose "Advanced" in the sidebar and disable the option "Allow future versions of LabVIEW" to load this packed library. 
+A *packed project library* (PPL) is a compiled LabVIEW library (*.lvlib*) that contains the VIs of that library. PPLs allow you to call public VIs similarly to their use in the original project library.
 
-Using PPLs for packaging VeriStand Custom Devices does not eliminate the usage of LLBs for the same purpose. A developer does not have to decide between using one or another. The two options can coexist as part of the same project. A developer can keep the existing LLB build specifications and simply add to the project the additional PPL ones. Of course, it might be necessary to modify the CD source code in order to be able to support both options. The XML configuration file would have to be modified as well to reflect the new loading paths for the CD elements.
+PPLs were first introduced in LabVIEW 2010. From LabVIEW 2017 onward, you can compile a PPL for newer versions of LabVIEW. This option is enabled by default.
 
-### Benefits for using PPL based Custom Devices
+**Note:** To change this setting, in the LabVIEW sidebar click **Advanced** and disable **Allow future versions of LabVIEW**.
 
-Packed Project Libraries (PPL) provide name spacing for all of its contained items and preserve the file hierarchy of the source project library. These features result in several potential benefits for a Custom Device packed in a PPL:
-* If two given custom devices would reference the same VI dependency, by packaging them into PPLs, each custom device would receive its own copy of the required dependency. This would be compiled and included in its respective PPL via namespacing for the contained items. The PPLs would also make sure that load-time conflicts are avoided.
+Using a PPL to package a VeriStand custom device does not block the use of an LLB. The two options can coexist as a part of the same project. To use both packaging methods, retain the existing LLB build specifications and add the additional PPL build specifications to the project.
 
-* Since PPLs preserve the file hierarchy of the source project library, that solves the issue of internal naming conflicts, which is specific to LLBs (which causes compile-time warnings and extra files to be generated). Multiple LabVIEW project libraries can be included in the same PPL, even if those contain items with the same name. This is the same reason why LabVIEW classes could now be easier used when building VeriStand Custom Devices.
+**Note:** You may need to modify the custom device source code to support both options. You may also need to modify the XML configuration file to reflect the new loading paths for the custom device elements.
 
-* Much smaller disk footprint, which would improve the deployment time (as you can see for the FPGA Addon below). . 
+### Benefits of Using PPL Based Custom Devices
+
+A PPL provides name spacing for all contained items and preserves the file hierarchy of the source project library. These features result in several benefits for a custom device:
+* Grants each packaged custom device a copy of shared VI dependencies. These copies are compiled and included in the PPL through namespacing. The PPL also avoids load-time conflicts.
+
+* Avoids internal naming conflicts by preserving the file hierarch. LLBs could generate compile-time warnings and extra files. You can include multiple LabVIEW project libraries in the same PPL, even if the libraries contain items with the same name. This also allows for the easier use of LabVIEW classes when building custom devices.
+
+* Improves deployment time through a smaller disk footprint. The following image demonstrates the relative size difference between PPL and LLB packaging of the same FPGA Addon.
 
 ![](images/Disk_Footprint.jpg)
-### Drawbacks of using PPL based Custom Devices
 
-* One of the main drawback is that inside the PPL, relative paths for the items are maintained starting from the most common directory on disk. This can be confusing for LabVIEW developers that would expect the relative paths to start from the root of the library and follow the original project structure. Additionally, it also means that changing the organization, or location on disk, of the items that are included in the library build specification could in turn affect the relative paths of the items in the packed library. In time, this behavior could prove to be quite a challenge, since changes within the custom device folder structure could alter the organization of the items in the generated packed library. In turn, this would create the need to constantly update the configuration XML file with the new paths. The solution will be discussed below (in the migration steps).
+### Drawbacks of Using PPL Based Custom Devices
 
-* Certain LabVIEW features are not compatible with packed project libraries. For instance, malleable VIs (VIMs) cannot be included in a PPL and exported as public members, they can only be set with private scope. Implicitly, if a custom device code makes use of malleable VIs, packing it inside a PPL would require some changes (to either the code or the project level) to maintain compatibility.
+The following table displays the major drawbacks to using a PPL custom device.
 
-* When you open a PPL based Custom Device in Veristand, you will see an error regarding invalid paths for the RT Driver VIs (as you can see in the image below). This is happening because the Veristand System Explorer does not recognize PPL paths. However, this does not affect how your Custom Device runs. The fix for this issue is described in the next chapters.
+| Drawback    | Description | Solution |
+| ----------- | ----------- ||
+| Relative path updates | Relative paths for PPL items start from the most common directory on disk. <br><br> Changing the organization or disk location of an item in the library build specification can affect the relative path. Changes within the custom device folder structure can also alter the organization of the items. <br><br> These changes  require constant updates to the configuration XML file with the newest paths. | Create a [Post-Build Action VI](#####post-build-action-vi). |
+| Incompatible LabVIEW features | Some LabVIEW features are not compatible with PPL. For example, public malleable VIs (VIMs) cannot be included in a PPL for export. Only VIMs set with a private scope can be included. | May require code or project level updates. |
+| RT Driver VI path errors | Opening a PPL based custom device in VeriStand will generate invalid path errors for the RT Driver VIs. VeriStand System Explorer does not recognize PPL paths. These errors do not affect how the Custom Device runs. | Refer to [Update VeriStand System Explorer](####update-veristand-system-explorer). |
+| Deployment errors | Some custom device APIs, such as the NI VeriStand Custom Device Channel APIs, use Global Data References. This will cause deployment errors for a PPL based custom device. | Refer to [Update Global Data References](####update-global-data-references). |
 
-![](images/VeriStand_Path_Error.png)
+### Implementing a PPL Based Custom Device
 
-* Certain VeriStand Custom Device APIs (like the NI VeriStand Custom Device Channel APIs) are using Global Data References. This will lead to deployment errors for PPL based custom devices that use this API. Additional details, as well as the fix for this problem, is described in the next chapter.
+To create a new PPL based Custom Device, use the [VeriStand Custom Device Wizard](https://github.com/ni/niveristand-custom-device-wizard/releases) to generate a template project.
 
-### Implementing a PPL based Custom Device
+### Migrating a LLB Based Custom Device to PPL
 
-For creating a new packed project library based Custom Device, you can start from a Custom Device template project. You can choose one for your application from the [VeriStand Custom Device Wizard](https://github.com/ni/niveristand-custom-device-wizard/releases). 
-### Migrating to a PPL based Custom Device from an LLB one
+To migrate to a PPL based custom device, you must perform the following actions.
 
-1. Changes for the VeriStand System Explorer
+1. Update VeriStand System Explorer
+2. Update Global Data References
+3. Update Libraries
+4. Update the XML
+5. Build the PPL File
 
-Now we will discuss the VeriStand error (mentioned in the drawbacks section), and how can we make it disappear. The solution would be to change the code of the **Initialization** VI and **Action on Compile** VI (as you can see below). The subVI in the *Initialization VI* dynamically deletes all the RT Driver paths from the system definition, after the Custom Device was created. This is acceptable, since these paths are used only during and after deployment. The purpose of the subVI added in the Action on Compile VI, is to re-insert the corresponding RT Driver paths, right before the system deployment. Since VeriStand keeps a copy of the deployed system definition in the local cache (unless the system definition is unmodified between deployments), this latest change is preserved - therefore, VeriStand now has a "complete" system definition in the local cache, which will be used for subsequent deployments. A good example (where you can see the exact structure of the subVIs) is implemented on [FPGA Add-on Custom Device](https://github.com/ni/niveristand-fpga-addon-custom-device) and will be available in the upcoming version of the LabVIEW Custom Device Wizard. 
+#### Update VeriStand System Explorer
+
+To remove RT Driver path errors, update the *Initialization* and *Action on Compile* VIs.
+
+Inside the Initialization VI, add a *Clear RT Drivers* subVI to delete all RT Driver paths from the system definition after the custom device is created. The paths can be removed because they are only used during and after deployment.
+
+The following image displays where to insert the subVI.
 
 ![](images/Initialization_Change.png)
 
+Inside the Action on Compile VI, add a *Set RT Driver* subVI to re-insert the corresponding RT Driver paths before system deployment. VeriStand keeps a copy of the deployed system definition in the local cache unless the system definition is unmodified between deployments. The latest changes are preserved, allowing VeriStand to use the "complete" system definition from the local cache during deployment.
+
+The following image displays where to insert the subVI.
+
 ![](images/Action_on_Compile.png)
 
-2. Changes regarding global data references
+For an example of these subVI structures, refer to the [FPGA Add-on Custom Device](https://github.com/ni/niveristand-fpga-addon-custom-device). This custom device will be available in the upcoming version of the LabVIEW Custom Device Wizard.
 
-If you use certain VeriStand Custom Device APIs, which is the case for an inline custom device, the first step to migrate an existing Custom Device would include changes regarding how the global data references are initialized.
-For performance reasons, channel values are stored in VeriStand as a single block of data - i.e. as an array of double values. To be able to access a value element corresponding to a given channel, VeriStand is using Global Variables to pass pointer information, from the engine, to the calling APIs. While this works well for custom devices packed in LLBs, the same does not apply for packed project libraries, due to namespacing. Essentially, when compiling a PPL, a separate (namespaced) copy of the global variable is created and included with it. In turn, it cannot be used anymore for data transfer between the VeriStand engine and the running custom device and would result in a runtime error. To be able to mitigate this problem, we need to implement an alternative way to access the values within these global variables.
-The initialization code below needs to be incapsulated within a subVI ("Initialize Global Variables"). It has to be called only once from within the target custom device and, for an Inline type, it would have to be called specifically in the "Read Data from HW" case of the "RT Driver" due to how the VeriStand engine initializes (as you can see, circled in BLUE, below the subVI's code).
+#### Update Global Data References
+
+When using certain VeriStand Custom Device APIs, such as in an inline custom device, you must update how global data references are initialized.
+
+For performance reasons, channel values are stored in VeriStand as a single block of data. For example, they can be sorted as an array of double values. To access a value element corresponding to a given channel, VeriStand uses Global Variables to pass engine pointer information to the calling APIs.
+
+This approach works for LLB based custom devices, but not for PPL. When compiling a PPL, a separate, namespaced, copy of the global variable is created and included within the package. The global variable cannot be used to transfer data between the VeriStand engine and the running custom device. Performing a data transfer results in a runtime error. To mitigate this problem, implement an alternative way to access the values within these global variables.
+
+The following initialization code needs to be incapsulated within a subVI, such as **Initialize Global Variables**.
 
 ![](images/GlobalVariableINIT.PNG)
 
+This code can be called only once from within the target custom device. For an inline custom device, it must also be called in the RT Driver **Read Data from HW** case for engine initialization.
+
+The following image displays where to insert this code.
+
 ![](images/Init_Global_Var_subVI.PNG)
 
-3. Changes regarding libraries
+#### Update Libraries
 
-The next step is to create a packed project library for each LLB build specification you have in the project. The PPL needs to have a similar configuration with the LLB's. This means that, ideally, you would keep the same structure for the built files (the same file structure as for the LLB build specifications, to be able to reuse the build post-step for copying generated files to the VeriStand directory). To do so, you need to right-click on **Build Specifications** » **New** » **Packed Library**. The window for configuring your packed library will open.
+You must create a PPL for each LLB build specification in the project.
 
-![](images/BuildSpecification.PNG)
+The PPL needs to have a similar configuration to the LLB. You should keep the same built files structure, including the same file structure as the LLB build specifications. This will allow you to reuse the build post-step to copy generated files to the VeriStand directory.
 
+To make these library updates in LabVIEW, right-click **Build Specifications** and select **New** » **Packed Library**.
 
-**Information Settings**
+##### Information Settings
 
-Select *Information* from the left menu and rename the PPL in the *Build Specification Name* field. Following convention, there are some rules to consider in order to organize the built files properly, so that, they can be easily copied/moved to the VeriStand Custom Device's directory once the build is complete (It would be worth mentioning that the *Post Build Action VI* mentioned in the next section, operates based on the same naming and path convention).
+In the Configuration Release PPL Properties dialog box, click **Information** to enter a new **Build Specification Name**.
+
+There are rules to consider when organizing the built files. These rules ensure that the files can be copied or moved to the VeriStand Custom Device's directory once built.
+
+**Note:** The Post Build Action VI operates based on the same naming and path convention.
 
  a) Custom Device System Explorer
 
 ![](images/PPL_Config_Info.PNG)
 
-* The destination path should have the following structure: **"..\built\Custom Device Name\Operating System** 
-* The name of the packed library file should have the following format: **Custom Device Name** + **Configuration** (you can see an example for the name and path of a Configuration library file on Windows)
+* The destination path should have the following structure: ``"..\built\Custom Device Name\Operating System``
+* The PLL file name should use the following format: [Custom Device Name] + [Configuration]
+
+The following image displays an example name and path of a Windows Configuration library file.
 
 ![](images/Sys_Explorer_Path.PNG)
 
  b) Custom Device Engine
- 
-* The destination path should have the following structure: **"..\built\Custom Device Name\Operating System**
-* The name of the packed library file should have the following format: **Custom Device Name** + **Engine** + **Operating System Name** (you can see an example for the name and path of an Engine file on Linux)
+
+* The destination path should use the following structure: ``"..\built\Custom Device Name\Operating System``
+* The PLL file name should use the following format: [Custom Device Name] + [Engine] + [Operating System Name]
+
+The following image displays an example name and path of a Linux engine file.
 
 ![](images/Engine_Path.PNG)
 
-**Note:** Moving forward, we are supporting only one type of RT OS. This means there will be a total of two targets: Windows and Linux x64.
+**Note:** Future releases will only support one type of RT OS. There will be two targets: Windows and Linux x64.
 
-**Source Files Settings**
+##### Source Files Settings
 
  a) Custom Device System Explorer
 
-From the *Source Files* in the Category list (on the left), select the library containing the *System Explorer* files of your custom device (i.e. Configuration library). Set it as the *Top-level Library* by clicking on the topmost arrow in the Source Files window. If you need additional files to be distributed with the packed library (for example, the configuration XML file), you can add them to the "Always-Included" files list (see below).
-
-**Note:** if you need to include something in the PPL (for example the XML file in the System Explorer PPL), select the file you want to include and press the bottom blue arrow (the one circled in BLUE).
+In the Configuration Release PPL Properties dialog box, click **Source Files** and select the library containing the System Explorer files of your custom device (i.e. Configuration library). Set this library as the **Top-level Library**.
 
 ![](images/PPL_Config_Source.png)
 
+**Note:** To distribute additional files with the PPL, such as a configuration XML file, add them to the **Always-Included** files list.
+
  b) Custom Device Engine
 
-From the *Source Files* in the Category list (on the left), select the library containing the *Engine* files of your custom device (i.e. Configuration library). Set it as the *Top-level Library* by clicking on the topmost arrow in the Source Files window. 
+In the Configuration Release PPL Properties dialog box, click **Source Files** and select the library containing the engine files of your custom device (i.e. Configuration library). Set this library as the **Top-level Library**.
 
 ![](images/Source_Files_Eng.png)
 
-**Note:** You should configure PPLs also for the Real Time targets build specifications.
+**Note:** You should also configure PPLs for the Real Time targets build specifications.
 
-4. Changes regarding the XML
+#### Update the XML
 
-The last step is to make the necessary changes in the XML file. For this, you have two choices: you can do it *manually*, or you can create a *Post-Build Action* VI. 
+You must update XML files either manually or by creating a **Post-Build Action** VI.
 
-If you choose to do it **manually**, you will need to change the path for each LLB with the path of each corresponding PPL.
-For example, the following image represents the XML code sequence for the custom device RT Driver VI on a Windows target. 
+##### Manual Updates
+
+To update manually, you will need to update the path for each LLB with the path of each corresponding PPL.
+
+The following image displays the XML code sequence for the custom device RT Driver VI on a Windows target.
 
 ![](images/XML_Engine_Path_LLB.PNG)
 
-You need to change what comes after the `<Path>` tag.
+You need to update what comes after the `<Path>` tag.
 
 ![](images/XML_Engine_Path_PPL.PNG)
 
-Here you can see the `<Path>` contains a path for a VI located inside a PPL. You need to update all the `<Path>` tags in the XML that reference VIs inside the newly created PPLs.
+The `<Path>` tag contains a path for a VI located inside a PPL. You need to update all the `<Path>` tags in the XML that reference VIs inside the newly created PPLs.
 
-**Note:** You need to update also the `<RealTimeSystemDestination>` tags.
+**Note:** You also need to update the `<RealTimeSystemDestination>` tags.
 
-If you don't want to spend time manually changing the paths, you can choose to implement a VI that automatically updates the XML file (see below). This is also the long-term solution for the problem with relative paths, mentioned earlier. 
+##### Post-Build Action VI
+
+To automate path updates, implement a VI to update the XML file.
+
+The following image displays one possible VI.
 
 ![](images/XML_updater.PNG)
 
-The best approach is to set such a VI as a *Post-Build Action* for your engine or configuration build specification (see below). You can also see it implemented in [FPGA Add-on Custom Device](https://github.com/ni/niveristand-fpga-addon-custom-device) and will be available in the upcoming version of the LabVIEW Custom Device Wizard.
+You can set this VI in LabVIEW as a Post-Build Action for your engine or configuration build specification.
+
+To set the action in LabVIEW, open the Engine Release PPL Properties dialog box and click **Pre/Post Build Actions** to enable **Excute VI after build**.
 
 ![](images/Execute_XML_updater.PNG)
 
-5. Build Files
+For an example of such a VI being implemented, refer to the [FPGA Add-on Custom Device](https://github.com/ni/niveristand-fpga-addon-custom-device). this custom device will be available in the upcoming version of the LabVIEW Custom Device Wizard.
 
-Press *Build* and you should see this window after the build finishes:
+#### Build the PPL File
+
+Once finished with your updates, you can build the PPL.
+
+The following window should display after the build finishes.
 
 ![](images/ppl_done.PNG)
