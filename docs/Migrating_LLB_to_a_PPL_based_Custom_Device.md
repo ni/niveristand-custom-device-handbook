@@ -42,7 +42,7 @@ Some LabVIEW features are not compatible with PPL. For example, public malleable
 
 #### RT Driver VI Path Errors
 
-Opening a PPL based custom device in VeriStand will generate invalid path errors for the RT Driver VIs. VeriStand System Explorer does not recognize PPL paths. These errors do not affect how the Custom Device runs. To solve this issue, refer to the *Update VeriStand System* Explorer section.
+Opening a PPL based custom device in VeriStand will generate invalid path errors for the RT Driver VIs. VeriStand System Explorer does not recognize PPL paths. These errors do not affect how the Custom Device runs. To solve this issue, refer to the *Update VeriStand System Explorer* section.
 
 #### Deployment Errors
 
