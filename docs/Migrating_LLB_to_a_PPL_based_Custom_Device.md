@@ -4,7 +4,7 @@ A *packed project library* (PPL) is a compiled LabVIEW library (*.lvlib*) that c
 
 PPLs were first introduced in LabVIEW 2010. From LabVIEW 2017 onward, you can compile a PPL for newer versions of LabVIEW. This option is enabled by default.
 
-**Note:** To change this setting, in the LabVIEW sidebar click **Advanced** and disable **Allow future versions of LabVIEW**.
+**Note:** To change this setting, in the Packed Library build specification, click **Advanced** and disable **Allow future versions of LabVIEW to load this packed library**.
 
 Using a PPL to package a VeriStand custom device does not block the use of an LLB. The two options can coexist as a part of the same project. To use both packaging methods, retain the existing LLB build specifications and add the additional PPL build specifications to the project.
 
