@@ -34,7 +34,7 @@ Converting a custom device to PPL comes with a number of manageable drawbacks.
 
 Relative paths for PPL items start from the most common directory on disk. Changing the organization or disk location of an item in the library build specification can affect the relative path. Changes within the custom device folder structure can also alter the organization of the items.
 
-Each change will require an update to the configuration XML file to include the newest paths. To solve this issue, refer to [Update the XML](#xml).
+Each change will require an update to the configuration XML file to include the newest paths. To solve this issue, refer to the *Update the XML* section.
 
 #### Incompatible LabVIEW Features
 
@@ -42,11 +42,11 @@ Some LabVIEW features are not compatible with PPL. For example, public malleable
 
 #### RT Driver VI Path Errors
 
-Opening a PPL based custom device in VeriStand will generate invalid path errors for the RT Driver VIs. VeriStand System Explorer does not recognize PPL paths. These errors do not affect how the Custom Device runs. To solve this issue, refer to [Update VeriStand System Explorer](#system-explorer).
+Opening a PPL based custom device in VeriStand will generate invalid path errors for the RT Driver VIs. VeriStand System Explorer does not recognize PPL paths. These errors do not affect how the Custom Device runs. To solve this issue, refer to the *Update VeriStand System* Explorer section.
 
 #### Deployment Errors
 
-Some custom device APIs, such as the NI VeriStand Custom Device Channel APIs, use Global Data References. This will cause deployment errors for a PPL based custom device. To solve this issue, refer to [Update Global Data References](#global-data).
+Some custom device APIs, such as the NI VeriStand Custom Device Channel APIs, use Global Data References. This will cause deployment errors for a PPL based custom device. To solve this issue, refer to the *Update Global Data References* section.
 
 ### Implementing a PPL Based Custom Device
 
@@ -62,7 +62,7 @@ To migrate to a PPL based custom device, you must perform the following actions.
 4. Update the XML
 5. Build the PPL File
 
-#### <a name="system-explorer"></a> Update VeriStand System Explorer
+#### Update VeriStand System Explorer
 
 To remove RT Driver path errors, update the *Initialization* and *Action on Compile* VIs.
 
@@ -80,7 +80,7 @@ The following image displays where to insert the subVI.
 
 For an example of these subVI structures, refer to the [FPGA Add-on Custom Device](https://github.com/ni/niveristand-fpga-addon-custom-device). This custom device will be available in the upcoming version of the LabVIEW Custom Device Wizard.
 
-#### <a name="global-data"></a> Update Global Data References
+#### Update Global Data References
 
 When using certain VeriStand Custom Device APIs, such as in an inline custom device, you must update how global data references are initialized.
 
@@ -154,7 +154,7 @@ In the Configuration Release PPL Properties dialog box, click **Source Files** a
 
 **Note:** You should also configure PPLs for the Real Time targets build specifications.
 
-#### <a name="xml"></a> Update the XML
+#### Update the XML
 
 You must update XML files either manually or by creating a **Post-Build Action** VI.
 
