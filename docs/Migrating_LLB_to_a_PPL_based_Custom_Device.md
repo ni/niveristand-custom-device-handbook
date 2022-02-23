@@ -12,12 +12,12 @@ Using a PPL to package a VeriStand custom device does not block the use of an LL
 
 ### Benefits of Using PPL Based Custom Devices
 
-A PPL provides name spacing for all contained items and preserves the file hierarchy of the source project library. These features result in several benefits for a custom device:
+A PPL provides namespacing for all contained items and preserves the file hierarchy of the source project library. These features result in several benefits for a custom device:
 * Grants each packaged custom device a copy of shared VI dependencies. These copies are compiled and included in the PPL through namespacing. The PPL also avoids load-time conflicts.
 
 * Avoids internal naming conflicts by preserving the file hierarch. LLBs could generate compile-time warnings and extra files. You can include multiple LabVIEW project libraries in the same PPL, even if the libraries contain items with the same name. This also allows for the easier use of LabVIEW classes when building custom devices.
 
-* Improves deployment time through a smaller disk footprint. The following image demonstrates the relative size difference between PPL and LLB packaging of the same FPGA Addon.
+* Improves deployment time through a smaller disk footprint. The following image demonstrates the relative size difference between PPL and LLB packaging of the same FPGA Addon Engine.
 
 ![](images/Disk_Footprint.jpg)
 
@@ -34,7 +34,7 @@ Converting a custom device to PPL comes with a number of manageable drawbacks.
 
 Relative paths for PPL items start from the most common directory on disk. Changing the organization or disk location of an item in the library build specification can affect the relative path. Changes within the custom device folder structure can also alter the organization of the items.
 
-Each change will require an update to the configuration XML file to include the newest paths. To solve this issue, refer to the *Update the XML* section.
+Each change will require an update to the configuration XML file to include the newest paths. To solve this issue, refer to the [*Update the XML*](https://niveristand-custom-device-handbook.readthedocs.io/en/latest/Migrating_LLB_to_a_PPL_based_Custom_Device.html#update-the-xml).
 
 #### Incompatible LabVIEW Features
 
@@ -42,17 +42,17 @@ Some LabVIEW features are not compatible with PPL. For example, public malleable
 
 #### RT Driver VI Path Errors
 
-Opening a PPL based custom device in VeriStand will generate invalid path errors for the RT Driver VIs. VeriStand System Explorer does not recognize PPL paths. These errors do not affect how the Custom Device runs. To solve this issue, refer to the *Update VeriStand System Explorer* section.
+Opening a PPL based custom device in VeriStand will generate invalid path errors for the RT Driver VIs. VeriStand System Explorer does not recognize PPL paths. These errors do not affect how the Custom Device runs. To solve this issue, refer to the [*Update VeriStand System Explorer*](https://niveristand-custom-device-handbook.readthedocs.io/en/latest/Migrating_LLB_to_a_PPL_based_Custom_Device.html#update-veristand-system-explorer).
 
 #### Deployment Errors
 
-Some custom device APIs, such as the NI VeriStand Custom Device Channel APIs, use Global Data References. This will cause deployment errors for a PPL based custom device. To solve this issue, refer to the *Update Global Data References* section.
+Some custom device APIs, such as the NI VeriStand Custom Device Channel APIs, use Global Data References. This will cause deployment errors for a PPL based custom device. To solve this issue, refer to the [*Update Global Data References*](https://niveristand-custom-device-handbook.readthedocs.io/en/latest/Migrating_LLB_to_a_PPL_based_Custom_Device.html#update-global-data-references).
 
 ### Implementing a PPL Based Custom Device
 
 To create a new PPL based Custom Device, use the [VeriStand Custom Device Wizard](https://github.com/ni/niveristand-custom-device-wizard/releases) to generate a template project.
 
-### Migrating a LLB Based Custom Device to PPL
+### Migrating an LLB Based Custom Device to PPL
 
 To migrate to a PPL based custom device, you must perform the following actions.
 
@@ -78,7 +78,7 @@ The following image displays where to insert the subVI.
 
 ![](images/Action_on_Compile.png)
 
-For an example of these subVI structures, refer to the [FPGA Add-on Custom Device](https://github.com/ni/niveristand-fpga-addon-custom-device). This custom device will be available in the upcoming version of the LabVIEW Custom Device Wizard.
+For an example of these subVI structures, refer to the [FPGA Add-on Custom Device](https://github.com/ni/niveristand-fpga-addon-custom-device). This custom device will be available in the upcoming version of the NI VeriStand Custom Device Wizard.
 
 #### Update Global Data References
 
@@ -134,7 +134,7 @@ The following image displays an example name and path of a Linux engine file.
 
 ![](images/Engine_Path.PNG)
 
-**Note:** Future releases will only support one type of RT OS. There will be two targets: Windows and Linux x64.
+**Note:** Starting with VeriStand 2021 only one type of real-time operating system is supported: Linux x64.
 
 ##### Source Files Settings
 
@@ -188,7 +188,7 @@ To set the action in LabVIEW, open the Engine Release PPL Properties dialog box 
 
 ![](images/Execute_XML_updater.PNG)
 
-For an example of such a VI being implemented, refer to the [FPGA Add-on Custom Device](https://github.com/ni/niveristand-fpga-addon-custom-device). this custom device will be available in the upcoming version of the LabVIEW Custom Device Wizard.
+For an example of such a VI being implemented, refer to the [FPGA Add-on Custom Device](https://github.com/ni/niveristand-fpga-addon-custom-device). this custom device will be available in the upcoming version of the NI VeriStand Custom Device Wizard.
 
 #### Build the PPL File
 
