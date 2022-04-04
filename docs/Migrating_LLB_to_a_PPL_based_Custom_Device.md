@@ -82,8 +82,6 @@ The following image displays where to insert the subVI.
 
 ![](images/Action_on_Compile.png)
 
-For an example of these subVI structures, refer to the [FPGA Add-on Custom Device](https://github.com/ni/niveristand-fpga-addon-custom-device). This custom device will be available in the upcoming version of the NI VeriStand Custom Device Wizard.
-
 #### Update Global Data References
 
 When using certain VeriStand Custom Device APIs, such as in an inline custom device, you must update how global data references are initialized.
@@ -191,8 +189,6 @@ You can set this VI in LabVIEW as a Post-Build Action for your engine or configu
 To set the action in LabVIEW, open the Engine Release PPL Properties dialog box and click **Pre/Post Build Actions** to enable **Excute VI after build**.
 
 ![](images/Execute_XML_updater.PNG)
-
-For an example of such a VI being implemented, refer to the [FPGA Add-on Custom Device](https://github.com/ni/niveristand-fpga-addon-custom-device). this custom device will be available in the upcoming version of the NI VeriStand Custom Device Wizard.
 
 #### Build the PPL File
 
