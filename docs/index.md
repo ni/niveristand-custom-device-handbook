@@ -32,3 +32,5 @@
 
    + [Custom Devices Tips & Tricks](Custom_Device_Tips_and_Tricks.md)
    + [Scripting APIs for Custom Devices](Scripting_API.md)
+   + [Migrating a Custom Device from LLB to PPL](Migrating_LLB_to_a_PPL_based_Custom_Device.md)
+   
