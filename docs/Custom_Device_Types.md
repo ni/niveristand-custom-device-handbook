@@ -1,10 +1,10 @@
 ## Custom Device Types
 
-The custom device [type](https://www.ni.com/documentation/en/veristand/latest/manual/custom-device-types/) refers to its execution mode. The mode defines how the device interacts with the [VeriStand Engine](https://www.ni.com/documentation/en/veristand/latest/manual/vs-engine/).
+The custom device [type](https://www.ni.com/docs/en-US/bundle/veristand/page/custom-device-types.html) refers to its execution mode. The mode defines how the device interacts with the [VeriStand Engine](https://www.ni.com/docs/en-US/bundle/veristand/page/vs-engine.html).
 
 The *VeriStand Engine* is the non-visible mechanism that controls system timing and communication between the Target and Host Computer. While deployed to the Target, all custom devices run inside the engine.
 
-The [niveristand-custom-device-wizard](https://github.com/ni/niveristand-custom-device-wizard/releases) generates a new LabVIEW Project containing one of five [device frameworks](https://www.ni.com/documentation/en/veristand/latest/manual/custom-device-types/). The framework is determined by the **Custom Device Execution Mode**.
+The [niveristand-custom-device-wizard](https://github.com/ni/niveristand-custom-device-wizard/releases) generates a new LabVIEW Project containing one of five [device frameworks](https://www.ni.com/docs/en-US/bundle/veristand/page/custom-device-types.html). The framework is determined by the **Custom Device Execution Mode**.
 
 ![](images/Figure_5.jpg)
 
@@ -12,7 +12,7 @@ The selected mode determines when the device will run with respect to the other 
 
 Custom timing and synchronization devices are the same as regular custom devices, but they can be configured as the hardware synchronization master to drive RTSI0. For more information, refer to [Real-Time System Integration (RTSI) and Configuration Explained](https://www.ni.com/en-us/support/documentation/supplemental/18/real-time-system-integration--rtsi--and-configuration-explained.html).
 
-Custom timing and synchronization devices are not covered in detail in this document. For more information about custom timing and synchronization devices, refer to the *VeriStand Help* topic [Adding and Configuring Timing and Sync Devices](https://www.ni.com/documentation/en/veristand/latest/manual/add-configure-timing-sync/). Multi- chassis synchronization may also be accomplished using built-in features. For more information, refer to [Creating a Distributed System With NI VeriStand](https://www.ni.com/en-us/innovations/white-papers/10/creating-a-distributed-system-with-ni-veristand.html).
+Custom timing and synchronization devices are not covered in detail in this document. For more information about custom timing and synchronization devices, refer to the *VeriStand Help* topic [Adding and Configuring Timing and Sync Devices](https://www.ni.com/docs/en-US/bundle/veristand/page/add-configure-timing-sync.html). Multi- chassis synchronization may also be accomplished using built-in features. For more information, refer to [Creating a Distributed System With NI VeriStand](https://www.ni.com/en-us/innovations/white-papers/10/creating-a-distributed-system-with-ni-veristand.html).
 
 Two of the regular custom devices run in-line with the Primary Control Loop (PCL), the other runs in parallel with the PCL. A custom device is not limited to using just one type of framework. Some developers have built both in-line and parallel engines for a single custom device and allow the operator to select which mode to deploy.
 
@@ -20,7 +20,7 @@ Depending on your needs, you can alter the code within the framework. However, y
 
 ### Asynchronous
 
-The [asynchronous custom device framework](https://www.ni.com/documentation/en/veristand/latest/manual/custom-device-asynchronous-driver-template/) provides a simple, single-loop architecture. There are sections for initialization and cleanup before and after the loop.
+The [asynchronous custom device framework](https://www.ni.com/docs/en-US/bundle/veristand/page/custom-device-asynchronous-driver-template.html) provides a simple, single-loop architecture. There are sections for initialization and cleanup before and after the loop.
 
 **Note:** The asynchronous template provides a While Loop that can be exchanged for a Timed Loop.
 
@@ -28,13 +28,13 @@ The [asynchronous custom device framework](https://www.ni.com/documentation/en/v
 
 The loop runs in parallel to the PCL. If proper real-time development practices are adhered to, it is unlikely to block or slow the PCL. The rest of the VeriStand system will continue to execute as expected even if the asynchronous custom device is latent or stalls.
 
-The loop can be [synchronized to the PCL's timing source](https://www.ni.com/documentation/en/veristand/latest/manual/custom-device-sync-asynchronous/), making it pseudo-synchronous. This applies to asynchronous devices that use a Timed Loop. While Loops cannot be used for this purpose.
+The loop can be [synchronized to the PCL's timing source](https://www.ni.com/docs/en-US/bundle/veristand/page/custom-device-sync-asynchronous.html), making it pseudo-synchronous. This applies to asynchronous devices that use a Timed Loop. While Loops cannot be used for this purpose.
 
 The benefit of an asynchronous custom device synchronized to the PCL is that it will not cause the PCL to be late if the device is late. VeriStand ticks the device clock for all Timed Loops that have **Use Device Clock** set to true.
 
-The asynchronous device can run at a different rate than the PCL. You can define the rate using any execution timing method available in LabVIEW. The rate can iterate faster than the PCL or be a decimation of the PCL rate specified using the **NI VeriStand - Set Custom Device Decimation** VI. This VI can be found in LabVIEW by navigating to **NI VeriStand** » **[Custom Device API](https://www.ni.com/documentation/en/veristand/latest/manual/custom-device-api-library/)** » **Configuration** » **Item Properties** » **Device Properties**.
+The asynchronous device can run at a different rate than the PCL. You can define the rate using any execution timing method available in LabVIEW. The rate can iterate faster than the PCL or be a decimation of the PCL rate specified using the **NI VeriStand - Set Custom Device Decimation** VI. This VI can be found in LabVIEW by navigating to **NI VeriStand** » **[Custom Device API](https://www.ni.com/docs/en-US/bundle/veristand/page/custom-device-api-library.html)** » **Configuration** » **Item Properties** » **Device Properties**.
 
-The asynchronous template uses RT FIFOs, specifically Device Inputs FIFO and Device Outputs FIFO, to exchange channel data with the rest of VeriStand. Since the asynchronous device runs in parallel to the PCL and passes channel data through RT FIFOs, there is a minimum of one cycle delay from when data travels back and forth from the PCL to the custom device. These FIFOs correspond to those in the [VeriStand Engine](https://www.ni.com/documentation/en/veristand/latest/manual/vs-engine/).
+The asynchronous template uses RT FIFOs, specifically Device Inputs FIFO and Device Outputs FIFO, to exchange channel data with the rest of VeriStand. Since the asynchronous device runs in parallel to the PCL and passes channel data through RT FIFOs, there is a minimum of one cycle delay from when data travels back and forth from the PCL to the custom device. These FIFOs correspond to those in the [VeriStand Engine](https://www.ni.com/docs/en-US/bundle/veristand/page/vs-engine.html).
 
 The asynchronous device is not guaranteed to execute at the same time as other components of the system. For example, the first iteration may execute before the PCL processes alarms.
 
@@ -46,11 +46,11 @@ The asynchronous framework includes VIs from the VeriStand Asynchronous Device P
 
 ### Inline Hardware Interface
 
-The [inline hardware interface template](https://www.ni.com/documentation/en/veristand/latest/manual/custom-device-inline-hardware-interface-template/) is similar to a state machine architecture.
+The [inline hardware interface template](https://www.ni.com/docs/en-US/bundle/veristand/page/custom-device-inline-hardware-interface-template.html) is similar to a state machine architecture.
 
 **Note:** Some developers will recognize it as an action-engine. For a discussion on action engines, refer to the NI Discussion Forums post [Community Nugget 4/08/2007 Action Engines](https://forums.ni.com/t5/LabVIEW/Community-Nugget-4-08-2007-Action-Engines/m-p/503801?profile.language=en&requireLogin=False).
 
-The PCL specifies the case to execute. An uninitialized **[Feedback Node](https://zone.ni.com/reference/en-XX/help/371361R-01/lvconcepts/block_diagram_feedback/)** is used for iterative data transfer.
+The PCL specifies the case to execute. An uninitialized **[Feedback Node](https://www.ni.com/docs/en-US/bundle/labview-2020/page/lvconcepts/block_diagram_feedback.html)** is used for iterative data transfer.
 
 There are five cases defined by the Operation enumerated control.
 
@@ -159,11 +159,11 @@ The asynchronous timing and sync custom device is similar to the [asynchronous c
 
 ### Outline of PCL Iteration
 
-The order of operations in the [Primary Control Loop](https://www.ni.com/documentation/en/veristand/latest/manual/vs-engine/) varies with respect to the execution mode of the controller.
+The order of operations in the [Primary Control Loop](https://www.ni.com/docs/en-US/bundle/veristand/page/vs-engine.html) varies with respect to the execution mode of the controller.
 
-**Note:** You can adjust the settings in *[System Explorer](https://www.ni.com/documentation/en/veristand/latest/manual/environment/)* by navigating to **Targets** » **Controller** » **Other Settings** » **Execution Mode**.
+**Note:** You can adjust the settings in *[System Explorer](https://www.ni.com/docs/en-US/bundle/veristand/page/environment.html)* by navigating to **Targets** » **Controller** » **Other Settings** » **Execution Mode**.
 
-The [Data Processing Loop](https://www.ni.com/documentation/en/veristand/latest/manual/vs-engine/) is responsible for executing procedures, alarms, and calculated channels. For more information on hardware timing in VeriStand, refer to the *KnowledgeBase* topic [Hardware I/O Latency Times in NI VeriStand](https://knowledge.ni.com/KnowledgeArticleDetails?id=kA00Z000000kKVGSA2&l=en-US).
+The [Data Processing Loop](https://www.ni.com/docs/en-US/bundle/veristand/page/vs-engine.html) is responsible for executing procedures, alarms, and calculated channels. For more information on hardware timing in VeriStand, refer to the *KnowledgeBase* topic [Hardware I/O Latency Times in NI VeriStand](https://knowledge.ni.com/KnowledgeArticleDetails?id=kA00Z000000kKVGSA2&l=en-US).
 
 The following diagram displays the operation of the VeriStand Engine.
 

@@ -56,7 +56,7 @@ You should modify this code to write the block reference. In the following examp
 
 While developing custom devices, property names and GUIDs are represented as strings.
 
-These case-sensitive strings can be difficult to use. GUIDs in particular are long and likely to produce typo errors. Use  [LabVIEW global variables](https://zone.ni.com/reference/en-XX/help/371361R-01/lvconcepts/glob_variables/) or a [type definition combo box](https://zone.ni.com/reference/en-XX/help/371361R-01/lvhowto/creating_type_defs/) control instead.
+These case-sensitive strings can be difficult to use. GUIDs in particular are long and likely to produce typo errors. Use  [LabVIEW global variables](https://www.ni.com/docs/en-US/bundle/labview/page/lvconcepts/glob_variables.html) or a [type definition combo box](https://www.ni.com/docs/en-US/bundle/labview/page/lvhowto/creating_type_defs.html) control instead.
 
 These alternatives have the following considerations.
 
@@ -68,10 +68,10 @@ These alternatives have the following considerations.
 You can define custom error codes in LabVIEW and distribute them to VeriStand with a custom device.
 1. Copy a custom *errors.txt* file to VeriStand in the `<Base>\National Instruments\Shared\Errors\English` directory.
 1. Add the file as a dependency in the custom device.
-1. Add the file as a dependency in the [custom device XML file](https://www.ni.com/documentation/en/veristand/latest/manual/custom-device-xml/).
+1. Add the file as a dependency in the [custom device XML file](https://www.ni.com/docs/en-US/bundle/veristand/page/custom-device-xml.html).
 1. **(Optional)** For real-time targets, deploy the *errors.txt* file to the error directory on target. Error messages will display in Console Viewer.
 
-For more information, refer to [Defining Custom Error Codes to Distribute throughout Your Application](https://zone.ni.com/reference/en-XX/help/371361R-01/lvhowto/def_custom_error_text/).
+For more information, refer to [Defining Custom Error Codes to Distribute throughout Your Application](https://www.ni.com/docs/en-US/bundle/labview/page/lvhowto/def_custom_error_text.html).
 
 ### Using Utility VIs
 
@@ -106,7 +106,7 @@ The hardware data returns from the DAQmx driver in the same order as the channel
 
 You can set up a custom device to run code when a specified event occurs. Implementing value-triggering is as simple as comparing *AEEnCh<1..8>* channel values to the previous iteration.
 
-In LabVIEW, navigate to **Signal Processing** » **Point by Point** » **Other Functions** to find the [Boolean Crossing Point by Point](https://zone.ni.com/reference/en-XX/help/371361R-01/ptbypt/boolean_crossing_ptbypt/) VI. This VI is useful for triggering events.
+In LabVIEW, navigate to **Signal Processing** » **Point by Point** » **Other Functions** to find the [Boolean Crossing Point by Point](https://www.ni.com/docs/en-US/bundle/labview/page/ptbypt/boolean_crossing_ptbypt.html) VI. This VI is useful for triggering events.
 
 Recall the *Write Data to HW* state that reads VeriStand Channels. Add the following code to check the software trigger.
 
@@ -176,7 +176,7 @@ You must rebuild the *Configuration Release* and *Engine Release* build specific
 
 ### Updating Custom Device XML
 
-[XML Tags](https://www.ni.com/documentation/en/veristand/latest/manual/custom-device-xml-tags/) define the settings for a custom device. These elements, and [non-standard element types](https://www.ni.com/documentation/en/veristand/latest/manual/custom-device-xml-element-types/), are defined in the *Custom Device.xsd* schema. You can locate this file by navigating to the `<Common Data>\Custom Devices` [directory](https://www.ni.com/documentation/en/veristand/latest/manual/veristand-directories-aliases/). Open the file in an XML or text editor to view the schema hierarchy.
+[XML Tags](https://www.ni.com/docs/en-US/bundle/veristand/page/custom-device-xml-tags.html) define the settings for a custom device. These elements, and [non-standard element types](https://www.ni.com/docs/en-US/bundle/veristand/page/custom-device-xml-element-types.html), are defined in the *Custom Device.xsd* schema. You can locate this file by navigating to the `<Common Data>\Custom Devices` [directory](https://www.ni.com/docs/en-US/bundle/veristand/page/veristand-directories-aliases.html). Open the file in an XML or text editor to view the schema hierarchy.
 
 The following example line is from the *Custom Device.xsd* file.
 
@@ -196,7 +196,7 @@ Add `<DeleteProtection>true<DeleteProtection>` to any section in the [custom dev
 
 #### Limit Max Custom Device Occurrences
 
-Add `<MaxOccurrence>N</MaxOccurrence>` to the [XML](https://www.ni.com/documentation/en/veristand/latest/manual/custom-device-xml-tags/) underneath the device type to limit the number of instances of a custom device in a single System Definition.
+Add `<MaxOccurrence>N</MaxOccurrence>` to the [XML](https://www.ni.com/docs/en-US/bundle/veristand/page/custom-device-xml-tags.html) underneath the device type to limit the number of instances of a custom device in a single System Definition.
 
 #### Rename Protection
 
@@ -206,7 +206,7 @@ Add `<DisallowRenaming>true</DisallowRenaming>` below the `<Name>` tag for any p
 
 VeriStand contains eight action VI templates that are triggered by different actions.
 
-The following action VI templates are provided by VeriStand in the **[Custom Device API library](https://www.ni.com/documentation/en/veristand/latest/manual/custom-device-api-library/)**.
+The following action VI templates are provided by VeriStand in the **[Custom Device API library](https://www.ni.com/docs/en-US/bundle/veristand/page/custom-device-api-library.html)**.
 
 **ActionVIOnLoad**
 

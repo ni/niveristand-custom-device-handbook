@@ -16,7 +16,7 @@ In the following discussion, we will refer to a hypothetical 3rd party analog to
 
 ![](images/Hypothetical_Digitize_AES-201.jpg)
 
-**Note:** For an actual device, refer to the *VeriStand Manual* topics under [Creating Custom Devices](https://www.ni.com/documentation/en/veristand/latest/manual/create-custom-device/).
+**Note:** For an actual device, refer to the *VeriStand Manual* topics under [Creating Custom Devices](https://www.ni.com/docs/en-US/bundle/veristand/page/create-custom-device.html).
 
 The AES-201 has eight 32-bit analog input (AI) channels. The device can digitize on ±1V or ±500mV. The card has a single software trigger line. Each channel has a software enable that is `ON` by default and a 6Hz low pass filter that is `OFF` by default.
 
@@ -44,7 +44,7 @@ The operator may need to disable a channel or toggle the input filter or the AES
 
 VeriStand channels are always LabVIEW DBLs. It may be easier to flatten data to DBL than it is to implement a background communication loop that passes native data types to the rest of the system. While the AES-201 LabVIEW API calls for Boolean data to enable the channel or filter, you can use a DBL channel with the assumption that *0 = False* and *!0 = True*.
 
-Channels are created with the [Add Custom Device Channel VI](https://www.ni.com/documentation/en/veristand/latest/manual/custom-device-add-channel-waveforms/). A channel is either an Input or an Output. Channel type is determined by the custom device in the following situations.
+Channels are created with the [Add Custom Device Channel VI](https://www.ni.com/docs/en-US/bundle/veristand/page/custom-device-add-channel-waveforms.html). A channel is either an Input or an Output. Channel type is determined by the custom device in the following situations.
 
 * If the custom device passes data to the rest of the VeriStand system, it requires an output channel.
 * If the custom device receives data from the rest of the system, it requires an input channel. For example, the AES-201 may have eight output channels (ADDataFromCh<1..8>) and 17 input channels (ADEnCh<1..8>, FilterEnCh<1..8>, and SWTrig).
@@ -215,7 +215,7 @@ The *Section Ptr* outputs are used to create channels beneath the corresponding 
 
 *Pages* are VIs that System Explorer displays in the configuration pane subpanel.
 
-*Subpanels* are LabVIEW front pane containers that allow a VI to display the front panel of another VI. For more information, refer to the *LabVIEW Help* topic [Container Controls and Indicators](https://zone.ni.com/reference/en-XX/help/371361R-01/lvconcepts/container_controls_and_indicators#).
+*Subpanels* are LabVIEW front pane containers that allow a VI to display the front panel of another VI. For more information, refer to the *LabVIEW Help* topic [Container Controls and Indicators](https://www.ni.com/docs/en-US/bundle/labview/page/lvconcepts/container_controls_and_indicators.html).
 
 When you click an item in the configuration tree, a page displays in the Subpanel. Pages run on the host computer. They define the appearance and configuration experience of the custom device.
 
