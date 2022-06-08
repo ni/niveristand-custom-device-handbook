@@ -2,7 +2,7 @@
 
 VeriStand provides the general functionality required by most real-time (RT) testing applications. However, NI has designed the VeriStand environment to be customizable to meet any additional application requirements.
 
-The built-in components of a VeriStand Project are listed in the *VeriStand Help* topic [VeriStand Environment](https://www.ni.com/documentation/en/veristand/latest/manual/environment/). If these components do not fulfill your specifications, try one of the customization methods in [Using NI VeriStand with Other Software Environments to Create Real-Time Test Applications](https://www.ni.com/en-us/innovations/white-papers/09/using-ni-veristand-with-other-software-environments-to-create-re.html).
+The built-in components of a VeriStand Project are listed in the *VeriStand Help* topic [VeriStand Environment](https://www.ni.com/docs/en-US/bundle/veristand/page/environment.html). If these components do not fulfill your specifications, try one of the customization methods in [Using NI VeriStand with Other Software Environments to Create Real-Time Test Applications](https://www.ni.com/en-us/innovations/white-papers/09/using-ni-veristand-with-other-software-environments-to-create-re.html).
 
 There is a collection of [VeriStand add-ons](https://www.ni.com/en-us/support/documentation/supplemental/15/veristand-add-ons.html) that have been gathered from internal NI developers and the VeriStand community. You should check for an existing custom device before building one.
 
@@ -13,13 +13,13 @@ There are three specifications that are best-suited for a custom device.
 
 #### 3rd Party Hardware
 
-Determine if your hardware is natively supported by VeriStand. For more information, refer to the *VeriStand Help* topic [NI Hardware Support](https://www.ni.com/documentation/en/veristand/latest/manual/ni-hardware-support/). If your application requires other hardware, it can be implemented in a custom device.
+Determine if your hardware is natively supported by VeriStand. For more information, refer to the *VeriStand Help* topic [NI Hardware Support](https://www.ni.com/docs/en-US/bundle/veristand/page/ni-hardware-support.html). If your application requires other hardware, it can be implemented in a custom device.
 
 **Note:** Several hardware vendors have created custom devices for their hardware. Contact the manufacturer before building a custom device.
 
 #### Unsupported Measurement or Generation Mode
 
-Determine if the required measurement or generation mode of your hardware is supported. For more information, refer to the *VeriStand Help* topic [Adding and Configuring Hardware Devices](https://www.ni.com/documentation/en/veristand/latest/manual/add-configure-hardware-device/).
+Determine if the required measurement or generation mode of your hardware is supported. For more information, refer to the *VeriStand Help* topic [Adding and Configuring Hardware Devices](https://www.ni.com/docs/en-US/bundle/veristand/page/add-configure-hardware-device.html).
 
 If not supported, it can be implemented in a custom device. For example, single-point hardware-timed analog acquisition on NI-DAQ devices is supported in VeriStand. Continuous analog acquisition can be implemented as a custom device.
 
@@ -31,7 +31,7 @@ If a required feature is not built-in, it can be implemented by extending VeriSt
 
 Certain features are best implemented as custom devices. To determine when a custom device is the most appropriate mechanism to meet a specification, you should be familiar with all the customization methods available. A general rule is that custom devices implement features that require or use VeriStand channel data on the execution host.
 
-For example, a [TDMS File Viewer](https://www.ni.com/documentation/en/veristand/latest/manual/enhance-workspace-tools/) is built into the VeriStand Workspace. If you need to log VeriStand channels to TDMS without first sending it back to the Workspace (as with high-speed streaming), a custom device called the [Embedded Data Logger](https://www.ni.com/documentation/en/veristand/latest/manual/log-target-data-embedded-data-logger/) fulfills this requirement.
+For example, a [TDMS File Viewer](https://www.ni.com/docs/en-US/bundle/veristand/page/enhance-workspace-tools.html) is built into the VeriStand Workspace. If you need to log VeriStand channels to TDMS without first sending it back to the Workspace (as with high-speed streaming), a custom device called the [Embedded Data Logger](https://www.ni.com/docs/en-US/bundle/veristand/page/log-target-data-embedded-data-logger.html) fulfills this requirement.
 
 If you need to display previous test results on the workspace while a new test is running, a custom workspace object may be more appropriate. For more information, refer to [Creating Custom Workspace Objects for VeriStand](https://knowledge.ni.com/KnowledgeArticleDetails?id=kA03q000000x4QfCAI&l=en-US).
 
@@ -45,7 +45,7 @@ Custom devices are written in LabVIEW. The framework generated by the [NI VeriSt
 
 A prerequisite for custom device development is thorough knowledge of LabVIEW programming and application architectures. This knowledge represents [NI Certified LabVIEW Developer](https://education.ni.com/badges/resources/1255) (CLD) level expertise. You can obtain this experience through [NI's Training and Certification](https://www.ni.com/en-us/shop/services/education-services.html) program by completing the LabVIEW [Core 1](https://www.ni.com/en-us/shop/services/education-services/customer-education-courses/labview-core-1-course-overview.html), [Core 2](https://www.ni.com/en-us/shop/services/education-services/customer-education-courses/labview-core-2-course-overview.html), and [Core 3](https://www.ni.com/en-us/shop/services/education-services/customer-education-courses/labview-core-3-course-overview.html) courses.
 
-VeriStand custom devices are typically not large LabVIEW applications. Custom devices are designed to be modular, self-contained add-ons that add a specific functionality to VeriStand. While custom devices are typically developed by a single programmer, large application development best-practices may still apply. For more information, refer to the *LabVIEW Help* topic [Best Practices for Large Application Development](https://zone.ni.com/reference/en-XX/help/371361R-01/lvdevconcepts/best_practices_large_apps/).
+VeriStand custom devices are typically not large LabVIEW applications. Custom devices are designed to be modular, self-contained add-ons that add a specific functionality to VeriStand. While custom devices are typically developed by a single programmer, large application development best-practices may still apply. For more information, refer to the *LabVIEW Help* topic [Best Practices for Large Application Development](https://www.ni.com/docs/en-US/bundle/labview/page/lvdevconcepts/best_practices_large_apps.html).
 
 #### LabVIEW RT Application Development
 
@@ -55,7 +55,7 @@ Programming for an RT system requires knowledge of real-time operating systems (
 
 #### VeriStand Background
 
-Familiarity with the VeriStand Engine is crucial to successful custom device development. Selecting the appropriate type in the Custom Device Template Tool is difficult without understanding each type. For more information, refer to the *VeriStand Help* and the [Understanding the VeriStand Engine](https://www.ni.com/documentation/en/veristand/latest/manual/vs-engine/) topic.
+Familiarity with the VeriStand Engine is crucial to successful custom device development. Selecting the appropriate type in the Custom Device Template Tool is difficult without understanding each type. For more information, refer to the *VeriStand Help* and the [Understanding the VeriStand Engine](https://www.ni.com/docs/en-US/bundle/veristand/page/vs-engine.html) topic.
 
 Experience with VeriStand from an operator's perspective is helpful. This experience enables you to build operator-friendly interfaces that conform to the standard look and feel of other VeriStand components. Familiarity with VeriStand allows the developer to build a complex system definition, which allows thorough testing and benchmarking.
 
@@ -70,7 +70,7 @@ Consider the following points when evaluating the feasibility of a custom device
 3. Is the driver well documented?
 4. Can the hardware requirement be met by passing LabVIEW double data type (DBLs) to and from the custom device during steady state operation?
 
-VeriStand uses channels to pass data between different parts of the system, including to and from custom devices. All VeriStand channels are LabVIEW DBLs. For more information on LabVIEW data types, refer to the *LabVIEW Help* topic [Floating Point Numbers](https://zone.ni.com/reference/en-XX/help/371361R-01/lvhowto/floating_point_numbers/).
+VeriStand uses channels to pass data between different parts of the system, including to and from custom devices. All VeriStand channels are LabVIEW DBLs. For more information on LabVIEW data types, refer to the *LabVIEW Help* topic [Floating Point Numbers](https://www.ni.com/docs/en-US/bundle/labview/page/lvhowto/floating_point_numbers.html).
 
 If the hardware driver returns a vector, structure, or any non-DBL data, that information cannot be passed directly from the custom device to the rest of the VeriStand system. The developer is responsible for finding a way to pass data. For more information on available communication mechanisms, refer to the *LabVIEW Real-Time Module Help* topic [Exploring Remote Communication Methods](https://zone.ni.com/reference/en-XX/help/370715P-01/lvrtconcepts/exploring_communication_methods/).
 

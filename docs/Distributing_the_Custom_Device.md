@@ -4,9 +4,9 @@ After building, debugging, validating, and benchmarking the custom device, you n
 
 As with most applications, you can streamline distribution in two ways.
 
-* With an Installer—For more information, refer to the *LabVIEW Help* topic [(Windows) Installer Properties](https://zone.ni.com/reference/en-XX/help/371361R-01/lvdialog/installer_tab_windows/).
+* With an Installer—For more information, refer to the *LabVIEW Help* topic [(Windows) Installer Properties](https://www.ni.com/docs/en-US/bundle/labview/page/lvdialog/installer_tab_windows.html).
 
-* With a Package for Distribution—For more information, refer to the *LabVIEW Help* topic [Creating Packages for Distribution](https://zone.ni.com/reference/en-XX/help/371361R-01/lvhowto/creating_packages/).
+* With a Package for Distribution—For more information, refer to the *LabVIEW Help* topic [Creating Packages for Distribution](https://www.ni.com/docs/en-US/bundle/labview/page/lvhowto/creating_packages.html).
 
 NI recommends distributing the custom device by copying the necessary files into a simple folder hierarchy. The top-level folder should contain the following items.
 

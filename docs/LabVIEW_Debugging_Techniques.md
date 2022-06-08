@@ -1,6 +1,6 @@
 ### Debugging and Benchmarking
 
-Use LabVIEW and VeriStand to [debug and benchmark custom devices](https://www.ni.com/documentation/en/veristand/latest/manual/custom-device-benchmark-debug/) as you would any other code during development.
+Use LabVIEW and VeriStand to [debug and benchmark custom devices](https://www.ni.com/docs/en-US/bundle/veristand/page/custom-device-benchmark-debug.html) as you would any other code during development.
 
 #### LabVIEW Debugging Techniques
 
@@ -12,7 +12,7 @@ Once custom devices are added to the system definition, they are fully integrate
 
 #### Console Viewer
 
-The [Console Viewer](https://www.ni.com/documentation/en/veristand/latest/manual/viewing-console-output/) is a subcomponent of the VeriStand Real-Time (RT) Engine.
+The Console Viewer is a subcomponent of the VeriStand Real-Time (RT) Engine.
 
 You can install the Console Viewer to the target with NI Measurement and Automation Explorer (MAX). Once installed, the component runs a small UDP daemon that allows the operator to view the console. You can access the Console Viewer from the VeriStand Editor by clicking **Tool Launcher** » **View Console**.
 
@@ -31,10 +31,10 @@ The Console Viewer is also available as a stand-alone add-on to LabVIEW Real-Tim
 You can define custom error codes in LabVIEW and distribute them to VeriStand with a custom device.
 1. Copy a custom *errors.txt* file to VeriStand in the `<Base>\National Instruments\Shared\Errors\English` directory.
 1. Add the file as a dependency in the custom device.
-1. Add the file as a dependency in the [custom device XML file](https://www.ni.com/documentation/en/veristand/latest/manual/custom-device-xml/).
+1. Add the file as a dependency in the [custom device XML file](https://www.ni.com/docs/en-US/bundle/veristand/page/custom-device-xml.html).
 1. **(Optional)** For RT targets, deploy the *errors.txt* file to the error directory on target. Error messages will display in Console Viewer.
 
-For more information, refer to [Defining Custom Error Codes to Distribute throughout Your Application](https://zone.ni.com/reference/en-XX/help/371361R-01/lvhowto/def_custom_error_text/).
+For more information, refer to [Defining Custom Error Codes to Distribute throughout Your Application](https://www.ni.com/docs/en-US/bundle/labview/page/lvhowto/def_custom_error_text.html).
 
 #### Printing With the Print Debug Line VI
 The recommended method of printing to the console is to use the NI VeriStand - Print Debug Line VI.
@@ -61,7 +61,7 @@ The [Telemetry Custom Device](https://github.com/ni/niveristand-telemetry-custom
 
 #### System Channels
 
-VeriStand includes [system channels](https://www.ni.com/documentation/en/veristand/latest/manual/system-channels/) that provide information on internal processes. Several of these system channels are useful for benchmarking and debugging.
+VeriStand includes [system channels](https://www.ni.com/docs/en-US/bundle/veristand/page/system-channels.html) that provide information on internal processes. Several of these system channels are useful for benchmarking and debugging.
 
 The following table contains examples of debugging and benchmarking system channels.
 
@@ -79,7 +79,7 @@ The following table contains examples of debugging and benchmarking system chann
 +-----------------+--------------------------------------------------------------------------+
 ```
 
-If the value of the count channels increase over time, the target is not achieving the desired loop rates. You can use the system channels in conjunction with an [alarm](https://www.ni.com/documentation/en/veristand/latest/manual/add-configure-alarm/) or [procedure](https://www.ni.com/documentation/en/veristand/latest/manual/add-configure-procedure/) to handle events.
+If the value of the count channels increase over time, the target is not achieving the desired loop rates. You can use the system channels in conjunction with an [alarm](https://www.ni.com/docs/en-US/bundle/veristand/page/add-configure-alarm.html) or [procedure](https://www.ni.com/docs/en-US/bundle/veristand/page/add-configure-procedure.html) to handle events.
 
 #### System Monitor Custom Device
 
@@ -91,7 +91,7 @@ The [System Monitor Custom Device](https://github.com/ni/niveristand-system-moni
 
 You can use the NI Distributed System Manager (DSM) to monitor the CPU and memory resources of an RT target. You must install System State Publisher on the RT target.
 
-This component runs a small daemon that publishes the system state to DSM. For more information, refer to [Monitor RT target resources](https://zone.ni.com/reference/en-XX/help/372572E-01/sysman/monitoring_resources/).
+This component runs a small daemon that publishes the system state to DSM. For more information, refer to [Monitor RT target resources](https://www.ni.com/docs/en-US/bundle/labview/page/sysman/monitoring_resources.html).
 
 System State Publisher provides a periodic snapshot of utilization. CPU spikes and transients may not be observable. If the system is busy, DSM may not update. You can use other debugging methods for a more accurate indication of resource utilization.
 
