@@ -95,11 +95,5 @@ This component runs a small daemon that publishes the system state to DSM. For m
 
 System State Publisher provides a periodic snapshot of utilization. CPU spikes and transients may not be observable. If the system is busy, DSM may not update. You can use other debugging methods for a more accurate indication of resource utilization.
 
-#### Real-Time Trace Viewer
-
-VeriStand provides built-in support for the [Real-Time Trace Viewer](https://zone.ni.com/reference/en-XX/help/370715P-01/lvtracehelp/lv_tracetoolkit_help/) and [Real-Time Trace Viewer VIs](https://zone.ni.com/reference/en-XX/help/370715P-01/lvtrace/tracetoolkitvis_pal/). Use the trace viewer to capture the timing and execution data of a VI and thread events for applications running on an RT target.
-
-To display the Real-Time Trace Viewer in a LabVIEW VI, click **Tools** » **Real-Time Module** » **Trace Viewer**. For more info on how to use Real-Time Trace Viewer, refer to the LabVIEW Help topic [Real-Time Trace Viewer](https://zone.ni.com/reference/en-XX/help/370715P-01/lvtracehelp/lv_tracetoolkit_help/).
-
 #### Additional Debugging Options for VeriStand
 Upon request, NI can provide advanced debugging tools to help you resolve certain custom device issues. These tools are a last resort when all other debugging options have been exhausted. For more information, contact NI.
