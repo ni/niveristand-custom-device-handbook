@@ -34,4 +34,4 @@ If you are building your custom device from scratch, you will need to ensure tha
 
 If you want to edit an existing custom device, refer to the Readme page for that custom device for additional dependencies that you may need to install. For example, the Readme for the Scan Engine and EtherCAT Custom Device lists the following dependencies for building the custom device from source:
 
-![](../images/SEEC_Dependencies.png)
+![](images/SEEC_Dependencies.png)
