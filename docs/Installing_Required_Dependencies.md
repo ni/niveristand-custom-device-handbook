@@ -32,4 +32,6 @@ This package installs the Custom Device Wizard that is used to create custom dev
 
 If you are building your custom device from scratch, you will need to ensure that any drivers or toolkits being used in the custom device code are installed and compatible with the LabVIEW bitness. For example, some toolkits may only be compatible with LabVIEW 32-bit, so you would not be able to use them to create a custom device for VeriStand 2021 or later.
 
-If you want to edit an existing custom device, refer to the Readme page for that custom device for additional dependencies that you may need to install.
+If you want to edit an existing custom device, refer to the Readme page for that custom device for additional dependencies that you may need to install. For example, the Readme for the Scan Engine and EtherCAT Custom Device lists the following dependencies for building the custom device from source:
+
+![](images/SEEC_Dependencies.PNG)
