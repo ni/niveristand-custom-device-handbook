@@ -14,6 +14,8 @@
 
 #### Implement the Custom Device
 
+   + [Installing Required Dependencies](Installing_Required_Dependencies.md)
+
    + [Implement the Custom Device](Implement_the_Custom_Device.md)
 
 #### Debugging and Benchmarking
