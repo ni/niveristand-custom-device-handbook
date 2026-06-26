@@ -1,6 +1,6 @@
 ## Custom Device XML Definition Schema
 
-The Express framework builds a complete custom device from a single **Custom Device Definition XML** file. This file describes the device, its properties, and its child nodes (channels, waveforms, and sections). The Express wizard can generate this XML for you with a drag-and-drop editor, or you can author it by hand.
+The Express framework builds a complete custom device from a single **Custom Device Definition XML** file. This file describes the device, its properties, and its child nodes (channels, waveforms, and sections). The Express wizard can generate this XML for you, or you can author it by hand.
 
 This page documents every tag and type the definition XML supports, so you know exactly what you can describe in a device. The structure and rules on this page are enforced by the schema that ships with VeriStand (`GeneratedCustomDeviceAPI.xsd`). The [api-gen.exe](Auto_Generated_Scripting_API.md#generating-the-api-manually-with-api-genexe) tool validates your XML against this schema before it generates any code.
 
@@ -338,6 +338,6 @@ Before generating any code, the tool validates your XML against the schema and t
 * An unsupported type is used inside `<DefaultValue>`.
 * An invalid group-name expression.
 
-When you use the Express wizard's drag-and-drop editor, the generated XML is always schema-valid. Hand-authored XML is validated the same way the moment you run generation.
+When you use the Express wizard's editor, the generated XML is always schema-valid. Hand-authored XML is validated the same way the moment you run generation.
 
-> **Snippet placeholder:** *Add a screenshot of the wizard's drag-and-drop definition editor here, and a side-by-side of the XML it produces.*
+![The wizard's definition editor alongside the XML it produces](images/wizard-definition-editor-and-xml.png)

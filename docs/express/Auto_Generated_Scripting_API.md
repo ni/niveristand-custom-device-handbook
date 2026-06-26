@@ -25,7 +25,7 @@ Definition XML  ──►  api-gen.exe  ──►  C# project (Auto Generated\AP
                           Custom Devices folder in Public Documents
 ```
 
-1. The wizard collects the device name, the folder to generate into, the operating systems to support, and the path to the definition XML (which you can build with the drag-and-drop editor or supply yourself).
+1. The wizard collects the device name, the folder to generate into, the operating systems to support, and the path to the definition XML (which you can build with the editor).
 2. Behind the scenes, the wizard runs the VeriStand **API generator** (`api-gen.exe`) on your XML to produce a ready-to-build C# project, then builds it into the scripting API assembly.
 3. When you click **Finish**, the wizard **opens the LabVIEW project it created** (it lives inside the generated folder).
 4. You **build the LabVIEW project**. This packages the LabVIEW configuration/engine/System Explorer libraries together with the scripting API assembly into the finished custom device folder.
@@ -78,7 +78,7 @@ ExampleCD\
 
 The operating-system subfolders (`Windows\`, `Linux_x64\`) reflect the OS support you selected in the wizard.
 
-> **Snippet placeholder:** *Add a screenshot of the generated `Auto Generated\APIs` folder and the finished `Builds\<DeviceName>` folder here.*
+![The generated Auto Generated\APIs folder and the finished Builds\<DeviceName> folder](images/auto-generated-apis-and-builds-folders.png)
 
 ---
 
@@ -184,8 +184,6 @@ device.ExportToXml(@"C:\configs\device.xml");     // write configuration to XML
 
 These same operations are available to operators as right-click actions in System Explorer. See [Importing and exporting a configuration](Auto_Generated_UI.md#importing-and-exporting-a-configuration).
 
-> **Snippet placeholder:** *Add a complete, runnable scripting example here that builds a device, sets properties, adds a channel, and exports to JSON.*
-
 ---
 
 ### How property names map to API members
@@ -230,5 +228,5 @@ Behavior to be aware of:
 
 > **Note:** Running the generator manually is an optional shortcut for the C# project step only. The recommended path for building a complete, distributable custom device is the Express wizard, which runs the generator, builds the assembly, and assembles the final device folder for you.
 
-> **Snippet placeholder:** *Add a terminal capture of a successful `api-gen.exe` run and an example error run here.*
+![A successful api-gen.exe run](images/api-gen-exe-successful-run.png)
 

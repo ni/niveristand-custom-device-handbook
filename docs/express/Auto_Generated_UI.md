@@ -13,7 +13,7 @@ This page describes what UI you get out of the box, the controls each property t
 3. Right-click the **Custom Devices** node, and add your device from the menu. The device, along with its default channels, waveforms, and sections, appears in the configuration tree.
 4. Select the device node (or any of its child nodes). The right-hand pane shows the auto-generated configuration controls for that node's properties.
 
-> **Snippet placeholder:** *Add a screenshot of System Explorer with the custom device selected and the configuration pane populated.*
+![System Explorer with the custom device selected and the configuration pane populated](images/system-explorer-configuration-pane.png)
 
 ---
 
@@ -38,8 +38,6 @@ Each property is rendered with a control appropriate to its [type](XML_Definitio
 
 Read-only properties (those without a public setter) are displayed but not editable.
 
-> **Snippet placeholder:** *Add a gallery of each control type as it renders in the pane.*
-
 ---
 
 ### Importing and exporting a configuration
@@ -57,7 +55,7 @@ You can also create a device directly from a saved configuration: instead of add
 
 Import operations are non-destructive to identity: matching child nodes (same name and type) are updated in place, new children are added, and children no longer present are removed, so references elsewhere in the system stay valid where possible.
 
-> **Snippet placeholder:** *Add screenshots of the right-click menu showing the Import/Export actions and the "Import from XML" add entry point.*
+![The right-click menu showing the Import and Export actions](images/right-click-import-export-menu.png)
 
 ---
 
@@ -209,5 +207,5 @@ The parser is forgiving: a problem in one place does not break the rest of the p
 | Property name in an expression not in double quotes | A warning is shown; that rule is ignored. |
 | A node type's layout cannot be parsed at all | That node falls back to the default layout. |
 
-> **Snippet placeholder:** *Add before/after screenshots showing the default layout versus a `GUI Layout.yaml`-driven layout, plus an example of a visibility rule hiding a control live.*
+![Before and after: the default layout versus a GUI Layout.yaml-driven layout](images/gui-layout-yaml-before-after.png)
 
