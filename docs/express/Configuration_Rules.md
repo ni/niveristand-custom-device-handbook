@@ -1,4 +1,68 @@
 ## Configuration Rules and Constraints
 
-> _Content to be added._
+The Express framework enforces a set of rules at generation time (when `api-gen.exe` validates your XML) and at VeriStand load time. Understanding these rules prevents generation failures and run-time errors.
+
+---
+
+### XML definition rules
+
+These rules are validated by `api-gen.exe` against the `GeneratedCustomDeviceAPI.xsd` schema before any code is generated. A violation produces a descriptive error that identifies the problem line in the XML.
+
+#### Type names
+
+- `TypeName` attributes on `CustomDevice`, `Channel`, `Waveform`, `Section`, and enum types must **not contain spaces or special characters**.
+- Valid: `AnalogInput`, `SectionA0`, `MyDevice`
+- Invalid: `Analog Input`, `Section.A0`, `MyDevice'`
+- Property `PropertyName` attributes are **not** restricted this way and may contain spaces, brackets, and other characters.
+
+#### GUIDs
+
+- Every `TypeGuid` must be a valid GUID string in the format `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.
+- GUIDs must be **unique within the document**. Reusing a GUID for two different types causes a generation error.
+- GUIDs must be **stable across regenerations** for the same type. Changing a GUID in the XML while an existing system definition references the old GUID will cause VeriStand to fail to load the saved device.
+
+#### Document order
+
+Elements inside `<VeriStandGeneratedCustomDeviceAPI>` must appear in this order:
+1. `<CustomDevice>` (exactly one)
+2. Any number of `<Channel>`, `<Waveform>`, and `<Section>` definitions, in any order among themselves
+3. `<EnumDefinitions>` (optional)
+
+Elements inside a `<CustomDevice>` or `<Section>` must appear in this order:
+1. `<CodeDocumentation>` (optional)
+2. `<Properties>`
+3. `<DefaultChannelNodes>` / `<DynamicChannelNodes>`
+4. `<DefaultWaveformNodes>` / `<DynamicWaveformNodes>`
+5. `<DefaultSectionNodes>` / `<DynamicSectionNodes>`
+
+#### Node list references
+
+- Every `TypeName` used in a `DefaultXNodes` or `DynamicXNodes` list must match the `TypeName` of a `<Channel>`, `<Waveform>`, or `<Section>` definition in the same document.
+- Referencing an undefined type name causes a generation failure.
+- Empty node lists are valid and can be written as self-closing tags, for example `<DefaultChannelNodes />`.
+
+#### Enum definitions
+
+- Enum type names must follow the same no spaces or special character rule as other type names.
+- Each enum member must have a unique string name within its enum type.
+- An `Enum` property's `<DefaultValue>` must reference an enum type by name: `<Enum>EnumTypeName</Enum>`. The enum type must be declared in `<EnumDefinitions>`.
+
+---
+
+### Scripting API and naming rules
+
+These rules affect how the generator maps XML names to C# API members. See [Property name mapping](Auto_Generated_Scripting_API.md#how-property-names-map-to-api-members) for the full algorithm.
+
+- If two properties on the same type produce the **same generated API member name** (after cleaning), generation fails. Add distinguishing characters to one of the XML `PropertyName` values.
+- Enum member names are also cleaned by the same algorithm. Members that collide after cleaning cause a generation failure.
+
+---
+
+
+### Build and file layout constraints
+
+- The finished device folder must be placed under `<Common Data>\National Instruments\NI VeriStand <version>\Custom Devices\` to be visible in System Explorer.
+- Windows libraries (`*.lvlibp`, `*.dll`) must be in the `Windows\` subfolder; Linux x64 libraries must be in the `Linux_x64\` subfolder.
+- The scripting API assembly must reside in **both** `Windows\` (for System Explorer, which runs on Windows) and, for non-scripting-API scenarios, referenced from the device's XML loader. VeriStand looks for it at the path recorded in the device's run-time XML.
+- Do not ship the `Auto Generated\` source tree inside the finished device folder. The `Builds\` output is self-contained.
 
