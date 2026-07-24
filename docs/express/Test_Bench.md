@@ -1,6 +1,6 @@
-## Standalone Engine Debugger
+## Standalone Test Bench
 
-The Express wizard generates a **Debug PPL** (Packed Project Library) build spec inside the engine LabVIEW project. Building this spec lets you load and run your override VIs inside the LabVIEW development environment on Windows, so you can set breakpoints, use probes, and inspect data flow without deploying to a real-time target.
+The Express wizard generates a **Custom Device Test Bench** library backed by a **Debug PPL** (Packed Project Library) build spec inside the engine LabVIEW project. Building this spec lets you load and run your override VIs inside the LabVIEW development environment on Windows, so you can set breakpoints, use probes, and inspect data flow without deploying to a real-time target.
 
 ---
 

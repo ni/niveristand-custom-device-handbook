@@ -8,4 +8,4 @@ The Express wizard generates several components automatically from your device s
 
 + [Orchestration](Orchestration_Code.md)
 
-+ [Standalone Engine Debugger](Standalone_Debugger.md)
++ [Standalone Test Bench](Test_Bench.md)

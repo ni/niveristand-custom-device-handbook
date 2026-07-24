@@ -51,7 +51,7 @@ The wizard generates the RT Driver VI, Deployment Hooks library, and channel gro
 
 #### Debug tools
 
-The engine LabVIEW project includes a **Debug PPL** build spec that links your override VIs against the LabVIEW development environment. Build it to use LabVIEW's full debugger (breakpoints, probes, highlight execution) on your Windows PC, without a real-time target or a VeriStand deployment. See [Standalone Engine Debugger](Standalone_Debugger.md).
+The engine LabVIEW project includes a **Debug PPL** build spec that links your override VIs against the LabVIEW development environment. Build it to use LabVIEW's full debugger (breakpoints, probes, highlight execution) on your Windows PC, without a real-time target or a VeriStand deployment. See [Standalone Test Bench](Test_Bench.md).
 
 ---
 

@@ -120,5 +120,5 @@ This compiled structure is why adding, removing, or renaming channels requires a
 
 ### Debug PPL build spec
 
-The engine project includes a **Debug PPL** build specification (with pre- and post-build action VIs). Building this spec produces a Packed Project Library you can use for LabVIEW debugging. It links the engine against the LabVIEW development environment so you can set breakpoints and probes in your override VIs while the device is running. See [Standalone Engine Debugger](Standalone_Debugger.md) for how to use it.
+The engine project includes a **Debug PPL** build specification (with pre- and post-build action VIs). Building this spec produces a Packed Project Library you can use for LabVIEW debugging. It links the engine against the LabVIEW development environment so you can set breakpoints and probes in your override VIs while the device is running. See [Standalone Test Bench](Test_Bench.md) for how to use it.
 
