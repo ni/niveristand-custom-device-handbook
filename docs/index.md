@@ -12,7 +12,7 @@ This handbook documents the development of VeriStand Custom Devices.
 
    + [Custom Device Types](Custom_Device_Types.md)
 
-   + [Choosing A Framework](Choosing_A_Framework.md)
+   + [Selecting a Framework: Classic vs. Express](Framework_Selection.md)
 
      + [Custom Device Classic](classic/index.md)
 

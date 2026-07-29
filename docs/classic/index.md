@@ -2,7 +2,7 @@
 
 The **Classic** framework is the original VeriStand custom device development framework. The developer authors the configuration UI, scripting API, and orchestration code manually in LabVIEW, giving maximum flexibility over the device architecture.
 
-If you are new to custom devices, first review [Choosing Between Classic and Express](../Choosing_A_Framework.md) to confirm Classic is the right framework for your project.
+If you are new to custom devices, first review [Selecting a Framework: Classic vs. Express](../Framework_Selection.md) to confirm Classic is the right framework for your project.
 
 For more details on the Classic framework, refer to the following sections.
 

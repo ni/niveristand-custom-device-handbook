@@ -55,10 +55,6 @@ In the Classic framework you author page VIs yourself; in the Express framework 
 
 *Action VIs* are VIs that VeriStand calls in response to specific events in the Custom Device's lifecycle, such as loading an item, deleting an item, saving the system definition, or deploying to a target. They let a Custom Device run logic outside of a page — for example, launching a background process on load, preventing deletion of an item, or finalizing target configuration on download. VeriStand provides a set of action VI templates in the [Custom Device API library](https://www.ni.com/docs/en-US/bundle/veristand/page/custom-device-api-library.html).
 
-### Custom Device XML file
-
-The *Custom Device XML file* tells VeriStand how to load, display, use, and deploy the Custom Device. It declares the Custom Device's pages, items, GUIDs, and the libraries that implement the Custom Device's behavior. The XML file plus the configuration and engine libraries are the only artifacts required to use a Custom Device in VeriStand. In the Classic framework you edit this file (directly or through the wizard); in the Express framework it is generated from the [XML definition](express/XML_Definition_Schema.md).
-
 ### Configuration and Engine (RT Driver VI) 
 
 A Custom Device has two sides. The *configuration* side runs on the host computer and defines how the operator adds and configures the Custom Device through System Explorer (initialization VI, pages, action VIs). On the configuration side, the *Initialization VI* is the configuration VI that System Explorer runs whenever the Custom Device is added to the system definition. It builds up the default channel/section list and does not populate the subpanel.

@@ -14,7 +14,7 @@ The Express wizard offers three templates. Choose based on how your device inter
 | **Inline HW Interface (Inline-Async)** | Inline PCL loop plus a separate asynchronous loop | Device needs synchronous channel exchange AND a background task running at a different rate (for example, a slow configuration read) |
 | **Inline Timing and Sync** | Device controls VeriStand engine timing | Device is the timing master; it triggers when the PCL proceeds |
 
-If your device is not timing-critical and communicates with the rest of VeriStand only occasionally, consider whether the Classic asynchronous template is a better fit. See [Choosing Between Classic and Express](../Choosing_A_Framework.md).
+If your device is not timing-critical and communicates with the rest of VeriStand only occasionally, consider whether the Classic asynchronous template is a better fit. See [Selecting a Framework: Classic vs. Express](../Framework_Selection.md).
 
 ---
 
