@@ -24,9 +24,7 @@ A call to the hardware API makes a single A/D conversion on the specified channe
 
 ### Channels
 
-*Channels* are used to exchange data between the custom device and the rest of the VeriStand system.
-
-All channels are 64-bit floating point numbers. There is no built-in mechanism for other channel data types.
+For the definition of a channel and its direction, refer to [Channels](../Key_Concepts.md#channels).
 
 There are three common use cases for planning a custom device channel.
 
@@ -77,9 +75,7 @@ In addition to these channel-specific VIs, any VI from the [Item Properties](htt
 
 ### Properties
 
-*Properties* are used within the custom device to communicate state information.
-
-Property names are case-sensitive strings. Unlike channels, property values can be any standard LabVIEW data type.
+For the definition of a property, refer to [Properties](../Key_Concepts.md#properties).
 
 For one-time instances, you should use properties to transfer configuration and state information from the configuration to the engine. This transfer occurs when the system definition is deployed to the target.
 
@@ -149,15 +145,7 @@ You can set the decimation for any type of custom device. However, decimation is
 
 ### Hierarchy
 
-VeriStand allows each custom device to be presented as a hierarchy in System Explorer. A hierarchy allows developers to organize and present a custom device to the operator.
-
-Within a Custom Device hierarchy, there are sections and channels. All items in a custom device configuration tree are either channels or sections. *Sections* provide a way to group items in a hierarchy.
-
-The following rules apply to channels and sections.
-
-1. You cannot create additional levels of a custom device hierarchy from channels.
-1. You cannot map sections to other items in VeriStand.
-1. You cannot use sections to exchange data during run-time.
+For the definitions of hierarchy and sections, and the rules that govern them, refer to [Sections and hierarchy](../Key_Concepts.md#sections-and-hierarchy).
 
 Use the [NI VeriStand - Add Custom Device Section](https://zone.ni.com/reference/en-XX/help/372846M-01/veristandmerge/vs_add_custom_device_section_vi/) VI to create sections.
 
@@ -213,11 +201,11 @@ The *Section Ptr* outputs are used to create channels beneath the corresponding 
 
 ### Pages
 
-*Pages* are VIs that System Explorer displays in the configuration pane subpanel.
+For the definition of pages and the different kinds of page (Initialization VI, Main Page, default page, and extra page), refer to [Pages](../Key_Concepts.md#pages).
 
 *Subpanels* are LabVIEW front pane containers that allow a VI to display the front panel of another VI. For more information, refer to the *LabVIEW Help* topic [Container Controls and Indicators](https://www.ni.com/docs/en-US/bundle/labview/page/lvconcepts/container_controls_and_indicators.html).
 
-When you click an item in the configuration tree, a page displays in the Subpanel. Pages run on the host computer. They define the appearance and configuration experience of the custom device.
+When you click an item in the configuration tree, a page displays in the Subpanel.
 
 The [niveristand-custom-device-wizard](https://github.com/ni/niveristand-custom-device-wizard/releases) creates two configuration VIs by default.
 1. Initialization VI - A simple VI that does not populate in the Subpanel.

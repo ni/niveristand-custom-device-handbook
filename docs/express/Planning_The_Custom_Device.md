@@ -20,6 +20,8 @@ If your device is not timing-critical and communicates with the rest of VeriStan
 
 ### 2. Design the device hierarchy
 
+For the definitions of sections, channels, waveforms, and properties, refer to [Key Concepts](../Key_Concepts.md). This section focuses on how to apply those concepts when planning an Express device.
+
 Express devices have a four-level hierarchy: **Device → Sections → Channels / Waveforms**. Sections can be nested.
 
 Start with a sketch of what an operator would see in System Explorer's configuration tree. Ask:

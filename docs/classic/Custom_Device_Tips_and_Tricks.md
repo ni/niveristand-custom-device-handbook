@@ -204,6 +204,8 @@ Add `<DisallowRenaming>true</DisallowRenaming>` below the `<Name>` tag for any p
 
 ### Using Action VIs
 
+For the definition of an action VI, refer to [Action VIs](../Key_Concepts.md#action-vis).
+
 VeriStand contains eight action VI templates that are triggered by different actions.
 
 The following action VI templates are provided by VeriStand in the **[Custom Device API library](https://www.ni.com/docs/en-US/bundle/veristand/page/custom-device-api-library.html)**.
