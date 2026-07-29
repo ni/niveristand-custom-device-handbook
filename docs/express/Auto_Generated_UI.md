@@ -1,19 +1,19 @@
 ## Auto-Generated System Explorer UI
 
-When you add an Express custom device to a system definition, VeriStand builds the configuration UI for you automatically from the device's [definition](XML_Definition_Schema.md). Every property you defined becomes an editable control in the System Explorer **right-hand configuration pane** — no UI code required.
+When you add an Express Custom Device to a system definition, VeriStand builds the configuration UI for you automatically from the Custom Device's [definition](XML_Definition_Schema.md). Every property you defined becomes an editable control in the System Explorer **right-hand configuration pane** — no UI code required.
 
-This page describes what UI you get out of the box, the controls each property type produces, the import/export actions available on a device, and the optional `GUI Layout.yaml` file you can use to arrange and conditionally show the controls exactly how you want.
+This page describes what UI you get out of the box, the controls each property type produces, the import/export actions available on a Custom Device, and the optional `GUI Layout.yaml` file you can use to arrange and conditionally show the controls exactly how you want.
 
 ---
 
 ### Launching the UI
 
-1. Build and place the finished custom device folder in the VeriStand Custom Devices directory (see [Distributing the Custom Device](Distributing_the_Custom_Device.md)).
+1. Build and place the finished Custom Device folder in the VeriStand Custom Devices directory (see [Distributing the Custom Device](../Distributing_the_Custom_Device.md)).
 2. Launch VeriStand and open (or create) a system definition in **System Explorer**.
-3. Right-click the **Custom Devices** node, and add your device from the menu. The device, along with its default channels, waveforms, and sections, appears in the configuration tree.
+3. Right-click the **Custom Devices** node, and add your Custom Device from the menu. The Custom Device, along with its default channels, waveforms, and sections, appears in the configuration tree.
 4. Select the device node (or any of its child nodes). The right-hand pane shows the auto-generated configuration controls for that node's properties.
 
-![System Explorer with the custom device selected and the configuration pane populated](images/system-explorer-configuration-pane.png)
+![System Explorer with the Custom Device selected and the configuration pane populated](images/system-explorer-configuration-pane.png)
 
 ---
 
@@ -46,12 +46,12 @@ A device node in System Explorer exposes right-click actions to move its configu
 
 | Action | What it does |
 |---|---|
-| **Export to JSON** | Writes the device's current configuration (properties and child nodes) to a JSON file. |
-| **Import from JSON** | Loads a previously exported JSON configuration into the selected device, updating its properties and children in place. |
-| **Export to XML** | Writes the device's current configuration to an XML file. |
-| **Import from XML** | Loads a configuration from an XML file into the selected device. |
+| **Export to JSON** | Writes the Custom Device's current configuration (properties and child nodes) to a JSON file. |
+| **Import from JSON** | Loads a previously exported JSON configuration into the selected Custom Device, updating its properties and children in place. |
+| **Export to XML** | Writes the Custom Device's current configuration to an XML file. |
+| **Import from XML** | Loads a configuration from an XML file into the selected Custom Device. |
 
-You can also create a device directly from a saved configuration: instead of adding a blank device and editing it, use the **Import from XML** entry point on the Custom Devices node to add a device pre-populated from an XML file.
+You can also create a Custom Device directly from a saved configuration: instead of adding a blank Custom Device and editing it, use the **Import from XML** entry point on the Custom Devices node to add a Custom Device pre-populated from an XML file.
 
 Import operations are non-destructive to identity: matching child nodes (same name and type) are updated in place, new children are added, and children no longer present are removed, so references elsewhere in the system stay valid where possible.
 
@@ -61,12 +61,12 @@ Import operations are non-destructive to identity: matching child nodes (same na
 
 ### GUI Layout.yaml reference
 
-To control how the configuration pane is organized — grouping properties into named sections, placing multiple controls on one row, and showing or enabling controls based on other property values — add a file named **`GUI Layout.yaml`** next to the custom device DLL.
+To control how the configuration pane is organized — grouping properties into named sections, placing multiple controls on one row, and showing or enabling controls based on other property values — add a file named **`GUI Layout.yaml`** next to the Custom Device DLL.
 
 #### Placement and loading
 
-* The file must be named exactly **`GUI Layout.yaml`** and sit in the **same folder as the generated scripting API assembly** (`<NameSpace>.<TypeName>.dll`, for example `CompanyName.Product.ExampleCustomDevice.dll`). In a finished device this assembly is in the device's `Windows\Plugins` folder, so place `GUI Layout.yaml` next to it there.
-* It is **GUI-only**. The API generator neither creates nor reads it; you add it to the device folder yourself (or distribute it with the device).
+* The file must be named exactly **`GUI Layout.yaml`** and sit in the **same folder as the generated scripting API assembly** (`<NameSpace>.<TypeName>.dll`, for example `CompanyName.Product.ExampleCustomDevice.dll`). In a finished Custom Device this assembly is in the Custom Device's `Windows\Plugins` folder, so place `GUI Layout.yaml` next to it there.
+* It is **GUI-only**. The API generator neither creates nor reads it; you add it to the device folder yourself (or distribute it with the Custom Device).
 * The layout is **read once per node type per VeriStand session** and cached. After editing the file, **restart VeriStand** (or reopen the system definition) to see changes.
 * If no file is present, or a node type has no entry, that node uses the [default layout](#what-the-default-ui-looks-like).
 

@@ -19,7 +19,7 @@ These rules are validated by `api-gen.exe` against the `GeneratedCustomDeviceAPI
 
 - Every `TypeGuid` must be a valid GUID string in the format `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.
 - GUIDs must be **unique within the document**. Reusing a GUID for two different types causes a generation error.
-- GUIDs must be **stable across regenerations** for the same type. Changing a GUID in the XML while an existing system definition references the old GUID will cause VeriStand to fail to load the saved device.
+- GUIDs must be **stable across regenerations** for the same type. Changing a GUID in the XML while an existing system definition references the old GUID will cause VeriStand to fail to load the saved Custom Device.
 
 #### Document order
 
@@ -63,6 +63,6 @@ These rules affect how the generator maps XML names to C# API members. See [Prop
 
 - The finished device folder must be placed under `<Common Data>\National Instruments\NI VeriStand <version>\Custom Devices\` to be visible in System Explorer.
 - Windows libraries (`*.lvlibp`, `*.dll`) must be in the `Windows\` subfolder; Linux x64 libraries must be in the `Linux_x64\` subfolder.
-- The scripting API assembly must reside in **both** `Windows\` (for System Explorer, which runs on Windows) and, for non-scripting-API scenarios, referenced from the device's XML loader. VeriStand looks for it at the path recorded in the device's run-time XML.
+- The scripting API assembly must reside in **both** `Windows\` (for System Explorer, which runs on Windows) and, for non-scripting-API scenarios, referenced from the Custom Device's XML loader. VeriStand looks for it at the path recorded in the Custom Device's run-time XML.
 - Do not ship the `Auto Generated\` source tree inside the finished device folder. The `Builds\` output is self-contained.
 

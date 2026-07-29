@@ -1,8 +1,8 @@
 # Custom Device Express
 
-The **Express** framework is an enhanced development framework that auto-generates the System Explorer UI, Scripting API, orchestration code, and a standalone test bench from a device schema you define in a wizard. It reduces boilerplate so you can focus on device-specific logic.
+The **Express** framework accelerates Custom Device development by auto-generating the System Explorer UI, scripting API, orchestration code, and a standalone test bench from a single Custom Device definition you author in a wizard. Because this scaffolding is generated rather than hand-coded, you write far less code than in the Classic framework and can concentrate on the logic that is unique to your Custom Device.
 
-If you are new to custom devices, first review [Selecting a Framework: Classic vs. Express](../Framework_Selection.md) to confirm Express is the right framework for your project.
+If you are new to Custom Devices, first review [Selecting a Framework: Classic vs. Express](../Framework_Selection.md) to confirm Express is the right framework for your project.
 
 For more details on the Express framework, refer to the following sections.
 
@@ -11,11 +11,9 @@ For more details on the Express framework, refer to the following sections.
 + [Planning the Custom Device](Planning_The_Custom_Device.md)
 
 + [Using the Express Wizard](Wizard.md)
+  
+  + [XML Definition](XML_Definition_Schema.md)
+  
+  + [Configuration Rules and Constraints](Configuration_Rules.md)
 
-+ [Configuration Rules and Constraints](Configuration_Rules.md)
-
-+ [Implementing Custom Logic](Implementing_Custom_Logic.md)
-
-+ [Distributing the Custom Device](Distributing_the_Custom_Device.md)
-
-+ [Auto-Generated Components](Auto_Generated_Components.md)
++ [Implementing the Custom Device](Implementing_the_Custom_Device.md)

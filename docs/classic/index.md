@@ -12,8 +12,6 @@ For more details on the Classic framework, refer to the following sections.
 
 + [Implementing the Custom Device](Implement_the_Custom_Device.md)
 
-+ [Distributing the Custom Device](Distributing_the_Custom_Device.md)
-
 + [Scripting APIs for Custom Devices](Scripting_API.md)
 
 + [Migrating a Custom Device from LLB to PPL](Migrating_LLB_to_a_PPL_based_Custom_Device.md)

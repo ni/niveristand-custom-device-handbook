@@ -1,10 +1,10 @@
 ## Custom Device XML Definition Schema
 
-The Express framework builds a complete custom device from a single **Custom Device Definition XML** file. This file describes the device, its properties, and its child nodes (channels, waveforms, and sections). The Express wizard can generate this XML for you, or you can author it by hand.
+The Express framework builds a complete Custom Device from a single **Custom Device Definition XML** file. This file describes the Custom Device, its properties, and its child nodes (channels, waveforms, and sections). The Express wizard can generate this XML for you, or you can author it by hand.
 
-This page documents every tag and type the definition XML supports, so you know exactly what you can describe in a device. The structure and rules on this page are enforced by the schema that ships with VeriStand (`GeneratedCustomDeviceAPI.xsd`). The [api-gen.exe](Auto_Generated_Scripting_API.md#generating-the-api-manually-with-api-genexe) tool validates your XML against this schema before it generates any code.
+This page documents every tag and type the definition XML supports, so you know exactly what you can describe in a Custom Device. The structure and rules on this page are enforced by the schema that ships with VeriStand (`GeneratedCustomDeviceAPI.xsd`). The [api-gen.exe](Auto_Generated_Scripting_API.md#generating-the-api-manually-with-api-genexe) tool validates your XML against this schema before it generates any code.
 
-> **Note:** This is the *definition* XML used by the Express framework to generate a custom device. It is different from the Classic [Custom Device XML](https://www.ni.com/docs/en-US/bundle/veristand/page/custom-device-xml.html) that VeriStand reads at run time to load a finished device.
+> **Note:** This is the *definition* XML used by the Express framework to generate a Custom Device. It is different from the Classic [Custom Device XML](https://www.ni.com/docs/en-US/bundle/veristand/page/custom-device-xml.html) that VeriStand reads at run time to load a finished Custom Device.
 
 ---
 
@@ -52,7 +52,7 @@ Property names (the `PropertyName` attribute) are *not* restricted in this way â
 
 ### `<CustomDevice>`
 
-The top-level device. Exactly one is required.
+The top-level Custom Device. Exactly one is required.
 
 | Attribute | Required? | Description |
 |---|---|---|
@@ -65,7 +65,7 @@ The `<CustomDevice>` element contains the following children, in order:
 | Element | Description |
 |---|---|
 | `CodeDocumentation` | *(Optional)* Summary text used as documentation in the generated API. |
-| `Properties` | The device's configuration properties. See [Properties](#properties). |
+| `Properties` | The Custom Device's configuration properties. See [Properties](#properties). |
 | `DefaultChannelNodes` | Channels created automatically on every new device instance. |
 | `DynamicChannelNodes` | Channel types an operator can add at run time. |
 | `DefaultWaveformNodes` | Waveforms created automatically on every new device instance. |
@@ -77,7 +77,7 @@ The `<CustomDevice>` element contains the following children, in order:
 
 ### `<Section>`, `<Channel>`, and `<Waveform>` type definitions
 
-These elements define reusable child-node *types*. A device (or a section) references them by `TypeName` in its `DefaultXNodes`/`DynamicXNodes` lists. The same type can be referenced from multiple places.
+These elements define reusable child-node *types*. A Custom Device (or a section) references them by `TypeName` in its `DefaultXNodes`/`DynamicXNodes` lists. The same type can be referenced from multiple places.
 
 #### `<Section>`
 
@@ -255,7 +255,7 @@ The `TypeName` must match an `<EnumDefinition>` declared in the document's `<Enu
 
 #### DependentFile properties
 
-A dependent file property references a file the device depends on.
+A dependent file property references a file the Custom Device depends on.
 
 ```xml
 <DefaultValue>
