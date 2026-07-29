@@ -34,7 +34,7 @@ The child elements must appear in this order: `CustomDevice`, then any `Channel`
 | Element | Required? | Occurrences | Description |
 |---|---|---|---|
 | `VeriStandGeneratedCustomDeviceAPI` | Yes | 1 | Root element. Requires a `Version` attribute. |
-| `CustomDevice` | Yes | 1 | The top-level device definition. |
+| `CustomDevice` | Yes | 1 | The top-level Custom Device definition. |
 | `Channel` | No | 0 or more | A reusable channel type definition. |
 | `Waveform` | No | 0 or more | A reusable waveform type definition. |
 | `Section` | No | 0 or more | A reusable section (sub-node) type definition. |
@@ -56,8 +56,8 @@ The top-level Custom Device. Exactly one is required.
 
 | Attribute | Required? | Description |
 |---|---|---|
-| `TypeName` | Yes | The device type name. Becomes the generated class name. No spaces or dots. |
-| `TypeGuid` | Yes | A unique GUID that identifies this device type. |
+| `TypeName` | Yes | The Custom Device type name. Becomes the generated class name. No spaces or dots. |
+| `TypeGuid` | Yes | A unique GUID that identifies this Custom Device type. |
 | `NameSpace` | Yes | The .NET namespace for the generated code (for example, `CompanyName.Product`). |
 
 The `<CustomDevice>` element contains the following children, in order:
@@ -66,11 +66,11 @@ The `<CustomDevice>` element contains the following children, in order:
 |---|---|
 | `CodeDocumentation` | *(Optional)* Summary text used as documentation in the generated API. |
 | `Properties` | The Custom Device's configuration properties. See [Properties](#properties). |
-| `DefaultChannelNodes` | Channels created automatically on every new device instance. |
+| `DefaultChannelNodes` | Channels created automatically on every new Custom Device instance. |
 | `DynamicChannelNodes` | Channel types an operator can add at run time. |
-| `DefaultWaveformNodes` | Waveforms created automatically on every new device instance. |
+| `DefaultWaveformNodes` | Waveforms created automatically on every new Custom Device instance. |
 | `DynamicWaveformNodes` | Waveform types an operator can add at run time. |
-| `DefaultSectionNodes` | Sections created automatically on every new device instance. |
+| `DefaultSectionNodes` | Sections created automatically on every new Custom Device instance. |
 | `DynamicSectionNodes` | Section types an operator can add at run time. |
 
 ---
@@ -235,9 +235,9 @@ The `TypeName` must match an `<EnumDefinition>` declared in the document's `<Enu
 ```xml
 <EnumDefinitions>
     <EnumDefinition TypeName="OperationMode">
-        <CodeDocumentation>Defines the operation mode of the device.</CodeDocumentation>
+        <CodeDocumentation>Defines the operation mode of the Custom Device.</CodeDocumentation>
         <EnumMember Name="Idle" Value="0">
-            <CodeDocumentation>Device is idle.</CodeDocumentation>
+            <CodeDocumentation>Custom Device is idle.</CodeDocumentation>
         </EnumMember>
         <EnumMember Name="Running" Value="1" />
         <EnumMember Name="Stopped" Value="2" />

@@ -61,8 +61,8 @@ These rules affect how the generator maps XML names to C# API members. See [Prop
 
 ### Build and file layout constraints
 
-- The finished device folder must be placed under `<Common Data>\National Instruments\NI VeriStand <version>\Custom Devices\` to be visible in System Explorer.
+- The finished Custom Device folder must be placed under `<Common Data>\National Instruments\NI VeriStand <version>\Custom Devices\` to be visible in System Explorer.
 - Windows libraries (`*.lvlibp`, `*.dll`) must be in the `Windows\` subfolder; Linux x64 libraries must be in the `Linux_x64\` subfolder.
 - The scripting API assembly must reside in **both** `Windows\` (for System Explorer, which runs on Windows) and, for non-scripting-API scenarios, referenced from the Custom Device's XML loader. VeriStand looks for it at the path recorded in the Custom Device's run-time XML.
-- Do not ship the `Auto Generated\` source tree inside the finished device folder. The `Builds\` output is self-contained.
+- Do not ship the `Auto Generated\` source tree inside the finished Custom Device folder. The `Builds\` output is self-contained.
 

@@ -1,6 +1,6 @@
 ## Custom Device Express Framework Overview
 
-This section explains how the Express framework turns a single Custom Device definition into a complete, deployable Custom Device — the end-to-end development workflow, what the framework generates for you, and the key concepts you need to understand before you start.
+This section explains how the Express framework turns a Custom Device definition XML into a complete, deployable Custom Device — the end-to-end development workflow, what the framework generates for you, and the key concepts you need to understand before you start.
 
 ---
 
@@ -41,7 +41,7 @@ Every property you declare in the XML becomes a typed control in System Explorer
 
 #### Scripting API
 
-The `api-gen.exe` tool translates the XML definition into a C# project containing a strongly typed class for each device, section, channel, and waveform type you declared. Building that project produces the scripting API assembly that operators and automation scripts use to create and configure device nodes programmatically. See [Auto-Generated Scripting API](Auto_Generated_Scripting_API.md).
+The `api-gen.exe` tool translates the XML definition into a C# project containing a strongly typed class for each Custom Device, section, channel, and waveform type you declared. Building that project produces the scripting API assembly that operators and automation scripts use to create and configure Custom Device nodes programmatically. See [Auto-Generated Scripting API](Auto_Generated_Scripting_API.md).
 
 #### LabVIEW clusters and template projects
 
