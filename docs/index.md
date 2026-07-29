@@ -17,3 +17,7 @@ This handbook documents the development of VeriStand Custom Devices.
      + [Custom Device Classic](classic/index.md)
 
      + [Custom Device Express](express/index.md)
+
+   + [Custom Device Tips and Tricks](Custom_Device_Tips_and_Tricks.md)
+
+   + [LabVIEW Debugging Techniques](LabVIEW_Debugging_Techniques.md)

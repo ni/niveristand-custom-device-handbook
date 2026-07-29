@@ -19,39 +19,31 @@ The API library contains the custom device’s configuration and real-time engin
 
 #### Configuration
 
-The custom device configuration defines how the operator adds and configures the custom device through a user interface (UI). The Custom Device Template Tool provides the Initialization VIs for configuration purposes. You can add more VIs during development.
-
-When a custom device VI’s front panel is presented to the operator in System Explorer, that VI is called a page. Pages are a subset of the VIs that make up a custom device.
+The [configuration](../Key_Concepts.md#configuration-and-engine-rt-driver-vi) of a Classic custom device is authored from the Custom Device Template Tool, which provides the Initialization VIs. You can add more VIs, including [pages](../Key_Concepts.md#pages), during development.
 
 
 #### Initialization VI
 
-The niveristand-custom-device-wizard adds the *Initialization VI.vi.* inside the Dynamically Called virtual folder of the &lt;Custom Device Name&gt; System Explorer library. This VI runs in the background when the custom device is first added to the system definition. The Initialization VI does not run again unless the operator removes and re-adds the custom device.
+The niveristand-custom-device-wizard adds the [Initialization VI](../Key_Concepts.md#configuration-and-engine-rt-driver-vi) (*Initialization VI.vi*) inside the Dynamically Called virtual folder of the &lt;Custom Device Name&gt; System Explorer library. It does not run again unless the operator removes and re-adds the custom device.
 
 While you may rename certain objects in the custom device’s LabVIEW Project, it’s important to understand the ramifications of doing so. For example, the Initialization VI is referenced by name in the custom device XML file.
 
 This file is generated when you first run the niveristand-custom-device-wizard. If you rename the Initialization VI after running the wizard, you’ll need to manually change the path to the Initialization VI in the custom device XML file.
 
-The Initialization VI runs each time a new instance of the same custom device is added to the system definition. VeriStand retains state information for each instance of a custom device in the system definition (.[nivssdf](https://www.ni.com/docs/en-US/bundle/veristand/page/configure-system-definition-file.html)) file.
-
-State is defined by the value of each control, indicator, and property of the page. The system definition is human-readable XML, so you can open the file with a text editor.
-
-**Note:** You can use the [.NET API](https://www.ni.com/docs/en-US/bundle/veristand/page/veristand-net-reference.html) to programmatically modify the system definition.
-
 #### Main Page
 
-The niveristand-custom-device-wizard creates Main Page.vi inside Dynamically Called virtual folder of the *&lt;Custom Device Name&gt;* System Explorer library. After the custom device has been added to the system definition, the Main Page runs whenever the operator clicks on the custom device’s top-level item in the System Explorer configuration tree. The following image displays the top-level item.
+The niveristand-custom-device-wizard creates the [Main Page](../Key_Concepts.md#pages) (*Main Page.vi*) inside the Dynamically Called virtual folder of the *&lt;Custom Device Name&gt;* System Explorer library. The following image displays the top-level item.
 
 ![](images/Picture6.png)
 <br />
 
 #### Engine
 
-The niveristand-custom-device-wizard creates the *RT Driver.vi.* inside the *&lt;Custom Device Name&gt;* Engine library. This VI defines the behavior of the custom device on the [Target](https://www.ni.com/docs/en-US/bundle/veristand/page/veristand-glossary.html).
+The [engine](../Key_Concepts.md#configuration-and-engine-rt-driver-vi) of a Classic custom device contains the *RT Driver.vi.*, which the niveristand-custom-device-wizard creates inside the *&lt;Custom Device Name&gt;* Engine library.
 
 The RT Driver VI runs on the Target regardless of the operating system. VeriStand deploys the engine when the operator runs the project from VeriStand or when the system definition is deployed using the VeriStand Execution API.
 
-The engine runs after the custom device deployed to the execution host. You can usually add initialization, steady-state, and shutdown code to the engine template. There aren't any hard boundaries on what code you can put into the engine, but each additional code that is added can increase the size of the engine, and the time required to deploy your system.
+You can usually add initialization, steady-state, and shutdown code to the engine template. There aren't any hard boundaries on what code you can put into the engine, but each additional code that is added can increase the size of the engine, and the time required to deploy your system.
 
 Each of the five prebuilt custom devices has a different engine VI. Each engine VI executes at a different time with respect to other VeriStand components. The timing requirements of a custom device, and thus the type of device selected, are functions of when the device needs to execute with respect to other VeriStand Engine components.
 

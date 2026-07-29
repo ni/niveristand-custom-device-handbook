@@ -20,15 +20,13 @@ If your device is not timing-critical and communicates with the rest of VeriStan
 
 ### 2. Design the device hierarchy
 
-For the definitions of sections, channels, waveforms, and properties, refer to [Key Concepts](../Key_Concepts.md). This section focuses on how to apply those concepts when planning an Express device.
-
 Express devices have a four-level hierarchy: **Device → Sections → Channels / Waveforms**. Sections can be nested.
 
 Start with a sketch of what an operator would see in System Explorer's configuration tree. Ask:
 
-* What logical groups of settings belong together? Each group is a candidate **Section**.
-* What data values need to be visible to the rest of the VeriStand system at run time? Each one is a **Channel** (single `double`) or a **Waveform** (array of `double` or `ComplexDouble`).
-* What configuration values are set once and deployed? Each one is a **Property** on the device, section, or channel.
+* What logical groups of settings belong together? Each group is a candidate **[Section](../Key_Concepts.md#sections-and-hierarchy)**.
+* What data values need to be visible to the rest of the VeriStand system at run time? Each one is a **[Channel](../Key_Concepts.md#channels)** (single `double`) or a **[Waveform](../Key_Concepts.md#waveforms)** (array of `double` or `ComplexDouble`).
+* What configuration values are set once and deployed? Each one is a **[Property](../Key_Concepts.md#properties)** on the device, section, or channel.
 
 **Example hierarchy for a multichannel ADC device:**
 

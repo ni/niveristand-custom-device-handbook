@@ -63,16 +63,6 @@ These alternatives have the following considerations.
 * Global Variable - Ensure that you have set the correct default value for the control.
 * Type Definition Combo Box - On the Properties dialog box, use the Edit Items tab to disable **Values match Items**. This control type does not auto-update from its type definition. You must completely populate the control before using it on a block diagram.
 
-### Creating Custom Error Codes
-
-You can define custom error codes in LabVIEW and distribute them to VeriStand with a custom device.
-1. Copy a custom *errors.txt* file to VeriStand in the `<Base>\National Instruments\Shared\Errors\English` directory.
-1. Add the file as a dependency in the custom device.
-1. Add the file as a dependency in the [custom device XML file](https://www.ni.com/docs/en-US/bundle/veristand/page/custom-device-xml.html).
-1. **(Optional)** For real-time targets, deploy the *errors.txt* file to the error directory on target. Error messages will display in Console Viewer.
-
-For more information, refer to [Defining Custom Error Codes to Distribute throughout Your Application](https://www.ni.com/docs/en-US/bundle/labview/page/lvhowto/def_custom_error_text.html).
-
 ### Using Utility VIs
 
 In LabVIEW, navigate to **NI VeriStand** » **Custom Device API** » **Utilities** for useful custom device development VIs.
@@ -204,9 +194,7 @@ Add `<DisallowRenaming>true</DisallowRenaming>` below the `<Name>` tag for any p
 
 ### Using Action VIs
 
-For the definition of an action VI, refer to [Action VIs](../Key_Concepts.md#action-vis).
-
-VeriStand contains eight action VI templates that are triggered by different actions.
+VeriStand contains eight [action VI](Key_Concepts.md#action-vis) templates that are triggered by different actions.
 
 The following action VI templates are provided by VeriStand in the **[Custom Device API library](https://www.ni.com/docs/en-US/bundle/veristand/page/custom-device-api-library.html)**.
 
