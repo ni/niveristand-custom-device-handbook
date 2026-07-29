@@ -4,7 +4,7 @@ The **Express** framework is an enhanced development framework that auto-generat
 
 If you are new to custom devices, first review [Choosing Between Classic and Express](../Choosing_A_Framework.md) to confirm Express is the right framework for your project.
 
-This section is organized as follows:
+For more details on the Express framework, refer to the following sections.
 
 + [Express Framework Overview](Framework_Overview.md)
 

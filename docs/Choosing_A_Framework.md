@@ -18,6 +18,7 @@ In short, Classic trades convenience for flexibility. You write more code up fro
 
 Choose the [Express](express/index.md) framework when you want a better boilerplate template as a starting point and are willing to work within the framework's structure in exchange for the productivity it provides. Express is the right choice when the following apply to your project.
 
+* **Your device fits a supported execution mode.** Express supports only the [Inline Hardware Interface](Custom_Device_Types.md#inline-hardware-interface) and [Inline-Async Hardware Interface](Custom_Device_Types.md#inline-async-hardware-interface) execution modes. If your device requires any of the other execution modes — Asynchronous, Inline Model Interface, Inline Timing and Sync, or Asynchronous Timing and Sync — you must use the Classic framework.
 * **You want out-of-the-box components.** Express provides a ready-made [System Explorer UI](express/Auto_Generated_UI.md), [scripting APIs](express/Auto_Generated_Scripting_API.md), and LabVIEW clusters that represent your settings and channel groupings — all generated for you from a single XML definition.
 * **You want standalone testing and debugging.** Express includes a [Test Bench](express/Test_Bench.md) (the *Custom Device Test Bench* library) that lets you test and debug your engine code in standalone mode, outside of VeriStand, using breakpoints, probes, and logs on your development PC without a real-time target or a full deployment.
 * **You are able to plan the device up front.** Express requires you to plan the custom device at the beginning — which sections, channels, and waveform types you need, how they are arranged in the System Explorer hierarchy, and how each setting is accessed in the engine. This plan is captured in the [XML definition](express/XML_Definition_Schema.md) you provide to the wizard when creating the project, and the rest of the template is auto-generated from it.
@@ -28,6 +29,7 @@ In exchange for this convenience, Express adds constraints on how you define the
 
 | Consideration | Classic | Express |
 | --- | --- | --- |
+| Supported execution modes | All modes | Inline Hardware Interface and Inline-Async Hardware Interface only |
 | Auto-generated System Explorer UI | No — author manually | Yes |
 | Auto-generated scripting API | No — author manually | Yes |
 | Auto-generated LabVIEW clusters for settings and channel groups | No — author manually | Yes |

@@ -1,34 +1,32 @@
 ## Custom Device Express Framework Overview
 
-The **Express** framework is an enhanced development model for VeriStand custom devices. Instead of hand-coding every configuration VI, engine VI, and scripting class, you describe your device once in an XML definition file. The framework generates all the repetitive parts from that description, so you can focus on the hardware-specific logic that is unique to your device.
+The **Express** framework is an enhanced development model for VeriStand custom devices. Instead of hand-coding every System Explorer UI page VIs, configuration VIs, engine VIs, and scripting APIs, you define your device once in an XML definition file. The framework generates all the repetitive parts from that definition, so you can focus on the logic that is unique to your Custom Device.
 
 ---
 
-
-### The Express development workflow
+### The Express framework development workflow
 
 ```
-1. Plan  ──► Design device hierarchy, channels, properties, and sections
+1. Plan  ──► Design Custom Device hierarchy, channels, waveforms, sections and properties 
                │
                ▼
 2. Define ──► Author the Custom Device Definition XML
-              (use the wizard's built-in XML Editor or a text editor)
+              (use the wizard's built-in XML Editor)
                │
                ▼
 3. Generate ──► Run the Express Wizard
                Creates the LabVIEW project + C# scripting API project
-               Runs api-gen.exe to build the scripting API DLL
+               Builds the scripting API DLL, LabVIEW PPLs
                Opens the LabVIEW project
                │
                ▼
-4. Implement ──► Add device-specific logic to the user-editable engine VIs
-                (all auto-generated files are hands-off)
+4. Implement ──► Add Custom Device specific logic to the user-editable engine VIs
                │
                ▼
-5. Build ──► Build the LabVIEW project to produce the finished device folder
+5. Build ──► Build the LabVIEW project to produce the finished Custom Device Builds folder
                │
                ▼
-6. Deploy ──► Copy the finished device folder to the VeriStand Custom Devices directory
+6. Deploy ──► Copy the finished Custom Device folder present inside Builds folder to the VeriStand Custom Devices directory
 ```
 
 ---
@@ -45,11 +43,11 @@ Every property you declare in the XML becomes a typed control in System Explorer
 
 The `api-gen.exe` tool translates the XML definition into a C# project containing a strongly typed class for each device, section, channel, and waveform type you declared. Building that project produces the scripting API assembly that operators and automation scripts use to create and configure device nodes programmatically. See [Auto-Generated Scripting API](Auto_Generated_Scripting_API.md).
 
-#### Orchestration code
+#### LabVIEW clusters and template projects
 
 The wizard generates the RT Driver VI, Deployment Hooks library, and channel group utility VIs that coordinate device lifecycle (initialization, PCL execution, shutdown) and compile channel group data at system-definition build time. You implement device behaviour by overriding five methods on the generated LabVIEW class (`Initialize`, `Start`, `Read Data from HW`, `Write Data to HW`, `Close`). See [Auto-Generated Orchestration Code](Orchestration_Code.md).
 
-#### Debug tools
+#### Test Bench and Test Hooks
 
 The engine LabVIEW project includes a **Debug PPL** build spec that links your override VIs against the LabVIEW development environment. Build it to use LabVIEW's full debugger (breakpoints, probes, highlight execution) on your Windows PC, without a real-time target or a VeriStand deployment. See [Standalone Test Bench](Test_Bench.md).
 
