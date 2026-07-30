@@ -14,6 +14,71 @@ These rules are validated by `api-gen.exe` against the `GeneratedCustomDeviceAPI
 - Valid: `AnalogInput`, `SectionA0`, `MyDevice`
 - Invalid: `Analog Input`, `Section.A0`, `MyDevice'`
 - Property `PropertyName` attributes are **not** restricted this way and may contain spaces, brackets, and other characters.
+- Do not use reserved words in C#
+- Do not use following VeriStand specific reserved words
+  - Acceleration
+  - AliasMappingNode
+  - Average
+  - BasicMappingDiagramNode
+  - BoundedNumericCalculatedChannel
+  - CalculatedChannel
+  - CalculatedChannelSecondaryOutputHelper
+  - CANPort
+  - ChannelMapping
+  - ChannelMappingCollection
+  - ChannelMappingDiagram
+  - ChannelMappingTableLayoutSetting
+  - ChannelsChangedUserSetting
+  - Conditional
+  - ConvertTargetTag
+  - CustomDevice
+  - DatabaseOutOfSyncMessageHandler
+  - EcuNetworkClusterConfigurationAdapter
+  - EcuNetworkClusterModel
+  - FileOutOfSyncMessageHandler
+  - FlexRayPort
+  - Formula
+  - FormulaAnalysisResult
+  - FormulaAnalyzer
+  - FormulaLexer
+  - FormulaParser
+  - FormulaSyntaxFacts
+  - FPGADevice
+  - LegacyBaseNodeToContentTable
+  - LastSystemDefinitionConversionExtensions
+  - LINPort
+  - LowpassFilter
+  - MappingDiagramNode
+  - MappingDiagramNodeTerminal
+  - MappingImportResult
+  - Maximum
+  - Minimum
+  - ModelFrameworkModelUserSetting
+  - ModelSnapshot
+  - MultipleOutputCalculatedChannel
+  - NewContentUserSetting
+  - OlderVsModelUserSetting
+  - OrphanedTerminalNode
+  - PartialBundleExtensions
+  - PeakAndValley
+  - PluginSystemDefinitionConverter
+  - ReplaceMultipleTag
+  - SimulationModel
+  - SimulationModelChangeTag
+  - SimulationModelMessageHandler
+  - SlscMappingNode
+  - SlscModuleCustomDevice
+  - SyntaxDiagnosticMessage
+  - SystemDefinitionContentConverter
+  - SystemDefinitionConverter
+  - SystemDefinitionTag
+  - TargetDefinition
+  - TargetDefinitionBatchRule
+  - UserChannelsMappingNode
+  - VirtualEcuModel
+  - WireBundler
+  - WireChecker
+  - XNETDeviceMappingNode
 
 #### GUIDs
 

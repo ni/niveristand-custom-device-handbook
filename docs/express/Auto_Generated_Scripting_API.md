@@ -197,3 +197,13 @@ Behavior to be aware of:
 
 ![A successful api-gen.exe run](images/api-gen-exe-successful-run.png)
 
+---
+
+### Customizing the API by modifying the source
+
+The generated C# project under `Auto Generated\APIs\Source\GeneratedCode\<CustomDeviceName>\` is a standard .NET project, so you can open it, edit the generated classes, and rebuild `<NameSpace>.<CustomDeviceName>.dll` with the LabVIEW Express plugin or the .NET build tools. This is useful when you need behaviour the XML cannot express — for example, custom validation in a property setter, a convenience method on the device class, or additional import/export logic.
+
+> **Warning:** The source and the built assembly under `Auto Generated\` are regenerated from the XML every time the wizard runs, so hand edits are overwritten. Prefer changing the [XML definition](XML_Definition_Schema.md) whenever it can express what you need. Reserve source edits for cases the XML cannot cover, keep them minimal, and back them up so you can reapply them after a regenerate.
+
+When your customization is structural (channels, properties, sections, enums), always edit the XML and regenerate rather than modifying the source.
+
