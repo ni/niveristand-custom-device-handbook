@@ -1,4 +1,4 @@
-## Implementing Custom Logic in Express
+## Implementing a Custom Device
 
 ---
 
@@ -154,10 +154,10 @@ Log messages are routed to the VeriStand log and appear in the VeriStand Target 
 
 ##### Accessing Settings
 
-The **Settings** cluster represents the Custom Device's configuration and nodes as they appear in the system definition. The wizard generates it (a typedef stored under `Shared\`) from the input [XML definition](XML_Definition_Schema.md), and it mirrors the same hierarchy defined in the system definition and the XML: it contains all of the Custom Device's Properties, Channels, Sections, and Waveforms, nested exactly as they are in the tree.
+The **Settings** cluster represents the Custom Device's configuration and nodes as they appear in the system definition. The wizard generates it (a typedef stored under `Shared\`) from the input [XML definition](XML_Definition_Schema.md), and it mirrors the same hierarchy defined in the system definition and the XML. It contains all of the Custom Device's Properties, Channels, Sections, and Waveforms, nested exactly as they are in the tree.
 
 * `Properties` are type-safe controls. Each property keeps the exact name declared in the XML / system definition, and its LabVIEW data type matches the property type (`String`, `Double`, `Boolean`, the sized integers, `Path`, or a 1D array of any of these, etc).
-* **Channels, Sections, and Waveforms** appear as arrays, with the type name used as the label of the array in the cluster. This lets you access all nodes of a given type as a single list and operate on the whole set at once in the engine.
+* Channels, Sections, and Waveforms appear as arrays, with the type name used as the label of the array in the cluster. This lets you access all nodes of a given type as a single list and operate on the whole set at once in the engine.
 
 Because the whole tree is type-safe and named, you can navigate to any node by its type and name and read its configuration directly, without parsing strings or tracking indices.
 
@@ -214,3 +214,7 @@ The Test Hooks library provides a **Before** and **After** hook VI for each engi
 Use the **Before** hooks to seed inputs, inject channel values, and the **After** hooks to read back channel values and verify the engine produced the expected results. Because the hooks and Test Bench are decoupled from VeriStand, you can develop and debug the engine standalone.
 
 ---
+
+### `Builds`
+
+When you build the Custom Device, the wizard builds all of its components: the auto-generated API DLL, the auto-generated adapter Configuration, Engine, and System Explorer PPLs, and the Deployment Hooks and Custom Device PPLs. It also updates and copies the Custom Device XML file so VeriStand can discover and load the Custom Device in System Explorer. If you delete any of these built components from the `Builds` folder, you must rebuild them manually. Once built, you can copy the Custom Device folder as-is to the VeriStand Custom Device installation path, and then add it to a VeriStand system definition through System Explorer.

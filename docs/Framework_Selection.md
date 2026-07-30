@@ -1,8 +1,6 @@
 ## Selecting a Framework: Classic vs. Express
 
-VeriStand provides two frameworks you can use to create the LabVIEW project for a Custom Device. The **Classic** framework is the original, long-established framework; it contains basic boilerplate code and provides greater flexibility over the Custom Device architecture. The **Express** framework is the newer framework; its boilerplate code offers a better starting point by providing additional functionality out of the box, at the cost of more constraints on how you design and architect the Custom Device.
-
-Both the **Classic** and **Express** frameworks produce fully functional VeriStand Custom Devices. They differ in how much you author versus how much the framework generates for you, and in the amount of architectural control you retain as a result. Use the details below to decide which framework best fits your project.
+VeriStand provides two frameworks you can use to create the LabVIEW project for a Custom Device, and both produce fully functional VeriStand Custom Devices. Regardless of which framework you choose, Custom Devices work the same way and the basic concepts remain the same — the framework only affects your starting point, not how the Custom Device ultimately operates. The **Classic** framework is the original, long-established framework; it contains basic boilerplate code and provides greater flexibility over the Custom Device architecture. The **Express** framework is the newer framework; its boilerplate code offers a better starting point by auto-generating some aspects of the Custom Device, at the cost of more constraints on how you design and architect it. The two frameworks differ in how much you author versus how much the framework generates for you, and in the amount of architectural control you retain as a result. Use the details below to decide which framework best fits your project.
 
 ### Select Classic when you need control and flexibility
 

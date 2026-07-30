@@ -19,12 +19,25 @@ Before using the Express wizard, install the following:
 | [JSONtext](https://www.vipm.io/package/jdp_science_jsontext) | Latest |
 | [.NET SDK](https://dotnet.microsoft.com/en-us/download/dotnet/8.0) | 8.0 or later |
 
-> **Note:** Installing the **VeriStand Custom Device Development Tools** deploys the Express Custom Device LabVIEW add-on to `C:\Program Files\NI\LVAddons\nivscustomdeviceexpress\1`. 
->
-> Because it is installed as a LabVIEW add-on (`LVAddons`), its shared libraries and support VIs are available to LabVIEW automatically without being copied into each project. The folder contains `lvaddoninfo.json` (add-on metadata) and a `Targets\` directory with per-OS components—`Targets\win64\user.lib\` for the **Windows x64** target and `Targets\NI\RT\Linux\PXI\user.lib\` for the **NI Linux Real-Time (PXI)** target. 
-> Each target folder holds `Custom Device Interfaces_v1.lvlibp` (the Custom Device interface APIs), the `NIVS Inline Async API (Express)\` and `Custom Device Test Bench\` library used by the Express framework. 
->
-> These files are managed by the installer—do not edit or move them manually, as this can break wizard-generated projects that depend on them.
+#### Custom Device Express development tools
+
+Custom Device development using Express framework relies on three components installed as part of Custom Device Development Tools.
+
+LabVIEW add-on installed at `C:\Program Files\NI\LVAddons\nivscustomdeviceexpress\` contains these Express framework specific components. Because it is installed under `LVAddons`, its shared libraries and support VIs are available to LabVIEW automatically without being copied into each project. It provides the per-target components the Express framework builds on.
+
+**`Custom Device Interfaces_v1.lvlibp`** — a library of abstract LabVIEW interfaces that define the contract every Express Custom Device must fulfill. It is built as a Packed Project Library (PPL) and installed for both the Windows x64 and NI Linux Real-Time (PXI) targets. 
+  
+The library exposes three interface classes plus an internal utility class:
+- **Custom Device** — defines the engine lifecycle contract. It declares the `Initialize`, `Start`, `Read Data from HW`, `Write Data to HW`, and `Close` methods that you override in your generated `<CustomDeviceName> Engine.lvclass`.
+- **Custom Device API** — defines the VeriStand API wrappers you call from your custom code, including `Get Channel Value by Data Reference`, `Set Channel Value by Data Reference`, the block-data-reference variants, and `Print Debug Line`.
+- **Custom Device Deployment Hooks** — defines the host-side contract for compiling settings and channel-group data before they reach the engine.
+- **Custom Device Utility** — internal helper class used by the framework; you do not implement against it directly.
+
+**`NIVS Inline Async API (Express)`** — the framework that lets an inline Custom Device run one or more asynchronous processes alongside the Primary Control Loop (PCL). It handles initializing, launching, and cleaning up the asynchronous VIs, error handling and reporting, and data transfer between the inline and asynchronous VIs. This is the same framework used by the standard [NIVS Inline Async API](https://github.com/ni/niveristand-custom-device-development-tools/tree/main/inline-async-api), and its APIs and how you use them are unchanged.
+
+The only difference in the Express variant is that the VeriStand-specific APIs are decoupled from it. Instead of calling VeriStand channel APIs directly, it calls the **Custom Device API** interface from Custom Device Interfaces. Because the API is an interface, the engine code has no direct dependency on VeriStand, so the same Custom Device can be run and debugged standalone with the Custom Device Test Bench.
+
+**`Custom Device Test Bench`** — a standalone harness that lets you run, test, and debug the Custom Device engine and your custom code without deploying a full VeriStand system definition. Because it is decoupled from VeriStand, you can execute your override VIs, inject channel values, set breakpoints, and probe your code on the development PC. For more details, refer to [Test Bench](Test_Bench.md).
 
 ---
 
