@@ -181,8 +181,8 @@ At run time each group is represented by a **Channel Group** cluster. The utilit
 ![The Channel Group cluster: Channel Refs (Read, Write, ReadWrite), LUT, and Group Settings](images/channel-group-cluster.png)
 
 The cluster is organized around `Channel Refs`, which hold the data references and values for the channels in the group, split by direction/type.
-
-`LUT` is a look-up table that maps each channel to its index in the group so a named channel can be located within the block
+`LUT` is a look-up table that maps each channel to its index in the group, so a named channel can be located within the block.
+To obtain a specific channel group from `Channel Refs`, use the **NIVS Inline Async API (Express)** for an Inline-Async Custom Device, or the utility VI provided in the template for an Inline Custom Device.
 
 `Group Settings` holds the compiled metadata for the group: its name, its data direction (`Type`, for example `Output/Write`), and the per-channel settings (`Name`, `TypeName`, `ChannelProperties`) defined in the XML. When you need to iterate over the channels in a group, use these per-channel settings to identify and operate on each channel along with Channel Refs.
 
