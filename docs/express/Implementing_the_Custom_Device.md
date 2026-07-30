@@ -195,7 +195,9 @@ The generated framework provides pre-built utility VIs for channel data access. 
 | `Get Channel Group.vi` | Returns the Channel Group cluster for input/output channels |
 | `Get Grouped Channel Settings.vi` | Returns the compiled channel metadata from `Group Settings` |
 
-Refer the examples from [niveristand-custom-device-wizard/Custom Device Express](https://github.com/ni/niveristand-custom-device-wizard/tree/main/Custom%20Device%20Express) for understanding more on how the channels are accessed in Custom Device Engine.
+In the generated Custom Device Settings cluster, each channel node carries a **Group Name** and a **Group Index**, which identify the channel group it belongs to and its position within that group. You can use these two values to associate a section with a specific channel in a group. This is useful when a section-level configuration must be applied to every channel that belongs to that section. At run time, channels in a group do not retain any reference to their parent section — they can only access their own settings and properties from `Group Settings`. To map a section-level configuration from the Custom Device Settings cluster onto a channel, match each channel node under that section to the corresponding channel in the group using its Group Name and Group Index.
+
+Refer the examples from [niveristand-custom-device-wizard/Custom Device Express](https://github.com/ni/niveristand-custom-device-wizard/tree/main/Custom%20Device%20Express) for better understanding of how channels are accessed in Custom Device Engine.
 
 #### Test Hooks
 

@@ -69,7 +69,7 @@ The wizard generates a fully structured LabVIEW project along with Scripting API
 
 1. In LabVIEW, select **File → Create Project**.
 2. In the **Create Project** dialog, choose **NI VeriStand Custom Device Express** and click **Next**.
-3. Select **Execution Mode** and *Target Operating System**
+3. Select **Execution Mode** and **Target Operating System**
 4. In the **XML Editor**, define your Custom Device hierarchy and type definitions
    - Add **Properties**, **Channels**, **Waveforms**, and **Sections** as needed
    - XML Editor creates XML file based on [XML Schema](XML_Definition_Schema.md). While adding type definitions, follow [Configuration Rules](Configuration_Rules.md)
@@ -83,6 +83,8 @@ The wizard generates a fully structured LabVIEW project along with Scripting API
 ![XML Editor showing the Custom Device definition tree alongside the raw XML file](images/wizard-definition-editor-and-xml.png)
 
 > **Tip:** Keep the XML definition file under source control alongside your project. You can re-open it in the XML Editor at any time to add or modify device nodes, then regenerate the code.
+
+To add new sections, channels, waveforms, or property types to a Custom Device you have already generated, use the wizard's **Edit** workflow. Select the **Edit an Existing Custom Device** operation, then point the wizard at the existing Custom Device folder and the updated XML definition file. The wizard backs up your existing code to a `.edit.backup` folder and then regenerates the Custom Device code from the updated configuration.
 
 ---
 
