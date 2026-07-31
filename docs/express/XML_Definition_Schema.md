@@ -1,6 +1,8 @@
-## Custom Device XML Definition Schema
+## Custom Device XML Definition
 
-The Express framework builds a complete Custom Device from a single **Custom Device Definition XML** file. This file describes the Custom Device, its properties, and its child nodes (channels, waveforms, and sections). The Express wizard can generate this XML for you, or you can author it by hand.
+The Express framework builds a complete Custom Device from a single **Custom Device Definition XML** file. This file describes the Custom Device, its properties, and its child nodes (channels, waveforms, and sections). The Express wizard has an XML Editor tool that can help you generate this XML
+
+![XML Tool](images/xml-editor.png)
 
 This page documents every tag and type the definition XML supports, so you know exactly what you can describe in a Custom Device. The structure and rules on this page are enforced by the schema that ships with VeriStand (`GeneratedCustomDeviceAPI.xsd`). The [api-gen.exe](Auto_Generated_Scripting_API.md#generating-the-api-manually-with-api-genexe) tool validates your XML against this schema before it generates any code.
 
@@ -67,11 +69,11 @@ The `<CustomDevice>` element contains the following children, in order:
 | `CodeDocumentation` | *(Optional)* Summary text used as documentation in the generated API. |
 | `Properties` | The Custom Device's configuration properties. See [Properties](#properties). |
 | `DefaultChannelNodes` | Channels created automatically on every new Custom Device instance. |
-| `DynamicChannelNodes` | Channel types an operator can add at run time. |
+| `DynamicChannelNodes` | Channel types a user can add at run time. |
 | `DefaultWaveformNodes` | Waveforms created automatically on every new Custom Device instance. |
-| `DynamicWaveformNodes` | Waveform types an operator can add at run time. |
+| `DynamicWaveformNodes` | Waveform types a user can add at run time. |
 | `DefaultSectionNodes` | Sections created automatically on every new Custom Device instance. |
-| `DynamicSectionNodes` | Section types an operator can add at run time. |
+| `DynamicSectionNodes` | Section types a user can add at run time. |
 
 ---
 
@@ -134,7 +136,7 @@ A `<Waveform>` contains, in order:
 
 ### Child-node reference lists
 
-Inside a `<CustomDevice>` or `<Section>`, six lists declare which child nodes the node has. **Default** lists create named instances automatically. **Dynamic** lists declare which types an operator can add later.
+Inside a `<CustomDevice>` or `<Section>`, six lists declare which child nodes the node has. **Default** lists create named instances automatically. **Dynamic** lists declare which types a user can add later.
 
 ```xml
 <DefaultChannelNodes>
@@ -338,6 +340,6 @@ Before generating any code, the tool validates your XML against the schema and t
 * An unsupported type is used inside `<DefaultValue>`.
 * An invalid group-name expression.
 
-When you use the Express wizard's editor, the generated XML is always schema-valid. Hand-authored XML is validated the same way the moment you run generation.
+When you use the Express wizard's editor, the generated XML is always schema-valid.
 
 ![The wizard's definition editor alongside the XML it produces](images/wizard-definition-editor-and-xml.png)

@@ -6,7 +6,7 @@ The Express framework enforces a set of rules at generation time (when `api-gen.
 
 ### XML definition rules
 
-These rules are validated by `api-gen.exe` against the `GeneratedCustomDeviceAPI.xsd` schema before any code is generated. A violation produces a descriptive error that identifies the problem line in the XML.
+These rules are validated against the schema before any code is generated. A violation produces a descriptive error that identifies the problem line in the XML.
 
 #### Type names
 
@@ -15,90 +15,13 @@ These rules are validated by `api-gen.exe` against the `GeneratedCustomDeviceAPI
 - Invalid: `Analog Input`, `Section.A0`, `MyDevice'`
 - Property `PropertyName` attributes are **not** restricted this way and may contain spaces, brackets, and other characters.
 - Do not use reserved words in C#
-- Do not use following VeriStand specific reserved words
-  - Acceleration
-  - AliasMappingNode
-  - Average
-  - BasicMappingDiagramNode
-  - BoundedNumericCalculatedChannel
-  - CalculatedChannel
-  - CalculatedChannelSecondaryOutputHelper
-  - CANPort
-  - ChannelMapping
-  - ChannelMappingCollection
-  - ChannelMappingDiagram
-  - ChannelMappingTableLayoutSetting
-  - ChannelsChangedUserSetting
-  - Conditional
-  - ConvertTargetTag
-  - CustomDevice
-  - DatabaseOutOfSyncMessageHandler
-  - EcuNetworkClusterConfigurationAdapter
-  - EcuNetworkClusterModel
-  - FileOutOfSyncMessageHandler
-  - FlexRayPort
-  - Formula
-  - FormulaAnalysisResult
-  - FormulaAnalyzer
-  - FormulaLexer
-  - FormulaParser
-  - FormulaSyntaxFacts
-  - FPGADevice
-  - LegacyBaseNodeToContentTable
-  - LastSystemDefinitionConversionExtensions
-  - LINPort
-  - LowpassFilter
-  - MappingDiagramNode
-  - MappingDiagramNodeTerminal
-  - MappingImportResult
-  - Maximum
-  - Minimum
-  - ModelFrameworkModelUserSetting
-  - ModelSnapshot
-  - MultipleOutputCalculatedChannel
-  - NewContentUserSetting
-  - OlderVsModelUserSetting
-  - OrphanedTerminalNode
-  - PartialBundleExtensions
-  - PeakAndValley
-  - PluginSystemDefinitionConverter
-  - ReplaceMultipleTag
-  - SimulationModel
-  - SimulationModelChangeTag
-  - SimulationModelMessageHandler
-  - SlscMappingNode
-  - SlscModuleCustomDevice
-  - SyntaxDiagnosticMessage
-  - SystemDefinitionContentConverter
-  - SystemDefinitionConverter
-  - SystemDefinitionTag
-  - TargetDefinition
-  - TargetDefinitionBatchRule
-  - UserChannelsMappingNode
-  - VirtualEcuModel
-  - WireBundler
-  - WireChecker
-  - XNETDeviceMappingNode
 
 #### GUIDs
 
 - Every `TypeGuid` must be a valid GUID string in the format `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.
 - GUIDs must be **unique within the document**. Reusing a GUID for two different types causes a generation error.
 - GUIDs must be **stable across regenerations** for the same type. Changing a GUID in the XML while an existing system definition references the old GUID will cause VeriStand to fail to load the saved Custom Device.
-
-#### Document order
-
-Elements inside `<VeriStandGeneratedCustomDeviceAPI>` must appear in this order:
-1. `<CustomDevice>` (exactly one)
-2. Any number of `<Channel>`, `<Waveform>`, and `<Section>` definitions, in any order among themselves
-3. `<EnumDefinitions>` (optional)
-
-Elements inside a `<CustomDevice>` or `<Section>` must appear in this order:
-1. `<CodeDocumentation>` (optional)
-2. `<Properties>`
-3. `<DefaultChannelNodes>` / `<DynamicChannelNodes>`
-4. `<DefaultWaveformNodes>` / `<DynamicWaveformNodes>`
-5. `<DefaultSectionNodes>` / `<DynamicSectionNodes>`
+- Custom Device Express wizard contains XML Editor tool, which creates GUIDs for each type definitions you add. Do not manually add/edit the GUIDs.
 
 #### Node list references
 
@@ -123,11 +46,9 @@ These rules affect how the generator maps XML names to C# API members. See [Prop
 
 ---
 
-
 ### Build and file layout constraints
 
 - The finished Custom Device folder must be placed under `<Common Data>\National Instruments\NI VeriStand <version>\Custom Devices\` to be visible in System Explorer.
 - Windows libraries (`*.lvlibp`, `*.dll`) must be in the `Windows\` subfolder; Linux x64 libraries must be in the `Linux_x64\` subfolder.
-- The scripting API assembly must reside in **both** `Windows\` (for System Explorer, which runs on Windows) and, for non-scripting-API scenarios, referenced from the Custom Device's XML loader. VeriStand looks for it at the path recorded in the Custom Device's run-time XML.
+- The scripting API assembly must reside in `Windows\` (for System Explorer, which runs on Windows) folder. VeriStand looks for it at the path recorded in the Custom Device's XML.
 - Do not ship the `Auto Generated\` source tree inside the finished Custom Device folder. The `Builds\` output is self-contained.
-

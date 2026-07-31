@@ -70,7 +70,7 @@ ExampleCustomDevice\
         DependentNodeJsonSerializer.cs
 ```
 
-* A class is generated for the Custom Device and for each `Channel`, `Waveform`, and `Section` type, plus a matching **factory** class for each. The factory is what System Explorer uses to create the node when an operator adds it.
+* A class is generated for the Custom Device and for each `Channel`, `Waveform`, and `Section` type, plus a matching **factory** class for each. The factory is what System Explorer uses to create the node when an user adds it.
 * `EnumDefinitions.cs` is generated only when your XML declares an `<EnumDefinitions>` block.
 * Building this project produces `<NameSpace>.<CustomDeviceName>.dll` (for example, `CompanyName.Product.ExampleCustomDevice.dll`), the scripting API assembly that the finished Custom Device includes.
 * The project targets the .NET Framework and references the VeriStand system-definition assemblies. It is a standard project that builds with the LabVIEW Express plugin (during the automated build) or with the .NET build tools.
@@ -134,7 +134,7 @@ SectionA0[] sections    = device.GetSectionA0s();
 AnalogInput[] waveforms = device.GetAnalogInputs();
 ```
 
-The `Default` node lists in the XML are created for you automatically when you construct a new Custom Device. The `Dynamic` node lists determine which `Add...` methods exist for operator-addable types.
+The `Default` node lists in the XML are created for you automatically when you construct a new Custom Device. The `Dynamic` node lists determine which `Add...` methods exist for user-addable types.
 
 #### Configuration import and export
 
@@ -148,6 +148,210 @@ device.ImportFromJson(@"C:\configs\device.json"); // load configuration from JSO
 device.ImportFromXml(@"C:\configs\device.xml");   // load configuration from a definition XML
 device.ExportToXml(@"C:\configs\device.xml");     // write configuration to XML
 ```
+
+Below is an example json representation of Custom Device from ExportToJson
+<div style="max-height: 300px; overflow-y: auto; overflow-x: auto; border: 1px solid #ccc; padding: 10px; border-radius: 5px;">
+
+```json
+{
+  "SystemMonitor": {
+    "Name": "SystemMonitor",
+    "Properties": {
+      "TargetOS": "Windows",
+      "TargetRate": 100.0,
+      "Update Rate (Hz)": 10.0
+    },
+    "Sections": {
+      "CPUOverall[]": [
+        {
+          "Name": "CPU Overall",
+          "Channels": {
+            "Average[]": [
+              {
+                "GroupName": "Incoming",
+                "Name": "Average",
+                "Type": "Output",
+                "Units": "%",
+                "Faultable": false,
+                "Scalable": false,
+                "DefaultValue": 0.0,
+                "ChannelDataReference": -8
+              }
+            ],
+            "Maximum[]": [
+              {
+                "GroupName": "Incoming",
+                "Name": "Maximum",
+                "Type": "Output",
+                "Units": "%",
+                "Faultable": false,
+                "Scalable": false,
+                "DefaultValue": 0.0,
+                "ChannelDataReference": -8
+              }
+            ]
+          }
+        }
+      ],
+      "MemoryUsage[]": [
+        {
+          "Name": "Memory Usage",
+          "Channels": {
+            "TotalMemory[]": [
+              {
+                "GroupName": "Incoming",
+                "Name": "Total Memory",
+                "Type": "Output",
+                "Units": "kB",
+                "Faultable": false,
+                "Scalable": false,
+                "DefaultValue": 0.0,
+                "ChannelDataReference": -8
+              }
+            ],
+            "Available[]": [
+              {
+                "GroupName": "Incoming",
+                "Name": "Available",
+                "Type": "Output",
+                "Units": "kB",
+                "Faultable": false,
+                "Scalable": false,
+                "DefaultValue": 0.0,
+                "ChannelDataReference": -8
+              }
+            ]
+          }
+        }
+      ],
+      "CPU[]": []
+    }
+  }
+}
+```
+</div>
+<br>
+
+Below is an example XML representation of Custom Device from ExportToXml
+<div style="max-height: 300px; overflow-y: auto; overflow-x: auto; border: 1px solid #ccc; padding: 10px; border-radius: 5px;">
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<SectionDocument xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="SectionDocument.xsd">
+	<Version Major="2020" Minor="0" Fix="0" Build="0" />
+	<Section Name="SystemMonitor" TypeGUID="83C5DD7A-68C5-4260-8FC3-8ECCA1D25122" Identifier="d8b416cb-c9fb-42ce-9e1a-c5068cfc02f9">
+		<Description />
+		<Properties>
+			<Property Name="CD Status">
+				<U32>1</U32>
+			</Property>
+			<Property Name="Driver VI Exec Mode">
+				<U32>1</U32>
+			</Property>
+			<Property Name="Version">
+				<String>1.0</String>
+			</Property>
+			<Property Name="Dependency_1">
+				<DependentFile Type="To Common Doc Dir" Path="Custom Devices\SystemMonitor\Linux_x64\Adapter\Custom Device Interfaces_v1.lvlibp">
+					<Version />
+					<ForceDownload>false</ForceDownload>
+					<RTDestination>c:\ni-rt\VeriStand\Custom Devices\SystemMonitor\Adapter\Custom Device Interfaces_v1.lvlibp</RTDestination>
+					<SupportedTarget>Linux_x64</SupportedTarget>
+					<MD5>f27295ff79e82fc196523d6f47cad98d</MD5>
+				</DependentFile>
+			</Property>
+			<Property Name="Dependency_2">
+				<DependentFile Type="To Common Doc Dir" Path="Custom Devices\SystemMonitor\Linux_x64\SystemMonitor.lvlibp">
+					<Version />
+					<ForceDownload>false</ForceDownload>
+					<RTDestination>c:\ni-rt\VeriStand\Custom Devices\SystemMonitor\SystemMonitor.lvlibp</RTDestination>
+					<SupportedTarget>Linux_x64</SupportedTarget>
+					<MD5>07b8ca4ebad8962d70f7d3ea0edf67aa</MD5>
+				</DependentFile>
+			</Property>
+			<Property Name="Dependency_3">
+				<DependentFile Type="To Common Doc Dir" Path="Custom Devices\SystemMonitor\Linux_x64\Adapter\SystemMonitor Engine Linux64.lvlibp">
+					<Version />
+					<ForceDownload>false</ForceDownload>
+					<RTDestination>c:\ni-rt\VeriStand\Custom Devices\SystemMonitor\Adapter\SystemMonitor Engine Linux64.lvlibp</RTDestination>
+					<SupportedTarget>Linux_x64</SupportedTarget>
+					<MD5>87e3c45cc9a8e60d568cc07dae650e51</MD5>
+				</DependentFile>
+			</Property>
+			<Property Name="user.CD.Update Rate (Hz)">
+				<Double>10</Double>
+			</Property>
+			<Property Name="user.CD.IsInstanceOfGeneratedCustomDeviceClass">
+				<Boolean>true</Boolean>
+			</Property>
+			<Property Name="user.CD.Async Init Timeout">
+				<U16>5000</U16>
+			</Property>
+		</Properties>
+		<Errors />
+		<Section Name="CPU Overall" TypeGUID="B1AD58B7-82B2-4510-985C-757166E6253C" Identifier="be9ab4a7-4663-4df9-8b14-2660edbfe623">
+			<Description />
+			<Properties />
+			<Errors />
+			<Channel Name="Average" TypeGUID="75DCE586-A85C-4195-B00F-BDB2A0B00C2A" Identifier="ba971187-bc2c-4d7d-8a60-341e6ff01ed5" RowDim="1" ColDim="1" Units="%" BitFields="1">
+				<Description />
+				<Properties>
+					<Property Name="user.CD.Group Name">
+						<String>Incoming</String>
+					</Property>
+				</Properties>
+				<Errors />
+				<DefaultValue>
+					<Elem>0</Elem>
+				</DefaultValue>
+			</Channel>
+			<Channel Name="Maximum" TypeGUID="5DD58C29-A344-44F7-9F33-268CF7DD13DE" Identifier="b6929616-c65b-4e18-886a-8d7c1623c5d2" RowDim="1" ColDim="1" Units="%" BitFields="1">
+				<Description />
+				<Properties>
+					<Property Name="user.CD.Group Name">
+						<String>Incoming</String>
+					</Property>
+				</Properties>
+				<Errors />
+				<DefaultValue>
+					<Elem>0</Elem>
+				</DefaultValue>
+			</Channel>
+		</Section>
+		<Section Name="Memory Usage" TypeGUID="108C37EA-BB68-4392-BEE4-1A2ECD32F472" Identifier="449d9973-0f17-4ccb-a401-0336230a8a9a">
+			<Description />
+			<Properties />
+			<Errors />
+			<Channel Name="Total Memory" TypeGUID="8E28A37F-542A-41F5-B1B7-E5911C12A98B" Identifier="62848338-164a-445e-aa7c-d8e32a3967a7" RowDim="1" ColDim="1" Units="kB" BitFields="1">
+				<Description />
+				<Properties>
+					<Property Name="user.CD.Group Name">
+						<String>Incoming</String>
+					</Property>
+				</Properties>
+				<Errors />
+				<DefaultValue>
+					<Elem>0</Elem>
+				</DefaultValue>
+			</Channel>
+			<Channel Name="Available" TypeGUID="D3DF01A4-948E-402D-BB20-EE63EE952155" Identifier="834991e4-dfd4-43f8-8f4c-7cad8973a13a" RowDim="1" ColDim="1" Units="kB" BitFields="1">
+				<Description />
+				<Properties>
+					<Property Name="user.CD.Group Name">
+						<String>Incoming</String>
+					</Property>
+				</Properties>
+				<Errors />
+				<DefaultValue>
+					<Elem>0</Elem>
+				</DefaultValue>
+			</Channel>
+		</Section>
+	</Section>
+</SectionDocument>
+```
+</div>
+<br>
 
 These same operations are available to operators as right-click actions in System Explorer. See [Importing and exporting a configuration](Auto_Generated_UI.md#importing-and-exporting-a-configuration).
 

@@ -62,7 +62,7 @@ The Configuration library contains two VIs that VeriStand calls directly: `Initi
 
 `Initialization VI.vi` runs when VeriStand loads the Custom Device. System Explorer calls this VI the same way in both the Classic and Express frameworks. In the Express framework, it reads the hierarchy defined in the XML definition file and adds the default nodes to the Custom Device tree in System Explorer.
 
-`ActionVIOnCompile.vi` runs when the operator deploys the project, which compiles the system definition. It sets the RT driver file paths so VeriStand knows where to find the engine PPL on the target, and calls into the deployment hooks to retrieve the compiled settings.
+`ActionVIOnCompile.vi` runs when the user deploys the project, which compiles the system definition. It sets the RT driver file paths so VeriStand knows where to find the engine PPL on the target, and calls into the deployment hooks to retrieve the compiled settings.
 
 You can customize the functionality `Initialization VI.vi` and `ActionVIOnCompile.vi` provide, but it is your responsibility to ensure your changes do not break the overall architecture.
 
@@ -88,7 +88,7 @@ Any additional APIs you need to use in the custom code, you can add to `NIVS Cus
 
 #### System Explorer
 
-The System Explorer UI library contains `Main Page.vi`(UI for Custom Device in System Explorer tree), along with the Page VIs(for specific section/channel/waveform types), Runtime Menu VIs, and Action VIs generated for each type definition in the input XML file. VeriStand System Explorer renders the Custom Device pages an operator sees from this library.
+The System Explorer UI library contains `Main Page.vi`(UI for Custom Device in System Explorer tree), along with the Page VIs(for specific section/channel/waveform types), Runtime Menu VIs, and Action VIs generated for each type definition in the input XML file. VeriStand System Explorer renders the Custom Device pages a user sees from this library.
 
 The Page VIs and Runtime Menu VIs call into the generated APIs in `<NameSpace>.<CustomDeviceName>.dll`. The pages also include the auto-generated GUI for the configurations/properties defined by the type definitions and hierarchies in the input XML file. For details on the auto-generated UI and how to customize it (for example with a `GUI Layout.yaml` file), see [Auto-Generated System Explorer UI](Auto_Generated_UI.md).
 
@@ -102,7 +102,7 @@ This is the code the wizard opens when you click `Finish`. **It contains the cla
 
 #### Deployment Hooks
 
-The wizard generates a **Deployment Hooks** library (`<CustomDeviceName> Deployment Hooks.lvlibp`). This runs on the **host** (Windows) when the operator compiles the system definition and produces the compiled channel group data and Custom Device settings that the engine reads at run time.
+The wizard generates a **Deployment Hooks** library (`<CustomDeviceName> Deployment Hooks.lvlibp`). This runs on the **host** (Windows) when the user deploys the system definition and as a result compiled channel group data and Custom Device settings that the engine reads at run time are compiled.
 
 | Deployment Hooks VI | Purpose |
 |---|---|
@@ -161,20 +161,20 @@ The **Settings** cluster represents the Custom Device's configuration and nodes 
 
 Because the whole tree is type-safe and named, you can navigate to any node by its type and name and read its configuration directly, without parsing strings or tracking indices.
 
-When the operator deploys and compiles the system definition, settings are compiled and delivered to the engine in this Settings cluster. Read the cluster once during `Initialize.vi` to transform the raw values into your engine-specific format and store as target/engine specific settings in Custom Device class. In other override methods, read the target/engine specific settings cluster from the Custom Device class
+When the user deploys and compiles the system definition, settings are compiled and delivered to the engine in this Settings cluster. Read the cluster once during `Initialize.vi` to transform the raw values into your engine-specific format and store as target/engine specific settings in Custom Device class. In other override methods, read the target/engine specific settings cluster from the Custom Device class
 
 ##### Accessing Channels
 
 In Express framework, the engine does not work with individual channels one at a time. Instead, it works with **channel groups**. A channel group collects every channel that shares the same `GroupName`, so you can read or write all of their values in a single block operation.
 
-Grouping is driven by the [XML definition](XML_Definition_Schema.md). Every `<Channel>` type declares a `GroupName` attribute, and each channel an operator adds under the Custom Device in the system definition is collected into the group named by its type. For example, given the following type definitions:
+Grouping is driven by the [XML definition](XML_Definition_Schema.md). Every `<Channel>` type declares a `GroupName` attribute, and each channel a user adds under the Custom Device in the system definition is collected into the group named by its type. For example, given the following type definitions:
 
 ```xml
 <Channel TypeName="FrequencyChannel" TypeGuid="..." GroupName="Test1"> ... </Channel>
 <Channel TypeName="TimeChannel"      TypeGuid="..." GroupName="Test2"> ... </Channel>
 ```
 
-every `FrequencyChannel` (for example `FrequencyTime`, `FrequencyTime1`) is collected into the **Test1** group, and every `TimeChannel` (for example `CD Time`, `CD Time1`) into the **Test2** group. When the operator deploys and compiles the system definition, the [Deployment Hooks](#deployment-hooks) library resolves these groups and hands the engine the compiled channel-group data.
+every `FrequencyChannel` (for example `FrequencyTime`, `FrequencyTime1`) is collected into the **Test1** group, and every `TimeChannel` (for example `CD Time`, `CD Time1`) into the **Test2** group. When the user deploys and compiles the system definition, the [Deployment Hooks](#deployment-hooks) library resolves these groups and hands the engine the compiled channel-group data.
 
 At run time each group is represented by a **Channel Group** cluster. The utility VIs return and operate on this cluster, which contains everything the engine needs to move data between VeriStand and your custom code:
 

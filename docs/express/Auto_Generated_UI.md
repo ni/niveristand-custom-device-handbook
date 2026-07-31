@@ -11,7 +11,7 @@ This page describes what UI you get out of the box, the controls each property t
 1. Build and place the finished Custom Device folder in the VeriStand Custom Devices directory (see [Distributing the Custom Device](../Distributing_the_Custom_Device.md)).
 2. Launch VeriStand and open (or create) a system definition in **System Explorer**.
 3. Right-click the **Custom Devices** node, and add your Custom Device from the menu. The Custom Device, along with its default channels, waveforms, and sections, appears in the configuration tree.
-4. Select the device node (or any of its child nodes). The right-hand pane shows the auto-generated configuration controls for that node's properties.
+4. Select the Custom Device node (or any of its child nodes). The right-hand pane shows the auto-generated configuration controls for that node's properties.
 
 ![System Explorer with the Custom Device selected and the configuration pane populated](images/system-explorer-configuration-pane.png)
 
@@ -38,11 +38,14 @@ Each property is rendered with a control appropriate to its [type](XML_Definitio
 
 Read-only properties (those without a public setter) are displayed but not editable.
 
+The highlighted section below shows an example of an auto-generated UI in System Explorer.
+![Auto-generated UI Example](images/auto-generated-ui-control-example.png)
+
 ---
 
 ### Importing and exporting a configuration
 
-A device node in System Explorer exposes right-click actions to move its configuration in and out of files. These mirror the [scripting API](Auto_Generated_Scripting_API.md#configuration-import-and-export) methods.
+A Custom Device node in System Explorer exposes right-click actions to move its configuration in and out of files. These mirror the [scripting API](Auto_Generated_Scripting_API.md#configuration-import-and-export) methods.
 
 | Action | What it does |
 |---|---|
@@ -66,7 +69,7 @@ To control how the configuration pane is organized — grouping properties into 
 #### Placement and loading
 
 * The file must be named exactly **`GUI Layout.yaml`** and sit in the **same folder as the generated scripting API assembly** (`<NameSpace>.<TypeName>.dll`, for example `CompanyName.Product.ExampleCustomDevice.dll`). In a finished Custom Device this assembly is in the Custom Device's `Windows\Plugins` folder, so place `GUI Layout.yaml` next to it there.
-* It is **GUI-only**. The API generator neither creates nor reads it; you add it to the device folder yourself (or distribute it with the Custom Device).
+* It is **GUI-only**. The API generator neither creates nor reads it; you add it to the Custom Device folder yourself (or distribute it with the Custom Device).
 * The layout is **read once per node type per VeriStand session** and cached. After editing the file, **restart VeriStand** (or reopen the system definition) to see changes.
 * If no file is present, or a node type has no entry, that node uses the [default layout](#what-the-default-ui-looks-like).
 
@@ -145,7 +148,7 @@ ExampleCustomDevice:
 
 * A **Visibility** rule that evaluates to `false` hides the property (or section).
 * An **Editability** rule that evaluates to `false` makes the property (or section) read-only/disabled.
-* Rules update **live** as the operator changes the controlling property values.
+* Rules update **live** as the user changes the controlling property values.
 
 #### Expression syntax
 
@@ -180,7 +183,7 @@ Examples:
 
 #### Defining a layout for multiple node types
 
-A single `GUI Layout.yaml` can describe layouts for the device and for its section/channel/waveform types. Add one top-level header per node type; VeriStand applies the matching layout to whichever node the operator selects.
+A single `GUI Layout.yaml` can describe layouts for the Custom Device and for its section/channel/waveform types. Add one top-level header per node type; VeriStand applies the matching layout to whichever node the user selects.
 
 ```yaml
 ExampleCustomDevice:

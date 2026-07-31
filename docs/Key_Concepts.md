@@ -10,11 +10,11 @@ The *system definition* is the file that describes an entire VeriStand system �
 
 ### System Explorer
 
-*System Explorer* is the VeriStand configuration environment in which an operator adds, arranges, and configures a system definition. A Custom Device presents its configuration to the operator as a tree of items in the System Explorer configuration pane. For more information, refer to the *VeriStand Help* topic [System Explorer](https://www.ni.com/docs/en-US/bundle/veristand/page/environment.html).
+*System Explorer* is the VeriStand configuration environment in which an user adds, arranges, and configures a system definition. A Custom Device presents its configuration to the user as a tree of items in the System Explorer configuration pane. For more information, refer to the *VeriStand Help* topic [System Explorer](https://www.ni.com/docs/en-US/bundle/veristand/page/environment.html).
 
 ### Sections and hierarchy
 
-VeriStand presents each Custom Device as a *hierarchy* in System Explorer, which lets developers organize and present the Custom Device to the operator. Every item in the tree is a channel, a waveform, or a section. A *section* is an item that groups other items in the hierarchy. The following rules apply:
+VeriStand presents each Custom Device as a *hierarchy* in System Explorer, which lets developers organize and present the Custom Device to the user. Every item in the tree is a channel, a waveform, or a section. A *section* is an item that groups other items in the hierarchy. The following rules apply:
 
 * You cannot create additional levels of a hierarchy beneath a channel or a waveform.
 * You cannot map sections to other items in VeriStand.
@@ -27,7 +27,7 @@ VeriStand presents each Custom Device as a *hierarchy* in System Explorer, which
 * An **output channel** sources data to the rest of the VeriStand system (data the Custom Device produces).
 * An **input channel** sinks data from the rest of the system (data the Custom Device consumes).
 
-Once the Custom Device is loaded, the operator maps each input channel to a single data source and each output channel to any number of sinks.
+Once the Custom Device is loaded, the user maps each input channel to a single data source and each output channel to any number of sinks.
 
 ### Waveforms
 
@@ -43,9 +43,9 @@ Every node in a Custom Device hierarchy — the Custom Device itself, each secti
 
 ### Pages
 
-*Pages* are VIs that System Explorer displays in the configuration pane subpanel. When the operator clicks an item in the configuration tree, its page runs on the host computer and defines the appearance and configuration experience for that item. There are a few kinds of page:
+*Pages* are VIs that System Explorer displays in the configuration pane subpanel. When the user clicks an item in the configuration tree, its page runs on the host computer and defines the appearance and configuration experience for that item. There are a few kinds of page:
 
-* **Main Page** — The page shown when the operator selects the top-level Custom Device item.
+* **Main Page** — The page shown when the user selects the top-level Custom Device item.
 * **Default page** — The built-in section or channel page shown when a developer has not assigned a custom page to an item.
 * **Extra page** — A developer-authored page that overrides an item's default page to customize its front panel and behavior.
 
@@ -57,6 +57,6 @@ In the Classic framework you author page VIs yourself; in the Express framework 
 
 ### Configuration and Engine (RT Driver VI)
 
-A Custom Device has two sides. The *configuration* side runs on the host computer and defines how the operator adds and configures the Custom Device through System Explorer (initialization VI, pages, action VIs). On the configuration side, the *Initialization VI* is the configuration VI that System Explorer runs whenever the Custom Device is added to the system definition. It builds up the default channel/section list and does not populate the subpanel.
+A Custom Device has two sides. The *configuration* side runs on the host computer and defines how the user adds and configures the Custom Device through System Explorer (initialization VI, pages, action VIs). On the configuration side, the *Initialization VI* is the configuration VI that System Explorer runs whenever the Custom Device is added to the system definition. It builds up the default channel/section list and does not populate the subpanel.
 
 The *engine* side runs on the target inside the [VeriStand Engine](https://www.ni.com/docs/en-US/bundle/veristand/page/vs-engine.html) and defines the Custom Device's run-time behavior. Its behavior is defined by the *RT Driver VI*, which runs after the Custom Device deploys to the execution host and is where the Custom Device does its real work — reading and writing channel data and communicating with hardware. When the engine executes with respect to the rest of the system is determined by its [execution mode](Custom_Device_Types.md). Configuration data reaches the engine through properties stored in the system definition and deployed to the target.
