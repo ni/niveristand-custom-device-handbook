@@ -174,7 +174,7 @@ Grouping is driven by the [XML definition](XML_Definition_Schema.md). Every `<Ch
 <Channel TypeName="TimeChannel"      TypeGuid="..." GroupName="Test2"> ... </Channel>
 ```
 
-every `FrequencyChannel` (for example `FrequencyTime`, `FrequencyTime1`) is collected into the **Test1** group, and every `TimeChannel` (for example `CD Time`, `CD Time1`) into the **Test2** group. When the user deploys and compiles the system definition, the [Deployment Hooks](#deployment-hooks) library resolves these groups and hands the engine the compiled channel-group data. If a channel is not associated with a group in XML definition file, it is either grouped as 'Incoming' or 'Outgoing' channel based on its type.
+every `FrequencyChannel` (for example `FrequencyTime`, `FrequencyTime1`) is collected into the **Test1** group, and every `TimeChannel` (for example `CD Time`, `CD Time1`) into the **Test2** group. When the user deploys and compiles the system definition, the Deployment Hooks library resolves these groups and hands the engine the compiled channel-group data. If a channel is not associated with a group in XML definition file, it is either grouped as 'Incoming' or 'Outgoing' channel based on its type.
 
 At run time each group is represented by a **Channel Group** cluster. The utility VIs return and operate on this cluster, which contains everything the engine needs to move data between VeriStand and your custom code:
 
@@ -199,9 +199,11 @@ In the generated Custom Device Settings cluster, each channel node carries a **G
 
 Refer the examples from [niveristand-custom-device-wizard/Custom Device Express](https://github.com/ni/niveristand-custom-device-wizard/tree/main/Custom%20Device%20Express) for better understanding of how channels are accessed in Custom Device Engine.
 
-#### Test Hooks
+#### Test Bench
 
-The `Test Hooks\` folder contains the **Test Hooks** library (`Test Hooks.lvlib`) and a standalone **Test Bench** project. The Test Bench lets you test  the Custom Device engine without deploying a full VeriStand system definition, so you can run your override VIs, inject channel values, and test the behaviour during development. You can also add breakpoints, probe to your custom code, build debug PPLs and debug in standalone mode.
+The `Test Bench\` folder contains the **Run Test Bench VI** and **Test Hooks** library (`Test Hooks.lvlib`). 
+
+The Run Test Bench VI lets you test  the Custom Device engine without deploying a full VeriStand system definition, so you can run your override VIs, inject channel values, and test the behaviour during development. You can also add breakpoints, probe to your custom code, build debug PPLs and debug in standalone mode. For Test Bench to allow debugging Engine code, you need to replace the Deployment Hooks and Custom Device Engine class constants in Test Bench Constants VI.
 
 The Test Hooks library provides a **Before** and **After** hook VI for each engine state. The Test Bench calls these hooks around the corresponding override method, giving you a place to set up test conditions before a state runs and to inspect or assert on the results after it completes.
 
@@ -214,6 +216,8 @@ The Test Hooks library provides a **Before** and **After** hook VI for each engi
 | `Before Close.vi` / `After Close.vi` | `Close.vi` |
 
 Use the **Before** hooks to seed inputs, inject channel values, and the **After** hooks to read back channel values and verify the engine produced the expected results. Because the hooks and Test Bench are decoupled from VeriStand, you can develop and debug the engine standalone.
+
+For detailed explaination on how to test your custom code using Test Bench, refer [Test Bench](Test_Bench.md)
 
 ---
 

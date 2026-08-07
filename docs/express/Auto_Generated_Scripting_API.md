@@ -353,7 +353,7 @@ Below is an example XML representation of Custom Device from ExportToXml
 </div>
 <br>
 
-These same operations are available to operators as right-click actions in System Explorer. See [Importing and exporting a configuration](Auto_Generated_UI.md#importing-and-exporting-a-configuration).
+These same operations are available to users as right-click actions in System Explorer. See [Importing and exporting a configuration](Auto_Generated_UI.md#importing-and-exporting-a-configuration).
 
 ---
 

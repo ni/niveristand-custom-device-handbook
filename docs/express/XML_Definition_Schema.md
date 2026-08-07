@@ -4,7 +4,7 @@ The Express framework builds a complete Custom Device from a single **Custom Dev
 
 ![XML Tool](images/xml-editor.png)
 
-This page documents every tag and type the definition XML supports. It is recommended to create the definition XML file using the XML Tool and avoid manual edits. Following details are for reference so you know exactly what you can describe in a Custom Device.
+This page documents every tag and type the definition XML supports. **It is recommended to create the definition XML file using the XML Tool and avoid manual edits**. Following details are for reference so you know exactly what you can describe in a Custom Device.
 
 The structure and rules on this page are enforced by the schema that ships with VeriStand (`GeneratedCustomDeviceAPI.xsd`). The [api-gen.exe](Auto_Generated_Scripting_API.md#generating-the-api-manually-with-api-genexe) tool, which is called by wizard while generating template, validates your XML against this schema before it generates any code.
 

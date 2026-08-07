@@ -43,7 +43,7 @@ An optional `GUI Layout.yaml` file lets you arrange controls into named sections
 
 #### Scripting API
 
-The `api-gen.exe` tool translates the XML definition into a C# project containing a strongly typed class for each Custom Device, section, channel, and waveform type you declared. Building that project produces the scripting API assembly that operators and automation scripts use to create and configure Custom Device nodes programmatically.
+The wizard calls `api-gen.exe` tool, that translates the XML definition into a C# project containing a strongly typed class for each Custom Device, section, channel, and waveform type you declared. Wizard then Builds that project and produces the scripting API assembly that developers can use to create and configure Custom Device nodes programmatically.
 
 #### LabVIEW typedefs and template projects
 

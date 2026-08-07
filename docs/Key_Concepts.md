@@ -45,7 +45,7 @@ A *waveform* is a channel-like item whose value is an array of data (`double` or
 * **Default page** — The built-in section or channel page shown when a developer has not assigned a custom page to an item.
 * **Extra page** — A developer-authored page that overrides an item's default page to customize its front panel and behavior.
 
-In the Classic framework you author page VIs yourself; in the Express framework the System Explorer UI is [generated automatically](express/Auto_Generated_UI.md) from the XML definition.
+In the Classic framework you author page VIs yourself; in the Express framework the System Explorer UI is generated automatically from the XML definition.
 
 ### Custom Device items and GUIDs
 
