@@ -201,11 +201,11 @@ Refer the examples from [niveristand-custom-device-wizard/Custom Device Express]
 
 #### Test Bench
 
-The `Test Bench\` folder contains the **Run Test Bench VI** and **Test Hooks** library (`Test Hooks.lvlib`). 
+The `Test Bench\` folder contains the **Run Test Bench VI** and **Test Hooks** library (`Test Hooks.lvlib`).
 
-The Run Test Bench VI lets you test  the Custom Device engine without deploying a full VeriStand system definition, so you can run your override VIs, inject channel values, and test the behaviour during development. You can also add breakpoints, probe to your custom code, build debug PPLs and debug in standalone mode. For Test Bench to allow debugging Engine code, you need to replace the Deployment Hooks and Custom Device Engine class constants in Test Bench Constants VI.
+The **Run Test Bench VI** lets you test the Custom Device engine without deploying a full VeriStand system definition, so you can run your override VIs, inject channel values, and test the behaviour during development. You can also add breakpoints, probe to your custom code, build debug PPLs and debug in standalone mode.
 
-The Test Hooks library provides a **Before** and **After** hook VI for each engine state. The Test Bench calls these hooks around the corresponding override method, giving you a place to set up test conditions before a state runs and to inspect or assert on the results after it completes.
+The **Test Hooks library** provides a **Before** and **After** hook VI for each engine state. The Test Bench calls these hooks around the corresponding override method, giving you a place to set up test conditions before a state runs and to inspect or assert on the results after it completes.
 
 | Hook VI pair | Runs around |
 |---|---|
@@ -223,6 +223,6 @@ For detailed explaination on how to test your custom code using Test Bench, refe
 
 ### `Builds`
 
-When you build the Custom Device, the wizard builds all of its components: the auto-generated API DLL, the auto-generated adapter Configuration, Engine, and System Explorer PPLs, and the Deployment Hooks and Custom Device PPLs. It also updates and copies the Custom Device XML file so VeriStand can discover and load the Custom Device in System Explorer.
+When you create the Custom Device, the wizard builds all of its components: the auto-generated API DLL, the auto-generated adapter Configuration, Engine, and System Explorer PPLs, and the Deployment Hooks and Custom Device PPLs. It also updates and copies the Custom Device XML file so VeriStand can discover and load the Custom Device in System Explorer.
 
-If you edit any components or delete any of built components from the `Builds` folder, you must rebuild them manually. Once built, you can copy the Custom Device folder as-is to the VeriStand Custom Device installation path, and then add it to a VeriStand system definition through System Explorer.
+If you edit any components or delete any of the built components from the `Builds` folder, you must rebuild them manually. Once built, you can copy the Custom Device folder as-is to the VeriStand Custom Device installation path, and then add it to a VeriStand system definition through System Explorer.

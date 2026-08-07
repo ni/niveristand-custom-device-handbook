@@ -51,4 +51,4 @@ The wizard generates the LabVIEW typedefs and projects that make up the Custom D
 
 #### Test Bench and Test Hooks
 
-The engine LabVIEW project includes a **Debug PPL** build spec that links your override VIs against the LabVIEW development environment. Build it to use LabVIEW's full debugger (breakpoints, probes, highlight execution) without VeriStand.
+The Express framework generates a Test Bench and Test Hooks for testing and debugging Custom Device Engine code. The Test Bench acts as a harness for testing your custom code standalone, without having to deploy the Custom Device with VeriStand. The Test Hooks provide a Before and After hook VI for each engine state, where you can add your test-specific code and assertions.
