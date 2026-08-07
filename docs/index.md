@@ -1,36 +1,25 @@
 
-
 # VeriStand Custom Device Handbook
 
-#### Introduction
+This handbook documents the development of VeriStand Custom Devices.
 
+---
    + [What is a Custom Device?](What_Is_A_Custom_Device.md)
 
    + [When do you Need a Custom Device?](When_Do_You_Need_A_Custom_Device.md)
 
-   + [Planning the Custom Device](Planning_The_Custom_Device.md)
-
    + [Custom Device Types](Custom_Device_Types.md)
 
-#### Implement the Custom Device
+   + [Key Concepts](Key_Concepts.md)
 
-   + [Implement the Custom Device](Implement_the_Custom_Device.md)
+   + [Selecting a Framework: Classic vs. Express](Framework_Selection.md)
 
-#### Debugging and Benchmarking
+     + [Custom Device Classic](classic/index.md)
 
-   + [LabVIEW Debugging Techniques](LabVIEW_Debugging_Techniques.md)
-   
-   + [Console Viewer & Printing the Console](Console_Viewer_and_Printing_the_Console.md)
-   
-   + [Distributed System Manager & System Channels](Distributed_System_Manager_and_System_Channels.md)
-
-#### Distributing the Custom Device
+     + [Custom Device Express](express/index.md)
 
    + [Distributing the Custom Device](Distributing_the_Custom_Device.md)
 
-#### Custom Device Tips and Tricks
+   + [Custom Device Tips and Tricks](Custom_Device_Tips_and_Tricks.md)
 
-   + [Custom Devices Tips & Tricks](Custom_Device_Tips_and_Tricks.md)
-   + [Scripting APIs for Custom Devices](Scripting_API.md)
-   + [Migrating a Custom Device from LLB to PPL](Migrating_LLB_to_a_PPL_based_Custom_Device.md)
-   
+   + [LabVIEW Debugging Techniques](LabVIEW_Debugging_Techniques.md)
