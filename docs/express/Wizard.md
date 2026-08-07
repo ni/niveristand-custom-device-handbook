@@ -21,11 +21,11 @@ Before using the Express wizard, install the following:
 
 #### Custom Device Express development tools
 
-Custom Device development using Express framework relies on three components installed as part of Custom Device Development Tools.
+Custom Device development using Express framework relies on three framework specific components installed as part of Custom Device Development Tools.
 
 LabVIEW add-on installed at `C:\Program Files\NI\LVAddons\nivscustomdeviceexpress\` contains these Express framework specific components. Because it is installed under `LVAddons`, its shared libraries and support VIs are available to LabVIEW automatically without being copied into each project. It provides the per-target components the Express framework builds on.
 
-**`Custom Device Interfaces_v1.lvlibp`** — a library of abstract LabVIEW interfaces that define the contract every Express Custom Device must fulfill. It is built as a Packed Project Library (PPL) and installed for both the Windows x64 and NI Linux Real-Time (PXI) targets. 
+**`Custom Device Interfaces_v1.lvlibp`** — a library of abstract LabVIEW interfaces that define the contract every Express Custom Device must fulfill. It is built as a Packed Project Library (PPL) and installed for both the Windows x64 and NI Linux Real-Time (PXI) targets.
   
 The library exposes three interface classes plus an internal utility class:
 - **Custom Device** — defines the engine lifecycle contract. It declares the `Initialize`, `Start`, `Read Data from HW`, `Write Data to HW`, and `Close` methods that you override in your generated `<CustomDeviceName> Engine.lvclass`.

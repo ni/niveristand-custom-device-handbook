@@ -52,7 +52,7 @@ The wizard produces the scripting API in two steps. First, it generates the C# s
 
 For a full walkthrough of how the API is generated, how to run the generator yourself, and how to customize the API by modifying the generated source, see [Auto-Generated Scripting API](Auto_Generated_Scripting_API.md).
 
-**Using the API for configuration.** The System Explorer library consumes this `.dll` to create and configure the Custom Device: it constructs the strongly typed Custom Device, channel, waveform, and section nodes, applies property values, and writes them into the VeriStand system definition. Because the same API is available to any .NET client, you can also use it to create or configure the Custom Device programmatically outside System Explorer.
+**Using the API for configuration**: The System Explorer library consumes this `.dll` to create and configure the Custom Device: it constructs the strongly typed Custom Device, channel, waveform, and section nodes, applies property values, and writes them into the VeriStand system definition. Because the same API is available to any .NET client, you can also use it to create or configure the Custom Device programmatically outside System Explorer.
 
 #### Configuration
 
@@ -60,7 +60,7 @@ The Configuration library (`<CustomDeviceName> Configuration.lvlibp`) runs on Wi
 
 The Configuration library contains two VIs that VeriStand calls directly: `Initialization VI.vi` and `ActionVIOnCompile.vi`.
 
-`Initialization VI.vi` runs when VeriStand loads the Custom Device. System Explorer calls this VI the same way in both the Classic and Express frameworks. In the Express framework, it reads the hierarchy defined in the XML definition file and adds the default nodes to the Custom Device tree in System Explorer.
+`Initialization VI.vi` runs when VeriStand loads the Custom Device. System Explorer calls this VI the same way in both the Classic and Express frameworks. In the Express framework, based on the hierarchy defined in the XML definition file and adds the default nodes to the Custom Device tree in System Explorer.
 
 `ActionVIOnCompile.vi` runs when the user deploys the project, which compiles the system definition. It sets the RT driver file paths so VeriStand knows where to find the engine PPL on the target, and calls into the deployment hooks to retrieve the compiled settings.
 
@@ -88,7 +88,7 @@ Any additional APIs you need to use in the custom code, you can add to `NIVS Cus
 
 #### System Explorer
 
-The System Explorer UI library contains `Main Page.vi`(UI for Custom Device in System Explorer tree), along with the Page VIs(for specific section/channel/waveform types), Runtime Menu VIs, and Action VIs generated for each type definition in the input XML file. VeriStand System Explorer renders the Custom Device pages a user sees from this library.
+The System Explorer UI library contains `Main Page.vi`(UI for Custom Device in System Explorer tree), along with the Page VIs(for specific section/channel/waveform types), Action VIs and Runtime Menu VIs generated for each type definition in the input XML file. VeriStand System Explorer renders the Custom Device pages a user sees from this library.
 
 The Page VIs and Runtime Menu VIs call into the generated APIs in `<NameSpace>.<CustomDeviceName>.dll`. The pages also include the auto-generated GUI for the configurations/properties defined by the type definitions and hierarchies in the input XML file. For details on the auto-generated UI and how to customize it (for example with a `GUI Layout.yaml` file), see [Auto-Generated System Explorer UI](Auto_Generated_UI.md).
 
@@ -174,7 +174,7 @@ Grouping is driven by the [XML definition](XML_Definition_Schema.md). Every `<Ch
 <Channel TypeName="TimeChannel"      TypeGuid="..." GroupName="Test2"> ... </Channel>
 ```
 
-every `FrequencyChannel` (for example `FrequencyTime`, `FrequencyTime1`) is collected into the **Test1** group, and every `TimeChannel` (for example `CD Time`, `CD Time1`) into the **Test2** group. When the user deploys and compiles the system definition, the [Deployment Hooks](#deployment-hooks) library resolves these groups and hands the engine the compiled channel-group data.
+every `FrequencyChannel` (for example `FrequencyTime`, `FrequencyTime1`) is collected into the **Test1** group, and every `TimeChannel` (for example `CD Time`, `CD Time1`) into the **Test2** group. When the user deploys and compiles the system definition, the [Deployment Hooks](#deployment-hooks) library resolves these groups and hands the engine the compiled channel-group data. If a channel is not associated with a group in XML definition file, it is either grouped as 'Incoming' or 'Outgoing' channel based on its type.
 
 At run time each group is represented by a **Channel Group** cluster. The utility VIs return and operate on this cluster, which contains everything the engine needs to move data between VeriStand and your custom code:
 
@@ -219,4 +219,6 @@ Use the **Before** hooks to seed inputs, inject channel values, and the **After*
 
 ### `Builds`
 
-When you build the Custom Device, the wizard builds all of its components: the auto-generated API DLL, the auto-generated adapter Configuration, Engine, and System Explorer PPLs, and the Deployment Hooks and Custom Device PPLs. It also updates and copies the Custom Device XML file so VeriStand can discover and load the Custom Device in System Explorer. If you delete any of these built components from the `Builds` folder, you must rebuild them manually. Once built, you can copy the Custom Device folder as-is to the VeriStand Custom Device installation path, and then add it to a VeriStand system definition through System Explorer.
+When you build the Custom Device, the wizard builds all of its components: the auto-generated API DLL, the auto-generated adapter Configuration, Engine, and System Explorer PPLs, and the Deployment Hooks and Custom Device PPLs. It also updates and copies the Custom Device XML file so VeriStand can discover and load the Custom Device in System Explorer.
+
+If you edit any components or delete any of built components from the `Builds` folder, you must rebuild them manually. Once built, you can copy the Custom Device folder as-is to the VeriStand Custom Device installation path, and then add it to a VeriStand system definition through System Explorer.

@@ -6,7 +6,7 @@ Custom Device development uses a vocabulary of recurring terms. This page define
 
 ### System Definition (.nivssdf)
 
-The *system definition* is the file that describes an entire VeriStand system — its targets, hardware, models, mappings, and Custom Devices. It is a human-readable XML file with the `.nivssdf` extension. VeriStand stores the state of every Custom Device instance (the value of each control, indicator, and property) in this file. You can also modify it programmatically with the [.NET API](https://www.ni.com/docs/en-US/bundle/veristand/page/veristand-net-reference.html).
+The *system definition* is the file that describes an entire VeriStand system — its targets, hardware, models, mappings, and Custom Devices. It is a human-readable XML file with the `.nivssdf` extension. VeriStand stores the state of every Custom Device instance in this file. You can also modify it programmatically with the [.NET API](https://www.ni.com/docs/en-US/bundle/veristand/page/veristand-net-reference.html).
 
 ### System Explorer
 
@@ -37,10 +37,6 @@ A *waveform* is a channel-like item whose value is an array of data (`double` or
 
 *Properties* store configuration information on a Custom Device item. Unlike channels, a property value can be any standard LabVIEW data type, and property names are case-sensitive strings. Properties are typically used to transfer configuration from the configuration side to the engine when the system definition is deployed. Properties do not inherit: a property must be read from the same item it was set on. Use a property (rather than a channel) for a value that is set at configuration time and does not need to be mapped in the VeriStand system diagram.
 
-### Custom Device items and GUIDs
-
-Every node in a Custom Device hierarchy — the Custom Device itself, each section, each channel, and each waveform — is a *Custom Device item*. Each item has a *Globally Unique IDentifier (GUID)* that VeriStand uses to identify the item's type and to associate it with a page. Overriding an item's default page, for example, is done by assigning it a GUID that the Custom Device XML maps to a page VI.
-
 ### Pages
 
 *Pages* are VIs that System Explorer displays in the configuration pane subpanel. When the user clicks an item in the configuration tree, its page runs on the host computer and defines the appearance and configuration experience for that item. There are a few kinds of page:
@@ -50,6 +46,10 @@ Every node in a Custom Device hierarchy — the Custom Device itself, each secti
 * **Extra page** — A developer-authored page that overrides an item's default page to customize its front panel and behavior.
 
 In the Classic framework you author page VIs yourself; in the Express framework the System Explorer UI is [generated automatically](express/Auto_Generated_UI.md) from the XML definition.
+
+### Custom Device items and GUIDs
+
+Every node in a Custom Device hierarchy — the Custom Device itself, each section, each channel, and each waveform — is a *Custom Device item*. Each item has a *Globally Unique IDentifier (GUID)* that VeriStand uses to identify the item's type and to associate it with a page. Overriding an item's default page, for example, is done by assigning it a GUID that the Custom Device XML maps to a page VI.
 
 ### Action VIs
 

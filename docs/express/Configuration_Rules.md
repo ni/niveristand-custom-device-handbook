@@ -1,6 +1,6 @@
 ## Configuration Rules and Constraints
 
-The Express framework enforces a set of rules at generation time (when `api-gen.exe` validates your XML) and at VeriStand load time. Understanding these rules prevents generation failures and run-time errors.
+The Express framework enforces a set of rules at generation time and at VeriStand load time. Understanding these rules prevents generation failures and run-time errors.
 
 ---
 

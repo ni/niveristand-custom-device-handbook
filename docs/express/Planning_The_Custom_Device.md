@@ -26,7 +26,7 @@ The wizard asks which operating systems the Custom Device targets. Choose all sy
 - **Windows** — host-side configuration library; required for all Custom Devices.
 - **Linux x64** — Real-Time engine library for Linux-based cRIO/PXI targets.
 
-You can add support for additional targets later by editing the LabVIEW project and the build specifications, but it is cleaner to decide upfront.
+You can edit targets later by editing the LabVIEW project and the build specifications, but it is cleaner to decide upfront.
 
 ### Design the Custom Device hierarchy
 
@@ -55,7 +55,7 @@ ADC Custom Device
 
 ### Choose property types
 
-For each property, pick the most specific type that represents your data. Common choices:
+For each property, pick the most specific type that represents your data. For example, common choices could be:
 
 | Data | Recommended type |
 |---|---|
@@ -66,18 +66,16 @@ For each property, pick the most specific type that represents your data. Common
 | File path or string identifier | `String` |
 | List of rate values | `DoubleArray` |
 
-Avoid `String` for structured data; use `Enum` when the set of valid values is known and fixed. While translating your plan to XML definition, you can explore and select all the possible data types for properties.
+Avoid `String` for structured data; use `Enum` when the set of valid values is known and fixed. While translating your plan to XML definition in wizard, you can explore and select all the possible data types for properties.
 
 ---
 
 ### Choose a namespace and type name
 
-The wizard takes an XML file as input that describes the Custom Device hierarchy along with its Sections, Channels, Waveforms, and Properties. You can build this XML file directly in the wizard once you have planned these details.
-
 Once you have settled on the hierarchy, the nodes, and the configurations you need, define the following:
 
 - **Namespace and name** — Assign a namespace (`CompanyName.ProductLine`) and a name (`MultichannelADC`) to your Custom Device. Together they form the scripting API assembly name, for example `CompanyName.ProductLine.MultichannelADC.dll`. Pick names that will not clash with other assemblies on the user's machine.
-- **Section, Channel, Waveform, and Enum types** — Using your hierarchy plan, identify and define the types you need. Two Section types differ when they contain different properties/configurations or different child sections, channels, or waveforms. The same distinction applies to Channel and Waveform types, which vary by their data type and the configurations or properties they carry.
+- **Section, Channel, Waveform, and Enum types** — Using your hierarchy plan, identify and define the types you need. Two Section types differ when they contain different properties/configurations or different child sections, channels, or waveforms. The same distinction applies to Channel and Waveform types, which vary by their data type and the configurations/properties they carry.
 
 Each type you define drives all of the auto-generation: UI, Scripting APIs, and the LabVIEW settings clusters. A .NET class is generated for every type, so make sure each Type Name follows these rules strictly:
 
@@ -103,3 +101,5 @@ For each channel, waveform, and section type:
 A type can appear in both lists if some instances are mandatory and others are optional.
 
 ---
+
+You can build Type Definition XML file directly in the [Express Wizard](Wizard.md) once you have planned the above details.
