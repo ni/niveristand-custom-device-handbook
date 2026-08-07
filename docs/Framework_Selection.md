@@ -27,15 +27,6 @@ Select the [Express](express/index.md) framework when you want a better boilerpl
 * **You are able to plan the Custom Device up front.** Express requires you to plan the Custom Device at the beginning — which sections, channels, and waveform types you need, how they are arranged in the System Explorer hierarchy, and how each setting is accessed in the engine. This plan is captured in the [XML definition](express/XML_Definition_Schema.md) you provide to the wizard when creating the project, and the rest of the template is auto-generated from it. Since the template is generated from your initial plan, changing the Custom Device structure later means updating the definition and regenerating.
 * **You want out-of-the-box components.** Express provides a ready-made System Explorer UI, scripting APIs, and LabVIEW clusters that represent your settings and channel groupings — all generated for you from a single XML definition.
 
-
-While these out-of-the-box components boost productivity, they also introduce the following **constraints** that you should weigh when selecting express framework.
-
-- **Configuration and channel grouping happen at compile time on the host.** The Custom Device configuration and channel grouping are resolved during compilation on the host side, and the engine only transforms them when needed. Reading configuration and channel information on the engine through the VeriStand Custom Device API — as is traditionally done in Classic Custom Devices — is not recommended.
-- **API access is limited.** You can only access the minimal set of APIs exposed through the template's interface. To use additional APIs, you must extend the template's API class, which requires more effort and makes your Custom Device untestable with the Test Bench.
-- **Channels are accessed through predefined groups.** Channels are accessed using the groups you defined in the input Custom Device type definition XML file. Because the channel groups are represented in a standardized way, you lose the flexibility to group channels on the fly while writing your custom code, and you must plan your channel design more carefully up front.
-- **Manual additions break auto-generation.** The sections, channels, and waveforms you define in the XML file drive the auto-generation of the UI, APIs, and LabVIEW clusters for settings. As a result, any section, channel, or waveform you add manually through the Custom Device API — as is traditionally done — breaks your Custom Device, and you cannot use the auto-generated code without modifications.
-- **The Custom Device is class based.** Express Custom Devices are class based, where each RT Driver VI state from the Classic framework is represented by a corresponding method of the Custom Device class. As a result, you need to understand how to transfer data and configuration between the methods of that class.
-
 ### Summary
 
 | Consideration | Classic | Express |
