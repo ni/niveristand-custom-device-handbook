@@ -14,6 +14,7 @@ For more details on the Classic framework, refer to the following sections.
 
 + [Migrating a Custom Device from LLB to PPL](Migrating_LLB_to_a_PPL_based_Custom_Device.md)
 
+<!-- Sphinx site navigation only; not rendered on the page or on GitHub. -->
 ```{toctree}
 :maxdepth: 4
 :hidden:

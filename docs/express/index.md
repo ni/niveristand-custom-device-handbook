@@ -14,6 +14,7 @@ For more details on the Express framework, refer to the following sections.
 
 + [Known Issues](Known_Issues.md)
 
+<!-- Sphinx site navigation only; not rendered on the page or on GitHub. -->
 ```{toctree}
 :maxdepth: 4
 :hidden:

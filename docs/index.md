@@ -24,6 +24,7 @@ This handbook documents the development of VeriStand Custom Devices.
 
    + [LabVIEW Debugging Techniques](LabVIEW_Debugging_Techniques.md)
 
+<!-- Sphinx site navigation only; not rendered on the page or on GitHub. -->
 ```{toctree}
 :maxdepth: 4
 :hidden:
