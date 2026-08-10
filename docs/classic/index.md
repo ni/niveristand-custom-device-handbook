@@ -13,3 +13,14 @@ For more details on the Classic framework, refer to the following sections.
 + [Scripting APIs for Custom Devices](Scripting_API.md)
 
 + [Migrating a Custom Device from LLB to PPL](Migrating_LLB_to_a_PPL_based_Custom_Device.md)
+
+```{toctree}
+:maxdepth: 4
+:hidden:
+
+Framework_Overview.md
+Planning_The_Custom_Device.md
+Implement_the_Custom_Device.md
+Scripting_API.md
+Migrating_LLB_to_a_PPL_based_Custom_Device.md
+```

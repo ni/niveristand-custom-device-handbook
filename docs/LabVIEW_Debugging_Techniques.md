@@ -65,7 +65,7 @@ VeriStand includes [system channels](https://www.ni.com/docs/en-US/bundle/verist
 
 The following table contains examples of debugging and benchmarking system channels.
 
-```eval_rst
+```{eval-rst}
 +-----------------+--------------------------------------------------------------------------+
 |System Channel   |Description                                                               |
 +=================+==========================================================================+
