@@ -13,3 +13,15 @@ For more details on the Express framework, refer to the following sections.
 + [Implementing the Custom Device](Implementing_the_Custom_Device.md)
 
 + [Known Issues](Known_Issues.md)
+
+<!-- Sphinx site navigation only; not rendered on the page or on GitHub. -->
+```{toctree}
+:maxdepth: 4
+:hidden:
+
+Framework_Overview.md
+Planning_The_Custom_Device.md
+Wizard.md
+Implementing_the_Custom_Device.md
+Known_Issues.md
+```

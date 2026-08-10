@@ -23,3 +23,20 @@ This handbook documents the development of VeriStand Custom Devices.
    + [Custom Device Tips and Tricks](Custom_Device_Tips_and_Tricks.md)
 
    + [LabVIEW Debugging Techniques](LabVIEW_Debugging_Techniques.md)
+
+<!-- Sphinx site navigation only; not rendered on the page or on GitHub. -->
+```{toctree}
+:maxdepth: 4
+:hidden:
+
+What_Is_A_Custom_Device.md
+When_Do_You_Need_A_Custom_Device.md
+Custom_Device_Types.md
+Key_Concepts.md
+Framework_Selection.md
+classic/index.md
+express/index.md
+Distributing_the_Custom_Device.md
+Custom_Device_Tips_and_Tricks.md
+LabVIEW_Debugging_Techniques.md
+```

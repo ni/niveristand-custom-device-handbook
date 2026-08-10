@@ -42,7 +42,7 @@ After obtaining (or building himself) the custom device’s libraries, the opera
 
 The following tables list paths to common VeriStand directories by operating system. The heading before each table indicates how NI documentation refers to the directory. For directories with aliases listed, the alias is the text that appears with a relative path in an API or XML file. This text defines the directory that the path is relative to.
 
-```eval_rst
+```{eval-rst}
 +-------------------------+-------------------------------------------------------------------------+
 |<Common Data>            |Alias: To Common Doc Dir                                                 |
 +=========================+=========================================================================+
@@ -50,7 +50,7 @@ The following tables list paths to common VeriStand directories by operating sys
 +-------------------------+-------------------------------------------------------------------------+
 ```
 
-```eval_rst
+```{eval-rst}
 +-------------------------+-----------------------------------------------------------------------+
 |<Application Data>       | Alias: To Application Data Dir                                        |
 +=========================+=======================================================================+
@@ -58,7 +58,7 @@ The following tables list paths to common VeriStand directories by operating sys
 +-------------------------+-----------------------------------------------------------------------+
 ```
 
-```eval_rst
+```{eval-rst}
 +----------------------------+-------------------------------------------------------+
 |<Base>                      | Alias: To Base                                        |
 +============================+=======================================================+
@@ -66,7 +66,7 @@ The following tables list paths to common VeriStand directories by operating sys
 +----------------------------+-------------------------------------------------------+
 ```
 
-```eval_rst
+```{eval-rst}
 +----------------------------------+--------------------------------------------------------------+
 |<Custom Device Engine Destination>| Alias: To Base                                               |
 +==================================+==============================================================+

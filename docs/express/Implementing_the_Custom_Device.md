@@ -1,7 +1,5 @@
 ## Implementing a Custom Device
 
----
-
 ### Custom Device folder hierarchy
 
 When you finish the wizard, it creates a `<CustomDeviceName> Custom Device` folder that holds everything for the Custom Device. The structure is as follows:

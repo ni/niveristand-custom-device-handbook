@@ -13,10 +13,10 @@
 # import os
 # import sys
 # sys.path.insert(0, os.path.abspath('.'))
-import recommonmark
-from recommonmark.transform import AutoStructify
-
-source_suffix = ['.rst', '.md']
+source_suffix = {
+    '.rst': 'restructuredtext',
+    '.md': 'markdown',
+}
 
 
 # -- Project information -----------------------------------------------------
@@ -41,8 +41,12 @@ release = '1.0.0'
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
-    'recommonmark',
+    'myst_parser',
 ]
+
+# Generate anchors for headings so in-page markdown links like
+# [text](Other_Page.md#some-heading) keep resolving as they did under recommonmark.
+myst_heading_anchors = 6
 
     #  'sphinx.ext.autodoc',
     #  'sphinx.ext.napoleon',
@@ -75,12 +79,3 @@ html_theme = 'sphinx_rtd_theme'
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
 
-# app setup hook
-def setup(app):
-    app.add_config_value('recommonmark_config', {
-        'auto_toc_maxdepth': 4,
-        'enable_eval_rst': True,
-    }, True)
-    app.add_transform(AutoStructify)
-    
-    
